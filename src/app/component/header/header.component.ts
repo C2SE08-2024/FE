@@ -10,11 +10,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
   navigateToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 
   navigateToSignup() {
-    this.router.navigate(['/signup']);
+    this.router.navigate(['signup']);
   }
   ngOnInit(): void {
   }

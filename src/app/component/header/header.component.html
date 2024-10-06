@@ -16,8 +16,9 @@
         <div class="auth-buttons">
             <div class="auth-buttons">
                 <div class="auth-buttons">
-                    <button class="login" (click)="navigateToLogin()">Đăng nhập</button>
-                    <button class="signup" (click)="navigateToSignup()">Đăng ký</button>
+                    <button class="login" [routerLink]="['/login']">Đăng nhập</button>
+                    <button class="login" [routerLink]="['/signup']">Đăng nhập</button>
+
                   </div>
                   
                 
