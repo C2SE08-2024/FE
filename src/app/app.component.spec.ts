@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'app-angular-bdcs'`, () => {
+  it(`should have as title 'BinDev'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('app-angular-bdcs');
+    expect(app.title).toEqual('BinDev');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('app-angular-bdcs app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('BinDev app is running!');
   });
 });

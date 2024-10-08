@@ -1,0 +1,21 @@
+<header>
+    <nav>
+      <div class="logo">
+        <h1>BDCS</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a routerLink="/homepage">Trang chủ</a></li>
+        <li><a href="#">Khóa học</a></li>
+        <li><a href="#">Doanh Nghiệp</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+      <div class="search">
+        <input type="text" placeholder="Tìm kiếm...">
+        <button class="animate__animated animate__bounce">Tìm kiếm</button>
+      </div>
+      <div class="auth-buttons">
+        <button class="login" ><a [routerLink]="['login']">Đăng nhập</a></button>
+        <button class="signup"><a [routerLink]="['signup']">Đăng ký</a></button>
+      </div>
+    </nav>
+  </header>
