@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="left-section">
+      <div class="overlay"></div>
+      <h2 class="animated-text">Chào mừng đến với BDCS</h2>
+      <p class="animated-text">Đăng nhập để tiếp tục hành trình học tập của bạn!</p>
+  </div>
+  
+  <div class="login-card"  >
+      <h2>Đăng Nhập</h2>
+      <form (ngSubmit)="onSubmit()" >
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" ngModel required>
+              <div class="focus-border"></div>
+          </div>
+          <div class="form-group">
+              <label for="password">Mật khẩu</label>
+              <input type="password" id="password" name="password" ngModel required>
+              <div class="focus-border"></div>
+          </div>
+          <button type="submit" class="btn">Đăng Nhập</button>
+      </form>
+
+      <div class="divider">hoặc</div>
+
+      <button class="btn-google">
+          <img src="assets/image/gg.png" alt="Google Logo">
+          Đăng Nhập bằng Google
+      </button>
+  </div>
+</div>
