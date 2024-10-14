@@ -1,153 +1,156 @@
-body {
-    font-family: 'Roboto', sans-serif; /* Font chữ hiện đại */
-    margin: 0;
-    padding: 0;
-    background-color: #f5f7fa; /* Màu nền nhẹ */
-}
-
-.homepage {
-    padding: 20px;
-}
-
-h1 {
-    color: #2c3e50; /* Màu chữ cho tiêu đề chính */
-    text-align: center;
-    margin-bottom: 20px;
-}
-
+/* Hero Banner */
 .hero-banner {
-    background-color: #2980b9; /* Màu nền cho banner */
+    position: relative;
+    height: 100vh; /* Đảm bảo toàn bộ chiều cao màn hình */
     color: white;
-    padding: 40px 20px; /* Khoảng cách padding */
-    text-align: center;
-    border-radius: 10px; /* Bo tròn góc cho banner */
-    margin-bottom: 30px;
-}
-
-.explore-button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: #27ae60; /* Màu nền của nút khám phá */
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.explore-button:hover {
-    background-color: #219150; /* Màu nền khi hover cho nút khám phá */
-    transform: scale(1.05); /* Phóng to khi hover */
-}
-
-.courses {
-    padding: 20px;
-}
-
-.course-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Khoảng cách giữa các thẻ khóa học */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.course-card {
-    flex: 1 1 30%; /* Đặt kích thước cho các thẻ khóa học */
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ẩn phần thừa */
-    position: relative; /* Để sử dụng cho hình ảnh nền */
-    transition: transform 0.3s; /* Hiệu ứng chuyển động */
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
-.course-card:hover {
-    transform: scale(1.05); /* Phóng to khi hover */
+.hero-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ tối để văn bản dễ đọc */
+    z-index: 1;
 }
 
-.course-image {
-    height: 150px; /* Chiều cao hình ảnh */
-    background-size: cover; /* Tự động điều chỉnh kích thước hình ảnh */
-    background-position: center; /* Căn giữa hình ảnh */
+.hero-banner h1, .hero-banner p, .hero-banner a {
+    z-index: 2;
+    position: relative;
 }
 
-h4 {
-    margin: 10px;
-    color: #333;
+/* Video Background cho toàn bộ trang dưới hero */
+.background-video-container {
+    position: fixed; /* Đảm bảo video bao trùm toàn bộ */
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
 }
 
-p {
-    margin: 10px;
-    color: #666;
+#bg-video-2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-.enroll-button {
-    width: 80%;
-    padding: 10px;
-    background-color: #4facfe;
+/* Các phần còn lại */
+.about-section, .features-section, .partners-section, .contact-section {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9); /* Màu nền giúp văn bản dễ đọc */
+    padding: 50px 0;
+}
+
+.hero-banner h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.hero-banner p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.btn-warning {
+    background-color: #ff5733;
+    border-color: #ff5733;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 10px auto;
-    display: block; /* Đưa nút vào giữa */
+}
+.btn-warning:hover {
+    background-color: #c70039;
+    border-color: #c70039;
 }
 
-.enroll-button:hover {
-    background-color: #3b9fe6; /* Màu khi hover */
+
+
+/* Nội dung các phần khác */
+.about-section, .features-section, .partners-section {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px 0;
+}
+.about-section img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.featured-videos {
-    padding: 20px;
+/* Features Section */
+.features-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+.features-section i {
+    font-size: 48px;
+    color: #ff5733;
+    transition: transform 0.3s ease-in-out;
+}
+.features-section p {
+    font-size: 1.1rem;
 }
 
-.video-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Khoảng cách giữa các video */
+/* Hiệu ứng icon */
+.icon-effect:hover {
+    transform: scale(1.2);
+    color: #c70039;
 }
 
-.video-card {
-    flex: 1 1 30%; /* Đặt kích thước cho các thẻ video */
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ẩn phần thừa */
-    position: relative; /* Để sử dụng cho hình ảnh nền */
-    transition: transform 0.3s; /* Hiệu ứng chuyển động */
+/* Hiệu ứng fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.video-card:hover {
-    transform: scale(1.05); /* Phóng to khi hover */
+/* Kích hoạt hiệu ứng fade-in khi cuộn */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.video-card iframe {
-    width: 100%; /* Kích thước iframe đầy đủ */
-    height: 200px; /* Chiều cao của video */
+/* Partners Section */
+.partners-section img {
+    max-width: 80%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+.partners-section img:hover {
+    filter: none;
 }
 
-h4 {
-    margin: 10px;
-    font-size: 1.2em; /* Kích thước chữ cho tiêu đề video */
-    color: #333;
+/* Contact Section */
+.contact-section {
+    background-color: #343a40;
+    padding: 50px 0;
+    color: white;
 }
-
-p {
-    margin: 10px;
-    color: #666;
-    font-size: 0.9em; /* Kích thước chữ cho mô tả */
+.contact-section a {
+    background-color: #ff5733;
+    border-color: #ff5733;
 }
-
-.testimonials {
-    margin-top: 40px; /* Khoảng cách trên phần ý kiến học viên */
-    padding: 20px; /* Khoảng cách padding */
-    background-color: white; /* Màu nền cho phần ý kiến học viên */
-    border-radius: 10px; /* Bo tròn góc cho phần ý kiến */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho phần ý kiến */
-}
-
-.testimonial-card {
-    margin-top: 10px; /* Khoảng cách giữa các ý kiến */
-    padding: 10px; /* Khoảng cách padding */
-    border-left: 4px solid #27ae60; /* Đường viền bên trái cho ý kiến */
+.contact-section a:hover {
+    background-color: #c70039;
+    border-color: #c70039;
 }
