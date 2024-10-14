@@ -1,103 +1,196 @@
-<section class="homepage">
-    <h1 class="animate__animated animate__zoomIn">Chào mừng bạn đến với nền tảng học lập trình BDCS!</h1>
+<section class="courses-page">
+    <div class="container">
+        <!-- Banner giới thiệu -->
+        <div class="banner-intro mb-5">
+            <h1 class="text-center fw-bold display-4">Khóa học tại BDCS</h1>
+            <p class="text-center lead">Nền tảng học lập trình hàng đầu, cung cấp các khóa học chất lượng được các doanh nghiệp quan tâm và hỗ trợ học viên từ cơ bản đến nâng cao.</p>
+        </div>
 
-    <div class="hero-banner">
-        <h2>Nâng cao kỹ năng lập trình của bạn với các khóa học chất lượng!</h2>
-        <button class="explore-button" onclick="location.href='#featured-courses'">Khám Phá Ngay</button>
-    </div>
-
-    <div class="courses">
-        <h2>Danh sách khóa học</h2>
-
-        <h3>Khóa học miễn phí</h3>
-        <div class="course-list">
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image" style="background-image: url('https://img.icons8.com/color/452/html-5.png');">
+        <!-- Khóa học doanh nghiệp quan tâm -->
+        <div class="section-enterprise mb-5">
+            <h2 class="text-center mb-4">Khóa học mà Doanh nghiệp quan tâm</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/ai.png" class="card-img-top" alt="Machine Learning">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Machine Learning</h5>
+                            <p class="card-text">Khóa học Machine Learning với Python.</p>
+                            <span class="badge bg-warning">Doanh nghiệp quan tâm</span>
+                            <a href="#" class="btn btn-outline-warning mt-3">Đăng ký ngay</a>
+                            <p class="small text-muted mt-2">Quan tâm bởi: Google, Amazon</p>
+                        </div>
+                    </div>
                 </div>
-                <h4>HTML & CSS</h4>
-                <p>Khóa học từ cơ bản đến nâng cao về HTML và CSS.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image"
-                    style="background-image: url('https://img.icons8.com/color/452/javascript.png');"></div>
-                <h4>JavaScript cơ bản</h4>
-                <p>Học các khái niệm cơ bản của JavaScript.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image"
-                    style="background-image: url('https://img.icons8.com/color/452/bootstrap.png');"></div>
-                <h4>Thiết kế web với Bootstrap</h4>
-                <p>Khóa học thiết kế giao diện đẹp và responsive với Bootstrap.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
+                <div class="col-md-4">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/external-flat-juicy-fish/452/external-data-science-data-science-flat-flat-juicy-fish.png" class="card-img-top" alt="Data Science">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Data Science</h5>
+                            <p class="card-text">Khóa học Data Science toàn diện với Python.</p>
+                            <span class="badge bg-warning">Doanh nghiệp quan tâm</span>
+                            <a href="#" class="btn btn-outline-warning mt-3">Đăng ký ngay</a>
+                            <p class="small text-muted mt-2">Quan tâm bởi: Facebook, Microsoft</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/artificial-intelligence.png" class="card-img-top" alt="AI">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Trí tuệ nhân tạo (AI)</h5>
+                            <p class="card-text">Tìm hiểu về các công nghệ AI tiên tiến.</p>
+                            <span class="badge bg-warning">Doanh nghiệp quan tâm</span>
+                            <a href="#" class="btn btn-outline-warning mt-3">Đăng ký ngay</a>
+                            <p class="small text-muted mt-2">Quan tâm bởi: Tesla, IBM</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <h3>Khóa học trả phí</h3>
-        <div class="course-list">
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image"
-                    style="background-image: url('https://img.icons8.com/color/452/react-native.png');"></div>
-                <h4>ReactJS</h4>
-                <p>Tìm hiểu về lập trình giao diện với ReactJS.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image" style="background-image: url('https://img.icons8.com/color/452/nodejs.png');">
+        <!-- Khóa học cơ bản (Miễn phí) -->
+        <div class="section-basic mb-5">
+            <h2 class="text-center mb-4">Khóa học Cơ bản (Miễn phí)</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/html-5.png" class="card-img-top" alt="HTML & CSS">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">HTML & CSS</h5>
+                            <p class="card-text">Khóa học cơ bản về HTML và CSS.</p>
+                            <span class="badge bg-primary">Miễn phí</span>
+                            <a href="#" class="btn btn-outline-primary mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
                 </div>
-                <h4>Node.js</h4>
-                <p>Khám phá Node.js cho phát triển ứng dụng web.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image" style="background-image: url('https://img.icons8.com/color/452/python.png');">
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/javascript.png" class="card-img-top" alt="JavaScript cơ bản">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">JavaScript cơ bản</h5>
+                            <p class="card-text">Học các khái niệm cơ bản của JavaScript.</p>
+                            <span class="badge bg-success">Miễn phí</span>
+                            <a href="#" class="btn btn-outline-success mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
                 </div>
-                <h4>Python nâng cao</h4>
-                <iframe src="https://www.youtube.com/embed/Ke90Tje7VS0" frameborder="0" allowfullscreen></iframe>
-                <h4>React JS Crash Course</h4>
-                <p>Khóa học cấp tốc về React JS, từ cơ bản đến nâng cao.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/F5x0y1l8gY0" frameborder="0" allowfullscreen></iframe>
-                <h4>Node.js Crash Course</h4>
-                <p>Khóa học cấp tốc cho Node.js, giúp bạn phát triển ứng dụng phía máy chủ.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/fYq5PXgSsbE" frameborder="0" allowfullscreen></iframe>
-                <h4>CSS Flexbox Crash Course</h4>
-                <p>Hướng dẫn nhanh về Flexbox trong CSS.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/Uh2ebqF4dDo" frameborder="0" allowfullscreen></iframe>
-                <h4>Complete Python Developer in 2023</h4>
-                <p>Khóa học đầy đủ về phát triển Python dành cho năm 2023.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/Gv0lRi2gMLo" frameborder="0" allowfullscreen></iframe>
-                <h4>Introduction to Machine Learning</h4>
-                <p>Giới thiệu về học máy, từ lý thuyết đến ứng dụng thực tế.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/6iF8Xb7Z3wQ" frameborder="0" allowfullscreen></iframe>
-                <h4>Django Full Course</h4>
-                <p>Khóa học toàn diện về Django, một framework Python phổ biến.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/3qBXWXG8w6c" frameborder="0" allowfullscreen></iframe>
-                <h4>Angular Crash Course</h4>
-                <p>Hướng dẫn cấp tốc về Angular, một framework front-end mạnh mẽ.</p>
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/bootstrap.png" class="card-img-top" alt="Bootstrap">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Thiết kế web với Bootstrap</h5>
+                            <p class="card-text">Khóa học thiết kế giao diện đẹp và responsive với Bootstrap.</p>
+                            <span class="badge bg-primary">Miễn phí</span>
+                            <a href="#" class="btn btn-outline-primary mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/python.png" class="card-img-top" alt="Python cơ bản">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Python cơ bản</h5>
+                            <p class="card-text">Tìm hiểu các khái niệm cơ bản về Python.</p>
+                            <span class="badge bg-success">Miễn phí</span>
+                            <a href="#" class="btn btn-outline-success mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="testimonials">
-        <h2>Ý Kiến Học Viên</h2>
-        <div class="testimonial-card">
-            <p>"Khóa học này đã giúp tôi nâng cao kỹ năng lập trình của mình rất nhiều!" - Học viên A</p>
+
+        <!-- Khóa học nâng cao (Trả phí) -->
+        <div class="section-advanced mb-5">
+            <h2 class="text-center mb-4">Khóa học Nâng cao (Trả phí)</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/react-native.png" class="card-img-top" alt="ReactJS">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">ReactJS</h5>
+                            <p class="card-text">Lập trình giao diện với ReactJS.</p>
+                            <span class="badge bg-danger">Trả phí</span>
+                            <a href="#" class="btn btn-outline-danger mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/nodejs.png" class="card-img-top" alt="Node.js">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Node.js</h5>
+                            <p class="card-text">Phát triển ứng dụng web với Node.js.</p>
+                            <span class="badge bg-danger">Trả phí</span>
+                            <a href="#" class="btn btn-outline-danger mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/python.png" class="card-img-top" alt="Python nâng cao">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Python nâng cao</h5>
+                            <p class="card-text">Học Python nâng cao và các thư viện mạnh mẽ nhất để xây dựng ứng dụng thực tế.</p>
+                            <span class="badge bg-danger">Trả phí</span>
+                            <a href="#" class="btn btn-outline-danger mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow border-0">
+                        <img src="https://img.icons8.com/color/452/artificial-intelligence.png" class="card-img-top" alt="AI nâng cao">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Trí tuệ nhân tạo nâng cao</h5>
+                            <p class="card-text">Khám phá thế giới AI và các công nghệ tiên tiến.</p>
+                            <span class="badge bg-danger">Trả phí</span>
+                            <a href="#" class="btn btn-outline-danger mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="testimonial-card">
-            <p>"Giảng viên giỏi, kiến thức chất lượng." - Học viên B</p>
+
+        <!-- Khóa học nổi bật -->
+        <div class="section-featured mb-5">
+            <h2 class="text-center mb-4">Khóa học Nổi bật</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card featured-course shadow border-0">
+                        <div class="ribbon"><span>Nổi bật</span></div>
+                        <img src="https://img.icons8.com/color/452/html-5.png" class="card-img-top" alt="HTML & CSS">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">HTML & CSS</h5>
+                            <p class="card-text">Khóa học từ cơ bản đến nâng cao về HTML và CSS. Đây là một trong những khóa học phổ biến nhất của chúng tôi.</p>
+                            <span class="badge bg-primary">Miễn phí</span>
+                            <a href="#" class="btn btn-outline-primary mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card featured-course shadow border-0">
+                        <div class="ribbon"><span>Nổi bật</span></div>
+                        <img src="https://img.icons8.com/color/452/javascript.png" class="card-img-top" alt="JavaScript">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">JavaScript cơ bản</h5>
+                            <p class="card-text">Học các khái niệm cơ bản của JavaScript và tạo ra các ứng dụng web tương tác.</p>
+                            <span class="badge bg-success">Miễn phí</span>
+                            <a href="#" class="btn btn-outline-success mt-3">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+        <!-- Thông tin liên hệ -->
+        <div class="contact-section bg-dark text-white py-5">
+            <h2 class="text-center mb-4">Liên hệ với chúng tôi</h2>
+            <p class="text-center lead">Hãy liên hệ ngay để biết thêm thông tin về các khóa học và cơ hội việc làm.</p>
+            <div class="text-center">
+                <a href="mailto:contact@bdcs.com" class="btn btn-lg btn-warning">Liên hệ ngay</a>
+            </div>
         </div>
     </div>
 </section>

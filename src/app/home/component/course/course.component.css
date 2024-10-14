@@ -1,153 +1,178 @@
-body {
-    font-family: 'Roboto', sans-serif; /* Font chữ hiện đại */
-    margin: 0;
-    padding: 0;
-    background-color: #f5f7fa; /* Màu nền nhẹ */
+/* Khung chính cho trang khóa học */
+.courses-page {
+    padding: 50px 0;
+    background-color: #f8f9fa;
 }
 
-.homepage {
-    padding: 20px;
+/* Tiêu đề chính */
+.courses-page h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  /* Thêm bóng chữ */
 }
 
-h1 {
-    color: #2c3e50; /* Màu chữ cho tiêu đề chính */
+/* Banner giới thiệu */
+.banner-intro {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
-.hero-banner {
-    background-color: #2980b9; /* Màu nền cho banner */
-    color: white;
-    padding: 40px 20px; /* Khoảng cách padding */
+.banner-intro h1 {
+    color: #007bff;
+}
+
+.banner-intro p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Các thẻ khóa học */
+.courses-page .card {
+    border: none;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 12px; /* Làm mềm các góc */
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Hiệu ứng gradient nhẹ */
+}
+
+/* Hiệu ứng khi hover lên thẻ khóa học */
+.courses-page .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);  /* Tạo bóng đổ rõ hơn */
+}
+
+/* Ảnh khóa học */
+.courses-page .card img {
+    object-fit: contain;
+    width: 100%;
+    height: 150px;
+    border-bottom: 2px solid #f0f0f0;  /* Thêm đường viền nhạt bên dưới ảnh */
+    border-radius: 12px 12px 0 0;
+}
+
+/* Tiêu đề khóa học */
+.courses-page .card-title {
+    font-size: 1.5rem;
+    color: #333;
     text-align: center;
-    border-radius: 10px; /* Bo tròn góc cho banner */
-    margin-bottom: 30px;
 }
 
-.explore-button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: #27ae60; /* Màu nền của nút khám phá */
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.explore-button:hover {
-    background-color: #219150; /* Màu nền khi hover cho nút khám phá */
-    transform: scale(1.05); /* Phóng to khi hover */
-}
-
-.courses {
-    padding: 20px;
-}
-
-.course-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Khoảng cách giữa các thẻ khóa học */
-}
-
-.course-card {
-    flex: 1 1 30%; /* Đặt kích thước cho các thẻ khóa học */
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ẩn phần thừa */
-    position: relative; /* Để sử dụng cho hình ảnh nền */
-    transition: transform 0.3s; /* Hiệu ứng chuyển động */
-}
-
-.course-card:hover {
-    transform: scale(1.05); /* Phóng to khi hover */
-}
-
-.course-image {
-    height: 150px; /* Chiều cao hình ảnh */
-    background-size: cover; /* Tự động điều chỉnh kích thước hình ảnh */
-    background-position: center; /* Căn giữa hình ảnh */
-}
-
-h4 {
-    margin: 10px;
-    color: #333;
-}
-
-p {
-    margin: 10px;
+/* Văn bản khóa học */
+.courses-page .card-text {
+    font-size: 1rem;
     color: #666;
+    text-align: center;
 }
 
-.enroll-button {
-    width: 80%;
-    padding: 10px;
-    background-color: #4facfe;
-    color: white;
-    border: none;
+/* Các nhãn badge */
+.badge {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    font-weight: 600;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 10px auto;
-    display: block; /* Đưa nút vào giữa */
+    text-transform: uppercase;
 }
 
-.enroll-button:hover {
-    background-color: #3b9fe6; /* Màu khi hover */
+.badge.bg-warning {
+    background-color: #ffc107;
+    color: #fff;
 }
 
-.featured-videos {
-    padding: 20px;
+.badge.bg-primary {
+    background-color: #007bff;
+    color: #fff;
 }
 
-.video-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Khoảng cách giữa các video */
+.badge.bg-success {
+    background-color: #28a745;
+    color: #fff;
 }
 
-.video-card {
-    flex: 1 1 30%; /* Đặt kích thước cho các thẻ video */
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ẩn phần thừa */
-    position: relative; /* Để sử dụng cho hình ảnh nền */
-    transition: transform 0.3s; /* Hiệu ứng chuyển động */
+.badge.bg-danger {
+    background-color: #dc3545;
+    color: #fff;
 }
 
-.video-card:hover {
-    transform: scale(1.05); /* Phóng to khi hover */
+/* Nút bấm */
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-danger,
+.btn-outline-warning {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-width: 2px;
+    font-weight: bold;
+    width: 100%; /* Làm cho nút chiếm toàn bộ chiều rộng */
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.video-card iframe {
-    width: 100%; /* Kích thước iframe đầy đủ */
-    height: 200px; /* Chiều cao của video */
+/* Hiệu ứng hover cho các nút */
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
 }
 
-h4 {
-    margin: 10px;
-    font-size: 1.2em; /* Kích thước chữ cho tiêu đề video */
-    color: #333;
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
 }
 
-p {
-    margin: 10px;
-    color: #666;
-    font-size: 0.9em; /* Kích thước chữ cho mô tả */
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
 }
 
-.testimonials {
-    margin-top: 40px; /* Khoảng cách trên phần ý kiến học viên */
-    padding: 20px; /* Khoảng cách padding */
-    background-color: white; /* Màu nền cho phần ý kiến học viên */
-    border-radius: 10px; /* Bo tròn góc cho phần ý kiến */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho phần ý kiến */
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: white;
 }
 
-.testimonial-card {
-    margin-top: 10px; /* Khoảng cách giữa các ý kiến */
-    padding: 10px; /* Khoảng cách padding */
-    border-left: 4px solid #27ae60; /* Đường viền bên trái cho ý kiến */
+/* Hiệu ứng nổi bật khi hover */
+.courses-page .featured-course {
+    border: 2px solid #007bff;
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* Nút nổi bật */
+.ribbon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff5733;
+    color: white;
+    padding: 5px 15px;
+    transform: rotate(45deg);
+    z-index: 10;
+    font-weight: bold;
+}
+
+.ribbon span {
+    font-size: 0.8rem;
+}
+
+/* Contact section */
+.contact-section {
+    background-color: #343a40;
+    padding: 50px 0;
+    color: white;
+    text-align: center;
+}
+
+.contact-section a {
+    background-color: #ff5733;
+    border-color: #ff5733;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    background-color: #c70039;
+    border-color: #c70039;
+}
+
+/* Khoảng cách giữa các phần */
+.mb-5 {
+    margin-bottom: 50px;
 }
