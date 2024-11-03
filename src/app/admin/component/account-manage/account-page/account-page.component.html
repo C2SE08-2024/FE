@@ -1,0 +1,92 @@
+<div class="card">
+    <div class="card-head">
+        <div class="heading-banner">
+            <div class="text-heading">
+                <h1>Tài khoản</h1>
+                <div class="seach-bar-container">
+                    <form class="search-bar">
+                        <!-- <button type="submit" (click)="search()"><img src="assets/image/search-symbol.png"></button>
+                        <input type="text" name="value" [(ngModel)]="searchTerm" (keyup.enter)="onEnter()"> -->
+                    </form>
+                </div>
+                <a [routerLink]="['create']" class="add">
+                    <span>Add Pet</span>
+                </a>
+            </div>
+            <div class="category-filter">
+                <!-- <select [(ngModel)]="selectedBreed" (change)="filterPets()">
+                    <option value = "" >Tất cả</option>
+                    <option *ngFor="let item of BreedList" [value]="item.breedId">{{item.breedName}}</option>
+                </select> -->
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-container">
+            <table style="width: 100%; ">
+                <colgroup>
+                    <col style="width: 5%;" >
+                    <col style="width: 10%">
+                    <col style="width: 12%;">
+                    <col style="width: 35%;">
+                    <col style="width: 8%;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                </colgroup>
+                <thead >
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: left;">Hình ảnh</th>
+                        <th style="text-align: left;">Tên</th>
+                        <th style="text-align: center;">Mô tả</th>
+                        <th style="text-align: center;">Giá</th>
+                        <th style="text-align: center;">Mã</th>
+                        <th style="text-align: center;">Giống</th>
+                        <th style="text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr *ngFor="let item of displayedPets">
+                        <td style="text-align: center;">{{item.petId}}</td>
+                        <td style="text-align: left;">
+                            <img [src]="item.images" style="max-height: 80px; max-width: 80px; width: auto; height: auto;">
+                        </td>
+                        <td [ngClass]="'truncate-text'" style="text-align: left;" (click)="openPetDetailModal(item)">
+                            {{item.name}}
+                        </td>
+                        <td [ngClass]="'truncate-text'" style="text-align: left;">{{item.description}}</td>
+                        <td style="text-align: center;">{{item.price}}</td>
+                        <td style="text-align: center;">{{item.code}}</td>
+                        <td style="text-align: center;">{{item.breed?.breedName}}</td>
+                        <td style="text-align: center; gap: 10px">
+                            <i class="fa fa-pencil-square fa-lg" (click)="openPetEditModal(item)"></i>
+                            <i class="fa fa-trash fa-lg" (click)="confirmDelete(item.petId)"></i>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <div *ngIf="totalPets > petsPerPage">
+        <ul class="pagination">
+          <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
+            <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
+          </li>
+        </ul>
+    </div> -->
+</div>
+<!-- <div class="action-form" *ngIf="showDeletePopup">
+    <div class="close" (click)="closeDeletePopup()">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+    <i class="fa fa-trash fa-4x" style="color: rgb(0, 159, 127) ;"></i>
+    <h4>Delete Pet</h4>
+    <p>Are you sure, you want to delete?</p>
+    <div class="btn-action">
+        <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Cancel</button>
+        <button style="background-color:rgb(220, 38, 38)" (click)="deletePetAtId()">Delete</button>
+    </div>
+</div> -->
+
+

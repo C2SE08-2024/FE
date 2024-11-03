@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, 
   ],
   exports:[],
   providers: [],
