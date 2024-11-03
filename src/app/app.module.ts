@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +19,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
   ],
   exports:[],
   providers: [],
