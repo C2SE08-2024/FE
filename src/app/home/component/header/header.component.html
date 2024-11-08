@@ -13,9 +13,20 @@
         <input type="text" placeholder="Tìm kiếm...">
         <button class="animate__animated animate__bounce">Tìm kiếm</button>
       </div>
-      <div class="auth-buttons">
+      <div class="auth-buttons" *ngIf="!isLoggedIn">
         <button class="login" ><a routerLink="/login">Đăng nhập</a></button>
         <button class="signup"><a [routerLink]="['/signup']">Đăng ký</a></button>
+      </div>
+      <div class="auth-buttons" *ngIf="isLoggedIn">
+        <span class="text-light">Xin chào: {{username}}</span>
+        <img *ngIf="avatarSrc" [src]="avatarSrc" style="width: 35px; height: 35px;" alt="avatar">
+        <div class="user-profile__options">
+          <a href="#"  class="dropdown-item">Thông tin Cá nhân</a>
+          <hr class="dropdown-divider">
+          <a href="#" class="dropdown-item" (click)="logout()">Đăng xuất</a>
+        </div>
+        <button><i class="fa-regular fa-bell"></i></button>
+        <button><i class="fa-regular fa-message"></i></button>
       </div>
     </nav>
   </header>

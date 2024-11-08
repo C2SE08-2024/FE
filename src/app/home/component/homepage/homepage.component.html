@@ -1,103 +1,160 @@
 <section class="homepage">
-    <h1 class="animate__animated animate__zoomIn">Chào mừng bạn đến với nền tảng học lập trình BDCS!</h1>
 
-    <div class="hero-banner">
-        <h2>Nâng cao kỹ năng lập trình của bạn với các khóa học chất lượng!</h2>
-        <button class="explore-button" onclick="location.href='#featured-courses'">Khám Phá Ngay</button>
+    <!-- Hero Banner với video nền động -->
+    <div class="hero-banner text-center text-white d-flex align-items-center justify-content-center">
+        <!-- Video nền động -->
+        <video autoplay muted loop id="bg-video">
+            <source src="assets/videos/video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="container" style="z-index: 2; position: relative;">
+            <h1 class="fw-bold display-3">Chào mừng bạn đến với BDCS</h1>
+            <p class="lead">Nền tảng học lập trình kết nối bạn với các doanh nghiệp hàng đầu</p>
+            <a routerLink="/course" class="btn btn-lg btn-warning mt-4">Bắt đầu học ngay</a>
+        </div>
     </div>
 
-    <div class="courses">
-        <h2>Danh sách khóa học</h2>
+    <!-- Video nền cho toàn bộ phần sau hero banner -->
+    <div class="background-video-container">
+        <video autoplay muted loop id="bg-video-2">
+            <source src="assets/videos/video2.mp4" type="video/mp4">
+        </video>
+    </div>
 
-        <h3>Khóa học miễn phí</h3>
-        <div class="course-list">
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image" style="background-image: url('https://img.icons8.com/color/452/html-5.png');">
+    <!-- Về BDCS -->
+    <div class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" class="img-fluid rounded" alt="Giới thiệu về BDCS">
                 </div>
-                <h4>HTML & CSS</h4>
-                <p>Khóa học từ cơ bản đến nâng cao về HTML và CSS.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image"
-                    style="background-image: url('https://img.icons8.com/color/452/javascript.png');"></div>
-                <h4>JavaScript cơ bản</h4>
-                <p>Học các khái niệm cơ bản của JavaScript.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image"
-                    style="background-image: url('https://img.icons8.com/color/452/bootstrap.png');"></div>
-                <h4>Thiết kế web với Bootstrap</h4>
-                <p>Khóa học thiết kế giao diện đẹp và responsive với Bootstrap.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-        </div>
-
-        <h3>Khóa học trả phí</h3>
-        <div class="course-list">
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image"
-                    style="background-image: url('https://img.icons8.com/color/452/react-native.png');"></div>
-                <h4>ReactJS</h4>
-                <p>Tìm hiểu về lập trình giao diện với ReactJS.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image" style="background-image: url('https://img.icons8.com/color/452/nodejs.png');">
+                <div class="col-md-6">
+                    <h2 class="fw-bold">Về BDCS</h2>
+                    <p class="lead mt-3">BDCS là nền tảng giáo dục lập trình hàng đầu, cung cấp các khóa học từ cơ bản đến nâng cao, kết nối học viên với các doanh nghiệp hàng đầu để mở ra cơ hội việc làm sau khi hoàn thành khóa học.</p>
+                    <a routerLink="/course" class="btn btn-primary mt-3">Xem các khóa học</a>
                 </div>
-                <h4>Node.js</h4>
-                <p>Khám phá Node.js cho phát triển ứng dụng web.</p>
-                <button class="enroll-button">Đăng Ký Ngay</button>
-            </div>
-            <div class="course-card animate__animated animate__fadeIn">
-                <div class="course-image" style="background-image: url('https://img.icons8.com/color/452/python.png');">
-                </div>
-                <h4>Python nâng cao</h4>
-                <iframe src="https://www.youtube.com/embed/Ke90Tje7VS0" frameborder="0" allowfullscreen></iframe>
-                <h4>React JS Crash Course</h4>
-                <p>Khóa học cấp tốc về React JS, từ cơ bản đến nâng cao.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/F5x0y1l8gY0" frameborder="0" allowfullscreen></iframe>
-                <h4>Node.js Crash Course</h4>
-                <p>Khóa học cấp tốc cho Node.js, giúp bạn phát triển ứng dụng phía máy chủ.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/fYq5PXgSsbE" frameborder="0" allowfullscreen></iframe>
-                <h4>CSS Flexbox Crash Course</h4>
-                <p>Hướng dẫn nhanh về Flexbox trong CSS.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/Uh2ebqF4dDo" frameborder="0" allowfullscreen></iframe>
-                <h4>Complete Python Developer in 2023</h4>
-                <p>Khóa học đầy đủ về phát triển Python dành cho năm 2023.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/Gv0lRi2gMLo" frameborder="0" allowfullscreen></iframe>
-                <h4>Introduction to Machine Learning</h4>
-                <p>Giới thiệu về học máy, từ lý thuyết đến ứng dụng thực tế.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/6iF8Xb7Z3wQ" frameborder="0" allowfullscreen></iframe>
-                <h4>Django Full Course</h4>
-                <p>Khóa học toàn diện về Django, một framework Python phổ biến.</p>
-            </div>
-            <div class="video-card animate__animated animate__fadeIn">
-                <iframe src="https://www.youtube.com/embed/3qBXWXG8w6c" frameborder="0" allowfullscreen></iframe>
-                <h4>Angular Crash Course</h4>
-                <p>Hướng dẫn cấp tốc về Angular, một framework front-end mạnh mẽ.</p>
             </div>
         </div>
     </div>
-    
-    <div class="testimonials">
-        <h2>Ý Kiến Học Viên</h2>
-        <div class="testimonial-card">
-            <p>"Khóa học này đã giúp tôi nâng cao kỹ năng lập trình của mình rất nhiều!" - Học viên A</p>
-        </div>
-        <div class="testimonial-card">
-            <p>"Giảng viên giỏi, kiến thức chất lượng." - Học viên B</p>
+
+    <!-- Các tính năng nổi bật -->
+    <div class="features-section py-5 bg-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Tại sao chọn BDCS?</h2>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in">
+                    <i class="bi bi-award-fill icon-effect" style="font-size: 48px; color: #ff5733;"></i>
+                    <h4 class="mt-3">Chất lượng cao</h4>
+                    <p>Khóa học được giảng dạy bởi các chuyên gia hàng đầu với kiến thức thực tế, đảm bảo chất lượng đào tạo.</p>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <i class="bi bi-people-fill icon-effect" style="font-size: 48px; color: #ff5733;"></i>
+                    <h4 class="mt-3">Kết nối doanh nghiệp</h4>
+                    <p>BDCS kết nối học viên với các doanh nghiệp lớn để có cơ hội việc làm ngay sau khi tốt nghiệp.</p>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <i class="bi bi-laptop-fill icon-effect" style="font-size: 48px; color: #ff5733;"></i>
+                    <h4 class="mt-3">Thực hành thực tế</h4>
+                    <p>Học viên có thể thực hành trực tiếp với các dự án thực tế từ doanh nghiệp, giúp sẵn sàng khi làm việc.</p>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Các Khóa Học Nổi Bật -->
+    <div class="courses-section py-5" id="courses">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Khóa học nổi bật</h2>
+            <div class="row g-4">
+                <!-- Khóa học Node.js -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="https://img.icons8.com/color/452/nodejs.png" class="card-img-top" alt="Node.js">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Node.js từ doanh nghiệp XYZ</h5>
+                            <p class="card-text">Khóa học Node.js thực tiễn, tài trợ bởi doanh nghiệp XYZ. Hoàn thành khóa học sẽ mở ra cơ hội việc làm ngay lập tức.</p>
+                            <a routerLink="/course" class="btn btn-outline-primary">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Khóa học ReactJS -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="https://img.icons8.com/color/452/react-native.png" class="card-img-top" alt="ReactJS">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">ReactJS từ doanh nghiệp ABC</h5>
+                            <p class="card-text">Khóa học ReactJS chuyên sâu, tài trợ bởi doanh nghiệp ABC, giúp bạn tiếp cận nhanh chóng với lập trình giao diện web hiện đại.</p>
+                            <a routerLink="/course" class="btn btn-outline-success">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Khóa học Python -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="https://img.icons8.com/color/452/python.png" class="card-img-top" alt="Python">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Python nâng cao</h5>
+                            <p class="card-text">Học Python nâng cao và các thư viện mạnh mẽ nhất để xây dựng ứng dụng thực tế.</p>
+                            <a routerLink="/course" class="btn btn-outline-danger">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quy trình học tập -->
+    <div class="how-to-join py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Quy trình học tập tại BDCS</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <i class="bi bi-person-fill" style="font-size: 48px; color: #ff5733;"></i>
+                    <h4 class="mt-3">Đăng ký tài khoản</h4>
+                    <p>Đăng ký tài khoản miễn phí chỉ trong vài phút để bắt đầu học tập tại BDCS.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-bookmark-fill" style="font-size: 48px; color: #ff5733;"></i>
+                    <h4 class="mt-3">Chọn khóa học phù hợp</h4>
+                    <p>Chọn khóa học từ danh sách phong phú các khóa học miễn phí và trả phí phù hợp với mục tiêu của bạn.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-mortarboard-fill" style="font-size: 48px; color: #ff5733;"></i>
+                    <h4 class="mt-3">Hoàn thành và nhận chứng chỉ</h4>
+                    <p>Hoàn thành khóa học với lộ trình rõ ràng và nhận chứng chỉ để mở ra cơ hội việc làm.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Đối tác doanh nghiệp -->
+    <div class="partners-section bg-light py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Đối tác doanh nghiệp</h2>
+            <div class="row text-center g-4">
+                <div class="col-md-3">
+                    <img src="assets/vng.webp" class="img-fluid" alt="Đối tác doanh nghiệp Việt Nam">
+                </div>
+                <div class="col-md-3">
+                    <img src="assets/viettel.webp" class="img-fluid rounded shadow-sm" alt="Logo 2">
+                </div>
+                <div class="col-md-3">
+                    <img src="assets/cmc.webp" class="img-fluid rounded shadow-sm" alt="Logo 3">
+                </div>
+                <div class="col-md-3">
+                    <img src="assets/vnpt.webp" class="img-fluid rounded shadow-sm" alt="Logo 4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Liên hệ -->
+    <div class="contact-section bg-dark text-white py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Liên hệ với chúng tôi</h2>
+            <p class="lead">Hãy liên hệ ngay với chúng tôi để biết thêm thông tin về các khóa học và cơ hội việc làm.</p>
+            <a href="mailto:contact@bdcs.com" class="btn btn-lg btn-warning">Liên hệ ngay</a>
+        </div>
+    </div>
+
 </section>

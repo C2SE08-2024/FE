@@ -1,5 +1,5 @@
 .sidenav{
-    background: #2c3e50;
+    background: #3a4860;
     transition: all .5s ease;
     position: fixed;
     z-index: 2;
@@ -15,13 +15,13 @@
         width: 95%;
 
         .logo{
-            background: #2c3e50;
+            background:none ;
             text-align: center;
             width: 3rem;
             min-width: 3rem;
             border-radius: 0.2rem;
             padding: 0.2rem;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 900;
             cursor: pointer;
             border: none;
@@ -29,7 +29,7 @@
 
         .logo-text{
             margin-left: 1.5rem;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: #000000;
         }
@@ -98,23 +98,25 @@
 
             .sidenav-link-text{
                 margin-left: 1rem;
-                font-size: 16px;
-                font-family: "Inter", sans-serif;
-                font-weight: 600;
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+                font-weight: 400;
+                letter-spacing: 0.13px;
+                line-height: 24px;
             }
         }       
     }
 
     .sidenav-nav-item:hover{
         .sidenav-nav-link{
-            background-color: #297fb8;
+            background-color: #262c4b;
             color: #ffffff;
         }       
     }
 }
 
 .active{
-    background-color: #297fb8;
+    background-color: #262c4b;
 
     #sidenav-link-icon,
     .sidenav-link-text{

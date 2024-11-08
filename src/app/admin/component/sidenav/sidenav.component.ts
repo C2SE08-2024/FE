@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { navbarData } from './navData';
+import { TokenStorageService } from 'src/app/service/token/token-storage.service';
 interface SideNavToggle{
   screenWidth: number;
   collapsed: boolean;
@@ -27,7 +28,9 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private tokenStorageService: TokenStorageService,
+  ) {}
 
   ngOnInit(): void {
     this.screenWidth = innerWidth;
@@ -44,6 +47,7 @@ export class SidenavComponent implements OnInit {
   }
 
   LogOut(){
+    this.tokenStorageService.signOut();
     this.router.navigateByUrl('/login');
   }
 }
