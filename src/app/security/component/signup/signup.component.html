@@ -65,24 +65,20 @@
       <div class="form-group">
         <label for="dateOfBirth">Ngày sinh</label>
         <input type="date" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth">
+        <div class="error-message" *ngIf="signupForm.get('dateOfBirth').invalid && signupForm.get('idCard').touched">
+          <small *ngIf="signupForm.get('dateOfBirth').hasError('tooYoung')" class="error">
+            Bạn phải ít nhất 12 tuổi.
+          </small>
+          <small *ngIf="signupForm.get('dateOfBirth').hasError('tooOld')" class="error">
+            Tuổi không được vượt quá 90.
+          </small>
+          <small *ngIf="signupForm.get('dateOfBirth').hasError('required')" class="error">
+            Vui lòng chọn ngày sinh.
+          </small>
+        </div>
       </div>
 
       <div class="form-group" style="display: flex;">
-        <!-- <label for="city">Thành phố</label>
-        <select id="city" (change)="onCityChange($event.target.value)" >
-          <option value="" disabled selected>Chọn thành phố</option>
-          <option *ngFor="let city of cities" [value]="city.code">{{ city.name }}</option>
-        </select>
-        <label for="district">Quận/Huyện</label>
-        <select id="district" (change)="onDistrictChange($event.target.value)"  [disabled]="!districts.length">
-          <option value="" disabled selected>Chọn quận/huyện</option>
-          <option *ngFor="let district of districts" [value]="district.code">{{ district.name }}</option>
-        </select>
-        <label for="ward">Phường/Xã</label>
-        <select id="ward" [disabled]="!wards.length">
-          <option value="" disabled selected>Chọn phường/xã</option>
-          <option *ngFor="let ward of wards" [value]="ward.code">{{ ward.name }}</option>
-        </select> -->
         <table>
           <tr>
             <th>Thành phố</th>
@@ -103,7 +99,7 @@
               </select>
             </td>
             <td>
-              <select id="ward" [disabled]="!wards.length">
+              <select id="ward" (change)="onWardChange($event.target.value)" [disabled]="!wards.length">
                 <option value="" disabled selected>Chọn phường/xã</option>
                 <option *ngFor="let ward of wards" [value]="ward.code">{{ ward.name }}</option>
               </select>
@@ -116,6 +112,17 @@
       <div class="form-group">
         <label for="address">Địa chỉ</label>
         <input type="text" id="address" name="address" formControlName="address">
+        <div class="error-message" *ngIf="signupForm.get('address').invalid && signupForm.get('address').touched">
+          <small *ngIf="signupForm.get('address').hasError('required')" class="error">
+            Vui lòng nhập địa chỉ
+          </small>
+          <small *ngIf="signupForm.get('address').hasError('minlength')" class="error">
+            Địa chỉ không dưới 5 ký tự
+          </small>
+          <small *ngIf="signupForm.get('address').hasError('maxlength')" class="error">
+            Địa chỉ không quá 100 ký tự
+          </small>
+        </div>
       </div>
 
 
@@ -123,12 +130,16 @@
         <label for="idCard">CCCD/CMND</label>
         <input type="text" id="idCard" name="idCard" formControlName="idCard">
         <div class="error-message" *ngIf="signupForm.get('idCard').invalid && signupForm.get('idCard').touched">
+          <small *ngIf="signupForm.get('idCard').hasError('required')" class="error">
+            Vui lòng nhập số CCCD.
+          </small>
           <small *ngIf="signupForm.get('idCard').hasError('pattern')" class="error">
             Số CCCD phải bao gồm chính xác 12 số.
           </small>
         </div>
-
       </div>
+
+
       <div class="form-group">
         <label for="phone">Số điện thoại</label>
         <input type="text" id="phone" name="phone" formControlName="phone">
@@ -158,15 +169,24 @@
           </small>
         </div>
       </div>
-
-
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="confirmPassword">Xác nhận mật khẩu</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" >
-      </div>
-      <button type="submit" class="btn">Đăng Ký</button>
-    </form>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+      </div> -->
 
+      <div *ngIf="message" class="alert alert-danger" role="alert">
+        {{ message }}
+        <button type="button" class="close" (click)="closeAlert()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      
+      <button type="submit" class="btn" [disabled]="!signupForm.valid">Đăng Ký</button>
+    </form>
+    <div class="form-group">
+      Đã có tài khoản?<a routerLink="/login">Đăng nhập ngay</a>
+    </div>
     <!-- <button class="btn-google" >
         <img src="assets/gg.png" alt="Google Logo">
         Đăng Ký bằng Google

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth/auth-service.service';
 import { ProvinceService } from 'src/app/service/province/province.service';
@@ -17,6 +17,10 @@ export class SignupComponent implements OnInit {
   cities = [];
   districts = [];
   wards = [];
+  alertClass: string = '';
+  selectedCity: string = '';
+  selectedDistrict: string = '';
+  selectedWard: string = '';
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -35,7 +39,7 @@ export class SignupComponent implements OnInit {
       ]),
       username: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_]+$')]),
       gender: new FormControl(true, [Validators.required]),
-      dateOfBirth: new FormControl('', [Validators.required]),
+      dateOfBirth: new FormControl('', [Validators.required, this.ageValidator]),
       address: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
@@ -73,19 +77,41 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.message = null
     if (this.signupForm.valid) {
+      const userAddress = this.signupForm.get('address')?.value || '';
+      const fullAddress = `${userAddress}, ${this.selectedWard}, ${this.selectedDistrict}, ${this.selectedCity}`;
+      this.signupForm.patchValue({ address: fullAddress });
       this.authService.signupStudent(this.signupForm.value).subscribe(
         response => {
-          console.log('Đăng ký thành công:', response);
-          this.message = null;
-          this.router.navigate(['/login']);
-        },
-        error => {
-          console.error('Đăng ký thất bại:', error);
-          this.message = error.error.message;
+          if (response.message === "Account registration successful!") {
+            this.message = 'Account registration successful!';
+            this.router.navigate(['/login']);
+          }
+          else{
+            this.message = response.message;
+          }
         }
       );
     }
+  }
+
+  ageValidator(control: AbstractControl): ValidationErrors | null {
+    const birthDate = new Date(control.value);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    if (age < 12) {
+      return { tooYoung: true };
+    } else if (age > 90) {
+      return { tooOld: true };
+    }
+    return null;
   }
 
   onCityChange(cityCode: number): void {
@@ -94,6 +120,7 @@ export class SignupComponent implements OnInit {
       (districts) => {
         this.districts = districts;
         this.wards = [];
+        this.selectedCity = this.cities.find(city => city.code === numericCityCode)?.name || '';
       }
     );
   }
@@ -103,8 +130,18 @@ export class SignupComponent implements OnInit {
     this.provinceService.getWardsByDistrict(numericDistrictCode).subscribe(
       (wards) => {
         this.wards = wards;
+        this.selectedDistrict = this.districts.find(district => district.code === numericDistrictCode)?.name || '';
       }
     );
+  }
+
+  onWardChange(wardCode: number): void{
+    const numericDistrictCode = Number(wardCode);
+    this.selectedWard = this.wards.find(ward => ward.code === Number(numericDistrictCode))?.name || '';
+  }
+
+  closeAlert(): void {
+    this.message = '';
   }
 
 }

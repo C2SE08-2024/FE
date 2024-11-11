@@ -34,19 +34,17 @@ export class HeaderComponent implements OnInit {
       console.log('role:', this.role);
       this.username = this.tokenStorageService.getUser();
       console.log('UserName:', this.username);
-      // this.getUserDetail();
     }
     console.log('Role hien tai la', this.role);
   }
 
-
-  // getUserDetail() {
-  //   throw new Error('Method not implemented.');
-  // }
-
   logout(): void {
     this.tokenStorageService.signOut();
     this.isLoggedIn = false;
+    this.router.navigate(['/home']);
+  }
+
+  toHome() : void{
     this.router.navigate(['/home']);
   }
 }

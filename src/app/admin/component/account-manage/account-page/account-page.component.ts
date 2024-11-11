@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { accData } from './account-data';
 
 @Component({
   selector: 'app-account-page',
@@ -9,7 +10,7 @@ export class AccountPageComponent implements OnInit {
 
   showDeletePopup = false;
   deletePetId: number;
-
+  accData = accData;
   // selectedBreedId: number;
   // filterPet: Pet[];
   // originalPetList: Pet[];

@@ -2,12 +2,20 @@
   <div class="logo">
     <h1 style="margin-left: 20px; font-size: 20px;">BinDev Code System</h1>
   </div>
-  <ul>
-    <li>account</li>
-    <li>thông báo</li>
-    <li>lùm má</li>
-  </ul>
-</div>
+    <div class="auth-buttons" *ngIf="isLoggedIn">
+      <span class="text-light">Xin chào: {{username}}</span>
+      <img *ngIf="avatarSrc" [src]="avatarSrc" style="width: 35px; height: 35px;" alt="avatar">
+      <!-- <div class="user-profile__options">
+        <a href="#"  class="dropdown-item">Thông tin Cá nhân</a>
+        <hr class="dropdown-divider">
+        <a href="#" class="dropdown-item" (click)="logout()">Đăng xuất</a>
+      </div> -->
+      <button><i class="fa-solid fa-bell"></i></button>
+      <button><i class="fa fa-chart-column fa-lg "></i></button>
+      
+      
+    </div>
+  </div>
 <div class="content">
       <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
       <app-body
