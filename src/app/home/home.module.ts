@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { HomeComponent } from './component/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { CourseComponent } from './component/course/course.component';
 
 
 
@@ -16,7 +17,8 @@ import { FooterComponent } from './component/footer/footer.component';
     HeaderComponent,
     HomepageComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    CourseComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -26,7 +28,10 @@ import { FooterComponent } from './component/footer/footer.component';
     RoutingModule, 
     RouterModule,
     FormsModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,    
+  ],
+  exports: [
+    HeaderComponent
   ]
 })
 export class HomeModule { }

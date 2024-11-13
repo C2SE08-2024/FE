@@ -1,11 +1,10 @@
-body {
+  *{
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family:  Arial, sans-serif;
   }
-  
   .signup-container {
     display: flex;
-    height: 100vh; /* Chiếm toàn bộ chiều cao cửa sổ */
+    height: 100%; /* Chiếm toàn bộ chiều cao cửa sổ */
   }
   
   .left-section {
@@ -64,11 +63,15 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 40px;
+    padding: 20px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+  }
+  
+  .signup-card *{
+    box-sizing: border-box;
   }
   
   h2 {
@@ -79,10 +82,11 @@ body {
   
   .form-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .form-group label {
+    width: 100%;
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
@@ -95,7 +99,27 @@ body {
     border-radius: 5px;
     transition: border-color 0.3s;
   }
-  
+
+  .form-group table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 5px 5px 5px 0px;
+      text-align: left;
+      width: 33.33%;
+    }
+
+    td select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+    }
+  }
+
   .form-group input:focus {
     border-color: #4facfe; /* Màu viền khi focus */
   }

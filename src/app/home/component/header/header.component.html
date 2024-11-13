@@ -1,21 +1,31 @@
 <header>
     <nav>
-      <div class="logo">
-        <h1>BDCS</h1>
+      <div class="logo" (click)="toHome()" style="cursor: pointer;">
+        <img src="assets/images/logo2.png" alt="avatar">
+        <h1 style="font-size: 24px;">BinDev Code System</h1>
       </div>
       <ul class="nav-links">
-        <li><a routerLink="/homepage">Trang chủ</a></li>
-        <li><a href="#">Khóa học</a></li>
+        <li><a routerLink="/home">Trang chủ</a></li>
+        <li><a routerLink="/course">Khóa học</a></li>
         <li><a href="#">Doanh Nghiệp</a></li>
         <li><a href="#">Liên hệ</a></li>
+        <li><a href="#">Tạo CV</a></li>
       </ul>
-      <div class="search">
-        <input type="text" placeholder="Tìm kiếm...">
-        <button class="animate__animated animate__bounce">Tìm kiếm</button>
+      <div class="auth-buttons" *ngIf="!isLoggedIn">
+        <button class="button" ><a routerLink="/login">Đăng nhập</a></button>
+        <button class="button"><a [routerLink]="['/signup']">Đăng ký</a></button>
       </div>
-      <div class="auth-buttons">
-        <button class="login" ><a routerLink="/login">Đăng nhập</a></button>
-        <button class="signup"><a [routerLink]="['/signup']">Đăng ký</a></button>
+      <div class="auth-buttons" *ngIf="isLoggedIn">
+        <span class="text-light">Xin chào: {{username}}</span>
+        <img *ngIf="avatarSrc" [src]="avatarSrc" style="width: 35px; height: 35px;" alt="avatar">
+        <!-- <div class="user-profile__options">
+          <a href="#"  class="dropdown-item">Thông tin Cá nhân</a>
+          <hr class="dropdown-divider">
+          <a href="#" class="dropdown-item" (click)="logout()">Đăng xuất</a>
+        </div> -->
+        <button class="font-awe"><i class="fa-solid fa-bell fa-1x"></i></button>
+        <button class="font-awe"><i class="fa-solid fa-comment fa-1x"></i></button>
+        <button class="font-awe"><i class="fa-solid fa-user fa-1x"></i></button>
       </div>
     </nav>
   </header>
