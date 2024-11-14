@@ -1,13 +1,12 @@
 .sidenav{
-    background: #3a4860;
+    background: gainsboro;
     transition: all .5s ease;
     position: fixed;
     z-index: 2;
     width: 5rem;
-    height: 100vh;
+    height: 100%;
     box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
     
-
     .logo-container{
         display: flex;
         align-items: center;

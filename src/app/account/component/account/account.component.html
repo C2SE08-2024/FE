@@ -1,0 +1,13 @@
+<app-header style="z-index: 1000;"></app-header>
+<div class="body">
+    <div class="menu">
+        <ul>
+            <li><a [routerLink]="['account-detail']">Thông tin cá nhân</a></li>
+            <li><a href="">Khóa học</a></li>
+            <li><a href="">Đổi mật khẩu</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

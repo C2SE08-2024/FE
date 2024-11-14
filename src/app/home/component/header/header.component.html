@@ -2,9 +2,9 @@
     <nav>
       <div class="logo" (click)="toHome()" style="cursor: pointer;">
         <img src="assets/images/logo2.png" alt="avatar">
-        <h1 style="font-size: 24px;">BinDev Code System</h1>
+        <h1 style="font-size: 24px; color: white;">BinDev Code System</h1>
       </div>
-      <ul class="nav-links">
+      <ul class="nav-links" *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'">
         <li><a routerLink="/home">Trang chủ</a></li>
         <li><a routerLink="/course">Khóa học</a></li>
         <li><a href="#">Doanh Nghiệp</a></li>
@@ -16,16 +16,37 @@
         <button class="button"><a [routerLink]="['/signup']">Đăng ký</a></button>
       </div>
       <div class="auth-buttons" *ngIf="isLoggedIn">
-        <span class="text-light">Xin chào: {{username}}</span>
+        <!-- <span class="text-light">Xin chào: {{username}}</span> -->
         <img *ngIf="avatarSrc" [src]="avatarSrc" style="width: 35px; height: 35px;" alt="avatar">
-        <!-- <div class="user-profile__options">
-          <a href="#"  class="dropdown-item">Thông tin Cá nhân</a>
-          <hr class="dropdown-divider">
-          <a href="#" class="dropdown-item" (click)="logout()">Đăng xuất</a>
-        </div> -->
-        <button class="font-awe"><i class="fa-solid fa-bell fa-1x"></i></button>
-        <button class="font-awe"><i class="fa-solid fa-comment fa-1x"></i></button>
-        <button class="font-awe"><i class="fa-solid fa-user fa-1x"></i></button>
+        <button class="font-awe" (click)="toggleDropdown('notification')"><i class="fa-solid fa-bell fa-1x"></i></button>
+        <div class="dropdown" *ngIf="dropdown === 'notification'">
+          <ul>
+            <li>Notification 1</li>
+            <li>Notification 2</li>
+            <li>Notification 3</li>
+          </ul>
+        </div>
+
+        <button class="font-awe" (click)="toggleDropdown('message')"><i class="fa-solid fa-comment fa-1x"></i></button>
+        <div class="dropdown" *ngIf="dropdown === 'message'">
+          <ul>
+            <li>Message 1</li>
+            <li>Message 2</li>
+            <li>Message 3</li>
+          </ul>
+        </div>
+
+        <button class="font-awe" style="position: relative;" (click)="toggleDropdown('profile')">
+          <i class="fa-solid fa-user fa-1x"></i>
+          <i class="fa-solid fa-angle-down fa-sm" style="display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; position: absolute; bottom: 0; right: 2px; border-radius: 50%; background-color: black; color: white;"></i>
+        </button>
+        <div class="dropdown" *ngIf="dropdown === 'profile'">
+          <ul>
+            <li><a routerLink="/account"> <i class="fa-solid fa-user fa-1x"></i>Thông tin cá nhân</a></li>
+            <!-- <li><i class="fa-solid fa-gear fa-1x"></i>Settings</li> -->
+            <li (click)="logout()"><a href=""> <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
