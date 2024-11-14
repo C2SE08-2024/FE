@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { LoginRequest } from '../../model/Request/login';
 import { JwtResponse } from '../../model/Request/jwt-response';
-import { StudentSignupRequest } from '../../model/Request/StudentSignupRequest';
+import { SignupRequest } from '../../model/Request/SignupRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AuthService {
     return this.http.post<JwtResponse>(this.API_URL + '/login', loginRequest, { headers })
   }
 
-  signupStudent(student: StudentSignupRequest): Observable<any> {
-    return this.http.post(this.API_URL + '/student/signup', student);
+  signupStudent(signupRequest: SignupRequest): Observable<any> {
+    return this.http.post(this.API_URL + '/signup', signupRequest);
   }
 }

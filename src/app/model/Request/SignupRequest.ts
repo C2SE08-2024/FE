@@ -1,5 +1,5 @@
-export interface StudentSignupRequest {
-    studentCode?: string;
+export interface SignupRequest {
+    Code?: string;
     name: string;
     username: string;
     gender: boolean;

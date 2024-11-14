@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           // console.log(this.tokenStorageService.getToken());
           // console.log(this.tokenStorageService.getUser()); 
           // console.log(this.tokenStorageService.getRole()); 
-          if(this.tokenStorageService.getRole() === 'ROLE_STUDENT')
+          if(this.tokenStorageService.getRole() === 'ROLE_STUDENT' || this.tokenStorageService.getRole() === 'ROLE_BUSINESS')
             this.router.navigate(['/home']);
           else if(this.tokenStorageService.getRole() === 'ROLE_INSTRUCTOR' || this.tokenStorageService.getRole() === 'ROLE_ADMIN')
             this.router.navigate(['/mangage-binDev']);

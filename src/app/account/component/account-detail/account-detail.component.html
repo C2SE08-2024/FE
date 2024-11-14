@@ -1,0 +1,56 @@
+<div class="profile-container">
+    <h3>Thông tin cá nhân</h3>
+    <table class="profile-table">
+        <tr>
+            <td><img [src]="student.studentImg" alt="Profile Picture" class="profile-avatar"></td>
+            <td>
+                <div class="profile-info">
+                    <h2>{{ student.studentName }}</h2>
+                    <a href="mailto:{{ student.studentEmail }}">{{ student.studentEmail }}</a> - Học sinh
+                    <p>Upload your own...</p>
+                    <div class="upload-area">Drop your files here or <a href="#">click in this area</a></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Tên đăng nhập</label></td>
+            <td><input type="text" [value]="student.studentCode" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Email <span class="required">*</span></label></td>
+            <td><input type="email" [value]="student.studentEmail" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Số điện thoại</label></td>
+            <td><input type="text" [value]="student.studentPhone" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Họ tên <span class="required">*</span></label></td>
+            <td><input type="text" [value]="student.studentName" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Địa chỉ</label></td>
+            <td><input type="text" [value]="student.studentAddress" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Giới tính</label></td>
+            <td><input type="text" [value]="student.studentGender ? 'Female' : 'Male'" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Ngày sinh</label></td>
+            <td><input type="text" [value]="student.dateOfBirth | date:'yyyy-MM-dd'" readonly></td>
+        </tr>
+        <tr>
+            <td><label>CCCD</label></td>
+            <td><input type="text" [value]="student.idCard" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Ngành</label></td>
+            <td><input type="text" [value]="student.major" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Năm tốt nghiệp</label></td>
+            <td><input type="text" [value]="student.graduationYear" readonly></td>
+        </tr>
+    </table>
+</div>

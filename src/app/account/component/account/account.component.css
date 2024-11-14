@@ -1,0 +1,31 @@
+ul, li{
+    list-style: none;
+    padding: 5px 10px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #297fb8;
+}
+
+.body{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 100px;
+    padding: 40px;
+
+    .menu{
+        width: 20%;
+        height: fit-content;
+        border: 2px solid black;
+    }
+
+    .content{
+        width: 80%;
+    }
+}
