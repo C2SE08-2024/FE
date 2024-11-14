@@ -7,11 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { HomeComponent } from './component/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { CourseComponent } from './component/course/course.component';
-import { ContactUsComponent } from './component/contact-us/contact-us.component';
-import { CreateCvComponent } from './component/create-cv/create-cv.component';
-import { BusinessComponent } from './component/business/business.component';
-import { BusinessdetailComponent } from './component/businessdetail/businessdetail.component';
 
 
 
@@ -21,12 +16,7 @@ import { BusinessdetailComponent } from './component/businessdetail/businessdeta
     HeaderComponent,
     HomepageComponent,
     HomeComponent,
-    FooterComponent,
-    CourseComponent,
-    ContactUsComponent,
-    CreateCvComponent,
-    BusinessComponent,
-    BusinessdetailComponent
+    FooterComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
