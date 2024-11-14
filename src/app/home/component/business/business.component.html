@@ -1,24 +1,26 @@
-<div class="container">
-    <div class="filter-section">
-      <input type="text" placeholder="Tìm kiếm doanh nghiệp..." [(ngModel)]="searchQuery" (input)="filterBusinesses()" />
-      <select [(ngModel)]="selectedCity" (change)="filterBusinesses()">
-        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+<div class="business-container">
+  <!-- Thanh tìm kiếm và bộ lọc -->
+  <div class="search-filter-bar">
+      <input type="text" class="search-input" placeholder="Tìm kiếm doanh nghiệp..." [(ngModel)]="searchQuery" (input)="filterBusinesses()" />
+      <select class="city-filter" [(ngModel)]="selectedCity" (change)="filterBusinesses()">
+          <option value="all">Tất cả thành phố</option>
+          <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
       </select>
-    </div>
-  
-    <div class="business-list">
-      <div class="business-card" *ngFor="let business of filteredBusinesses">
-        <div class="business-header">
-          <img [src]="business.logoUrl" alt="Logo" class="business-logo" />
-          <div class="business-info">
-            <h3>{{ business.name }}</h3>
-            <p class="industry">{{ business.industry }}</p>
-            <p class="location">{{ business.location }}</p>
-          </div>
-        </div>
-        <p class="description">{{ business.description }}</p>
-        <button class="details-button" (click)="viewDetails(business.id)">Xem chi tiết</button>
-      </div>
-    </div>
   </div>
-  
+
+  <!-- Danh sách Doanh nghiệp -->
+  <div class="business-list">
+      <div class="business-card" *ngFor="let business of filteredBusinesses">
+          <div class="business-info">
+              <img [src]="business.logoUrl" alt="Logo của {{ business.name }}" class="business-logo" />
+              <div>
+                  <h3 class="business-name">{{ business.name }}</h3>
+                  <p class="industry">{{ business.industry }}</p>
+                  <p class="location">{{ business.location }}</p>
+              </div>
+          </div>
+          <p class="description">{{ business.description }}</p>
+          <button class="view-details-btn" (click)="viewDetails(business.id)">Xem chi tiết</button>
+      </div>
+  </div>
+</div>
