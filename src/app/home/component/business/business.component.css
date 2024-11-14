@@ -1,0 +1,89 @@
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section input[type="text"] {
+    padding: 8px;
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .filter-section select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .business-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  
+  .business-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: box-shadow 0.3s;
+  }
+  
+  .business-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .business-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .business-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .business-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .industry, .location {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    color: #444;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .details-button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .details-button:hover {
+    background-color: #1565c0;
+  }
+  

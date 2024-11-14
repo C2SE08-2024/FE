@@ -8,6 +8,8 @@ import { SignupComponent } from '../security/component/signup/signup.component';
 import { CourseComponent } from './component/course/course.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
+import { BusinessComponent } from './component/business/business.component';
+import { BusinessdetailComponent } from './component/businessdetail/businessdetail.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
       { path:'course', component: CourseComponent},
       { path:'contact-us', component: ContactUsComponent},
       { path: 'create-cv', component: CreateCvComponent},
+      { path: 'business', component: BusinessComponent},
+      { path: 'business/:id', component: BusinessdetailComponent},
     ]
   },
   {path: 'login', component: LoginComponent},
