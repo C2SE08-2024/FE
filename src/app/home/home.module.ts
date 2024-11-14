@@ -8,6 +8,8 @@ import { HomepageComponent } from './component/homepage/homepage.component';
 import { HomeComponent } from './component/home/home.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { CourseComponent } from './component/course/course.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { CreateCvComponent } from './component/create-cv/create-cv.component';
 
 
 
@@ -18,7 +20,9 @@ import { CourseComponent } from './component/course/course.component';
     HomepageComponent,
     HomeComponent,
     FooterComponent,
-    CourseComponent
+    CourseComponent,
+    ContactUsComponent,
+    CreateCvComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

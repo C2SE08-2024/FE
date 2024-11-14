@@ -6,6 +6,8 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from '../security/component/login/login.component';
 import { SignupComponent } from '../security/component/signup/signup.component';
 import { CourseComponent } from './component/course/course.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { CreateCvComponent } from './component/create-cv/create-cv.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: HomepageComponent},
-      { path:'course', component: CourseComponent}
+      { path:'course', component: CourseComponent},
+      { path:'contact-us', component: ContactUsComponent},
+      { path: 'create-cv', component: CreateCvComponent},
     ]
   },
   {path: 'login', component: LoginComponent},

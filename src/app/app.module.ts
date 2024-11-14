@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
