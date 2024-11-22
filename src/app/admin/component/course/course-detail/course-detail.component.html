@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ course.courseName }} - Chi Tiết</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="img">
+        <iframe width="640" height="360" frameborder="0" src="https://mega.nz/embed/vMtmXKZL#kXpaLpKyw5c4vIsuQTFaGm6Xc3xsp_fRuPN2YV3RUmE" allowfullscreen ></iframe>
+    </div>
+    <div class="detail">
+        <p><strong>Mã:</strong> {{ course.courseId }}</p>
+        <p><strong>Giá:</strong> {{ course.coursePrice | currency:'VND'}}</p>
+        <p><strong>Level:</strong> {{ course.level }}</p>
+        <p><strong>Thời hạn:</strong> {{ course.duration }}</p> 
+        <p><strong>Mô tả:</strong> {{ course.description }}</p> 
+        <p><strong>Giảng viên:</strong> {{ course.instructor }}</p> 
+        <p><strong>Danh mục:</strong> {{ course.category.categoryName }}</p> 
+        <p><strong>Ngôn ngữ:</strong> {{ course.language }}</p> 
+    </div>
+</div>
