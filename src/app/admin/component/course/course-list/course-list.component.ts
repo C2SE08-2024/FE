@@ -16,6 +16,8 @@ export class CourseListComponent implements OnInit {
   courses: Course[] = [];
   isLoading = true;
   errorMessage = '';
+  showDeletePopup = false;
+  deleteCourseId: number;
 
   constructor(private courseService: CourseService,
               private modalService: NgbModal,
@@ -55,6 +57,29 @@ export class CourseListComponent implements OnInit {
     }, (reason) => {
       console.log('Fail to edit:', reason);
     });
+  }
+
+  confirmDelete(id: number): void {
+    this.showDeletePopup = true;
+    this.deleteCourseId = id;
+  }
+
+  closeDeletePopup(): void {
+    this.showDeletePopup = false;
+    this.deleteCourseId = null;
+  }
+
+  deleteProductAtId(): void {
+    this.courseService.deleteCourse(this.deleteCourseId)
+      .subscribe(() => {
+        // Handle successful deletion
+        console.log('Product deleted successfully');
+        this.loadCourses();
+        this.closeDeletePopup();
+      }, error => {
+        // Handle errors
+        console.error('Error deleting Product:', error);
+      });
   }
 }
 

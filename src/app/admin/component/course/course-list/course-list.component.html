@@ -80,7 +80,10 @@
                     <tbody>
                         <tr *ngFor="let item of courses">
                             <td></td>
-                            <td><button (click)="openCourseEditModal(item)">Action</button></td>
+                            <td style="align-items: center; justify-content: center; gap: 10px">
+                                <i class="fa fa-pencil-square fa-lg" (click)="openCourseEditModal(item)"></i>
+                                <i class="fa fa-trash fa-lg" (click)="confirmDelete(item.courseId)"></i>
+                            </td>
                             <td (click)="openCourseDetailModal(item)" >{{ item.courseName }}</td>
                             <td>{{ item.description  }}</td>
                             <td>{{ item.coursePrice  }}</td>
@@ -104,15 +107,15 @@
     </div> -->
     </div>
 </div>
-<!-- <div class="action-form" *ngIf="showDeletePopup">
+<div class="action-form" *ngIf="showDeletePopup">
     <div class="close" (click)="closeDeletePopup()">
         <i class="fa-solid fa-xmark"></i>
     </div>
     <i class="fa fa-trash fa-4x" style="color: rgb(0, 159, 127) ;"></i>
-    <h4>Delete Pet</h4>
-    <p>Are you sure, you want to delete?</p>
+    <h4>Xóa khóa học</h4>
+    <p>Xác định xóa</p>
     <div class="btn-action">
-        <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Cancel</button>
-        <button style="background-color:rgb(220, 38, 38)" (click)="deletePetAtId()">Delete</button>
+        <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Hủy</button>
+        <button style="background-color:rgb(220, 38, 38)" (click)="deleteProductAtId()">Xóa</button>
     </div>
-</div> -->
+</div>
