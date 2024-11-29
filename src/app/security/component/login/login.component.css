@@ -160,3 +160,20 @@ h2 {
 .btn-google:hover {
   background-color: #357ae8; /* Màu khi hover */
 }
+.signup-redirect {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #2c3e50; /* Màu chữ đồng bộ với header */
+}
+
+.signup-link {
+  color: #3498db; /* Màu liên kết đồng bộ với nút đăng nhập */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.signup-link:hover {
+  color: #2980b9; /* Màu liên kết khi hover */
+}

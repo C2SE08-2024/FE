@@ -5,8 +5,13 @@ import { HomepageComponent } from '../home/component/homepage/homepage.component
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from '../security/component/login/login.component';
 import { SignupComponent } from '../security/component/signup/signup.component';
+import { BusinessComponent } from './component/business/business.component';
+import { BusinessdetailComponent } from './component/businessdetail/businessdetail.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { CourseComponent } from './component/course/course.component';
-
+import { CreateCvComponent } from './component/create-cv/create-cv.component';
+import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
+import { PaymentComponent } from './component/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -14,7 +19,15 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: HomepageComponent},
-      { path:'course', component: CourseComponent}
+      { path: 'business', component: BusinessComponent},
+      { path: 'business/:id', component: BusinessdetailComponent},
+      { path: 'create-cv', component: CreateCvComponent},
+      { path: 'course', component: CourseComponent },
+      { path: 'contact-us', component: ContactUsComponent},
+      { path: 'course/:id', component: DetailcourseComponent},
+      { path: 'payment/:id', component: PaymentComponent},
+      //{ path: '', redirectTo: '/course/1', pathMatch: 'full'},
+
     ]
   },
   {path: 'login', component: LoginComponent},
