@@ -1,4 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RoutingModule } from './routing.module';
 import { HeaderComponent } from './component/header/header.component';
@@ -11,6 +12,9 @@ import { BusinessComponent } from './component/business/business.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
 import { BusinessdetailComponent } from './component/businessdetail/businessdetail.component';
+import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
+import { PaymentComponent } from './component/payment/payment.component';
+import { CourseComponent } from './component/course/course.component';
 
 
 @NgModule({
@@ -23,6 +27,9 @@ import { BusinessdetailComponent } from './component/businessdetail/businessdeta
     BusinessdetailComponent,
     ContactUsComponent,
     CreateCvComponent,
+    DetailcourseComponent,
+    PaymentComponent,
+    CourseComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -32,7 +39,8 @@ import { BusinessdetailComponent } from './component/businessdetail/businessdeta
     RoutingModule, 
     RouterModule,
     FormsModule,
-    ReactiveFormsModule,    
+    ReactiveFormsModule,
+       
   ],
   exports: [
     HeaderComponent

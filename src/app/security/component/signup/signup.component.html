@@ -8,8 +8,25 @@
   <div class="signup-card">
     <h2>Đăng Ký</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+      <!-- Role -->
+      <div class="form-group" style="display: flex; width: fit-content; gap: 20px;">
+        <label for="userType">Loại tài khoản</label>
+        <select id="userType" formControlName="userType" required>
+          <option value="" disabled selected>Chọn loại tài khoản</option>
+          <option value="student">Sinh viên</option>
+          <option value="instructor">Giảng viên</option>
+          <option value="business">Doanh nghiệp</option>
+        </select>
+        <div *ngIf="signupForm.get('userType').invalid && signupForm.get('userType').touched">
+          <small class="error">Vui lòng chọn loại tài khoản.</small>
+        </div>
+      </div>
+
+      <!-- Name -->
       <div class="form-group">
-        <label for="name">Họ tên người dùng</label>
+        <label for="name">
+          {{ signupForm.get('userType').value === 'business' ? 'Tên Doanh Nghiệp' : 'Họ tên người dùng' }}
+        </label>
         <input type="text" id="name" name="name" formControlName="name">
         <div class="error-message" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">
           <small *ngIf="signupForm.get('name').hasError('required')" class="error">
@@ -27,6 +44,7 @@
         </div>
       </div>
 
+      <!-- Username -->
       <div class="form-group">
         <label for="username">Tên đăng nhập</label>
         <input type="text" id="username" name="username" formControlName="username">
@@ -40,7 +58,20 @@
         </div>
       </div>
 
+      <!-- Gender -->
+      <div class="form-group" style="display: flex; width: fit-content; gap: 20px;">
+        <label for="gender">Giới tính</label>
+        <select id="gender" formControlName="gender" required>
+          <option value="" disabled selected>Chọn giới tính</option>
+          <option value=true>Nam</option>
+          <option value=false>Nữ</option>
+        </select>
+        <div *ngIf="signupForm.get('userType').invalid && signupForm.get('userType').touched">
+          <small class="error">Vui lòng chọn loại tài khoản.</small>
+        </div>
+      </div>
 
+      <!-- Email -->
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" formControlName="email">
@@ -61,8 +92,8 @@
         </div>
       </div>
 
-
-      <div class="form-group">
+      <!-- Date of Birth -->
+      <div class="form-group" *ngIf="signupForm.get('userType').value !== 'business'">
         <label for="dateOfBirth">Ngày sinh</label>
         <input type="date" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth">
         <div class="error-message" *ngIf="signupForm.get('dateOfBirth').invalid && signupForm.get('idCard').touched">
@@ -78,6 +109,7 @@
         </div>
       </div>
 
+      <!-- Address -->
       <div class="form-group" style="display: flex;">
         <table>
           <tr>
@@ -107,8 +139,6 @@
           </tr>
         </table>
       </div>
-      
-
       <div class="form-group">
         <label for="address">Địa chỉ</label>
         <input type="text" id="address" name="address" formControlName="address">
@@ -125,8 +155,8 @@
         </div>
       </div>
 
-
-      <div class="form-group">
+      <!-- id Card -->
+      <div class="form-group" *ngIf="signupForm.get('userType').value !== 'business'">
         <label for="idCard">CCCD/CMND</label>
         <input type="text" id="idCard" name="idCard" formControlName="idCard">
         <div class="error-message" *ngIf="signupForm.get('idCard').invalid && signupForm.get('idCard').touched">
@@ -139,7 +169,7 @@
         </div>
       </div>
 
-
+      <!-- phone -->
       <div class="form-group">
         <label for="phone">Số điện thoại</label>
         <input type="text" id="phone" name="phone" formControlName="phone">
@@ -153,7 +183,7 @@
         </div>
       </div>
 
-
+      <!-- Password -->
       <div class="form-group">
         <label for="password">Mật khẩu</label>
         <input type="password" id="password" name="password" formControlName="password">
@@ -192,5 +222,4 @@
         Đăng Ký bằng Google
       </button> -->
   </div>
-</div>    
-  
+</div>

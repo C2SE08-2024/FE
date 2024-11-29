@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
+      userType: new FormControl('', [Validators.required]),
       name: new FormControl('', [
         Validators.required,
         Validators.pattern('^[A-Za-zÀ-ỹà-ỹ]+ [A-Za-zÀ-ỹà-ỹ]+(?: [A-Za-zÀ-ỹà-ỹ]+)* ?$'),
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(50)
       ]),
       username: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_]+$')]),
-      gender: new FormControl(true, [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
       dateOfBirth: new FormControl('', [Validators.required, this.ageValidator]),
       address: new FormControl('', [
         Validators.required,
@@ -80,7 +81,7 @@ export class SignupComponent implements OnInit {
     this.message = null
     if (this.signupForm.valid) {
       const userAddress = this.signupForm.get('address')?.value || '';
-      const fullAddress = `${userAddress}, ${this.selectedWard}, ${this.selectedDistrict}, ${this.selectedCity}`;
+      const fullAddress = '${userAddress}, ${this.selectedWard}, ${this.selectedDistrict}, ${this.selectedCity}';
       this.signupForm.patchValue({ address: fullAddress });
       this.authService.signupStudent(this.signupForm.value).subscribe(
         response => {

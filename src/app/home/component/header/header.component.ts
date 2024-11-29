@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   returnUrl: string;
   avatarSrc = '';
-
+  dropdown: string | null = null;
 
   constructor(private tokenStorageService: TokenStorageService,
               private router: Router,
@@ -46,5 +46,13 @@ export class HeaderComponent implements OnInit {
 
   toHome() : void{
     this.router.navigate(['/home']);
+  }
+
+  toggleDropdown(type: string): void {
+    this.dropdown = this.dropdown === type ? null : type;
+  }
+
+  closeDropdown(): void {
+    this.dropdown = null;
   }
 }

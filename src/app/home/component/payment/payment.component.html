@@ -1,0 +1,23 @@
+<div class="container" *ngIf="course">
+    <h1 class="text-center fw-bold">Thanh Toán</h1>
+    <div class="card mx-auto shadow p-4" style="max-width: 500px;">
+      <h5 class="fw-bold">Khóa học: {{ course.name }}</h5>
+      <p>Học phí: {{ course.price | currency:'VND' }}</p>
+      <form #paymentForm="ngForm" (ngSubmit)="processPayment(paymentForm.value)">
+        <div class="mb-3">
+          <label for="name" class="form-label">Họ và Tên</label>
+          <input type="text" class="form-control" id="name" name="name" required ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="card" class="form-label">Số Thẻ Thanh Toán</label>
+          <input type="text" class="form-control" id="card" name="card" required ngModel>
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Thanh Toán</button>
+      </form>
+    </div>
+  </div>
+  

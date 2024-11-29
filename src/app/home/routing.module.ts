@@ -10,6 +10,8 @@ import { BusinessdetailComponent } from './component/businessdetail/businessdeta
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { CourseComponent } from './component/course/course.component';
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
+import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
+import { PaymentComponent } from './component/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -20,8 +22,11 @@ const routes: Routes = [
       { path: 'business', component: BusinessComponent},
       { path: 'business/:id', component: BusinessdetailComponent},
       { path: 'create-cv', component: CreateCvComponent},
-      { path: 'course', component: CourseComponent},
+      { path: 'course', component: CourseComponent },
       { path: 'contact-us', component: ContactUsComponent},
+      { path: 'course/:id', component: DetailcourseComponent},
+      { path: 'payment/:id', component: PaymentComponent},
+      //{ path: '', redirectTo: '/course/1', pathMatch: 'full'},
 
     ]
   },

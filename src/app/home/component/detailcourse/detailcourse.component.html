@@ -1,0 +1,8 @@
+<div class="container" *ngIf="course">
+    <h1 class="text-center fw-bold">{{ course.name }}</h1>
+    <img [src]="course.image" class="img-fluid my-4 d-block mx-auto" [alt]="course.name">
+    <p class="lead">{{ course.description }}</p>
+    <p class="fw-bold">Học phí: {{ course.price | currency:'VND' }}</p>
+    <button class="btn btn-warning btn-lg" (click)="goToPayment()">Đăng ký ngay</button>
+  </div>
+  
