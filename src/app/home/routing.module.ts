@@ -26,7 +26,6 @@ const routes: Routes = [
       { path: 'contact-us', component: ContactUsComponent},
       { path: 'course/:id', component: DetailcourseComponent},
       { path: 'payment/:id', component: PaymentComponent},
-      //{ path: '', redirectTo: '/course/1', pathMatch: 'full'},
 
     ]
   },

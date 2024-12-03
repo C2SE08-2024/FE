@@ -5,6 +5,8 @@ import { AdminPageComponent } from './component/admin-page/admin-page.component'
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AccountListComponent } from './component/account/account-list/account-list.component';
 import { CourseListComponent } from './component/course/course-list/course-list.component';
+import { CourseCreateComponent } from './component/course/course-create/course-create.component';
+import { CourseDetailComponent } from './component/course/course-detail/course-detail.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'account', component: AccountListComponent },
       { path: 'course', component: CourseListComponent },
+      { path: 'course/course-create', component: CourseCreateComponent },
     ]
   },
 ];

@@ -5,17 +5,20 @@
     </button>
 </div>
 <div class="modal-body">
-    <div class="img">
-        <iframe width="640" height="360" frameborder="0" src="https://mega.nz/embed/vMtmXKZL#kXpaLpKyw5c4vIsuQTFaGm6Xc3xsp_fRuPN2YV3RUmE" allowfullscreen ></iframe>
-    </div>
     <div class="detail">
-        <p><strong>Mã:</strong> {{ course.courseId }}</p>
-        <p><strong>Giá:</strong> {{ course.coursePrice | currency:'VND'}}</p>
-        <p><strong>Level:</strong> {{ course.level }}</p>
-        <p><strong>Thời hạn:</strong> {{ course.duration }}</p> 
-        <p><strong>Mô tả:</strong> {{ course.description }}</p> 
-        <p><strong>Giảng viên:</strong> {{ course.instructor }}</p> 
-        <p><strong>Danh mục:</strong> {{ course.category.categoryName }}</p> 
-        <p><strong>Ngôn ngữ:</strong> {{ course.language }}</p> 
+        <p><strong>Giá:</strong> {{ course.coursePrice | number:'1.0-0'  }} VND</p>
+        <p><strong>Giảng viên:</strong> {{ course.instructor.instructorName }}</p> 
+    </div>
+    <div class="test">
+        <div *ngIf="errorMessage" class="error">
+            {{ errorMessage }}
+          </div>
+          <div *ngIf="tests.length > 0">
+            <ul>
+              <li *ngFor="let test of tests">
+                {{ test.testName }} - {{ test.progressThreshold }} - {{test.passScore}}
+              </li>
+            </ul>
+          </div>
     </div>
 </div>

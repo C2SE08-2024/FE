@@ -46,13 +46,11 @@ export class SidenavComponent implements OnInit {
     if (this.tokenStorageService.getToken()) {
       this.isLoggedIn = !!this.tokenStorageService.getToken();
       this.role = this.tokenStorageService.getRole();
-      console.log('role:', this.role);
       if(this.role === 'ROLE_INSTRUCTOR')
         this.navData = instructorNavbarData;
       else if (this.role === 'ROLE_ADMIN')
         this.navData = adminNavbarData;
     }
-    console.log('Role hien tai la', this.role);
   }
 
   toggleCollapse() : void{

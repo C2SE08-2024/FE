@@ -11,6 +11,7 @@ import { CourseListComponent } from './component/course/course-list/course-list.
 import { AccountListComponent } from './component/account/account-list/account-list.component';
 import { CourseDetailComponent } from './component/course/course-detail/course-detail.component';
 import { CourseEditComponent } from './component/course/course-edit/course-edit.component';
+import { CourseCreateComponent } from './component/course/course-create/course-create.component';
 
 
 
@@ -21,7 +22,10 @@ import { CourseEditComponent } from './component/course/course-edit/course-edit.
     AdminPageComponent, 
     DashboardComponent,  
     CourseListComponent, 
-    AccountListComponent, CourseDetailComponent, CourseEditComponent
+    AccountListComponent, 
+    CourseDetailComponent, 
+    CourseEditComponent, 
+    CourseCreateComponent
   ],
   imports: [
     CommonModule,

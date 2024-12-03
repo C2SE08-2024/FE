@@ -17,14 +17,10 @@ export class CourseEditComponent implements OnInit {
   uploadedAvatar: any;
 
   constructor(public activeModal: NgbActiveModal,
-              // private categoryService: CategoryService,
               private courseService: CourseService) {}
 
   ngOnInit(): void {
     this.editedCourse = { ...this.course };
-    // this.categoryService.getAll().subscribe(data =>{
-    //   this.categoryList = data;
-    // })
   }
 
   closeModal(): void {

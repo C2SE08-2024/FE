@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/model/Course/course';
-import { CourseDetailDTO } from 'src/app/model/DTO/course-detail-dto';
+import { TokenStorageService } from '../token/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,29 +10,51 @@ import { CourseDetailDTO } from 'src/app/model/DTO/course-detail-dto';
 export class CourseService {
 
   private API_URL = 'http://localhost:8080/api/v1/course';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private tokenStorageService: TokenStorageService,
+  ) { }
 
   getAllCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.API_URL);
   }
 
-  createCourse(courseDetailDTO: CourseDetailDTO): Observable<Course> {
-    return this.http.post<Course>(this.API_URL, courseDetailDTO);
+  createCourse(course: Course): Observable<Course> {
+    const token = this.tokenStorageService.getToken();
+      if (token) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<Course>(this.API_URL, course,{ headers: headers });
+    }
   }
 
-  updateCourse(id: number, courseDetailDTO: CourseDetailDTO): Observable<Course> {
-    const url = `${this.API_URL}/${id}`;
-    return this.http.put<Course>(url, courseDetailDTO);
+  updateCourse(id: number, course: Course): Observable<Course> {
+    const token = this.tokenStorageService.getToken();  
+      if (token) {
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        });
+      const url = `${this.API_URL}/${id}`;
+      return this.http.put<Course>(url, course,{ headers: headers });
+    }
   }
 
   deleteCourse(id: number): Observable<void> {
-    const url = `${this.API_URL}/${id}`;
-    return this.http.delete<void>(url);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      });
+      const url = `${this.API_URL}/${id}`;
+      return this.http.delete<void>(url, { headers: headers });
+    }
   }
 
   getCourseById(id: number): Observable<Course> {
-    const url = `${this.API_URL}/${id}`;
-    return this.http.get<Course>(url);
+    return this.http.get<Course>(`${this.API_URL}/${id}`);
   }
 
 }
