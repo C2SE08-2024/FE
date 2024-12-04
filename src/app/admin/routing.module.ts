@@ -7,6 +7,7 @@ import { AccountListComponent } from './component/account/account-list/account-l
 import { CourseListComponent } from './component/course/course-list/course-list.component';
 import { CourseCreateComponent } from './component/course/course-create/course-create.component';
 import { CourseDetailComponent } from './component/course/course-detail/course-detail.component';
+import { TestQuestionComponent } from './component/test/test-question/test-question.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'account', component: AccountListComponent },
       { path: 'course', component: CourseListComponent },
+      { path: 'course/:id', component: CourseDetailComponent },
+      { path: 'course/:courseId/test/:testId/test-question', component: TestQuestionComponent },
       { path: 'course/course-create', component: CourseCreateComponent },
     ]
   },

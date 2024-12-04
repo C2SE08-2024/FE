@@ -7,42 +7,14 @@
   <div class="modal-body">
     <form (submit)="saveChanges()">
         <div class="input-field">
-            <iframe width="640" height="360" frameborder="0" src="editedCourse.image" allowfullscreen ></iframe>
-        </div>
-        <div class="input-field">
             <label for="name"><strong>Tên Sản Phẩm</strong></label>
             <input type="text" id="name" name="name" [(ngModel)]="editedCourse.courseName" required>
         </div>
         
-        <!-- <div class="input-field">
-            <label for="courseDescription"><strong>Mô Tả</strong></label>
-            <textarea id="courseDescription" name="courseDescription" [(ngModel)]="editedCourse.description"></textarea>
-        </div>
-
-        <div class="input-field">
-          <label for="courseDuration"><strong>Duration</strong></label>
-          <input type="text" id="courseDuration" name="courseDuration" [(ngModel)]="editedCourse.duration" required>
-        </div> -->
-
         <div class="input-field">
             <label for="coursePrice"><strong>Giá</strong></label>
             <input type="number" id="coursePrice" name="coursePrice" [(ngModel)]="editedCourse.coursePrice" required>
-            <!-- <label for="courseLevel"><strong>Level</strong></label>
-            <input type="number" id="courseLevel" name="courseQuantity" [(ngModel)]="editedCourse.level" required>
-            <label for="languaget"><strong>Ngôn ngữ</strong></label>
-            <input type="number" id="language" name="language" [(ngModel)]="editedCourse.language" required> -->
         </div>
-        
-        <!-- <div class="input-field">
-            <div class="input-box">
-                <label><strong>Select Category</strong></label>
-                <div class="select-box">
-                  <select [(ngModel)]="editedCourse.category.categoryName" name="category">
-                    <option *ngFor="let item of categoryList" [value]="item.categoryName">{{item.categoryName}}</option>
-                  </select>
-                </div>
-              </div>
-        </div> -->
         <button type="submit">Lưu Thay Đổi</button>
     </form>
   </div>

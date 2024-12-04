@@ -1,0 +1,17 @@
+<div *ngIf="questions">
+<div class="test-container">
+    <div class="question-list">
+      <ul>
+        <li *ngFor="let question of questions; let i = index" (click)="selectQuestion(question)">
+          Câu hỏi {{ i + 1 }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="question-detail">
+      <!-- <h4 style="white-space: pre-line;">{{ selectedQuestion?.questionContent }}</h4> -->
+      <h4 [innerHTML]="convertToHtml(selectedQuestion?.questionContent)"></h4>
+      <p><strong>Correct Answer:</strong> {{ selectedQuestion?.correctAnswer }}</p>
+    </div>
+  </div>
+</div>

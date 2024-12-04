@@ -42,6 +42,10 @@ export class CourseListComponent implements OnInit {
       }
   };
 
+  goToCourseDetailPage(courseId: number): void {
+    this.router.navigate(['mangage-binDev/course', courseId]);
+  }
+
   openCourseDetailModal(course: Course): void {
     const modalRef = this.modalService.open(CourseDetailComponent, {
       size: 'xl', 

@@ -12,6 +12,9 @@ import { AccountListComponent } from './component/account/account-list/account-l
 import { CourseDetailComponent } from './component/course/course-detail/course-detail.component';
 import { CourseEditComponent } from './component/course/course-edit/course-edit.component';
 import { CourseCreateComponent } from './component/course/course-create/course-create.component';
+import { TestComponent } from './component/test/test/test.component';
+import { TestQuestionComponent } from './component/test/test-question/test-question.component';
+
 
 
 
@@ -25,7 +28,9 @@ import { CourseCreateComponent } from './component/course/course-create/course-c
     AccountListComponent, 
     CourseDetailComponent, 
     CourseEditComponent, 
-    CourseCreateComponent
+    CourseCreateComponent, 
+    TestComponent, 
+    TestQuestionComponent,  
   ],
   imports: [
     CommonModule,

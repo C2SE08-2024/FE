@@ -1,9 +1,96 @@
 .modal-header{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;    
     button{
         position: absolute;
         right:20px;
     }
 }
 .modal-body{
-    gap: 20px;
+    .detail{
+        display: flex;
+        gap: 260px;
+        margin: 30px 0;
+        background-color: rgb(255, 255, 255);
+        border: 2px solid rgb(206, 206, 206);
+        border-radius: 20px;
+        padding: 20px;
+        .image{
+            width: 200px;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .infor{
+            display: block;
+            p{
+                width: 100%;
+            }
+        }
+    }
+
+    .test{
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            height: fit-content;
+            border-radius: 5px;
+            border: 2px solid #CECECE;
+            background: #FFF;
+            max-width: 100%;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead{
+            background: #e0dede;
+            height: 20px;
+        
+            tr {
+                height: 50px;
+                
+        
+                th{
+                    padding: 5px;
+                    font-size: 16px;
+                    border: 1px solid #d1cece;
+                    text-align: center;
+                }
+            }
+        }
+        
+        tbody{
+            tr{
+                border-bottom: 1px solid #e0dede;
+        
+                td{
+                    padding: 5px;
+                    font-size: 14px;
+                    border: 1px solid #eeeaea;
+                }
+            }
+        }
+        
+        tbody tr:hover{
+            background: #eeeaea;
+        }
+    }
+}
+
+i {
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+i:hover {
+    color: #FF7A00
 }
