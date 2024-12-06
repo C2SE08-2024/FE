@@ -43,7 +43,8 @@ import { CourseComponent } from './component/course/course.component';
        
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent, 
+    FooterComponent
   ]
 })
 export class HomeModule { }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'manage-binDev', loadChildren:() => import('./admin/admin.module').then(module => module.AdminModule)},
   {path: 'account-detail', loadChildren:() => import('./account/account.module').then(module => module.AccountModule)},
   {path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
-  {path:'business1', loadChildren: () => import('./business/business.module').then(module => module.BusinessModule)},
+  {path:'my-business', loadChildren: () => import('./business/business.module').then(module => module.BusinessModule)},
 ];
 
 @NgModule({

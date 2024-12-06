@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           else if(this.tokenStorageService.getRole() === 'ROLE_BUSINESS')
             this.router.navigate(['/business1']);
           else if(this.tokenStorageService.getRole() === 'ROLE_INSTRUCTOR' || this.tokenStorageService.getRole() === 'ROLE_ADMIN')
-            this.router.navigate(['/mangage-binDev']);
+            this.router.navigate(['/manage-binDev']);
         },
         error => {
           console.log('Lỗi đăng nhập', error);          

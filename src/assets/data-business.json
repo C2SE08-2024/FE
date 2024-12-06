@@ -1,0 +1,193 @@
+[
+    {
+      "business_id": 1,
+      "business_name": "Công Ty Cổ Phần Phần Mềm Softech Đà Nẵng",
+      "business_email": "tuyensinh@softech.vn",
+      "business_phone": "842473044888",
+      "business_address": "Tòa nhà VNPT, 38 Yên Bái, Quận Hải Châu, Đà Nẵng",
+      "jobs": [
+        {
+          "job_id": 1,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Full-time",
+          "job_title": "tham gia dự án về Java",
+          "salary_range": "500-800$",
+          "job_description": "Java Dev",
+          "applications": [
+            {
+              "job_application_id": 1,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 1,
+                "student_name": "Nguyễn Văn Long",
+                "student_email": "nguyenvanlong@gmail.com",
+                "major": "Công nghệ thông tin"
+              }
+            }
+          ]
+        },
+        {
+          "job_id": 2,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Part-Time",
+          "job_title": "tham gia dự án về ReactJs",
+          "salary_range": "500-800$",
+          "job_description": "ReactJs",
+          "applications": [
+            {
+              "job_application_id": 2,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 2,
+                "student_name": "Trần Thị Minh Thư",
+                "student_email": "tranthiminhthu@gmail.com",
+                "major": "Kế toán"
+              }
+            }
+          ]
+        },
+        {
+          "job_id": 3,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Full-time",
+          "job_title": "tham gia dự án về NodeJs",
+          "salary_range": "600-800$",
+          "job_description": "NodeJs",
+          "applications": [
+            {
+              "job_application_id": 3,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 3,
+                "student_name": "Lê Thị Bích Ngọc",
+                "student_email": "lethibichngoc@gmail.com",
+                "major": "Quản trị kinh doanh"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "business_id": 2,
+      "business_name": "Công Ty Phần Mềm Chất Lượng FAST Đà Nẵng",
+      "business_email": "info@fast.com.vn",
+      "business_phone": "0236 3810 532",
+      "business_address": "59B Lê Lợi, Quận Hải Châu, TP. Đà Nẵng",
+      "jobs": [
+        {
+          "job_id": 4,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Full-time",
+          "job_title": "tham gia dự án về Android",
+          "salary_range": "800-1000$",
+          "job_description": "Android",
+          "applications": [
+            {
+              "job_application_id": 4,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 4,
+                "student_name": "Phạm Quốc Anh",
+                "student_email": "phamquocanh@gmail.com",
+                "major": "Kỹ thuật xây dựng"
+              }
+            }
+          ]
+        },
+        {
+          "job_id": 5,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Part-Time",
+          "job_title": "tham gia dự án về PHP",
+          "salary_range": "800-1000$",
+          "job_description": "PHP",
+          "applications": [
+            {
+              "job_application_id": 5,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 5,
+                "student_name": "Ngô Thành Phong",
+                "student_email": "ngothanhphong@gmail.com",
+                "major": "Khoa học máy tính"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "business_id": 3,
+      "business_name": "Công Ty Cổ Phần Phát Triển Phần Mềm ASIA Đà Nẵng",
+      "business_email": "info@asiasoft.com.vn",
+      "business_phone": "0236 2229 308",
+      "business_address": "482 Trưng Nữ Vương, Quận Hải Châu, TP. Đà Nẵng",
+      "jobs": [
+        {
+          "job_id": 6,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Part-Time",
+          "job_title": "tham gia dự án về Angular",
+          "salary_range": "600-800$",
+          "job_description": "Angular",
+          "applications": [
+            {
+              "job_application_id": 6,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 6,
+                "student_name": "Đặng Thị Bích Hà",
+                "student_email": "dangthibichha@gmail.com",
+                "major": "Ngôn ngữ Anh"
+              }
+            }
+          ]
+        },
+        {
+          "job_id": 7,
+          "logo": " https://res.cloudinary.com/dhth53ukn/image/upload/v1733248432/HTML_CSS_a9vskf.webp",
+          "job_type": "Full-time",
+          "job_title": "Test chức năng liên quan đên automation",
+          "salary_range": "500-800$",
+          "job_description": "Automation",
+          "applications": [
+            {
+              "job_application_id": 7,
+              "status": "1",
+              "application_date": null,
+              "student": {
+                "student_id": 7,
+                "student_name": "Bùi Mạnh Hùng",
+                "student_email": "buimanhhung@gmail.com",
+                "major": "Luật"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "business_id": 4,
+      "business_name": "Công Ty Cổ Phần Đầu Tư Và Công Nghệ BAP – Công Ty Phần Mềm Chất Lượng Đà Nẵng",
+      "business_email": "recruit@bap.jp",
+      "business_phone": "0236 6565 115",
+      "business_address": "81 Quang Trung, Quận Hải Châu, TP. Đà Nẵng",
+      "jobs": []
+    },
+    {
+      "business_id": 5,
+      "business_name": "Công ty TNHH Minawork – Công Ty Phần Mềm Ứng Dụng Đà Nẵng",
+      "business_email": "apple.luong1905@gmail.com",
+      "business_phone": "0988794607",
+      "business_address": "3F 25 Đường 2/9, Q. Hải Châu,Tp. Đà Nẵng",
+      "jobs": []
+    }
+  ]
+  
