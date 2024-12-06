@@ -1,4 +1,5 @@
 <div class="modal-header">
+<<<<<<< HEAD
   <h4 class="modal-title">Chỉnh Sửa {{ course.courseName }}</h4>
   <button type="button" class="close" aria-label="Close" (click)="closeModal()">
     <span aria-hidden="true">&times;</span>
@@ -39,3 +40,24 @@
       <button type="submit">Lưu Thay Đổi</button>
   </form>
 </div>
+=======
+    <h4 class="modal-title">Chỉnh Sửa {{ course.courseName }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (submit)="saveChanges()">
+        <div class="input-field">
+            <label for="name"><strong>Tên Sản Phẩm</strong></label>
+            <input type="text" id="name" name="name" [(ngModel)]="editedCourse.courseName" required>
+        </div>
+        
+        <div class="input-field">
+            <label for="coursePrice"><strong>Giá</strong></label>
+            <input type="number" id="coursePrice" name="coursePrice" [(ngModel)]="editedCourse.coursePrice" required>
+        </div>
+        <button type="submit">Lưu Thay Đổi</button>
+    </form>
+  </div>
+>>>>>>> e8bc27e44734575d3ddcddfcc4199f2add1db076

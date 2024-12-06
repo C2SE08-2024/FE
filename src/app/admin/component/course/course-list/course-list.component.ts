@@ -4,6 +4,7 @@ import { CourseService } from 'src/app/service/course/course.service';
 import { CourseDetailComponent } from '../course-detail/course-detail.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CourseEditComponent } from '../course-edit/course-edit.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class CourseListComponent implements OnInit {
 
   constructor(private courseService: CourseService,
               private modalService: NgbModal,
+              private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -40,16 +42,20 @@ export class CourseListComponent implements OnInit {
       }
   };
 
+  goToCourseDetailPage(courseId: number): void {
+    this.router.navigate(['mangage-binDev/course', courseId]);
+  }
+
   openCourseDetailModal(course: Course): void {
     const modalRef = this.modalService.open(CourseDetailComponent, {
-      size: 'lg', 
+      size: 'xl', 
     });
     modalRef.componentInstance.course = course; 
   }
 
   openCourseEditModal(course: Course): void {
     const modalRef = this.modalService.open(CourseEditComponent, {
-      size: 'lg',
+      size: 'xl',
     });
     modalRef.componentInstance.course = course;
     modalRef.result.then((result) => {
@@ -72,12 +78,10 @@ export class CourseListComponent implements OnInit {
   deleteProductAtId(): void {
     this.courseService.deleteCourse(this.deleteCourseId)
       .subscribe(() => {
-        // Handle successful deletion
         console.log('Product deleted successfully');
-        this.loadCourses();
         this.closeDeletePopup();
+        this.loadCourses();
       }, error => {
-        // Handle errors
         console.error('Error deleting Product:', error);
       });
   }
