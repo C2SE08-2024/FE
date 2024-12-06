@@ -17,17 +17,6 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent,  // Trang HomeComponent là trang chính
     children: [
-<<<<<<< HEAD
-      { path: '', redirectTo: 'home', pathMatch: 'full' },  // Khi vào trang chính thì chuyển tới '/home'
-      { path: 'home', component: HomepageComponent },  // Trang chủ
-      { path: 'business', component: BusinessComponent },  // Trang doanh nghiệp
-      { path: 'business/:id', component: BusinessdetailComponent },  // Chi tiết doanh nghiệp
-      { path: 'create-cv', component: CreateCvComponent },  // Tạo CV
-      { path: 'course', component: CourseComponent },  // Trang danh sách khóa học
-      { path: 'contact-us', component: ContactUsComponent },  // Liên hệ
-      { path: 'course/:id', component: DetailcourseComponent },  // Chi tiết khóa học (với id)
-      { path: 'payment/:id', component: PaymentComponent },  // Thanh toán
-=======
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: HomepageComponent},
       { path: 'business', component: BusinessComponent},
@@ -38,7 +27,6 @@ const routes: Routes = [
       { path: 'course/:id', component: DetailcourseComponent},
       { path: 'payment/:id', component: PaymentComponent},
 
->>>>>>> e8bc27e44734575d3ddcddfcc4199f2add1db076
     ]
   },
   { path: 'login', component: LoginComponent },  // Đăng nhập

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/model/Course/course';
 import { TokenStorageService } from '../token/token-storage.service';
+import { CourseDetailDTO } from 'src/app/model/DTO/course-detail-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,6 @@ export class CourseService {
     return this.http.get<Course[]>(this.API_URL);
   }
 
-<<<<<<< HEAD
   getFreeCourses(): Observable<any[]> {
     return this.http.get<any[]>(this.API_URL + '/free');
   }
@@ -27,9 +27,7 @@ export class CourseService {
     return this.http.get<any[]>(this.API_URL + '/paid');
   }
 
-  createCourse(courseDetailDTO: CourseDetailDTO): Observable<Course> {
-    return this.http.post<Course>(this.API_URL, courseDetailDTO);
-=======
+
   createCourse(course: Course): Observable<Course> {
     const token = this.tokenStorageService.getToken();
       if (token) {
@@ -39,7 +37,6 @@ export class CourseService {
     });
     return this.http.post<Course>(this.API_URL, course,{ headers: headers });
     }
->>>>>>> e8bc27e44734575d3ddcddfcc4199f2add1db076
   }
 
   updateCourse(id: number, course: Course): Observable<Course> {
@@ -66,18 +63,8 @@ export class CourseService {
     }
   }
 
-<<<<<<< HEAD
- // getCourseById(id: number): Observable<Course> {
-  //  const url = `${this.API_URL}/${id}`;
- //   return this.http.get<Course>(url);
- // }
-=======
   getCourseById(id: number): Observable<Course> {
     return this.http.get<Course>(`${this.API_URL}/${id}`);
   }
->>>>>>> e8bc27e44734575d3ddcddfcc4199f2add1db076
 
-  getCourseById(id: number): Observable<Course> {
-    return this.http.get<Course>(`${this.API_URL}/${id}`);
-  }
 }

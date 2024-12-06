@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<div class="modal-header">
-    <h4 class="modal-title">{{ course.courseName }} - Chi Tiết</h4>
-    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
-    <div class="detail">
-        <p><strong>Mã:</strong> {{ course.courseId }}</p>
-        <p><strong>Giá:</strong> {{ course.coursePrice | currency:'VND'}}</p>
-        <p><strong>Giảng viên:</strong> {{ course.instructor }}</p> 
-=======
 <div *ngIf="course">
   <div class="modal-header">
     <h4 class="modal-title"> Thông tin chi Tiết khóa học</h4>
@@ -25,7 +12,6 @@
         <p><strong>Giá:</strong> {{ course.coursePrice | number:'1.0-0' }} VND</p>
         <p><strong>Giảng viên:</strong> {{ course.instructor?.instructorName }}</p>
       </div>
->>>>>>> e8bc27e44734575d3ddcddfcc4199f2add1db076
     </div>
     <div class="test">
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
