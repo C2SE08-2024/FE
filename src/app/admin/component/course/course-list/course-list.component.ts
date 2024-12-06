@@ -43,7 +43,7 @@ export class CourseListComponent implements OnInit {
   };
 
   goToCourseDetailPage(courseId: number): void {
-    this.router.navigate(['mangage-binDev/course', courseId]);
+    this.router.navigate(['manage-binDev/course', courseId]);
   }
 
   openCourseDetailModal(course: Course): void {
