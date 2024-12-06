@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from '../home/component/homepage/homepage.component';
@@ -15,7 +15,7 @@ import { PaymentComponent } from './component/payment/payment.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '', component: HomeComponent,  // Trang HomeComponent là trang chính
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: HomepageComponent},
@@ -29,16 +29,14 @@ const routes: Routes = [
 
     ]
   },
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent,}
-
+  { path: 'login', component: LoginComponent },  // Đăng nhập
+  { path: 'signup', component: SignupComponent },  // Đăng ký
 ];
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes) 
+    RouterModule.forChild(routes)  // Cấu hình các routes trong module này
   ],
   exports: [RouterModule]
 })

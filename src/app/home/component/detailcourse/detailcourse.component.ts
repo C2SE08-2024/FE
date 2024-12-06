@@ -1,28 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from 'src/app/model/Course/course';  // Đảm bảo đường dẫn đúng
+import { CourseService } from 'src/app/service/course/course.service';
 
 @Component({
   selector: 'app-detailcourse',
   templateUrl: './detailcourse.component.html',
-  styleUrls: ['./detailcourse.component.css']
+  styleUrls: ['./detailcourse.component.css'],
 })
 export class DetailcourseComponent implements OnInit {
-  course: any;
+  course: Course = {} as Course;
+  loading: boolean = true;    // Biến trạng thái loading
+  errorMessage: string = '';   // Biến lưu trữ thông báo lỗi
 
-  courses = [
-    { id: 1, name: 'Machine Learning', description: 'Học Machine Learning với Python.', price: 5000000, image: 'https://img.icons8.com/color/452/ai.png' },
-    { id: 2, name: 'Data Science', description: 'Học Data Science toàn diện.', price: 4000000, image: 'https://img.icons8.com/external-flat-juicy-fish/452/external-data-science-data-science-flat-flat-juicy-fish.png' },
-    { id: 3, name: 'AI Nâng Cao', description: 'Khám phá công nghệ AI tiên tiến.', price: 6000000, image: 'https://img.icons8.com/color/452/artificial-intelligence.png' },
-  ];
+  constructor(
+    private route: ActivatedRoute,
+    private courseService: CourseService
+  ) {}
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
-
-  ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.course = this.courses.find(course => course.id === id);
+  ngOnInit(): void {
+    const courseId = +this.route.snapshot.paramMap.get('id')!;  // Lấy ID từ URL
+    this.loadCourseDetail(courseId);  // Gọi hàm để lấy chi tiết khóa học
   }
 
-  goToPayment() {
-    this.router.navigate(['/payment', this.course.id]);
+  // Hàm tải chi tiết khóa học
+  loadCourseDetail(courseId: number): void {
+    this.courseService.getCourseById(courseId).subscribe(
+      (data) => {
+        this.course = data;
+        this.loading = false;
+      },
+      (error) => {
+        this.errorMessage = 'Không thể tải thông tin khóa học!';
+        this.loading = false;
+      }
+    );
+  }
+  registerCourse(): void {
+    console.log('Đăng ký khóa học:', this.course?.courseName);
+    alert('Bạn đã đăng ký khóa học thành công!');
+    // Ở đây bạn có thể thêm logic gửi yêu cầu đăng ký đến backend
   }
 }

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Category } from 'src/app/model/Category/category';
 import { Course } from 'src/app/model/Course/course';
 import { CourseService } from 'src/app/service/course/course.service';
 
@@ -13,7 +12,6 @@ export class CourseEditComponent implements OnInit {
 
   @Input() course: Course;
   editedCourse: Course;
-  categoryList : Category[];
   uploadedAvatar: any;
 
   constructor(public activeModal: NgbActiveModal,

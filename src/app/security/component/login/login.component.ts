@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
           }          
           if(this.tokenStorageService.getRole() === 'ROLE_STUDENT' || this.tokenStorageService.getRole() === 'ROLE_BUSINESS')
             this.router.navigate(['/home']);
+          else if(this.tokenStorageService.getRole() === 'ROLE_BUSINESS')
+            this.router.navigate(['/business1']);
           else if(this.tokenStorageService.getRole() === 'ROLE_INSTRUCTOR' || this.tokenStorageService.getRole() === 'ROLE_ADMIN')
             this.router.navigate(['/mangage-binDev']);
         },

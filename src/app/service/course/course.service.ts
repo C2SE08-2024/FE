@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/model/Course/course';
 import { TokenStorageService } from '../token/token-storage.service';
+import { CourseDetailDTO } from 'src/app/model/DTO/course-detail-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,15 @@ export class CourseService {
   getAllCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.API_URL);
   }
+
+  getFreeCourses(): Observable<any[]> {
+    return this.http.get<any[]>(this.API_URL + '/free');
+  }
+
+  getPaidCourses(): Observable<any[]> {
+    return this.http.get<any[]>(this.API_URL + '/paid');
+  }
+
 
   createCourse(course: Course): Observable<Course> {
     const token = this.tokenStorageService.getToken();
