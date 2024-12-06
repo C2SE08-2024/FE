@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -26,6 +28,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CommonModule,
+    NgbModalModule,
   ],
   exports:[],
   providers: [],
