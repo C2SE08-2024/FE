@@ -1,0 +1,110 @@
+/* Container Tổng */
+.job-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  /* Thanh tìm kiếm và bộ lọc */
+  .search-filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: #f7f8fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .city-filter {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  /* Danh sách doanh nghiệp */
+  .job-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Card doanh nghiệp */
+  .job-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .job-card:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .job-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .job-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  
+  .job-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+  }
+  
+  .industry, .location {
+    color: #555;
+    margin: 0;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Nút Xem Chi Tiết */
+  .view-details-btn {
+    align-self: flex-start;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .view-details-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

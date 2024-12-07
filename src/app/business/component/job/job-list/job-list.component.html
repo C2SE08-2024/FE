@@ -1,0 +1,26 @@
+<div class="job-container">
+    <div class="search-filter-bar">
+        <input type="text" class="search-input" placeholder="Tìm kiếm..." [(ngModel)]="searchQuery" (input)="filterJobs()" />
+        <select class="city-filter" [(ngModel)]="selectedCity" (change)="filterJobs()">
+            <option value="all">Tất cả thành phố</option>
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+    </div>
+  
+    <div class="job-list" >
+        <!-- <div *ngIf="business.jobs && business.jobs.length > 0"> -->
+            <div class="job-card" *ngFor="let job of jobs">
+                <div class="job-info">
+                    <img [src]="job.logo" class="job-logo" />
+                    <div>
+                        <h3 class="job-name">{{ job.job_title }}</h3>
+                        <p class="industry">{{ job.job_type }}</p>
+                        <p class="industry">{{ job.salary_range }}</p>
+                    </div>
+                </div>
+                <p class="description">{{ job.description }}</p>
+                <button class="view-details-btn" (click)="viewDetails(job.job_id)">Xem chi tiết</button>
+            </div>
+        </div>
+    </div>
+  

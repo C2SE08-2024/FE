@@ -20,6 +20,13 @@ export class CourseListComponent implements OnInit {
   showDeletePopup = false;
   deleteCourseId: number;
 
+  //phân trang
+  totalCourses: number = 0;
+  coursesPerPage: number = 5;
+  currentPage: number = 1;
+  displayedCourses: Course[]=[];
+  
+
   constructor(private courseService: CourseService,
               private modalService: NgbModal,
               private router: Router,
@@ -33,7 +40,10 @@ export class CourseListComponent implements OnInit {
     this.courseService.getAllCourses().subscribe(
       (data) => {
         this.courses = data;
+        this.totalCourses = this.courses.length;
         this.isLoading = false;
+        this.displayedCourses = this.getCourseSlice();
+        this.currentPage = 1;
     }),
       (error) => {
         console.error('Error fetching courses:', error);
@@ -43,7 +53,7 @@ export class CourseListComponent implements OnInit {
   };
 
   goToCourseDetailPage(courseId: number): void {
-    this.router.navigate(['mangage-binDev/course', courseId]);
+    this.router.navigate(['manage-binDev/course', courseId]);
   }
 
   openCourseDetailModal(course: Course): void {
@@ -84,6 +94,23 @@ export class CourseListComponent implements OnInit {
       }, error => {
         console.error('Error deleting Product:', error);
       });
+  }
+
+  getPageArray(): number[] {
+    const pageCount = Math.ceil(this.totalCourses / this.coursesPerPage);
+    return Array.from({ length: pageCount }, (_, i) => i + 1);
+  }
+
+  getCourseSlice(): Course[] {
+    const startIndex = (this.currentPage - 1 ) * this.coursesPerPage;
+    const endIndex = startIndex + this.coursesPerPage;
+    return this.courses.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    console.log('Changing to page:', page);
+    this.currentPage = page;
+    this.displayedCourses = this.getCourseSlice();
   }
 }
 

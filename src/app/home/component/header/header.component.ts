@@ -10,7 +10,6 @@ import { TokenStorageService } from 'src/app/service/token/token-storage.service
 export class HeaderComponent implements OnInit {
 
   username: string;
-  currentUser: string;
   role = '';
   isLoggedIn = false;
   returnUrl: string;
@@ -29,11 +28,10 @@ export class HeaderComponent implements OnInit {
     if (this.tokenStorageService.getToken()) {
       this.isLoggedIn = !!this.tokenStorageService.getToken();
       console.log('Token:', this.tokenStorageService.getToken());
-      this.currentUser = this.tokenStorageService.getUser();
-      console.log('currentUser:', this.currentUser);
       this.role = this.tokenStorageService.getRole();
       console.log('role:', this.role);
       this.username = this.tokenStorageService.getUser();
+      console.log('username:', this.username);
     }
   }
 

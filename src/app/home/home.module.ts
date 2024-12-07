@@ -49,7 +49,8 @@ import { LessonComponent } from './component/lesson/lesson.component';
        
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent, 
+    FooterComponent
   ]
 })
 export class HomeModule { }

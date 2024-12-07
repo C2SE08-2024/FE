@@ -53,6 +53,6 @@ export class CourseDetailComponent implements OnInit {
   }
 
   goToTestQuestion( testId: number): void {
-    this.router.navigate(['mangage-binDev/course', this.course.courseId, 'test', testId, 'test-question']);
+    this.router.navigate(['manage-binDev/course', this.course.courseId, 'test', testId, 'test-question']);
   }
 }
