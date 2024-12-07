@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, } from '@angular/router';
 import { Course } from 'src/app/model/Course/course';  // Đảm bảo đường dẫn đúng
 import { CourseService } from 'src/app/service/course/course.service';
 

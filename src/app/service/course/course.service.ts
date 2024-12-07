@@ -9,6 +9,9 @@ import { CourseDetailDTO } from 'src/app/model/DTO/course-detail-dto';
   providedIn: 'root'
 })
 export class CourseService {
+  getCourse(courseId: number) {
+    throw new Error('Method not implemented.');
+  }
 
   private API_URL = 'http://localhost:8080/api/v1/course';
   constructor(private http: HttpClient,
@@ -27,6 +30,9 @@ export class CourseService {
     return this.http.get<any[]>(this.API_URL + '/paid');
   }
 
+  getMostPopularCourses(): Observable<any[]> {
+    return this.http.get<any[]>(this.API_URL + '/popular');
+  }
 
   createCourse(course: Course): Observable<Course> {
     const token = this.tokenStorageService.getToken();

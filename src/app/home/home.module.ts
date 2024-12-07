@@ -15,6 +15,9 @@ import { BusinessdetailComponent } from './component/businessdetail/businessdeta
 import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { CourseComponent } from './component/course/course.component';
+import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
+import { LessonComponent } from './component/lesson/lesson.component';
+
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { CourseComponent } from './component/course/course.component';
     DetailcourseComponent,
     PaymentComponent,
     CourseComponent,
+    PaymentdetailComponent,
+    LessonComponent,
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

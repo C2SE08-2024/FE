@@ -4,7 +4,7 @@
         <img src="assets/images/logo2.png" alt="avatar">
         <h1 style="font-size: 24px; color: white;">BinDev Code System</h1>
       </div>
-      <ul class="nav-links" *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'">
+      <ul class="nav-links" *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'  ">
         <li><a routerLink="/home">Trang chủ</a></li>
         <li><a routerLink="/course">Khóa học</a></li>
 
@@ -14,6 +14,8 @@
 
 
       </ul>
+      
+
       <div class="auth-buttons" *ngIf="!isLoggedIn">
         <button class="button" ><a routerLink="/login">Đăng nhập</a></button>
         <button class="button"><a [routerLink]="['/signup']">Đăng ký</a></button>

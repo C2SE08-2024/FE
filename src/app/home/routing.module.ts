@@ -12,6 +12,7 @@ import { CourseComponent } from './component/course/course.component';
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
 import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
 import { PaymentComponent } from './component/payment/payment.component';
+import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'contact-us', component: ContactUsComponent},
       { path: 'course/:id', component: DetailcourseComponent},
       { path: 'payment/:id', component: PaymentComponent},
+      { path: 'paymentdetail/:cartId', component: PaymentComponent},
 
     ]
   },
