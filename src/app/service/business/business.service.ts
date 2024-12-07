@@ -20,4 +20,10 @@ export class BusinessService {
       map((businesses) => businesses.find(business => business.business_id === businessId))
     );
   }
+
+  getJobById(jobId: number): Observable<any> {
+    return this.getAllBusinesses().pipe(
+      map(jobs => jobs.flatMap(business => business.jobs).find(job => job.job_id === jobId))
+    );
+  }
 }

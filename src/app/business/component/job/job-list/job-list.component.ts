@@ -14,18 +14,20 @@ export class JobListComponent implements OnInit {
   cities = ['Hà Nội', 'TP. Hồ Chí Minh', 'Đà Nẵng', 'Hải Phòng'];
   businesses: any[] = [];
   filteredJobs: any [] ;
+  jobs: any [];
 
   constructor(private router: Router,
               private businessService: BusinessService,
   ) {}
 
   ngOnInit(): void {
-    this.getAllBusinesses();
+    // this.getAllBusinesses();
     // this.getBusinessById();
+    this.getBusinessDetails();
   }
 
-  viewDetails(businessId: number): void {
-    this.router.navigate(['/business', businessId]);
+  viewDetails(jobId: number): void {
+    this.router.navigate(['/my-business/job', jobId]);
   }
 
   getAllBusinesses(): void {
@@ -38,6 +40,15 @@ export class JobListComponent implements OnInit {
   getBusinessById(): void {
     this.businessService.getBusinessById(1).subscribe(data => {
       this.businesses = data;
+    });
+  }
+
+  getBusinessDetails(): void {
+    this.businessService.getBusinessById(1).subscribe(data => {
+      if (data) {
+        this.businesses = data;
+        this.jobs = data.jobs || [];  // Lưu danh sách công việc vào biến jobs
+      }
     });
   }
 
