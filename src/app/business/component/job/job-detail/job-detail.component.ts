@@ -25,15 +25,15 @@ export class JobDetailComponent implements OnInit {
       // this.loadTests();
     } else {
       const courseId = +this.activeRoute.snapshot.paramMap.get('id');
-      this.businessService.getJobById(courseId).subscribe(
-        (data) => {
-          this.job = data;
-          // this.loadTests();
-        },
-        (error) => {
-          console.error('Error fetching course detail:', error);
-        }
-      );
+      // this.businessService.getJobById(courseId).subscribe(
+      //   (data) => {
+      //     this.job = data;
+      //     // this.loadTests();
+      //   },
+      //   (error) => {
+      //     console.error('Error fetching course detail:', error);
+      //   }
+      // );
     }  
   }
 

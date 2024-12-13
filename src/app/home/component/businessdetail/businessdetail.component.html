@@ -1,44 +1,25 @@
 <div class="container" *ngIf="business">
     <div class="business-detail">
-      <img [src]="business.logoUrl" alt="Logo" class="business-logo-large" />
-      <h2>{{ business.name }}</h2>
+      <img [src]="business.businessImg" alt="Logo" class="business-logo-large" />
+      <h2>{{ business.businessName }}</h2>
       <p class="industry">{{ business.industry }}</p>
-      <p class="location">{{ business.location }}</p>
+      <p class="location">{{ business.businessAddress }}</p>
   
       <div class="detail-section">
         <h3>Giới thiệu</h3>
-        <p>{{ business.details.introduction }}</p>
+        <p>{{ business.description }}</p>
       </div>
   
       <div class="detail-section">
         <h3>Lịch sử</h3>
-        <p>{{ business.details.history }}</p>
-      </div>
-  
-      <div class="detail-section">
-        <h3>Tầm nhìn</h3>
-        <p>{{ business.details.vision }}</p>
-      </div>
-  
-      <div class="detail-section">
-        <h3>Thành tựu</h3>
-        <ul>
-          <li *ngFor="let achievement of business.details.achievements">{{ achievement }}</li>
-        </ul>
-      </div>
-  
-      <div class="detail-section">
-        <h3>Sản phẩm/Dịch vụ</h3>
-        <ul>
-          <li *ngFor="let product of business.details.products">{{ product }}</li>
-        </ul>
+        <p>{{ business.foundedYear }}</p>
       </div>
   
       <div class="detail-section">
         <h3>Thông tin liên hệ</h3>
-        <p><strong>Địa chỉ:</strong> {{ business.details.contact.address }}</p>
-        <p><strong>Điện thoại:</strong> {{ business.details.contact.phone }}</p>
-        <p><strong>Email:</strong> {{ business.details.contact.email }}</p>
+        <p><strong>Địa chỉ:</strong> {{ business.businessAddress }}</p>
+        <p><strong>Điện thoại:</strong> {{ business.businessPhone }}</p>
+        <p><strong>Email:</strong> {{ business.businessEmail }}</p>
       </div>
   
       <!-- Nút nộp CV -->
@@ -46,7 +27,7 @@
   
       <!-- Form Nộp CV Đơn Giản -->
       <div class="cv-form-container" *ngIf="showCvForm">
-        <h3>Nộp CV cho {{ business.name }}</h3>
+        <h3>Nộp CV cho {{ business.businessName }}</h3>
         <form [formGroup]="cvForm" (ngSubmit)="submitCv()">
           <label>
             CV (file PDF):

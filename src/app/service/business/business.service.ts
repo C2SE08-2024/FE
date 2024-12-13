@@ -2,28 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators/map';
+import { Business } from 'src/app/model/Business/business';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessService {
 
-  private apiUrl = 'assets/data-business.json';
+  private apiUrl = 'http://localhost:8080/api/v1/business';
   constructor(private http: HttpClient) { }
 
-  getAllBusinesses(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getAllBusinesses(): Observable<Business[]> {
+    return this.http.get<Business[]>(this.apiUrl);
   }
 
-  getBusinessById(businessId: number): Observable<any> {
-    return this.http.get<any>(this.apiUrl).pipe(
-      map((businesses) => businesses.find(business => business.business_id === businessId))
-    );
+  getBusinessById(businessId: number): Observable<Business> {
+    return this.http.get<Business>(`${this.apiUrl}/id/${businessId}`);
   }
 
-  getJobById(jobId: number): Observable<any> {
-    return this.getAllBusinesses().pipe(
-      map(jobs => jobs.flatMap(business => business.jobs).find(job => job.job_id === jobId))
-    );
-  }
+  
 }

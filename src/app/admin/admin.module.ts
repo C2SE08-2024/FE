@@ -13,7 +13,7 @@ import { CourseDetailComponent } from './component/course/course-detail/course-d
 import { CourseEditComponent } from './component/course/course-edit/course-edit.component';
 import { CourseCreateComponent } from './component/course/course-create/course-create.component';
 import { TestComponent } from './component/test/test/test.component';
-import { TestQuestionComponent } from './component/test/test-question/test-question.component';
+import { TestQuestionComponent } from './component/test-question/test-question-list/test-question.component';
 import { LessonDetailComponent } from './component/lesson/lesson-detail/lesson-detail.component';
 import { LessonListComponent } from './component/lesson/lesson-list/lesson-list.component';
 import { TestListComponent } from './component/test/test-list/test-list.component';

@@ -24,10 +24,6 @@ export class TestQuestionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.activeRoute.paramMap.subscribe(params => {
-    //   this.courseId = +params.get('id');
-    //   this.loadQuestions();
-    // });
     this.activeRoute.paramMap.subscribe(params => {
       this.courseId = +params.get('courseId');  
       this.testId = +params.get('testId');      

@@ -1,5 +1,131 @@
-.body{
+/* Cấu hình chung cho body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
     margin: 0;
-
-    
-}
+    padding: 20px;
+  }
+  
+  .body {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tiêu đề */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Tiêu đề thông tin khóa học */
+  .course-info h5 {
+    font-size: 18px;
+    color: #4e73df;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* Cấu hình form */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các nhóm trong form */
+  }
+  
+  /* Table để căn chỉnh label và input */
+  table {
+    width: 100%;
+    border-spacing: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style cho các ô của table */
+  td {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: left;
+    width: 50%;
+  }
+  
+  /* Label */
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  /* Các input */
+  input[type="text"], input[type="file"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Khi input được focus */
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #4e73df;
+    box-shadow: 0 0 5px rgba(78, 115, 223, 0.3);
+  }
+  
+  /* Input file */
+  input[type="file"] {
+    display: none;
+  }
+  
+  input[type="file"] + label {
+    display: inline-block;
+    background-color: #4e73df;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="file"]:hover + label {
+    background-color: #3b5b9b;
+  }
+  
+  /* Hiển thị ảnh */
+  input[type="file"] + label + img {
+    margin-top: 10px;
+    max-width: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  /* Nút Submit */
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4e73df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #3b5b9b;
+  }
+  

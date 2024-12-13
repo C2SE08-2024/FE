@@ -19,11 +19,11 @@ export class LessonCreateComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private activeRoute: ActivatedRoute,
-              private uploadService: UploadService
+              private uploadService: UploadService,
+              private lessonService: LessonService,
   ) {}
 
   ngOnInit(): void {
-    // Khởi tạo form với các trường tương ứng
     this.courseId = +this.activeRoute.parent.snapshot.paramMap.get('id');
     this.lessonForm = this.fb.group({
       lessonName: ['', [Validators.required]],  
@@ -36,7 +36,7 @@ export class LessonCreateComponent implements OnInit {
   }
 
   onFileSelected(event: any): void {
-    this.selectedImage = event.target.files[0];  // Lấy file ảnh từ input
+    this.selectedImage = event.target.files[0];
   }
 
   onUpload(): void {
@@ -57,16 +57,16 @@ export class LessonCreateComponent implements OnInit {
   onSubmit(): void {
     if (this.lessonForm.valid) {
       console.log('Lesson created successfully:', this.lessonForm.value);
-    //   this.lessonService.createLesson(this.lessonForm.value).subscribe(
-    //     (response) => {
-    //       console.log('Lesson created successfully:', response);
-    //     },
-    //     (error) => {
-    //       console.error('Error creating lesson:', error);
-    //     }
-    //   );
-    // } else {
-    //   console.log('Form is invalid');
+      this.lessonService.createLesson(this.lessonForm.value).subscribe(
+        (response) => {
+          console.log('Lesson created successfully:', response);
+        },
+        (error) => {
+          console.error('Error creating lesson:', error);
+        }
+      );
+    } else {
+      console.log('Form is invalid');
     }
   }
 

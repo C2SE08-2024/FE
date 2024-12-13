@@ -1,0 +1,31 @@
+<div *ngIf="questions">
+  <div class="header">
+    <small>THÔNG TIN BÀI KIỂM TRA</small>
+    <h4>Tổng quan về HTML - Cấu trúc File</h4>
+    <p><strong>Điểm đậu:</strong> 8</p>
+  </div>
+  <div class="action">
+    <button>Thêm câu hỏi</button>
+    <button>Sửa</button>
+    <button>Xóa</button>
+  </div>
+  <div class="test-question-container">
+    <div class="question-list">
+      <ul>
+        <li *ngFor="let question of questions; let i = index" (click)="selectQuestion(question)">
+          Câu hỏi {{ i + 1 }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="question-detail">
+      <!-- <h4 style="white-space: pre-line;">{{ selectedQuestion?.questionContent }}</h4> -->
+      <h4 [innerHTML]="convertToHtml(selectedQuestion?.questionContent)"></h4>
+      <p><strong>Correct Answer:</strong> {{ selectedQuestion?.correctAnswer }}</p>
+      
+    </div>
+  </div>
+</div>
+<div *ngIf="!questions">
+  Không có bài kiểm tra
+</div>

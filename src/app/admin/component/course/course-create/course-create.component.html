@@ -3,24 +3,31 @@
   <div class="course-info">
     <h5>Thông tin khóa học</h5>
     <form [formGroup]="addCourse" (ngSubmit)="submit()" class="form">
-      <div class="input-box">
-          <label>Hình ảnh</label>
-          <input type="file" (change)="onFileSelected($event)"  placeholder="Choose product image" accept="image/*" required />
-          <!-- <img formControlName="image" [src]="addCourse.get('image').value"> -->
-          <img [src]="url" style="width: 200px;">
-        </div>
+      <table>
+        <!-- Hình ảnh -->
+        <tr>
+          <td><label for="image">Hình ảnh</label></td>
+          <td>
+            <input id="image" type="file" (change)="onFileSelected($event)" placeholder="Choose product image" accept="image/*" required />
+            <img [src]="url" *ngIf="url" style="width: 200px;" />
+          </td>
+        </tr>
 
-      <div class="input-box">
-        <label>Tên khóa học</label>
-        <input type="text" formControlName="courseName" placeholder="Enter course name" required />
-      </div>
+        <!-- Tên khóa học -->
+        <tr>
+          <td><label for="image">Tên khóa học</label></td>
+          <input id="image" type="text" formControlName="courseName" placeholder="Enter course name" required />
+        </tr>
 
-      <div class="input-box">
-        <label>Giá</label>
-        <input type="text" formControlName="coursePrice" placeholder="Enter course price" required />
-      </div>
+        <!-- Giá khóa học -->
+        <tr>
+          <td><label for="coursePrice">Giá</label></td>
+          <input id="coursePrice" type="text" formControlName="coursePrice" placeholder="Enter course price" required />
+        </tr>
+      </table>
 
-      <button>Submit</button>
+      <!-- Nút Submit -->
+      <button type="submit">Tạo khóa học</button>
     </form>
   </div>
 </div>

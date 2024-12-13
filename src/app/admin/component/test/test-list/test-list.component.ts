@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Test } from 'src/app/model/Test/test';
 import { TestService } from 'src/app/service/test/test.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TestQuestionComponent } from '../test-question/test-question.component';
+import { TestQuestionComponent } from '../../test-question/test-question-list/test-question.component';
 
 @Component({
   selector: 'app-test-list',
@@ -58,16 +58,9 @@ export class TestListComponent implements OnInit {
     );
   }
 
-  goToLessonDetailPage(lessonId: number) {
-    this.router.navigate(['manage-binDev/course', this.courseId, 'lesson', lessonId]);
+  goToTestQuestionPage(testId: number) {
+    this.router.navigate(['manage-binDev/course', this.courseId, 'test', testId,'test-question']);
     // this.router.navigate(['lesson',lessonId], { relativeTo: this.activeRoute });
-  }
-
-  openTestDetailModal(test: Test): void {
-    const modalRef = this.modalService.open(TestQuestionComponent, {
-      size: 'lg', 
-    });
-    modalRef.componentInstance.test = test; 
   }
 
   getPageArray(): number[] {

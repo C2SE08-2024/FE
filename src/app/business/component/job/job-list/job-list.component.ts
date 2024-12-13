@@ -23,7 +23,7 @@ export class JobListComponent implements OnInit {
   ngOnInit(): void {
     // this.getAllBusinesses();
     // this.getBusinessById();
-    this.getBusinessDetails();
+    // this.getBusinessDetails();
   }
 
   viewDetails(jobId: number): void {
@@ -37,20 +37,12 @@ export class JobListComponent implements OnInit {
     });
   }
 
-  getBusinessById(): void {
-    this.businessService.getBusinessById(1).subscribe(data => {
-      this.businesses = data;
-    });
-  }
+  // getBusinessById(): void {
+  //   this.businessService.getBusinessById(1).subscribe(data => {
+  //     this.businesses = data;
+  //   });
+  // }
 
-  getBusinessDetails(): void {
-    this.businessService.getBusinessById(1).subscribe(data => {
-      if (data) {
-        this.businesses = data;
-        this.jobs = data.jobs || [];  // Lưu danh sách công việc vào biến jobs
-      }
-    });
-  }
 
   filterJobs(): void {
     this.filteredJobs = this.businesses.filter(business => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { CourseService } from "src/app/service/course/course.service";
 import { UploadService } from "src/app/service/uploadFile/upload.service";
 
@@ -20,7 +21,8 @@ export class CourseCreateComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private courseService: CourseService,
-              private uploadService: UploadService
+              private uploadService: UploadService,
+              private router: Router,
             ) {}
   
   ngOnInit(): void {
@@ -66,8 +68,11 @@ export class CourseCreateComponent implements OnInit {
           image: this.fileUrl,
         });
         console.log(this.addCourse.value);
-        this.courseService.createCourse(this.addCourse.value).subscribe(() => {
-          console.log("successful:");
+        this.courseService.createCourse(this.addCourse.value).subscribe((courseData) => {
+          console.log("Course created successfully:", courseData);
+          const courseId = courseData.courseId;
+          console.log('Course ID:', courseId);
+          this.router.navigate([`/manage-binDev/course/${courseId}`]);
         });
       }
     });

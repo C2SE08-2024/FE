@@ -1,4 +1,8 @@
 <div class="lesson" *ngIf="lessons">
+    <div class="action">
+        <p>Danh sách bài học</p>
+        <button>Tạo bài học</button> 
+    </div>
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <div *ngIf="lessons && lessons.length > 0">
         <div class="table-container">
@@ -35,9 +39,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <div *ngIf="lessons && lessons.length === 0">
-        <p>Không có bài học nào.</p>
     </div>
 </div>
 <div>
