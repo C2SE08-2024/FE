@@ -145,7 +145,7 @@ thead{
 tbody{
     tr{
         border-bottom: 1px solid #e0dede;
-
+        cursor: pointer;
         td{
             padding: 5px;
             font-size: 14px;
@@ -156,6 +156,7 @@ tbody{
 
 tbody tr:hover{
     background: #eeeaea;
+    font-weight: bold;
 }
 
 .truncate-text {

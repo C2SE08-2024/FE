@@ -1,0 +1,52 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Lesson } from 'src/app/model/Lesson/lesson';
+import { Test } from 'src/app/model/Test/test';
+import { TestQuestion } from 'src/app/model/Test/test-question';
+import { TestService } from '../../../../service/test/test.service';
+import { LessonService } from 'src/app/service/lesson/lesson.service';
+
+@Component({
+  selector: 'app-lesson-detail',
+  templateUrl: './lesson-detail.component.html',
+  styleUrls: ['./lesson-detail.component.css']
+})
+export class LessonDetailComponent implements OnInit {
+
+  @Input() lesson: Lesson;
+
+  test: Test;
+  testQuestions: TestQuestion[];
+  errorMessage: string;
+  course: Lesson[];
+  testId: number;
+
+
+  constructor(private activeRoute: ActivatedRoute,
+              private testService: TestService,
+              private lessonService: LessonService,
+  ) { }
+
+  ngOnInit(): void {
+    if (this.lesson) {
+      // this.loadLesson();
+      // this.loadTests();
+    } else {
+      const lessonId = +this.activeRoute.snapshot.paramMap.get('lessonId');
+      this.lessonService.getLessonByLessonId(lessonId).subscribe(
+        (data) => {
+          this.lesson = data;
+          // this.testId=this.lesson.test.testId;
+        },
+        (error) => {
+          console.error('Error fetching course detail:', error);
+        }
+      );
+    }
+  }
+
+  loadTest(): void {
+
+  }
+
+}

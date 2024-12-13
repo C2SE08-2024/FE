@@ -11,8 +11,6 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +28,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     CommonModule,
     NgbModalModule,
+      
   ],
   exports:[],
   providers: [],

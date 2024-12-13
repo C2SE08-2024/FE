@@ -9,4 +9,6 @@ export interface Course {
   status: boolean;
   instructor: Instructor;
   students: Student[];
+  lessonCount?: number;
+  testCount?: number;
 }

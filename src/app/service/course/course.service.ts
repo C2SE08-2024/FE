@@ -11,6 +11,7 @@ import { CourseDetailDTO } from 'src/app/model/DTO/course-detail-dto';
 export class CourseService {
 
   private API_URL = 'http://localhost:8080/api/v1/course';
+  
   constructor(private http: HttpClient,
               private tokenStorageService: TokenStorageService,
   ) { }

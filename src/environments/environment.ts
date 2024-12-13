@@ -8,6 +8,11 @@ export const environment = {
     googleClientId: '1066206253798-jdes6066vreogpvj5elh10v6okdftnog.apps.googleusercontent.com',
     googleApiKey: 'AIzaSyAHrSFnV39secEWx5rhvLp-Bwibh0eGmgA'
   },
+  cloudinaryApi:{
+    cloud_name:'dhth53ukn',
+    API_KEY: '584676373916611',
+    API_secret: 'zGK4VO-vWhxaIDGnG9zeyy91v5k'
+  }
   
 };
 

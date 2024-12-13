@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CourseService } from "src/app/service/course/course.service";
-import { GgDriveService } from '../../../../service/uploadFile/gg-drive.service';
+import { UploadService } from "src/app/service/uploadFile/upload.service";
 
 
 @Component({
@@ -15,17 +15,19 @@ export class CourseCreateComponent implements OnInit {
   fileUrl: string | null = null;
   selectedFile: File | null = null;
 
+
+  url:any;
+
   constructor(private formBuilder: FormBuilder,
               private courseService: CourseService,
-              private ggDriveService: GgDriveService,
-  ) {}
-
+              private uploadService: UploadService
+            ) {}
+  
   ngOnInit(): void {
-    this.buildForm();
-    this.ggDriveService.initializeGoogleClient();
+    this.buildCourseForm();
   }
 
-  buildForm() {
+  buildCourseForm() {
     this.addCourse = this.formBuilder.group({
       courseName: ["", [Validators.required, Validators.maxLength(45)]],
       coursePrice: [0,[Validators.required, Validators.min(1), Validators.max(1000000000)]],
@@ -35,23 +37,14 @@ export class CourseCreateComponent implements OnInit {
   }
 
   onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.file = file;
-      this.uploadImageToDrive(file);  // Gọi hàm upload image
+    this.file = event.target.files[0];
+    if(event.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload=(e:any)=>{
+        this.url=e.target.result;
+      }
     }
-  }
-
-  // Upload hình ảnh lên Google Drive và cập nhật URL vào form
-  uploadImageToDrive(file: File): void {
-    this.ggDriveService.uploadFile(file).then((url: string) => {
-      console.log('Image uploaded to Google Drive:', url);
-      this.addCourse.patchValue({
-        image: url,  // Cập nhật URL vào trường image
-      });
-    }).catch((error) => {
-      console.error('Upload failed:', error);
-    });
   }
 
   reset() {
@@ -59,11 +52,24 @@ export class CourseCreateComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.addCourse.value);
-    this.courseService.createCourse(this.addCourse.value).subscribe(() => {
-      console.log("successful:");
-      this.reset();
+    const file_data = this.file;
+    const data = new FormData();
+    data.append('file', file_data);
+    data.append('upload_preset','app-bdcs');
+    data.append('cloud_name','dhth53ukn');
+    this.uploadService.uploadImage(data).subscribe(response => {
+      if(response){
+        console.log('response', response);
+        this.fileUrl = response.secure_url;
+        console.log('Image URL:', this.fileUrl);
+        this.addCourse.patchValue({
+          image: this.fileUrl,
+        });
+        console.log(this.addCourse.value);
+        this.courseService.createCourse(this.addCourse.value).subscribe(() => {
+          console.log("successful:");
+        });
+      }
     });
   }
-
 }
