@@ -1,1 +1,65 @@
-<p>lesson works!</p>
+<div class="lesson-page">
+
+  <!-- Khu vực chính -->
+  <main class="lesson-main">
+    <!-- Thanh bên -->
+    <aside class="lesson-sidebar">
+      <h2>Nội dung bài học</h2>
+      <ul>
+        <li
+          *ngFor="let lesson of lessons; let i = index"
+          [class.locked]="!isLessonUnlocked(i)"
+        >
+          <a
+            (click)="selectedLesson = i"
+            [class.active]="selectedLesson === i"
+            [class.locked]="!isLessonUnlocked(i)"
+            [class.disabled]="!isLessonUnlocked(i)"
+          >
+            {{ lesson.lessonName }}
+            <span *ngIf="!isLessonUnlocked(i)" class="lock-icon">🔒</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Nội dung bài học -->
+    <section class="lesson-content">
+      <!-- Nếu đã chọn bài học -->
+      <div *ngIf="selectedLesson !== null">
+        <h2>{{ lessons[selectedLesson]?.lessonName }}</h2>
+
+        <!-- Video bài học -->
+        <div class="video-wrapper" *ngIf="lessons[selectedLesson]?.video">
+          <video controls [src]="lessons[selectedLesson]?.video">
+            Trình duyệt của bạn không hỗ trợ xem video.
+          </video>
+        </div>
+
+        <!-- Nội dung bài học -->
+        <p>{{ lessons[selectedLesson]?.lessonContent }}</p>
+
+        <!-- Nút hoàn thành -->
+        <button
+          *ngIf="!lessons[selectedLesson]?.isCompletedByStudent"
+          class="btn-complete"
+          (click)="markAsCompleted(lessons[selectedLesson])"
+        >
+          Hoàn thành bài học
+        </button>
+        <button
+          *ngIf="lessons[selectedLesson]?.isCompletedByStudent"
+          class="btn-completed"
+          disabled
+        >
+          Đã hoàn thành
+        </button>
+      </div>
+
+      <!-- Placeholder nếu chưa chọn bài học -->
+      <div *ngIf="selectedLesson === null" class="lesson-placeholder">
+        <p>Hãy chọn một bài học từ danh sách để bắt đầu!</p>
+      </div>
+    </section>
+  </main>
+</div>

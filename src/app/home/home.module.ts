@@ -17,6 +17,7 @@ import { PaymentComponent } from './component/payment/payment.component';
 import { CourseComponent } from './component/course/course.component';
 import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 import { LessonComponent } from './component/lesson/lesson.component';
+import { CartComponent } from './component/cart/cart.component';
 
 
 
@@ -35,6 +36,7 @@ import { LessonComponent } from './component/lesson/lesson.component';
     CourseComponent,
     PaymentdetailComponent,
     LessonComponent,
+    CartComponent,
     
   ],
   schemas: [

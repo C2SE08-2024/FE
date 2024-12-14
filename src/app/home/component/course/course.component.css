@@ -5,7 +5,7 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Tiêu đề chung */
+/* Tiêu đề khóa học */
 h1 {
   color: #333;
   font-size: 2.5rem;
@@ -16,169 +16,108 @@ h1 {
   letter-spacing: 2px;
 }
 
-/* Tiêu đề khóa học nổi bật */
-h2.text-danger {
+/* Khóa học nổi bật */
+.course-category {
+  margin-bottom: 60px;
+}
+
+.category-title {
   color: #ff6347;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  text-align: center;
   margin-bottom: 30px;
+  text-align: center;
   border-bottom: 2px solid #ff6347;
   padding-bottom: 10px;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding-top: 10px;
 }
 
-/* Khóa học nổi bật */
-.highlight-course {
-  background: linear-gradient(45deg, #ff6347, #ffcc00); /* Màu sắc gradient rực rỡ */
-  color: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Bóng đổ để làm nổi bật */
-  height: 100%;
-}
-
-.highlight-course:hover {
-  transform: translateY(-10px) scale(1.05); /* Hiệu ứng di chuyển và phóng đại */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Bóng đổ đậm hơn khi hover */
-}
-
-.highlight-course img {
-  height: 200px;
-  object-fit: cover;
-  filter: brightness(0.7); /* Làm tối hình ảnh một chút */
-  transition: filter 0.3s ease;
-}
-
-.highlight-course:hover img {
-  filter: brightness(1); /* Làm sáng ảnh khi hover */
-}
-
-.highlight-course .card-body {
-  padding: 20px;
+.course-list {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-.highlight-course .card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.highlight-course .card-description {
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 15px;
-  line-height: 1.5;
-  height: 60px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.highlight-course .btn {
+.course-card {
   background-color: #fff;
-  color: #ff6347;
-  border-radius: 30px;
-  padding: 10px 25px;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.highlight-course .btn:hover {
-  background-color: #ff6347;
-  color: #fff;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Phần khóa học miễn phí và trả phí */
-.card {
-  background-color: #fff;
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: hidden;
+  width: 280px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-img-top {
-  object-fit: cover;
-  height: 200px;
+.course-image {
+  height: 150px;  /* Giảm chiều cao hình ảnh */
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid #f0f0f0;
   transition: transform 0.3s ease;
 }
 
-.card:hover .card-img-top {
-  transform: scale(1.1);
+.course-card:hover .course-image {
+  transform: scale(1.05);  /* Khi hover, hình ảnh sẽ được phóng to một chút */
 }
 
-.card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* Các phần còn lại không thay đổi */
+.course-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.card-title {
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.course-title {
   font-size: 1.2rem;
   font-weight: bold;
   color: #333;
+  margin: 15px 0;
 }
 
-.card-price {
+.course-description,
+.course-price {
   font-size: 1rem;
-  color: #ff6347;
-  margin-top: 10px;
-}
-
-.card-description {
-  font-size: 0.95rem;
   color: #666;
-  line-height: 1.4;
+  margin-bottom: 15px;
   height: 60px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Nút "Đăng ký ngay" */
-.btn-warning {
+.course-info .btn {
   background-color: #ff6347;
   color: #fff;
-  border-radius: 30px;
-  padding: 10px 25px;
+  border-radius: 25px;
+  padding: 12px 20px;
   font-weight: bold;
+  width: 100%;
   text-transform: uppercase;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn-warning:hover {
+.course-info .btn:hover {
   background-color: #ff4500;
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Hiệu ứng loading */
-.spinner-border {
-  width: 50px;
-  height: 50px;
-  border-width: 4px;
-}
-
-/* Các container con */
-.row {
-  margin-bottom: 30px;
 }

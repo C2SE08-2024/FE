@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/service/cart/cart.service';
 import { PaymentService } from 'src/app/service/payment/payment.service';
 
 @Component({
@@ -8,33 +9,58 @@ import { PaymentService } from 'src/app/service/payment/payment.service';
   styleUrls: ['./paymentdetail.component.css']
 })
 export class PaymentdetailComponent implements OnInit {
+  cartId: number = 0;  // ID giỏ hàng
+  cartItems: any[] = [];  // Các khóa học trong giỏ hàng
+  totalAmount: number = 0; // Tổng tiền của các khóa học
+  loading: boolean = true; // Trạng thái loading
 
-  payment: any;
-  loading = false;
-  errorMessage: string = '';
-
-  constructor(private route: ActivatedRoute,
-              private paymentService: PaymentService,
-              private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private paymentService: PaymentService
+  ) {}
 
   ngOnInit(): void {
-    const cartId = +this.route.snapshot.paramMap.get('cartId')!;
-    this.loading = true;
-    this.paymentService.getPaymentDetails(cartId).subscribe({
-      next: (data) => {
-        this.payment = data;
-        this.loading = false;
-      },
-      error: (err) => {
-        this.errorMessage = "Không thể lấy chi tiết thanh toán.";
-        this.loading = false;
-      }
-    });
+    this.cartId = +this.route.snapshot.paramMap.get('cartId')!;  // Lấy ID giỏ hàng từ URL
+    this.loadCartDetails(this.cartId);  // Tải thông tin giỏ hàng
   }
 
-  payNow() {
-    // Chuyển người dùng đến trang thanh toán của VNPay
-    const paymentUrl = this.payment.url;
-    window.location.href = paymentUrl;
+  loadCartDetails(cartId: number): void {
+    this.cartService.getCart().subscribe(
+      (data) => {
+        this.cartItems = data.cartDetailList;
+        this.totalAmount = this.cartItems.reduce((sum, item) => sum + item.course.coursePrice, 0);  // Tính tổng tiền
+        this.loading = false;
+      },
+      (error) => {
+        console.error('Lỗi khi tải chi tiết giỏ hàng', error);
+        this.loading = false;
+      }
+    );
+  }
+
+  proceedToPayment(): void {
+    const paymentData = {
+      cartId: this.cartId,
+      totalAmount: this.totalAmount,
+      cartItems: this.cartItems.map(item => ({
+        courseId: item.course.id,
+        coursePrice: item.course.coursePrice
+      }))
+    };
+
+    this.paymentService.createPayment(paymentData).subscribe(
+      (response) => {
+        if (response && response.paymentUrl) {
+          window.location.href = response.paymentUrl;  // Chuyển hướng tới cổng thanh toán VNPAY
+        } else {
+          console.error('Không nhận được URL thanh toán từ server');
+        }
+      },
+      (error) => {
+        console.error('Lỗi khi tạo thanh toán', error);
+        alert('Có lỗi khi tạo thanh toán!');
+      }
+    );
   }
 }
