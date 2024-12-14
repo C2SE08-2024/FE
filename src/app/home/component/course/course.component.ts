@@ -11,6 +11,7 @@ export class CourseComponent implements OnInit {
 
   freeCourses: any[] = [];  // Mảng chứa các khóa học miễn phí
   paidCourses: any[] = [];  // Mảng chứa các khóa học trả phí
+  popularCourses: any[] = [];
   errorMessage: string = ''; // Biến để lưu thông báo lỗi
   loading: boolean;
   
@@ -52,6 +53,15 @@ export class CourseComponent implements OnInit {
       (error) => {
         this.errorMessage = 'Không thể tải danh sách khóa học trả phí. Vui lòng thử lại sau!';
         this.loading = false;
+      }
+    );
+    // Gọi API để lấy khóa học nổi bật
+    this.courseService.getMostPopularCourses().subscribe(
+      (data) => {
+        this.popularCourses = data;
+      },
+      (error) => {
+        this.errorMessage = 'Không thể tải khóa học nổi bật!';
       }
     );
   }

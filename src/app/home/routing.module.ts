@@ -12,6 +12,9 @@ import { CourseComponent } from './component/course/course.component';
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
 import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
 import { PaymentComponent } from './component/payment/payment.component';
+import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
+import { LessonComponent } from './component/lesson/lesson.component';
+import { CartComponent } from './component/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -25,12 +28,15 @@ const routes: Routes = [
       { path: 'course', component: CourseComponent },
       { path: 'contact-us', component: ContactUsComponent},
       { path: 'course/:id', component: DetailcourseComponent},
-      { path: 'payment/:id', component: PaymentComponent},
-
+      { path: 'course/:id/payment', component: PaymentComponent},
+      { path: 'cart', component: CartComponent },
+      { path: 'paymentdetail/:cartId', component: PaymentdetailComponent},
+      { path: 'course/:id/lesson', component: LessonComponent },
     ]
   },
   { path: 'login', component: LoginComponent },  // Đăng nhập
   { path: 'signup', component: SignupComponent },  // Đăng ký
+  
 ];
 
 @NgModule({

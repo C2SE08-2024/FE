@@ -1,23 +1,25 @@
-<div class="container" *ngIf="course">
-    <h1 class="text-center fw-bold">Thanh Toán</h1>
-    <div class="card mx-auto shadow p-4" style="max-width: 500px;">
-      <h5 class="fw-bold">Khóa học: {{ course.name }}</h5>
-      <p>Học phí: {{ course.price | currency:'VND' }}</p>
-      <form #paymentForm="ngForm" (ngSubmit)="processPayment(paymentForm.value)">
-        <div class="mb-3">
-          <label for="name" class="form-label">Họ và Tên</label>
-          <input type="text" class="form-control" id="name" name="name" required ngModel>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email" required ngModel>
-        </div>
-        <div class="mb-3">
-          <label for="card" class="form-label">Số Thẻ Thanh Toán</label>
-          <input type="text" class="form-control" id="card" name="card" required ngModel>
-        </div>
-        <button type="submit" class="btn btn-danger w-100">Thanh Toán</button>
-      </form>
+<div class="container">
+  <h2 class="text-center mb-4">Chi Tiết Thanh Toán</h2>
+
+  <!-- Hiển thị khi đang tải dữ liệu -->
+  <div *ngIf="loading" class="text-center">
+    <span>Đang tải thông tin thanh toán...</span>
+  </div>
+
+  <!-- Hiển thị khi có thông tin thanh toán -->
+  <div *ngIf="!loading && course">
+    <h4>Thông Tin Khóa Học</h4>
+    <p><strong>Tên khóa học:</strong> {{ course.courseName }}</p>
+    <p><strong>Giá khóa học:</strong> {{ course.coursePrice | number:'1.0-0' }} VND</p>
+
+    <div class="text-right mt-3">
+      <h4>Tổng cộng: {{ course.coursePrice | number:'1.0-0' }} VND</h4>
+      <button class="btn btn-success" (click)="proceedWithPayment()">Thanh toán</button>
     </div>
   </div>
-  
+
+  <!-- Hiển thị nếu có lỗi hoặc không tìm thấy khóa học -->
+  <div *ngIf="!loading && !course">
+    <p>Không tìm thấy thông tin khóa học.</p>
+  </div>
+</div>

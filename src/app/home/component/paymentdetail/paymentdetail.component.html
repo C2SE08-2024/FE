@@ -1,0 +1,34 @@
+<div class="container">
+  <h2 class="text-center mb-4">Chi Tiết Thanh Toán</h2>
+
+  <!-- Hiển thị khi đang tải -->
+  <div *ngIf="loading" class="text-center">
+    <span>Đang tải thông tin thanh toán...</span>
+  </div>
+
+  <!-- Hiển thị khi có khóa học trong giỏ -->
+  <div *ngIf="!loading && cartItems.length > 0">
+    <h4>Thông Tin Khóa Học</h4>
+    <div *ngFor="let item of cartItems" class="row">
+      <div class="col-md-8">
+        <h5>{{ item.course.courseName }}</h5>
+        <p>{{ item.course.coursePrice | number:'1.0-0' }} VND</p>
+      </div>
+      <div class="col-md-4 text-right">
+        <p class="fw-bold">{{ item.course.coursePrice | number:'1.0-0' }} VND</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <h4>Tổng cộng: {{ totalAmount | number:'1.0-0' }} VND</h4>
+        <button class="btn btn-success" (click)="proceedToPayment()">Thanh toán</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hiển thị nếu không có khóa học trong giỏ -->
+  <div *ngIf="!loading && cartItems.length === 0">
+    <p>Giỏ hàng của bạn hiện tại trống. Vui lòng thêm khóa học vào giỏ hàng trước khi thanh toán.</p>
+  </div>
+</div>

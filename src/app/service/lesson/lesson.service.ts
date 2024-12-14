@@ -50,4 +50,11 @@ export class LessonService {
       return this.http.post<LessonDTO>(this.API_URL, lessonDTO, { headers: headers });
     }
   }
+
+  updateLessonStatus(lessonId: number, isCompleted: boolean): Observable<any> {
+    return this.http.patch(`${this.API_URL}/${lessonId}`, { isCompleted });
+  }
 }
+
+
+
