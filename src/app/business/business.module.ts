@@ -6,13 +6,14 @@ import { DnComponent } from './component/dn/dn.component';
 import { JobListComponent } from './component/job/job-list/job-list.component';
 import { HomeModule } from "../home/home.module";
 import { JobDetailComponent } from './component/job/job-detail/job-detail.component';
+import { JobCreateComponent } from './component/job/job-create/job-create.component';
 
 
 
 @NgModule({
   declarations: [
     DnComponent, 
-    JobListComponent, JobDetailComponent],
+    JobListComponent, JobDetailComponent, JobCreateComponent],
   imports: [
     CommonModule,
     RoutingModule,

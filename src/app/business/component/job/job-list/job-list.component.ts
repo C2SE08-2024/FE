@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JobDTO } from 'src/app/model/Job/job';
 import { BusinessService } from 'src/app/service/business/business.service';
+import { JobService } from 'src/app/service/job/job.service';
+import { TokenStorageService } from 'src/app/service/token/token-storage.service';
 
 @Component({
   selector: 'app-job-list',
@@ -9,15 +12,17 @@ import { BusinessService } from 'src/app/service/business/business.service';
 })
 export class JobListComponent implements OnInit {
 
+  isLoggedIn = false;
   searchQuery = '';
-  selectedCity = 'all';
-  cities = ['Hà Nội', 'TP. Hồ Chí Minh', 'Đà Nẵng', 'Hải Phòng'];
-  businesses: any[] = [];
-  filteredJobs: any [] ;
-  jobs: any [];
+  jobs: JobDTO [];
+  role: any;
+  username: string;
+  businessId: number;
 
   constructor(private router: Router,
               private businessService: BusinessService,
+              private jobService: JobService,
+              private tokenStorageService: TokenStorageService,
   ) {}
 
   ngOnInit(): void {
@@ -30,27 +35,18 @@ export class JobListComponent implements OnInit {
     this.router.navigate(['/my-business/job', jobId]);
   }
 
-  getAllBusinesses(): void {
-    this.businessService.getAllBusinesses().subscribe(data => {
-      this.businesses = data;  
-      this.filteredJobs = this.businesses;
-    });
+  loadHeader(): void {
+    this.username = this.tokenStorageService.getUser();
+    this.businessService.getBusinessUserDetail().subscribe((data) => {
+      this.businessId = data.businessId;
+      if(this.businessId){
+
+      }
+    })
   }
 
-  // getBusinessById(): void {
-  //   this.businessService.getBusinessById(1).subscribe(data => {
-  //     this.businesses = data;
-  //   });
-  // }
-
-
-  filterJobs(): void {
-    this.filteredJobs = this.businesses.filter(business => {
-      const matchesCity = this.selectedCity === 'all' || business.location === this.selectedCity;
-      const matchesSearch = business.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-                            business.industry.toLowerCase().includes(this.searchQuery.toLowerCase());
-      return matchesCity && matchesSearch;
-    });
+  loadJob(): void{
+    
   }
 
 }

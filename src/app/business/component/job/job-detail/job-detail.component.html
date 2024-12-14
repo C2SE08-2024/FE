@@ -1,18 +1,23 @@
 <div *ngIf="job">
-    <div class="modal-header">
-      <h4 class="modal-title"> Thông tin tuyển dụng chi tiết</h4>
+    <div class="header">
+      <h4 class="title"> Thông tin tuyển dụng chi tiết</h4>
     </div>
-    <div class="modal-body">
+    <div class="body">
       <div class="detail">
         <div class="image">
-          <img [src]="job.logo">
         </div>
         <div class="infor">
-          <h3>{{ job.job_title }}</h3>
-          <p><strong>Type:</strong> {{ job.job_type }} </p>
-          <p><strong>Mô tả:</strong> {{ job.job_description }}</p>
+          <h3>{{ job.jobTitle }}</h3>
+          <p><strong>Type:</strong> {{ job.jobType }} </p>
+          <p><strong>Mô tả:</strong> {{ job.jobDescription }}</p>
+          <p><strong>Mức lương:</strong> {{ job.salaryRange }}</p>
+          <p><strong>Yêu cầu:</strong> {{ job.requirement }}</p>
+          <p><strong>Ngành:</strong> {{ job.industry }}</p>
+          <p><strong>Địa chỉ:</strong> {{ job.location }}</p>
+          <p><strong>Ngày đăng:</strong> {{ job.posterDate }}</p>
+          <p><strong>Ngày hết hạn:</strong> {{ job.expiryDate }}</p>
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!job">Đang tải thông tin...</div>
+</div>
+<div *ngIf="!job">Đang tải thông tin...</div>

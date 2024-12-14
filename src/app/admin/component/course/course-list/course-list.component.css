@@ -112,12 +112,12 @@
               }
             
               button:hover {
-                background-color: #45a049;          /* Đổi màu nền khi hover */
+                background-color: #45a049;          
               }
             
               button:active {
-                transform: scale(0.98);              /* Làm nhỏ nút khi nhấn */
-                background-color: #387037;           /* Đổi màu khi nhấn */
+                transform: scale(0.98);              
+                background-color: #387037;           
               }
         }
     }

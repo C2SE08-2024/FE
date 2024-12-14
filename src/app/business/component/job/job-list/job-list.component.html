@@ -1,24 +1,32 @@
 <div class="job-container">
-    <div class="search-filter-bar">
-        <input type="text" class="search-input" placeholder="Tìm kiếm..." [(ngModel)]="searchQuery" (input)="filterJobs()" />
-        <select class="city-filter" [(ngModel)]="selectedCity" (change)="filterJobs()">
-            <option value="all">Tất cả thành phố</option>
-            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    <div class="banner">
+        
+    </div>
+    <div class="search-container">
+        <input type="text">
+        <button><i class="fa-solid fa-magnifying-glass"></i>Tìm kiếm</button>
+        <select>
+            <option value="">Tình trạng</option>
+            <option value="">Còn hạn</option>
+            <option value="">Hết hạn</option>
         </select>
     </div>
   
     <div class="job-list" >
         <!-- <div *ngIf="business.jobs && business.jobs.length > 0"> -->
+            <div class="action">
+                <p>Danh sách khóa học</p>
+                <button [routerLink]="['create']">Đăng tuyển dụng</button> 
+            </div>
             <div class="job-card" *ngFor="let job of jobs">
                 <div class="job-info">
-                    <img [src]="job.logo" class="job-logo" />
                     <div>
-                        <h3 class="job-name">{{ job.job_title }}</h3>
-                        <p class="industry">{{ job.job_type }}</p>
-                        <p class="industry">{{ job.salary_range }}</p>
+                        <h3 class="job-name">{{ job.jobTitle }}</h3>
+                        <p class="industry">{{ job.jobType }}</p>
+                        <p class="industry">{{ job.salaryRange }}</p>
                     </div>
                 </div>
-                <p class="description">{{ job.description }}</p>
+                <p class="description">{{ job.location }}</p>
                 <button class="view-details-btn" (click)="viewDetails(job.job_id)">Xem chi tiết</button>
             </div>
         </div>

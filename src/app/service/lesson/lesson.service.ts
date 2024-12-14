@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Lesson } from 'src/app/model/Lesson/lesson';
 import { TokenStorageService } from '../token/token-storage.service';
-import { Token } from '@angular/compiler';
 import { LessonDTO } from 'src/app/model/DTO/lesson-dto';
 
 @Injectable({
