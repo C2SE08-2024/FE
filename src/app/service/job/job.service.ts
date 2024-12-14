@@ -52,6 +52,10 @@ export class JobService {
     return this.http.get<JobDTO[]>(this.apiUrl);
   }
 
+  getJobsByBusinessId(businessId: number): Observable<JobDTO[]> {
+    return this.http.get<JobDTO[]>(`${this.apiUrl}/business/${businessId}`)
+  }
+
 
   searchJobsByTitle(title: string): Observable<JobDTO[]> {
     const url = `${this.apiUrl}/search?title=${title}`;

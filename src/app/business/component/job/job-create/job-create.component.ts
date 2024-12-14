@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-job-create',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal,
+  ) { }
 
   ngOnInit(): void {
+
+  }
+
+  closeModal(): void {
+    this.activeModal.close();
   }
 
 }
