@@ -24,6 +24,9 @@ export class JobListComponent implements OnInit {
   businessId: number;
   selectedJobId: number = null;
 
+  //xóa
+  showDeletePopup = false;
+
   constructor(
     private router: Router,
     private businessService: BusinessService,
@@ -84,6 +87,26 @@ export class JobListComponent implements OnInit {
     const modalRef = this.modalService.open(JobCreateComponent, {
       size: "lg",
     });
+  }
+
+  closeDeletePopup(): void {
+    this.showDeletePopup = false;
+    this.selectedJobId = null;
+  }
+
+  deleteItemAtId(): void {
+    this.jobService.deleteJob(this.selectedJobId)
+      .subscribe(() => {
+        console.log('Item deleted successfully');
+        this.closeDeletePopup();
+        this.loadJob();
+      }, error => {
+        console.error('Error deleting Item:', error);
+      });
+  }
+
+  confirmDelete(id: number): void {
+    this.showDeletePopup = true;
   }
 }
 
