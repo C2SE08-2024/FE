@@ -50,17 +50,16 @@ export class DetailcourseComponent implements OnInit {
   registerCourse(): void {
     if (this.course.coursePrice > 0) {
       // Nếu khóa học có phí, thêm vào giỏ và chuyển đến trang giỏ hàng
-      // this.cartService.addCourseToCart(this.courseId).subscribe(
-      //   (response) => {
-      //     this.router.navigate(['/cart']); // Chuyển hướng đến trang giỏ hàng
-      //   },
-      //   (error) => {
-      //     console.error('Lỗi khi thêm khóa học vào giỏ hàng:', error);
-      //     alert(`Có lỗi khi thêm khóa học vào giỏ hàng: ${error.message}`);
-      //   }
-      // );
-      this.cartService.addCourseToCart(this.courseId);
-      this.router.navigate(['/cart']);
+      this.cartService.addCourseToCart(this.courseId).subscribe(
+        (response) => {
+          console.log('Khóa học đã được thêm vào giỏ hàng:', response); // Log thông tin thành công
+          this.router.navigate(['/cart']); // Chuyển hướng đến trang giỏ hàng
+        },
+        (error) => {
+          console.error('Lỗi khi thêm khóa học vào giỏ hàng:', error); // Log lỗi
+          alert(`Có lỗi khi thêm khóa học vào giỏ hàng: ${error.message}`);
+        }
+      );
     } else {
       // Nếu khóa học miễn phí, hiển thị thông báo và chuyển sang lesson
       alert('Bạn đã đăng ký khóa học miễn phí thành công!');

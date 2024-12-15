@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../token/token-storage.service';
+import { Payment } from 'src/app/model/DTO/payment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,10 @@ import { TokenStorageService } from '../token/token-storage.service';
 export class PaymentService {
 
   private API_URL = 'http://localhost:8080/api/v1/payment';  
+
   constructor(private http: HttpClient,
-    private tokenStorageService: TokenStorageService
+    private tokenStorageService: TokenStorageService,
+    
   ) { }
 
   // Lấy chi tiết thanh toán
@@ -26,8 +29,10 @@ export class PaymentService {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       });
+      console.log('Sending payment data:', cartDetails); // Log dữ liệu gửi đi
       return this.http.put<any>(`${this.API_URL}`, cartDetails, { headers });
     }
+    console.error('Token is missing or invalid');
     return new Observable<any>();
   }
   
