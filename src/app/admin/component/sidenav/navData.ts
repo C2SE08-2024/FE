@@ -1,5 +1,5 @@
 
-export const  navbarData=[
+export const  adminNavbarData=[
     {
         routerLink: 'dashboard',
         icon: 'fa fa-chart-column fa-lg',
@@ -11,8 +11,8 @@ export const  navbarData=[
         label: 'Quản lý người dùng'
     },
     {
-        routerLink: 'category',
-        icon: 'fa fa-list fa-lg',
+        routerLink: 'course',
+        icon: 'fa fa-book-open fa-lg',
         label: 'Quản lý khóa học'
     },
     {
@@ -21,13 +21,32 @@ export const  navbarData=[
         label: 'Product'
     },
     {
-        routerLink: 'breed',
-        icon: 'fa-solid fa-paw',
-        label: 'Doanh thu'
+        routerLink: 'review',
+        icon: 'fa-solid fa-star',
+        label: 'Đánh giá'
     },
     {
-        routerLink: 'pet',
+        routerLink: 'business',
         icon: 'fa fa-briefcase fa-lg',
         label: 'Doanh nghiệp'
+    }
+];
+
+
+export const  instructorNavbarData=[
+    {
+        routerLink: 'dashboard',
+        icon: 'fa fa-chart-column fa-lg',
+        label: 'Thống kê'
+    },
+    {
+        routerLink: 'course',
+        icon: 'fa fa-list fa-lg',
+        label: 'Quản lý khóa học'
+    },
+    {
+        routerLink: 'review',
+        icon: 'fa fa-star fa-lg',
+        label: 'Đánh giá'
     }
 ];

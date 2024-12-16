@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './component/admin-page/admin-page.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { AccountPageComponent } from './component/account-manage/account-page/account-page.component';
+import { AccountListComponent } from './component/account/account-list/account-list.component';
+import { CourseListComponent } from './component/course/course-list/course-list.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'account', component: AccountPageComponent },
+      { path: 'account', component: AccountListComponent },
+      { path: 'course', component: CourseListComponent },
     ]
   },
 ];

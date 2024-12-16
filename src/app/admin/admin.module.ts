@@ -7,12 +7,22 @@ import { BodyComponent } from './component/body/body.component';
 import { AdminPageComponent } from './component/admin-page/admin-page.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HomeModule } from '../home/home.module';
-import { AccountPageComponent } from './component/account-manage/account-page/account-page.component';
+import { CourseListComponent } from './component/course/course-list/course-list.component';
+import { AccountListComponent } from './component/account/account-list/account-list.component';
+import { CourseDetailComponent } from './component/course/course-detail/course-detail.component';
+import { CourseEditComponent } from './component/course/course-edit/course-edit.component';
 
 
 
 @NgModule({
-  declarations: [SidenavComponent, BodyComponent, AdminPageComponent, DashboardComponent, AccountPageComponent],
+  declarations: [
+    SidenavComponent, 
+    BodyComponent, 
+    AdminPageComponent, 
+    DashboardComponent,  
+    CourseListComponent, 
+    AccountListComponent, CourseDetailComponent, CourseEditComponent
+  ],
   imports: [
     CommonModule,
     RoutingModule, 
