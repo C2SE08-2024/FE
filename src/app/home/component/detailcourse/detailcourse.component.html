@@ -1,0 +1,24 @@
+<!-- src/app/home/component/detailcourse/detailcourse.component.html -->
+<div class="container">
+  <h1 class="text-center fw-bold mb-4">Chi Tiết Khóa Học</h1>
+
+  <div *ngIf="loading" class="text-center">
+    <span>Đang tải...</span>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && course" class="row">
+    <div class="col-md-6">
+      <img [src]="course.image" class="img-fluid" alt="{{ course.courseName }}">
+    </div>
+    <div class="col-md-6">
+      <h2>{{ course.courseName }}</h2>
+      
+      <p class="text-danger fw-bold">{{ course.coursePrice | number:'1.0-0' }} VND</p>
+      <button class="btn btn-success" (click)="registerCourse()">Đăng ký ngay</button>
+    </div>
+  </div>
+</div>

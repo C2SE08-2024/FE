@@ -1,21 +1,28 @@
-<div class="modal-header">
-    <h4 class="modal-title">{{ course.courseName }} - Chi Tiết</h4>
-    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
-    <div class="img">
-        <iframe width="640" height="360" frameborder="0" src="https://mega.nz/embed/vMtmXKZL#kXpaLpKyw5c4vIsuQTFaGm6Xc3xsp_fRuPN2YV3RUmE" allowfullscreen ></iframe>
-    </div>
+<div *ngIf="course">
+  <div class="header">
+    <small class="title"> CHI TIẾT KHÓA HỌC</small>
     <div class="detail">
-        <p><strong>Mã:</strong> {{ course.courseId }}</p>
-        <p><strong>Giá:</strong> {{ course.coursePrice | currency:'VND'}}</p>
-        <p><strong>Level:</strong> {{ course.level }}</p>
-        <p><strong>Thời hạn:</strong> {{ course.duration }}</p> 
-        <p><strong>Mô tả:</strong> {{ course.description }}</p> 
-        <p><strong>Giảng viên:</strong> {{ course.instructor }}</p> 
-        <p><strong>Danh mục:</strong> {{ course.category.categoryName }}</p> 
-        <p><strong>Ngôn ngữ:</strong> {{ course.language }}</p> 
+      <div class="image">
+        <img [src]="course.image">
+      </div>
+      <div class="infor">
+        <p><strong>Tên khóa học:</strong> {{ course.courseName }}</p>
+        <p><strong>Giá:</strong> {{ course.coursePrice | number:'1.0-0' }} VND</p>
+        <p><strong>Giảng viên:</strong> {{ course.instructor?.instructorName }}</p>
+        <p><strong>Số người đăng ký:</strong> {{ course.students.length }}</p>
+      </div>
     </div>
+  </div>
+  <div class="modal-body">
+    
+    <div class="link">
+      <a [routerLink]="['lesson']" routerLinkActive="active">Bài học</a>
+      <a [routerLink]="['test']" routerLinkActive="active">Bài kiểm tra</a>
+    </div>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+
+<div *ngIf="!course">Đang tải thông tin khóa học...</div>

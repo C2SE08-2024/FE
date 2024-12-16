@@ -1,0 +1,33 @@
+<div class="body">
+  <h1>Tạo khóa học mới</h1>
+  <div class="course-info">
+    <h5>Thông tin khóa học</h5>
+    <form [formGroup]="addCourse" (ngSubmit)="submit()" class="form">
+      <table>
+        <!-- Hình ảnh -->
+        <tr>
+          <td><label for="image">Hình ảnh</label></td>
+          <td>
+            <input id="image" type="file" (change)="onFileSelected($event)" placeholder="Choose product image" accept="image/*" required />
+            <img [src]="url" *ngIf="url" style="width: 200px;" />
+          </td>
+        </tr>
+
+        <!-- Tên khóa học -->
+        <tr>
+          <td><label for="image">Tên khóa học</label></td>
+          <td><input id="image" type="text" formControlName="courseName" placeholder="Enter course name" required /></td>
+        </tr>
+
+        <!-- Giá khóa học -->
+        <tr>
+          <td><label for="coursePrice">Giá</label></td>
+          <td><input id="coursePrice" type="text" formControlName="coursePrice" placeholder="Enter course price" required /></td>
+        </tr>
+      </table>
+
+      <!-- Nút Submit -->
+      <button type="submit">Tạo khóa học</button>
+    </form>
+  </div>
+</div>

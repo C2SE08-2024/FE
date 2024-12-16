@@ -4,13 +4,21 @@
         <img src="assets/images/logo2.png" alt="avatar">
         <h1 style="font-size: 24px; color: white;">BinDev Code System</h1>
       </div>
-      <ul class="nav-links" *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'">
-        <li><a routerLink="/home">Trang chủ</a></li>
-        <li><a routerLink="/course">Khóa học</a></li>
-        <li><a href="#">Doanh Nghiệp</a></li>
-        <li><a href="#">Liên hệ</a></li>
-        <li><a href="#">Tạo CV</a></li>
+      <ul class="nav-links">
+        <!-- Nếu chưa đăng nhập hoặc là student hoặc business-->
+        <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT' || role === 'ROLE_BUSINESS'"><a routerLink="/home">Trang chủ</a></li>
+        <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT' || role === 'ROLE_BUSINESS'"><a routerLink="/course">Khóa học</a></li>
+      
+        <!-- Chỉ hiển thị các liên kết này nếu chưa đăng nhập và là student  -->
+        <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'"><a routerLink="/business">Doanh Nghiệp</a></li>
+        <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'"><a routerLink="/contact-us">Liên hệ</a></li>
+        <li *ngIf="role === 'ROLE_STUDENT'"><a routerLink="/create-cv">Tạo CV</a></li>
+
+        <!-- Chỉ hiển thị các liên kết này nếu là business  -->
+        <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/my-business/job">Tuyển dụng</a></li>
+        <li *ngIf="role === 'ROLE_BUSINESS'"><a>Nhận CV</a></li>
       </ul>
+      
       <div class="auth-buttons" *ngIf="!isLoggedIn">
         <button class="button" ><a routerLink="/login">Đăng nhập</a></button>
         <button class="button"><a [routerLink]="['/signup']">Đăng ký</a></button>
@@ -42,8 +50,8 @@
         </button>
         <div class="dropdown" *ngIf="dropdown === 'profile'">
           <ul>
-            <li><a routerLink="/account"> <i class="fa-solid fa-user fa-1x"></i>Thông tin cá nhân</a></li>
-            <!-- <li><i class="fa-solid fa-gear fa-1x"></i>Settings</li> -->
+            <li><a routerLink="/account"> <i class="fa-solid fa-user fa-1x"></i>Trang cá nhân</a></li>
+            <li *ngIf="role === 'ROLE_ADMIN' || role ==='ROLE_INSTRUCTOR'"><a routerLink="/manage-binDev"><i class="fa-solid fa-user-gear"></i>Quản lý chức năng</a></li>
             <li (click)="logout()"><a href=""> <i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a></li>
           </ul>
         </div>

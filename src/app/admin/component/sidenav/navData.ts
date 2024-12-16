@@ -41,7 +41,7 @@ export const  instructorNavbarData=[
     },
     {
         routerLink: 'course',
-        icon: 'fa fa-list fa-lg',
+        icon: 'fa fa-book-open fa-lg',
         label: 'Quản lý khóa học'
     },
     {

@@ -9,5 +9,5 @@ export interface CourseDetailDTO {
     language?: string; 
     createAt?: Date; 
     updateAt?: Date; 
-  }
+}
   

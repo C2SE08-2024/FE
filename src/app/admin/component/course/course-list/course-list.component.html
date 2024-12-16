@@ -3,18 +3,19 @@
 <div *ngIf="!isLoading && !errorMessage">
     <div class="card">
         <div class="card-head">
+            <small>THÔNG TIN TÌM KIẾM</small>
             <div class="heading-banner">
                 <div class="text-heading">
-                    <h1>Danh sách khóa học</h1>
+                    <h3>KHÓA HỌC</h3>
                     <div class="seach-bar-container">
                         <form class="search-bar">
                             <!-- <button type="submit" (click)="search()"><img src="assets/image/search-symbol.png"></button>
                         <input type="text" name="value" [(ngModel)]="searchTerm" (keyup.enter)="onEnter()"> -->
                         </form>
                     </div>
-                    <a [routerLink]="['create']" class="add">
-                        <span>Thêm khóa học</span>
-                    </a>
+                    <button class="add">
+                        <span>Tìm kiếm</span>
+                    </button>
                 </div>
                 <div class="category-filter">
                     <!-- <select [(ngModel)]="selectedBreed" (change)="filterPets()">
@@ -25,86 +26,62 @@
             </div>
         </div>
         <div class="card-body">
+            <div class="action">
+                <p>Danh sách khóa học</p>
+                <button [routerLink]="['create']">Tạo khóa học</button> 
+            </div>
             <div class="table-container">
-                <!-- <table style="width: 100%; ">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center;">ID</th>
-                            <th style="text-align: left;">Hình ảnh</th>
-                            <th style="text-align: left;">Họ Tên</th>
-                            <th style="text-align: center;">Email</th>
-                            <th style="text-align: center;">Giới tính</th>
-                            <th style="text-align: center;">Địa chỉ</th>
-                            <th style="text-align: center;">Mã Học viên</th>
-                            <th style="text-align: center;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of courses">
-                            <td style="text-align: center;">{{item.id}}</td>
-                            <td style="text-align: left;">
-                                <img [src]="item.student_img"
-                                    style="max-height: 80px; max-width: 80px; width: auto; height: auto;">
-                            </td>
-                            <td [ngClass]="'truncate-text'" style="text-align: left;">
-                                {{item.student_name}}
-                            </td>
-                            <td [ngClass]="'truncate-text'" style="text-align: left;">{{item.student_email}}</td>
-                            <td style="text-align: center;">{{item.student_gender}}</td>
-                            <td style="text-align: center;">{{item.student_address}}</td>
-                            <td style="text-align: center;">{{item.student_code}}</td>
-                            <td style="text-align: center; gap: 10px">
-                                <i class="fa fa-pencil-square fa-lg"></i>
-                                <i class="fa fa-trash fa-lg"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
-
                 <table>
+                    <colgroup>
+                        <col style="width: 50px;">
+                        <col style="width: 80px;">
+                        <col style="width: 250px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                        <col style="width: 150px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                      </colgroup>
                     <thead>
                         <tr>
                             <th>STT</th>
                             <th>Action</th>
                             <th>Tên khóa học</th>
-                            <th>Mô tả</th>
+                            <th>Hình ảnh</th>
                             <th>Giá</th>
-                            <th>Level</th>
-                            <th>Ngôn Ngữ</th>
-                            <th>Tạo lúc</th>
-                            <th>Cập nhật lúc</th>
-                            <th>Danh mục</th>
+                            <th>Giảng viên</th>
+                            <th>Bài học</th>
+                            <th>Test</th>
+                            <th>Số người đăng ký</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of courses">
-                            <td></td>
-                            <td style="align-items: center; justify-content: center; gap: 10px">
-                                <i class="fa fa-pencil-square fa-lg" (click)="openCourseEditModal(item)"></i>
-                                <i class="fa fa-trash fa-lg" (click)="confirmDelete(item.courseId)"></i>
+                        <tr *ngFor="let item of displayedCourses; let i = index" >
+                            <td style="text-align: center;">{{ (currentPage - 1) * coursesPerPage + (i + 1) }}</td>
+                            <td style="z-index: 1000;">
+                                <i class="fa fa-pencil-square fa-lg" (click)="openCourseEditModal(item)" title="Chỉnh sửa khóa học"></i>
+                                <i class="fa fa-trash fa-lg" (click)="confirmDelete(item.courseId)" title="Xóa khóa học"></i>
                             </td>
-                            <td (click)="openCourseDetailModal(item)" >{{ item.courseName }}</td>
-                            <td>{{ item.description  }}</td>
-                            <td>{{ item.coursePrice  }}</td>
-                            <td>{{ item.level  }}</td>
-                            <td>{{ item.language  }}</td>
-                            <td>{{ item.createAt  }}</td>
-                            <td>{{ item.updateAt  }}</td>
-                            <td>{{ item.category.categoryName  }}</td>
-                            
+                            <td (click)="goToCourseDetailPage(item.courseId)">{{ item.courseName }}</td>
+                            <td><img [src]="item.image" style="max-height: 30px;"></td>
+                            <td>{{ item.coursePrice | number:'1.0-0'  }} VND</td>
+                            <td>{{ item.instructor?.instructorName || 'Không có' }}</td>
+                            <td>{{ item.lessonCount || 0}}</td>
+                            <td>{{ item.testCount || 0}}</td>
+                            <td>{{ item.students.length || 0}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- <div *ngIf="totalPets > petsPerPage">
-        <ul class="pagination">
-          <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
-            <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
-          </li>
-        </ul>
-    </div> -->
+        <div>
+            <ul class="pagination">
+            <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
+                <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
+            </li>
+            </ul>
+        </div>
     </div>
 </div>
 <div class="action-form" *ngIf="showDeletePopup">

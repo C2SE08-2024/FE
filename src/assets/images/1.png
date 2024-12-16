@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)https://fullstack.edu.vn/ -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script src="./1_files/921776002312242" async=""></script><script async="" src="./1_files/fbevents.js.tải xuống"></script><script>
+            /**
+             * This script is used to clear local storage when the version of the app is changed.
+             * This is useful when we have some breaking changes in the app and we want to clear the local storage.
+             * CI/CD will replace 57459f4b with the current version of the app.
+             */
+            if (localStorage.getItem("f8:version") !== "57459f4b") {
+                localStorage.clear();
+                localStorage.setItem("f8:version", "57459f4b");
+            }
+
+            /**
+             * Redirect to the new domain if the app is running on localhost.
+             */
+            if (location.hostname === "localhost") {
+                location.replace("https://f8team.local2");
+            }
+        </script>
+
+        <!-- Metas -->
+        <style type="text/css">:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+          transform: scale(var(--fa-counter-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(var(--fa-li-width, 2em) * -1);
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  -webkit-animation-name: fa-beat;
+          animation-name: fa-beat;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  -webkit-animation-name: fa-bounce;
+          animation-name: fa-bounce;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  -webkit-animation-name: fa-fade;
+          animation-name: fa-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  -webkit-animation-name: fa-beat-fade;
+          animation-name: fa-beat-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  -webkit-animation-name: fa-flip;
+          animation-name: fa-flip;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  -webkit-animation-name: fa-shake;
+          animation-name: fa-shake;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-delay: var(--fa-animation-delay, 0s);
+          animation-delay: var(--fa-animation-delay, 0s);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 2s);
+          animation-duration: var(--fa-animation-duration, 2s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+          animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    -webkit-animation-delay: -1ms;
+            animation-delay: -1ms;
+    -webkit-animation-duration: 1ms;
+            animation-duration: 1ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
+  }
+}
+@-webkit-keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@-webkit-keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@-webkit-keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@-webkit-keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@-webkit-keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@-webkit-keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  -webkit-transform: rotate(var(--fa-rotate-angle, 0));
+          transform: rotate(var(--fa-rotate-angle, 0));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse,
+.fa-duotone.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}</style><link rel="preconnect" href="https://cdn.f8team.dev/">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#000000">
+
+        <title>F8 - Học Lập Trình Để Đi Làm</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="./1_files/reset.css">
+        <link rel="stylesheet" href="./1_files/grid.css">
+        <link rel="stylesheet" href="./1_files/styles.css">
+        <link rel="stylesheet" href="./1_files/prism.css">
+        <link rel="stylesheet" href="./1_files/styles(1).css">
+        <link rel="stylesheet" href="./1_files/editor.main.css">
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="https://fullstack.edu.vn/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://fullstack.edu.vn/favicon/favicon_32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://fullstack.edu.vn/favicon/favicon_16x16.png">
+        <link rel="manifest" href="https://fullstack.edu.vn/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://fullstack.edu.vn/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <style>
+            :root {
+                --primary-color: #f05123;
+                --black-color: #000;
+                --white-color: #fff;
+                --gray-color: #666;
+                --text-color: #333;
+                --plum-color: #b80257;
+                --fb-color: #4080ff;
+                --mail-color: #f47425;
+                --invalid-color: #f33a58;
+                --desc-color: #0000008a;
+                --first-color: #1dbfaf;
+                --second-color: #1dbfaf;
+                --button-color: #1dbfaf;
+                --button-image: linear-gradient(
+                    70.06deg,
+                    #2cccff -5%,
+                    #22dfbf 106%
+                );
+
+                --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+                    sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+                    "Segoe UI Symbol";
+                --font-code: "SF Mono", monospace;
+
+                --header-height: 66px;
+                --layout-sidebar-width: 96px;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            html {
+                font-size: 62.5%;
+            }
+
+            body {
+                font-size: 1.6rem;
+                font-family: var(--system-ui);
+                text-rendering: optimizeLegibility;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                overflow-y: auto;
+                overscroll-behavior: none;
+                touch-action: manipulation;
+                -webkit-user-drag: none;
+                -ms-content-zooming: none;
+            }
+
+            body.show-notification #header {
+                top: 50px !important;
+            }
+
+            body.show-notification #sidebar {
+                top: 130px;
+            }
+        </style>
+      <script type="module" crossorigin="" src="./1_files/index-DoTwp3HT.js.tải xuống"></script>
+      <link rel="stylesheet" crossorigin="" href="./1_files/index-Wm3f8cLv.css">
+    <script async="async" type="text/javascript" src="./1_files/editor.main.nls.js.tải xuống"></script><style type="text/css">.index-module_grid__1q71E {
+  padding: 0;
+  margin: 0 auto; }
+
+.index-module_fullWidth__3X-6x {
+  width: 100%; }
+
+.index-module_wide__3c1pI {
+  width: 100%;
+  max-width: 1224px;
+  margin: 0 auto; }
+
+.index-module_standard__1eywe {
+  width: 100%; }
+
+.index-module_row__-AHgh {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px; }
+
+.index-module_outermostRow__CrZFp {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 16px;
+  padding-right: 16px; }
+
+.index-module_noGuttersRow__31ccp {
+  margin-left: 0;
+  margin-right: 0; }
+
+.index-module_col__2EQm9 {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+.index-module_noGuttersRow__31ccp .index-module_col__2EQm9 {
+  padding-left: 0;
+  padding-right: 0; }
+
+.index-module_c-0__10PYb {
+  display: none; }
+
+.index-module_c-1__43OQL {
+  width: 8.33333%; }
+
+.index-module_c-2__3HwBW {
+  width: 16.66667%; }
+
+.index-module_c-3__eRcf3 {
+  width: 25%; }
+
+.index-module_c-4__1g2uP {
+  width: 33.33333%; }
+
+.index-module_c-5__1ztyv {
+  width: 41.66667%; }
+
+.index-module_c-6__1Y3qy {
+  width: 50%; }
+
+.index-module_c-7__3sqdg {
+  width: 58.33333%; }
+
+.index-module_c-8__JPJYE {
+  width: 66.66667%; }
+
+.index-module_c-9__3E-ML {
+  width: 75%; }
+
+.index-module_c-10__VA3RK {
+  width: 83.33333%; }
+
+.index-module_c-11__37Xz9 {
+  width: 91.66667%; }
+
+.index-module_c-12__u7UXF {
+  width: 100%; }
+
+.index-module_c-o-1__3K0Kd {
+  margin-left: 8.33333%; }
+
+.index-module_c-o-2__1-eeJ {
+  margin-left: 16.66667%; }
+
+.index-module_c-o-3__2Jsxo {
+  margin-left: 25%; }
+
+.index-module_c-o-4__Rmdpn {
+  margin-left: 33.33333%; }
+
+.index-module_c-o-5__1E8_p {
+  margin-left: 41.66667%; }
+
+.index-module_c-o-6__2jMcI {
+  margin-left: 50%; }
+
+.index-module_c-o-7__3rgtc {
+  margin-left: 58.33333%; }
+
+.index-module_c-o-8__2cpby {
+  margin-left: 66.66667%; }
+
+.index-module_c-o-9__1NPDg {
+  margin-left: 75%; }
+
+.index-module_c-o-10__3iFjD {
+  margin-left: 83.33333%; }
+
+.index-module_c-o-11__6dA_m {
+  margin-left: 91.66667%; }
+
+@media (min-width: 740px) {
+  .index-module_outermostGrid__1yC21 {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .index-module_standard__1eywe {
+    width: 644px; }
+  .index-module_row__-AHgh {
+    margin-left: -8px;
+    margin-right: -8px; }
+  .index-module_outermostRow__CrZFp {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .index-module_noGuttersRow__31ccp {
+    margin-left: 0;
+    margin-right: 0; }
+  .index-module_col__2EQm9 {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .index-module_noGuttersRow__31ccp .index-module_col__2EQm9 {
+    padding-left: 0;
+    padding-right: 0; }
+  .index-module_m-0__18VBx {
+    display: none; }
+  .index-module_m-1__RBwzD,
+  .index-module_m-2__2abUr,
+  .index-module_m-3__27S15,
+  .index-module_m-4__30Uoi,
+  .index-module_m-5__3ruG1,
+  .index-module_m-6__30cxf,
+  .index-module_m-7__1YGzj,
+  .index-module_m-8__1Qk6Z,
+  .index-module_m-9__1esJF,
+  .index-module_m-10__3r8Vz,
+  .index-module_m-11__q46xN,
+  .index-module_m-12__2CxUL {
+    display: block; }
+  .index-module_m-1__RBwzD {
+    width: 8.33333%; }
+  .index-module_m-2__2abUr {
+    width: 16.66667%; }
+  .index-module_m-3__27S15 {
+    width: 25%; }
+  .index-module_m-4__30Uoi {
+    width: 33.33333%; }
+  .index-module_m-5__3ruG1 {
+    width: 41.66667%; }
+  .index-module_m-6__30cxf {
+    width: 50%; }
+  .index-module_m-7__1YGzj {
+    width: 58.33333%; }
+  .index-module_m-8__1Qk6Z {
+    width: 66.66667%; }
+  .index-module_m-9__1esJF {
+    width: 75%; }
+  .index-module_m-10__3r8Vz {
+    width: 83.33333%; }
+  .index-module_m-11__q46xN {
+    width: 91.66667%; }
+  .index-module_m-12__2CxUL {
+    width: 100%; }
+  .index-module_m-o-0__2yGBu {
+    margin-left: 0; }
+  .index-module_m-o-1__3E3B8 {
+    margin-left: 8.33333%; }
+  .index-module_m-o-2__10AXx {
+    margin-left: 16.66667%; }
+  .index-module_m-o-3__kWL-B {
+    margin-left: 25%; }
+  .index-module_m-o-4__3h3vg {
+    margin-left: 33.33333%; }
+  .index-module_m-o-5__Irrc8 {
+    margin-left: 41.66667%; }
+  .index-module_m-o-6__1VGI1 {
+    margin-left: 50%; }
+  .index-module_m-o-7__1YcNn {
+    margin-left: 58.33333%; }
+  .index-module_m-o-8__Pzvks {
+    margin-left: 66.66667%; }
+  .index-module_m-o-9__2x5Ut {
+    margin-left: 75%; }
+  .index-module_m-o-10__3vT33 {
+    margin-left: 83.33333%; }
+  .index-module_m-o-11__DKUSR {
+    margin-left: 91.66667%; } }
+
+@media (min-width: 1113px) {
+  .index-module_outermostGrid__1yC21 {
+    padding-left: 24px;
+    padding-right: 24px; }
+  .index-module_row__-AHgh {
+    margin-left: -12px;
+    margin-right: -12px; }
+  .index-module_outermostRow__CrZFp {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 12px;
+    padding-right: 12px; }
+  .index-module_noGuttersRow__31ccp {
+    margin-left: 0;
+    margin-right: 0; }
+  .index-module_standard__1eywe {
+    width: 984px; }
+  .index-module_col__2EQm9 {
+    padding-left: 12px;
+    padding-right: 12px; }
+  .index-module_noGuttersRow__31ccp .index-module_col__2EQm9 {
+    padding-left: 0;
+    padding-right: 0; }
+  .index-module_l-0__1cht5 {
+    display: none; }
+  .index-module_l-1__3kmgB,
+  .index-module_l-2__2TSUm,
+  .index-module_l-3__MjWvb,
+  .index-module_l-4__3tf5p,
+  .index-module_l-5__2UHWy,
+  .index-module_l-6__JoV9k,
+  .index-module_l-7__kRbS-,
+  .index-module_l-8__yebHm,
+  .index-module_l-9__3moa5,
+  .index-module_l-10__2Xr3t,
+  .index-module_l-11__3EcbJ,
+  .index-module_l-12__340Ve {
+    display: block; }
+  .index-module_l-1__3kmgB {
+    width: 8.33333%; }
+  .index-module_l-2__2TSUm {
+    width: 16.66667%; }
+  .index-module_l-3__MjWvb {
+    width: 25%; }
+  .index-module_l-4__3tf5p {
+    width: 33.33333%; }
+  .index-module_l-5__2UHWy {
+    width: 41.66667%; }
+  .index-module_l-6__JoV9k {
+    width: 50%; }
+  .index-module_l-7__kRbS- {
+    width: 58.33333%; }
+  .index-module_l-8__yebHm {
+    width: 66.66667%; }
+  .index-module_l-9__3moa5 {
+    width: 75%; }
+  .index-module_l-10__2Xr3t {
+    width: 83.33333%; }
+  .index-module_l-11__3EcbJ {
+    width: 91.66667%; }
+  .index-module_l-12__340Ve {
+    width: 100%; }
+  .index-module_l-o-0__348Ph {
+    margin-left: 0; }
+  .index-module_l-o-1__3wI_9 {
+    margin-left: 8.33333%; }
+  .index-module_l-o-2__2UeH- {
+    margin-left: 16.66667%; }
+  .index-module_l-o-3__3QBym {
+    margin-left: 25%; }
+  .index-module_l-o-4__2qzwY {
+    margin-left: 33.33333%; }
+  .index-module_l-o-5__WBKg5 {
+    margin-left: 41.66667%; }
+  .index-module_l-o-6__2Y7fW {
+    margin-left: 50%; }
+  .index-module_l-o-7__2Q-qC {
+    margin-left: 58.33333%; }
+  .index-module_l-o-8__v2W1b {
+    margin-left: 66.66667%; }
+  .index-module_l-o-9__2B19w {
+    margin-left: 75%; }
+  .index-module_l-o-10__1fIk5 {
+    margin-left: 83.33333%; }
+  .index-module_l-o-11__3V4aH {
+    margin-left: 91.66667%; } }
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .index-module_wide__3c1pI {
+    width: 644px; } }
+
+@media (min-width: 1024px) and (max-width: 1239px) {
+  .index-module_wide__3c1pI {
+    width: 984px; }
+  .index-module_wide__3c1pI.index-module_outermostGrid__1yC21 {
+    padding-left: 24px;
+    padding-right: 24px; }
+  .index-module_wide__3c1pI .index-module_row__-AHgh {
+    margin-left: -12px;
+    margin-right: -12px; }
+  .index-module_wide__3c1pI .index-module_outermostRow__CrZFp {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 12px;
+    padding-right: 12px; }
+  .index-module_wide__3c1pI .index-module_noGuttersRow__31ccp {
+    margin-left: 0;
+    margin-right: 0; }
+  .index-module_wide__3c1pI .index-module_standard__1eywe {
+    width: 984px; }
+  .index-module_wide__3c1pI .index-module_col__2EQm9 {
+    padding-left: 12px;
+    padding-right: 12px; }
+  .index-module_wide__3c1pI .index-module_noGuttersRow__31ccp .index-module_col__2EQm9 {
+    padding-left: 0;
+    padding-right: 0; }
+  .index-module_wide__3c1pI .index-module_l-0__1cht5 {
+    display: none; }
+  .index-module_wide__3c1pI .index-module_l-1__3kmgB,
+  .index-module_wide__3c1pI .index-module_l-2__2TSUm,
+  .index-module_wide__3c1pI .index-module_l-3__MjWvb,
+  .index-module_wide__3c1pI .index-module_l-4__3tf5p,
+  .index-module_wide__3c1pI .index-module_l-5__2UHWy,
+  .index-module_wide__3c1pI .index-module_l-6__JoV9k,
+  .index-module_wide__3c1pI .index-module_l-7__kRbS-,
+  .index-module_wide__3c1pI .index-module_l-8__yebHm,
+  .index-module_wide__3c1pI .index-module_l-9__3moa5,
+  .index-module_wide__3c1pI .index-module_l-10__2Xr3t,
+  .index-module_wide__3c1pI .index-module_l-11__3EcbJ,
+  .index-module_wide__3c1pI .index-module_l-12__340Ve {
+    display: block; }
+  .index-module_wide__3c1pI .index-module_l-1__3kmgB {
+    width: 8.33333%; }
+  .index-module_wide__3c1pI .index-module_l-2__2TSUm {
+    width: 16.66667%; }
+  .index-module_wide__3c1pI .index-module_l-3__MjWvb {
+    width: 25%; }
+  .index-module_wide__3c1pI .index-module_l-4__3tf5p {
+    width: 33.33333%; }
+  .index-module_wide__3c1pI .index-module_l-5__2UHWy {
+    width: 41.66667%; }
+  .index-module_wide__3c1pI .index-module_l-6__JoV9k {
+    width: 50%; }
+  .index-module_wide__3c1pI .index-module_l-7__kRbS- {
+    width: 58.33333%; }
+  .index-module_wide__3c1pI .index-module_l-8__yebHm {
+    width: 66.66667%; }
+  .index-module_wide__3c1pI .index-module_l-9__3moa5 {
+    width: 75%; }
+  .index-module_wide__3c1pI .index-module_l-10__2Xr3t {
+    width: 83.33333%; }
+  .index-module_wide__3c1pI .index-module_l-11__3EcbJ {
+    width: 91.66667%; }
+  .index-module_wide__3c1pI .index-module_l-12__340Ve {
+    width: 100%; }
+  .index-module_wide__3c1pI .index-module_l-o-0__348Ph {
+    margin-left: 0; }
+  .index-module_wide__3c1pI .index-module_l-o-1__3wI_9 {
+    margin-left: 8.33333%; }
+  .index-module_wide__3c1pI .index-module_l-o-2__2UeH- {
+    margin-left: 16.66667%; }
+  .index-module_wide__3c1pI .index-module_l-o-3__3QBym {
+    margin-left: 25%; }
+  .index-module_wide__3c1pI .index-module_l-o-4__2qzwY {
+    margin-left: 33.33333%; }
+  .index-module_wide__3c1pI .index-module_l-o-5__WBKg5 {
+    margin-left: 41.66667%; }
+  .index-module_wide__3c1pI .index-module_l-o-6__2Y7fW {
+    margin-left: 50%; }
+  .index-module_wide__3c1pI .index-module_l-o-7__2Q-qC {
+    margin-left: 58.33333%; }
+  .index-module_wide__3c1pI .index-module_l-o-8__v2W1b {
+    margin-left: 66.66667%; }
+  .index-module_wide__3c1pI .index-module_l-o-9__2B19w {
+    margin-left: 75%; }
+  .index-module_wide__3c1pI .index-module_l-o-10__1fIk5 {
+    margin-left: 83.33333%; }
+  .index-module_wide__3c1pI .index-module_l-o-11__3V4aH {
+    margin-left: 91.66667%; } }
+</style><link rel="canonical" href="https://fullstack.edu.vn/" data-react-helmet="true"><meta property="fb:app_id" content="437788083684246" data-react-helmet="true"><meta name="description" content="Học Lập Trình Để Đi Làm với các khóa học xây dựng UI web với HTML, CSS, lập trình Java, lập trình Javascript, React, ReactJS, lập trình mobile React-Native, lập trình Backend với PHP, Laravel, Node, ExpressJS, MySQL, MongoDB, RESTfulAPI, ..." data-react-helmet="true"><meta property="og:url" content="https://fullstack.edu.vn/" data-react-helmet="true"><meta property="og:type" content="article" data-react-helmet="true"><meta property="og:title" content="F8 - Học Lập Trình Để Đi Làm" data-react-helmet="true"><meta property="og:description" content="Học Lập Trình Để Đi Làm với các khóa học xây dựng UI web với HTML, CSS, lập trình Java, lập trình Javascript, React, ReactJS, lập trình mobile React-Native, lập trình Backend với PHP, Laravel, Node, ExpressJS, MySQL, MongoDB, RESTfulAPI, ..." data-react-helmet="true"><meta property="og:image" content="/assets/f8-og-image-qzPzCV0R.png" data-react-helmet="true"><link rel="stylesheet" href="./1_files/ReactToastify-CDq0b91D.css"><link rel="stylesheet" href="./1_files/tippy-LriLsbSV.css"></head>
+    <body class="" style="overflow-y: auto;">
+        <div id="root"><div class="_wrapper_1m7k0_1"></div><div class="_wrapper_vdbp4_1" id="header"><h1 class="_logo_vdbp4_38"><a href="https://fullstack.edu.vn/"><img src="./1_files/f8-icon-lV2rGpF0.png" alt="F8"></a><a class="_subTitle_vdbp4_58 d-lg-none" href="https://fullstack.edu.vn/">Học Lập Trình Để Đi Làm</a></h1><div class="_body_vdbp4_82 d-flex-center"><div><div class="_wrapper_15ttk_1 d-flex-center" aria-expanded="false"><div class="_searchIcon_15ttk_23"></div><input class="_input_15ttk_39" spellcheck="false" placeholder="Tìm kiếm khóa học, bài viết, video, ..." value=""></div></div></div><div class="_actions_vdbp4_99"><div id="navbar-actions-portal"></div><div class="d-lg-none"><button class="_myLearn_vdbp4_31" aria-expanded="false">Khóa học của tôi</button></div><div><div class="_actionBtn_vdbp4_112" id="notification-button" aria-expanded="false"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell" class="svg-inline--fa fa-bell _action-icon_vdbp4_107" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"></path></svg></div></div><div><div class="_avatar-wrapper_vdbp4_124" aria-expanded="false"><div class="_avatar_hzxfy_1" style="--font-size: 3.2px;"><img class="_avatar_vdbp4_124" src="./1_files/6ac438c07fa8177f5a66bd2da16a8b58.png" alt="Tỵ Nguyễn Văn"></div></div></div></div></div><div style="margin-top: var(--header-height);"><div class="_withSidebar_1iy8z_10"><div class="_sidebarWrap_1iy8z_15"><div class="_wrapper_19v1k_1" id="sidebar"><ul class="_list_19v1k_26"><li><a aria-current="page" class="_itemBtn_19v1k_41 _active_19v1k_72" href="https://fullstack.edu.vn/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="house" class="svg-inline--fa fa-house " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"></path></svg><span>Trang chủ</span></a></li><li><a class="_itemBtn_19v1k_41" href="https://fullstack.edu.vn/learning-paths"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="road" class="svg-inline--fa fa-road " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M256 32H181.2c-27.1 0-51.3 17.1-60.3 42.6L3.1 407.2C1.1 413 0 419.2 0 425.4C0 455.5 24.5 480 54.6 480H256V416c0-17.7 14.3-32 32-32s32 14.3 32 32v64H521.4c30.2 0 54.6-24.5 54.6-54.6c0-6.2-1.1-12.4-3.1-18.2L455.1 74.6C446 49.1 421.9 32 394.8 32H320V96c0 17.7-14.3 32-32 32s-32-14.3-32-32V32zm64 192v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32z"></path></svg><span>Lộ trình</span></a></li><li><a class="_itemBtn_19v1k_41" href="https://fullstack.edu.vn/blog"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper" class="svg-inline--fa fa-newspaper " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H296c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16z"></path></svg><span>Bài viết</span></a></li></ul></div></div><div class="_withSidebarContent_1iy8z_58"><div class="container-fluid"><div class="_slideshow_ceh3w_16"><div class="_wrapper_1100q_1"><div class="slick-slider slick-initialized" dir="ltr"><div class="_arrow_1100q_22 _prev_1100q_45"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg></div><div class="slick-list"><div class="slick-track" style="width: 18870px; opacity: 1; transform: translate3d(-4440px, 0px, 0px);"><div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #007efe; background: linear-gradient(to right, rgb(0, 126, 254), rgb(6, 195, 254));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer">F8 trên Facebook</a></h2><p class="_desc_1100q_104">F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.</p><div><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">THAM GIA NHÓM</a></div></div><div class="_right_1100q_136"><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_04_2.png" alt="THAM GIA NHÓM" title="F8 trên Facebook"></a></div></div></div></div></div><div data-index="0" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #8828fa; background: linear-gradient(to right, rgb(136, 40, 250), rgb(89, 169, 250));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://forms.gle/QRHdZ6DG1sg1k4ZN6" target="_blank" rel="noreferrer">Lớp Offline tại Hà Nội<span class="_crownIcon_1100q_79"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></span></a></h2><p class="_desc_1100q_104">Hình thức học Offline phù hợp nếu bạn muốn được hướng dẫn và hỗ trợ trực tiếp tại lớp. Giờ học linh hoạt, phù hợp cả sinh viên và người đi làm.</p><div><a href="https://forms.gle/QRHdZ6DG1sg1k4ZN6" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">TƯ VẤN MIỄN PHÍ</a></div></div><div class="_right_1100q_136"><a href="https://forms.gle/QRHdZ6DG1sg1k4ZN6" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/6454dee96205c.png" alt="F8 - Học lập trình web offline" title="Lớp Offline tại Hà Nội"></a></div></div></div></div></div><div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #8a0aff; background: linear-gradient(to right, rgb(138, 10, 255), rgb(96, 6, 255));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://javascript.fullstack.edu.vn/" target="_blank" rel="noreferrer">Mở bán khóa JavaScript Pro<span class="_crownIcon_1100q_79"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></span></a></h2><p class="_desc_1100q_104">Từ 08/08/2024 khóa học sẽ có giá 1.399k (-200k nếu pre-order khóa HTML CSS Pro). Khi full khóa học sẽ trở về giá gốc.</p><div><a href="https://javascript.fullstack.edu.vn/" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">HỌC THỬ MIỄN PHÍ</a></div></div><div class="_right_1100q_136"><a href="https://javascript.fullstack.edu.vn/" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/66b5a6b16d31a.png" alt="Mở bán khóa JavaScript Pro" title="Mở bán khóa JavaScript Pro"></a></div></div></div></div></div><div data-index="2" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #FD225C; background: linear-gradient(to right, rgb(253, 34, 92), rgb(253, 144, 4));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://forms.gle/vCG85nUuQ3qKHJUh7" target="_blank" rel="noreferrer">Mở Bán Áo Polo F8 Đợt 2</a></h2><p class="_desc_1100q_104">Áo Polo F8 với thiết kế tối giản, lịch sự, phù hợp mặc mọi lúc, mọi nơi. Chất áo mềm mại, thoáng mát, ngực và tay áo in logo F8 - Fullstack.</p><div><a href="https://forms.gle/vCG85nUuQ3qKHJUh7" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">ĐẶT ÁO NGAY</a></div></div><div class="_right_1100q_136"><a href="https://forms.gle/vCG85nUuQ3qKHJUh7" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/657686da32787.png" alt="Áo Polo F8" title="Mở Bán Áo Polo F8 Đợt 2"></a></div></div></div></div></div><div data-index="3" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #6828fa; background: linear-gradient(to right, rgb(104, 40, 250), rgb(255, 186, 164));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://fullstack.edu.vn/landing/htmlcss" target="_blank" rel="noreferrer">Học HTML CSS cho người mới<span class="_crownIcon_1100q_79"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></span></a></h2><p class="_desc_1100q_104">Thực hành dự án với Figma, hàng trăm bài tập và thử thách, hướng dẫn 100% bởi Sơn Đặng, tặng kèm Flashcards, v.v.</p><div><a href="https://fullstack.edu.vn/landing/htmlcss" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">HỌC THỬ MIỄN PHÍ</a></div></div><div class="_right_1100q_136"><a href="https://fullstack.edu.vn/landing/htmlcss" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/6308a6bf603a4.png" alt="Khóa Học HTML CSS Pro" title="Học HTML CSS cho người mới"></a></div></div></div></div></div><div data-index="4" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #2877FA; background: linear-gradient(to right, rgb(40, 119, 250), rgb(103, 23, 205));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://fullstack.edu.vn/courses/reactjs?ref=banner" target="_blank" rel="noreferrer">Học ReactJS Miễn Phí!</a></h2><p class="_desc_1100q_104">Khóa học ReactJS từ cơ bản tới nâng cao. Kết quả của khóa học này là bạn có thể làm hầu hết các dự án thường gặp với ReactJS.</p><div><a href="https://fullstack.edu.vn/courses/reactjs?ref=banner" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">ĐĂNG KÝ NGAY</a></div></div><div class="_right_1100q_136"><a href="https://fullstack.edu.vn/courses/reactjs?ref=banner" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_web_ReactJS.png" alt="Khoá học ReactJS online tại F8" title="Học ReactJS Miễn Phí!"></a></div></div></div></div></div><div data-index="5" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #7612ff; background: linear-gradient(to right, rgb(118, 18, 255), rgb(5, 178, 255));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8.html" target="_blank" rel="noreferrer">Thành Quả của Học Viên</a></h2><p class="_desc_1100q_104">Để đạt được kết quả tốt trong mọi việc ta cần xác định mục tiêu rõ ràng cho việc đó. Học lập trình cũng không là ngoại lệ.</p><div><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8.html" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">XEM THÀNH QUẢ</a></div></div><div class="_right_1100q_136"><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8.html" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_01_2.png" alt="Thành quả của học viên" title="Thành Quả của Học Viên"></a></div></div></div></div></div><div data-index="6" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #fe215e; background: linear-gradient(to right, rgb(254, 33, 94), rgb(255, 148, 2));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw" target="_blank" rel="noreferrer">F8 trên Youtube</a></h2><p class="_desc_1100q_104">F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.</p><div><a href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">ĐĂNG KÝ KÊNH</a></div></div><div class="_right_1100q_136"><a href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_03_youtube.png" alt="F8 trên Youtube" title="F8 trên Youtube"></a></div></div></div></div></div><div data-index="7" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #007efe; background: linear-gradient(to right, rgb(0, 126, 254), rgb(6, 195, 254));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer">F8 trên Facebook</a></h2><p class="_desc_1100q_104">F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.</p><div><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">THAM GIA NHÓM</a></div></div><div class="_right_1100q_136"><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_04_2.png" alt="THAM GIA NHÓM" title="F8 trên Facebook"></a></div></div></div></div></div><div data-index="8" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #8828fa; background: linear-gradient(to right, rgb(136, 40, 250), rgb(89, 169, 250));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://forms.gle/QRHdZ6DG1sg1k4ZN6" target="_blank" rel="noreferrer">Lớp Offline tại Hà Nội<span class="_crownIcon_1100q_79"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></span></a></h2><p class="_desc_1100q_104">Hình thức học Offline phù hợp nếu bạn muốn được hướng dẫn và hỗ trợ trực tiếp tại lớp. Giờ học linh hoạt, phù hợp cả sinh viên và người đi làm.</p><div><a href="https://forms.gle/QRHdZ6DG1sg1k4ZN6" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">TƯ VẤN MIỄN PHÍ</a></div></div><div class="_right_1100q_136"><a href="https://forms.gle/QRHdZ6DG1sg1k4ZN6" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/6454dee96205c.png" alt="F8 - Học lập trình web offline" title="Lớp Offline tại Hà Nội"></a></div></div></div></div></div><div data-index="9" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #8a0aff; background: linear-gradient(to right, rgb(138, 10, 255), rgb(96, 6, 255));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://javascript.fullstack.edu.vn/" target="_blank" rel="noreferrer">Mở bán khóa JavaScript Pro<span class="_crownIcon_1100q_79"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></span></a></h2><p class="_desc_1100q_104">Từ 08/08/2024 khóa học sẽ có giá 1.399k (-200k nếu pre-order khóa HTML CSS Pro). Khi full khóa học sẽ trở về giá gốc.</p><div><a href="https://javascript.fullstack.edu.vn/" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">HỌC THỬ MIỄN PHÍ</a></div></div><div class="_right_1100q_136"><a href="https://javascript.fullstack.edu.vn/" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/66b5a6b16d31a.png" alt="Mở bán khóa JavaScript Pro" title="Mở bán khóa JavaScript Pro"></a></div></div></div></div></div><div data-index="10" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #FD225C; background: linear-gradient(to right, rgb(253, 34, 92), rgb(253, 144, 4));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://forms.gle/vCG85nUuQ3qKHJUh7" target="_blank" rel="noreferrer">Mở Bán Áo Polo F8 Đợt 2</a></h2><p class="_desc_1100q_104">Áo Polo F8 với thiết kế tối giản, lịch sự, phù hợp mặc mọi lúc, mọi nơi. Chất áo mềm mại, thoáng mát, ngực và tay áo in logo F8 - Fullstack.</p><div><a href="https://forms.gle/vCG85nUuQ3qKHJUh7" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">ĐẶT ÁO NGAY</a></div></div><div class="_right_1100q_136"><a href="https://forms.gle/vCG85nUuQ3qKHJUh7" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/657686da32787.png" alt="Áo Polo F8" title="Mở Bán Áo Polo F8 Đợt 2"></a></div></div></div></div></div><div data-index="11" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #6828fa; background: linear-gradient(to right, rgb(104, 40, 250), rgb(255, 186, 164));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://fullstack.edu.vn/landing/htmlcss" target="_blank" rel="noreferrer">Học HTML CSS cho người mới<span class="_crownIcon_1100q_79"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></span></a></h2><p class="_desc_1100q_104">Thực hành dự án với Figma, hàng trăm bài tập và thử thách, hướng dẫn 100% bởi Sơn Đặng, tặng kèm Flashcards, v.v.</p><div><a href="https://fullstack.edu.vn/landing/htmlcss" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">HỌC THỬ MIỄN PHÍ</a></div></div><div class="_right_1100q_136"><a href="https://fullstack.edu.vn/landing/htmlcss" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/6308a6bf603a4.png" alt="Khóa Học HTML CSS Pro" title="Học HTML CSS cho người mới"></a></div></div></div></div></div><div data-index="12" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #2877FA; background: linear-gradient(to right, rgb(40, 119, 250), rgb(103, 23, 205));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://fullstack.edu.vn/courses/reactjs?ref=banner" target="_blank" rel="noreferrer">Học ReactJS Miễn Phí!</a></h2><p class="_desc_1100q_104">Khóa học ReactJS từ cơ bản tới nâng cao. Kết quả của khóa học này là bạn có thể làm hầu hết các dự án thường gặp với ReactJS.</p><div><a href="https://fullstack.edu.vn/courses/reactjs?ref=banner" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">ĐĂNG KÝ NGAY</a></div></div><div class="_right_1100q_136"><a href="https://fullstack.edu.vn/courses/reactjs?ref=banner" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_web_ReactJS.png" alt="Khoá học ReactJS online tại F8" title="Học ReactJS Miễn Phí!"></a></div></div></div></div></div><div data-index="13" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #7612ff; background: linear-gradient(to right, rgb(118, 18, 255), rgb(5, 178, 255));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8.html" target="_blank" rel="noreferrer">Thành Quả của Học Viên</a></h2><p class="_desc_1100q_104">Để đạt được kết quả tốt trong mọi việc ta cần xác định mục tiêu rõ ràng cho việc đó. Học lập trình cũng không là ngoại lệ.</p><div><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8.html" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">XEM THÀNH QUẢ</a></div></div><div class="_right_1100q_136"><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8.html" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_01_2.png" alt="Thành quả của học viên" title="Thành Quả của Học Viên"></a></div></div></div></div></div><div data-index="14" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #fe215e; background: linear-gradient(to right, rgb(254, 33, 94), rgb(255, 148, 2));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw" target="_blank" rel="noreferrer">F8 trên Youtube</a></h2><p class="_desc_1100q_104">F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.</p><div><a href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">ĐĂNG KÝ KÊNH</a></div></div><div class="_right_1100q_136"><a href="https://www.youtube.com/channel/UCNSCWwgW-rwmoE3Yc4WmJhw" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_03_youtube.png" alt="F8 trên Youtube" title="F8 trên Youtube"></a></div></div></div></div></div><div data-index="15" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1110px;"><div><div tabindex="-1" style="width: 100%; display: inline-block;"><div class="_item_1100q_16" style="--cta-hover-color: #007efe; background: linear-gradient(to right, rgb(0, 126, 254), rgb(6, 195, 254));"><div class="_left_1100q_58"><h2 class="_heading_1100q_76"><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer">F8 trên Facebook</a></h2><p class="_desc_1100q_104">F8 được nhắc tới ở mọi nơi, ở đâu có cơ hội việc làm cho nghề IT và có những con người yêu thích lập trình F8 sẽ ở đó.</p><div><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer" class="_ctaBtn_1100q_119">THAM GIA NHÓM</a></div></div><div class="_right_1100q_136"><a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer"><img class="_img_1100q_141" src="./1_files/Banner_04_2.png" alt="THAM GIA NHÓM" title="F8 trên Facebook"></a></div></div></div></div></div></div></div><div class="_arrow_1100q_22 _next_1100q_49"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg></div><ul class="slick-dots" style="display: block;"><li class=""><button>1</button></li><li class=""><button>2</button></li><li class=""><button>3</button></li><li class="slick-active"><button>4</button></li><li class=""><button>5</button></li><li class=""><button>6</button></li><li class=""><button>7</button></li><li class=""><button>8</button></li></ul></div></div></div><div class="_wrapper_ceh3w_1"><div class="_wrapper_k0w2e_1"><div><div class="_heading-wrap_k0w2e_10"><h2 class="_heading_k0w2e_10"><span rel="noreferrer" target="_self">Khóa học Pro<span class="_label_k0w2e_28">Mới</span></span></h2></div></div><div class="_body_k0w2e_5"><div class="row row-cols-6 row-cols-xxxxxl-5 row-cols-xxxxl-4 row-cols-xl-3 row-cols-lg-2 gy-6 gx-xxl-2 gx-xl-3 gx-lg-2"><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="HTML CSS Pro" target="_self" href="https://fullstack.edu.vn/landing/htmlcss"><img class="_thumb_101pg_25" src="./1_files/62f13d2424a47.png" alt="HTML CSS Pro"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_self" href="https://fullstack.edu.vn/landing/htmlcss">HTML CSS Pro</a></h3><div class="_price_1cn8u_15"><span class="_old-price_1cn8u_29">2.500.000đ</span><span class="_main-price_1cn8u_34">1.299.000đ</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none" title="Người hướng dẫn: Sơn Đặng"><div class="_avatar_hzxfy_1" style="--font-size: 2px;"><img src="./1_files/founder.jpeg"></div><span>Sơn Đặng</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 591"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>591</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 116h48p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>116h48p</span></div></div><div class="_pro-icon_1cn8u_40"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Ngôn ngữ Sass" target="_self" href="https://fullstack.edu.vn/landing/sass"><img class="_thumb_101pg_25" src="./1_files/64e184ee5d7a2.png" alt="Ngôn ngữ Sass"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_self" href="https://fullstack.edu.vn/landing/sass">Ngôn ngữ Sass</a></h3><div class="_price_1cn8u_15"><span class="_old-price_1cn8u_29">400.000đ</span><span class="_main-price_1cn8u_34">299.000đ</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none" title="Người hướng dẫn: Sơn Đặng"><div class="_avatar_hzxfy_1" style="--font-size: 2px;"><img src="./1_files/founder.jpeg"></div><span>Sơn Đặng</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 27"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>27</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 6h18p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>6h18p</span></div></div><div class="_pro-icon_1cn8u_40"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="JavaScript Pro" target="_self" href="https://fullstack.edu.vn/landing/javascript"><img class="_thumb_101pg_25" src="./1_files/66aa28194b52b.png" alt="JavaScript Pro"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_self" href="https://fullstack.edu.vn/landing/javascript">JavaScript Pro</a></h3><div class="_price_1cn8u_15"><span class="_old-price_1cn8u_29">3.299.000đ</span><span class="_main-price_1cn8u_34">1.399.000đ</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none" title="Người hướng dẫn: Sơn Đặng"><div class="_avatar_hzxfy_1" style="--font-size: 2px;"><img src="./1_files/founder.jpeg"></div><span>Sơn Đặng</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 144"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>144</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 26h5p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>26h5p</span></div></div><div class="_pro-icon_1cn8u_40"><img src="data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27utf-8%27?%3e%3c!--%20Generator:%20Adobe%20Illustrator%2025.3.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version=%271.1%27%20id=%27Objects%27%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20x=%270px%27%20y=%270px%27%20viewBox=%270%200%2032%2032%27%20style=%27enable-background:new%200%200%2032%2032;%27%20xml:space=%27preserve%27%3e%3cstyle%20type=%27text/css%27%3e%20.st0{fill:%23FDBE11;}%20.st1{opacity:0.67;fill:%23F99B1C;}%20.st2{opacity:0.53;fill:%23FFFFFF;}%20.st3{opacity:0.55;fill:%23F99B1C;}%20.st4{fill:%23FFBB33;}%20.st5{opacity:0.51;fill:%23FFFFFF;}%20%3c/style%3e%3cg%3e%3cpolygon%20class=%27st0%27%20points=%2731.6,7.8%2026.3,24%2026.1,24.6%2026.1,24.7%206.5,24.7%206.5,24.6%206.2,23.9%200.4,6.9%209.5,11.8%2015.7,2.6%2016.1,2%2016.2,2.2%2018.6,6%2020.9,9.5%2022.2,11.6%2022.4,11.8%20%27/%3e%3cpath%20class=%27st1%27%20d=%27M26.3,24l-0.2,0.7l0,0.1H6.5l0-0.1l-0.2-0.7c0.1-0.1,0.2-0.1,0.4-0.1h19.3C26,23.8,26.2,23.9,26.3,24z%27/%3e%3cpolygon%20class=%27st2%27%20points=%2718.6,6%2016.2,14.1%2016.2,14.3%2015.8,15.4%2015.3,17.3%2015,18.2%2014.7,19.2%2014.3,20.6%2013.3,23.8%2013.1,24.6%2013,24.7%209,24.7%209.1,24.6%209.3,23.8%2015.7,2.6%2016.1,2%2016.2,2.2%20%27/%3e%3cpolygon%20class=%27st2%27%20points=%2722.2,11.6%2018.6,23.8%2018.3,24.6%2018.3,24.7%2016.3,24.7%2016.3,24.6%2016.6,23.8%2017.4,21%2017.5,20.9%2018.4,17.6%2018.7,16.8%2020.9,9.5%20%27/%3e%3cpath%20class=%27st3%27%20d=%27M16.2,24.7V2.2L18.6,6l2.2,3.5l1.4,2.1l0.1,0.2l9.2-4L26.3,24l-0.2,0.7C26.5,24.8,16.2,24.7,16.2,24.7z%27/%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath%20class=%27st4%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.1,0-0.1,0-0.2,0H7.2c-0.5,0-0.9-0.6-0.9-1.4c0-0.7,0.4-1.3,0.8-1.4%20c0,0,0.1,0,0.1,0h18.4c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3cpolygon%20class=%27st5%27%20points=%2717.8,27.2%2017.8,27.3%2017,30%2017,30%2013,30%2013.8,27.3%2013.8,27.2%20%27/%3e%3cpolygon%20class=%27st5%27%20points=%2723.2,27.2%2023.1,27.3%2022.3,30%2022.3,30%2020.3,30%2020.3,30%2021.1,27.3%2021.2,27.2%20%27/%3e%3c/g%3e%3cpath%20class=%27st3%27%20d=%27M26.5,28.6c0,0.7-0.3,1.2-0.7,1.4c-0.7,0-2,0-3.5,0c-0.3,0-0.6,0-0.9,0c-0.4,0-0.7,0-1.1,0c-1.3,0-2.6,0-3.3,0%20c-0.4,0-0.7,0-0.7,0v-2.8h9.3c0.1,0,0.2,0,0.2,0C26.2,27.4,26.5,27.9,26.5,28.6z%27/%3e%3c/g%3e%3c/svg%3e" alt=""></div></div></div></div></div></div></div><div class="_wrapper_k0w2e_1"><div><p class="_sub-heading_k0w2e_41"><strong>425.779+</strong> người khác đã học</p><div class="_heading-wrap_k0w2e_10"><h2 class="_heading_k0w2e_10"><a rel="noreferrer" href="https://fullstack.edu.vn/learning-paths" target="_self">Khóa học miễn phí<span class="_view-all-icon_k0w2e_71 d-none d-md-block"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></span></a></h2><a class="_view-all_k0w2e_47 d-md-none" rel="noreferrer" href="https://fullstack.edu.vn/learning-paths" target="_self">Xem lộ trình<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg></a></div></div><div class="_body_k0w2e_5"><div class="row row-cols-6 row-cols-xxxxxl-5 row-cols-xxxxl-4 row-cols-xl-3 row-cols-lg-2 gy-6 gx-xxl-2 gx-xl-3 gx-lg-2"><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Kiến Thức Nhập Môn IT" href="https://fullstack.edu.vn/learning/lessons-for-newbie" target="_self"><img class="_thumb_101pg_25" src="./1_files/7.png" alt="Kiến Thức Nhập Môn IT"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/learning/lessons-for-newbie" target="_self">Kiến Thức Nhập Môn IT</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>131.992</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 9"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>9</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 3h12p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>3h12p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Lập trình C++ cơ bản, nâng cao" href="https://fullstack.edu.vn/courses/lap-trinh-c-co-ban-toi-nang-cao" target="_self"><img class="_thumb_101pg_25" src="./1_files/63e1bcbaed1dd.png" alt="Lập trình C++ cơ bản, nâng cao"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/lap-trinh-c-co-ban-toi-nang-cao" target="_self">Lập trình C++ cơ bản, nâng cao</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>31.822</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 55"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>55</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 10h18p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>10h18p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="HTML CSS từ Zero đến Hero" href="https://fullstack.edu.vn/learning/html-css" target="_self"><img class="_thumb_101pg_25" src="./1_files/2.png" alt="HTML CSS từ Zero đến Hero"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/learning/html-css" target="_self">HTML CSS từ Zero đến Hero</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>204.453</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 117"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>117</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 29h5p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>29h5p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Responsive Với Grid System" href="https://fullstack.edu.vn/courses/responsive-web-design" target="_self"><img class="_thumb_101pg_25" src="./1_files/3.png" alt="Responsive Với Grid System"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/responsive-web-design" target="_self">Responsive Với Grid System</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>45.923</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 34"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>34</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 6h31p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>6h31p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Lập Trình JavaScript Cơ Bản" href="https://fullstack.edu.vn/courses/javascript-co-ban" target="_self"><img class="_thumb_101pg_25" src="./1_files/1.png" alt="Lập Trình JavaScript Cơ Bản"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/javascript-co-ban" target="_self">Lập Trình JavaScript Cơ Bản</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>142.624</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 112"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>112</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 24h15p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>24h15p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Lập Trình JavaScript Nâng Cao" href="https://fullstack.edu.vn/courses/javascript-nang-cao" target="_self"><img class="_thumb_101pg_25" src="./1_files/12.png" alt="Lập Trình JavaScript Nâng Cao"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/javascript-nang-cao" target="_self">Lập Trình JavaScript Nâng Cao</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>39.232</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 19"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>19</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 8h41p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>8h41p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Làm việc với Terminal &amp; Ubuntu" href="https://fullstack.edu.vn/courses/windows-terminal-wsl" target="_self"><img class="_thumb_101pg_25" src="./1_files/624faac11d109.png" alt="Làm việc với Terminal &amp; Ubuntu"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/windows-terminal-wsl" target="_self">Làm việc với Terminal &amp; Ubuntu</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>19.552</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 28"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>28</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 4h59p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>4h59p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Xây Dựng Website với ReactJS" href="https://fullstack.edu.vn/courses/reactjs" target="_self"><img class="_thumb_101pg_25" src="./1_files/13.png" alt="Xây Dựng Website với ReactJS"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/reactjs" target="_self">Xây Dựng Website với ReactJS</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>71.354</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 112"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>112</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 27h32p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>27h32p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="Node &amp; ExpressJS" href="https://fullstack.edu.vn/courses/nodejs" target="_self"><img class="_thumb_101pg_25" src="./1_files/6.png" alt="Node &amp; ExpressJS"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/nodejs" target="_self">Node &amp; ExpressJS</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>45.440</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 36"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>36</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 12h8p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>12h8p</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1 _courseItem_ceh3w_11"><a class="_link_101pg_16" title="App &quot;Đừng Chạm Tay Lên Mặt&quot;" href="https://fullstack.edu.vn/courses/tool-canh-bao-so-len-mat" target="_self"><img class="_thumb_101pg_25" src="./1_files/61a9e9e701506.png" alt="App &quot;Đừng Chạm Tay Lên Mặt&quot;"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/courses/tool-canh-bao-so-len-mat" target="_self">App "Đừng Chạm Tay Lên Mặt"</a></h3><div class="_price_1cn8u_15"><span class="_main-price_1cn8u_34">Miễn phí</span></div><div class="_moreInfo_1cn8u_51"><div class="_infoItem_1cn8u_1 d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="users" class="svg-inline--fa fa-users " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path></svg><span>10.411</span></div><div class="_infoItem_1cn8u_1 _wideScreen_1cn8u_69" title="Đánh giá chất lượng: 4.8/5"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg><span>4.8</span></div><div class="_infoItem_1cn8u_1 d-xxl-none d-sm-flex" title="Số lượng video: 13"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" class="svg-inline--fa fa-circle-play " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg><span>13</span></div><div class="_infoItem_1cn8u_1" title="Tổng thời lượng video: 1h34p"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg><span>1h34p</span></div></div></div></div></div></div></div></div><div class="_wrapper_k0w2e_1"><div><div class="_heading-wrap_k0w2e_10"><h2 class="_heading_k0w2e_10"><a rel="noreferrer" href="https://fullstack.edu.vn/blog" target="_self">Bài viết nổi bật<span class="_view-all-icon_k0w2e_71 d-none d-md-block"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></span></a></h2><a class="_view-all_k0w2e_47 d-md-none" rel="noreferrer" href="https://fullstack.edu.vn/blog" target="_self">Xem tất cả<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg></a></div></div><div class="_body_k0w2e_5"><div class="row row-cols-6 row-cols-xxxxxl-5 row-cols-xxxxl-4 row-cols-xl-3 row-cols-lg-2 gy-6 gx-xxl-2 gx-xl-3 gx-lg-2"><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Tổng hợp các sản phẩm của học viên tại F8" href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8" target="_self"><img class="_thumb_101pg_25" src="./1_files/6139fe28a9844.png" alt="Tổng hợp các sản phẩm của học viên tại F8"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/tong-hop-cac-san-pham-cua-hoc-vien-tai-f8" target="_self">Tổng hợp các sản phẩm của học viên tại F8</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@sondangf8"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1 _pro_hzxfy_7" style="--font-size: 2.1px;"><img src="./1_files/64f9a2fd4e064.jpg" alt="Sơn Đặng"><img class="_crown_hzxfy_16" src="data:image/svg+xml,%3csvg%20width=&#39;10&#39;%20height=&#39;11&#39;%20viewBox=&#39;0%200%2010%2011&#39;%20fill=&#39;none&#39;%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%3e%3cpath%20d=&#39;M9.39379%209.23321C9.0651%209.45156%208.65127%209.35571%208.44241%209.04131C8.43292%209.02701%208.43292%209.02701%208.43292%209.02701L3.97587%2010.9373C3.74252%2011.0512%203.45241%2010.9555%203.31001%2010.7412L0.16768%206.01085C0.0252788%205.79648%200.0495717%205.49198%200.244949%205.321L3.73367%201.95298C3.73367%201.95298%203.73367%201.95298%203.72418%201.93869C3.51533%201.62429%203.58739%201.20567%203.91608%200.987317C4.23048%200.778461%204.6586%200.864817%204.86746%201.17922C5.06682%201.47933%204.98996%201.92174%204.67556%202.13059C4.54694%202.21604%204.39464%202.23482%204.24713%202.22982L4.07259%204.19953C4.05299%204.54211%204.3428%204.82333%204.68548%204.78107L6.87956%204.5182C6.87517%204.29455%206.97071%204.0663%207.18508%203.9239C7.49948%203.71504%207.9276%203.8014%208.14594%204.13009C8.3548%204.44449%208.25895%204.85832%207.94455%205.06718C7.73019%205.20958%207.48275%205.20917%207.26879%205.10413L6.17594%207.02475C6.00415%207.32425%206.16054%207.7147%206.48392%207.82944L8.35779%208.41781C8.41985%208.29419%208.5057%208.17537%208.63432%208.08993C8.94872%207.88107%209.36734%207.95314%209.58569%208.28183C9.79455%208.59623%209.70819%209.02435%209.39379%209.23321Z&#39;%20fill=&#39;%23F5C70E&#39;/%3e%3c/svg%3e" alt="crown"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Sơn Đặng</span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" class="svg-inline--fa fa-circle-check _icon_hoymy_1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1.2rem;"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>6 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="[Phần 1] Tạo dự án ReactJS với Webpack và Babel" href="https://fullstack.edu.vn/blog/phan-1-tao-du-an-reactjs-voi-webpack-va-babel" target="_self"><img class="_thumb_101pg_25" src="./1_files/6153f692d366e.jpg" alt="[Phần 1] Tạo dự án ReactJS với Webpack và Babel"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/phan-1-tao-du-an-reactjs-voi-webpack-va-babel" target="_self">[Phần 1]&nbsp;Tạo dự án ReactJS với Webpack và Babel</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@sondangf8"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1 _pro_hzxfy_7" style="--font-size: 2.1px;"><img src="./1_files/64f9a2fd4e064.jpg" alt="Sơn Đặng"><img class="_crown_hzxfy_16" src="data:image/svg+xml,%3csvg%20width=&#39;10&#39;%20height=&#39;11&#39;%20viewBox=&#39;0%200%2010%2011&#39;%20fill=&#39;none&#39;%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%3e%3cpath%20d=&#39;M9.39379%209.23321C9.0651%209.45156%208.65127%209.35571%208.44241%209.04131C8.43292%209.02701%208.43292%209.02701%208.43292%209.02701L3.97587%2010.9373C3.74252%2011.0512%203.45241%2010.9555%203.31001%2010.7412L0.16768%206.01085C0.0252788%205.79648%200.0495717%205.49198%200.244949%205.321L3.73367%201.95298C3.73367%201.95298%203.73367%201.95298%203.72418%201.93869C3.51533%201.62429%203.58739%201.20567%203.91608%200.987317C4.23048%200.778461%204.6586%200.864817%204.86746%201.17922C5.06682%201.47933%204.98996%201.92174%204.67556%202.13059C4.54694%202.21604%204.39464%202.23482%204.24713%202.22982L4.07259%204.19953C4.05299%204.54211%204.3428%204.82333%204.68548%204.78107L6.87956%204.5182C6.87517%204.29455%206.97071%204.0663%207.18508%203.9239C7.49948%203.71504%207.9276%203.8014%208.14594%204.13009C8.3548%204.44449%208.25895%204.85832%207.94455%205.06718C7.73019%205.20958%207.48275%205.20917%207.26879%205.10413L6.17594%207.02475C6.00415%207.32425%206.16054%207.7147%206.48392%207.82944L8.35779%208.41781C8.41985%208.29419%208.5057%208.17537%208.63432%208.08993C8.94872%207.88107%209.36734%207.95314%209.58569%208.28183C9.79455%208.59623%209.70819%209.02435%209.39379%209.23321Z&#39;%20fill=&#39;%23F5C70E&#39;/%3e%3c/svg%3e" alt="crown"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Sơn Đặng</span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" class="svg-inline--fa fa-circle-check _icon_hoymy_1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1.2rem;"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>12 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Cách đưa code lên GitHub và tạo GitHub Pages" href="https://fullstack.edu.vn/blog/cach-dua-code-len-github-va-tao-github-pages" target="_self"><img class="_thumb_101pg_25" src="./1_files/615436b218d0a.png" alt="Cách đưa code lên GitHub và tạo GitHub Pages"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/cach-dua-code-len-github-va-tao-github-pages" target="_self">Cách đưa code lên GitHub và tạo GitHub Pages</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@vo-minh-kha"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1" style="--font-size: 2.1px;"><img src="./1_files/6466353972973.jpg" alt="Vo Minh Kha"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Vo Minh Kha</span></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>4 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Ký sự ngày thứ 25 học ở F8 " href="https://fullstack.edu.vn/blog/ky-su-ngay-thu-25-hoc-o-f8-1" target="_self"><img class="_thumb_101pg_25" src="./1_files/6139c6453456e.png" alt="Ký sự ngày thứ 25 học ở F8 "></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/ky-su-ngay-thu-25-hoc-o-f8-1" target="_self">Ký sự ngày thứ 25 học ở F8&nbsp;</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@son-son-16"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1" style="--font-size: 2.1px;"><img src="./1_files/feedback-0-BFb1fhaR.jpg" alt="Sơn Sơn"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Sơn Sơn</span></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>1 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Các nguồn tài nguyên hữu ích cho 1 front-end developer" href="https://fullstack.edu.vn/blog/cac-nguon-tai-nguyen-huu-ich-cho-1-front-end-developer" target="_self"><img class="_thumb_101pg_25" src="./1_files/613a1f3685814.png" alt="Các nguồn tài nguyên hữu ích cho 1 front-end developer"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/cac-nguon-tai-nguyen-huu-ich-cho-1-front-end-developer" target="_self">Các nguồn tài nguyên hữu ích cho 1 front-end developer</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@duong-vuong"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1 _pro_hzxfy_7" style="--font-size: 2.1px;"><img src="./1_files/feedback-0-BFb1fhaR.jpg" alt="Dương Vương"><img class="_crown_hzxfy_16" src="data:image/svg+xml,%3csvg%20width=&#39;10&#39;%20height=&#39;11&#39;%20viewBox=&#39;0%200%2010%2011&#39;%20fill=&#39;none&#39;%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%3e%3cpath%20d=&#39;M9.39379%209.23321C9.0651%209.45156%208.65127%209.35571%208.44241%209.04131C8.43292%209.02701%208.43292%209.02701%208.43292%209.02701L3.97587%2010.9373C3.74252%2011.0512%203.45241%2010.9555%203.31001%2010.7412L0.16768%206.01085C0.0252788%205.79648%200.0495717%205.49198%200.244949%205.321L3.73367%201.95298C3.73367%201.95298%203.73367%201.95298%203.72418%201.93869C3.51533%201.62429%203.58739%201.20567%203.91608%200.987317C4.23048%200.778461%204.6586%200.864817%204.86746%201.17922C5.06682%201.47933%204.98996%201.92174%204.67556%202.13059C4.54694%202.21604%204.39464%202.23482%204.24713%202.22982L4.07259%204.19953C4.05299%204.54211%204.3428%204.82333%204.68548%204.78107L6.87956%204.5182C6.87517%204.29455%206.97071%204.0663%207.18508%203.9239C7.49948%203.71504%207.9276%203.8014%208.14594%204.13009C8.3548%204.44449%208.25895%204.85832%207.94455%205.06718C7.73019%205.20958%207.48275%205.20917%207.26879%205.10413L6.17594%207.02475C6.00415%207.32425%206.16054%207.7147%206.48392%207.82944L8.35779%208.41781C8.41985%208.29419%208.5057%208.17537%208.63432%208.08993C8.94872%207.88107%209.36734%207.95314%209.58569%208.28183C9.79455%208.59623%209.70819%209.02435%209.39379%209.23321Z&#39;%20fill=&#39;%23F5C70E&#39;/%3e%3c/svg%3e" alt="crown"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Dương Vương</span></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>2 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Thời gian và Động lực" href="https://fullstack.edu.vn/blog/thoi-gian-va-dong-luc" target="_self"><img class="_thumb_101pg_25" src="./1_files/61b6368983c16.jpg" alt="Thời gian và Động lực"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/thoi-gian-va-dong-luc" target="_self">Thời gian và Động lực</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@andyngojs"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1" style="--font-size: 2.1px;"><img src="./1_files/6263caafdf588.jpg" alt="Dong Ngo"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Dong Ngo</span></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>6 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Tổng hợp tài liệu tự học tiếng anh cơ bản." href="https://fullstack.edu.vn/blog/tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban" target="_self"><img class="_thumb_101pg_25" src="./1_files/614043e523ad9.png" alt="Tổng hợp tài liệu tự học tiếng anh cơ bản."></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban" target="_self">Tổng hợp tài liệu tự học tiếng anh cơ bản.</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@le-thanh-trung-5"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1" style="--font-size: 2.1px;"><img src="./1_files/626aa252cdb22.jpg" alt="Trung Lê Thành"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Trung Lê Thành</span></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>10 phút đọc</a></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Học như thế nào là phù hợp ?" href="https://fullstack.edu.vn/blog/hoc-nhu-the-nao-la-phu-hop" target="_self"><img class="_thumb_101pg_25" src="./1_files/615de64de7e8f.jpg" alt="Học như thế nào là phù hợp ?"></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a href="https://fullstack.edu.vn/blog/hoc-nhu-the-nao-la-phu-hop" target="_self">Học như thế nào là phù hợp ?</a></h3><a class="_author_1h7k7_1" href="https://fullstack.edu.vn/@tien-pham-ngoc"><div class="d-xxl-none d-lg-block d-md-none"><div class="_avatar_hzxfy_1" style="--font-size: 2.1px;"><img src="./1_files/feedback-0-BFb1fhaR.jpg" alt="Ngoc Tien Pham"></div></div><div class="d-xxl-none d-xl-block d-sm-none"><span class="_user-name_1h7k7_10">Ngoc Tien Pham</span></div><span class="d-xxl-none d-xl-block d-sm-none">·</span>4 phút đọc</a></div></div></div></div></div></div><div class="_wrapper_k0w2e_1"><div><div class="_heading-wrap_k0w2e_10"><h2 class="_heading_k0w2e_10"><a rel="noopener" target="_blank" href="https://www.youtube.com/c/F8VNOfficial/videos?view=0&amp;sort=p&amp;flow=grid">Videos nổi bật<span class="_view-all-icon_k0w2e_71 d-none d-md-block"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></span></a></h2><a class="_view-all_k0w2e_47 d-md-none" rel="noopener" target="_blank" href="https://www.youtube.com/c/F8VNOfficial/videos?view=0&amp;sort=p&amp;flow=grid">Xem tất cả<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg></a></div></div><div class="_body_k0w2e_5"><div class="row row-cols-6 row-cols-xxxxxl-5 row-cols-xxxxl-4 row-cols-xl-3 row-cols-lg-2 gy-6 gx-xxl-2 gx-xl-3 gx-lg-2"><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?" target="_blank" href="https://youtu.be/YH-E4Y3EaT4" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault.jpg" alt="Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>34:51</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/YH-E4Y3EaT4" rel="noopener">Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>257.174</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>6.367</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>236</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Phương pháp học lập trình của Admin F8?" target="_blank" href="https://youtu.be/DpvYHLUiZpc" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(1).jpg" alt="Phương pháp học lập trình của Admin F8?"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>24:06</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/DpvYHLUiZpc" rel="noopener">Phương pháp học lập trình của Admin F8?</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>128.495</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>6.191</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>341</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Bạn sẽ làm được gì sau khóa học?" target="_blank" href="https://youtu.be/R6plN3FvzFY" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(2).jpg" alt="Bạn sẽ làm được gì sau khóa học?"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>03:15</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/R6plN3FvzFY" rel="noopener">Bạn sẽ làm được gì sau khóa học?</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>1.030.659</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>6.125</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>144</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="&quot;Code Thiếu Nhi Battle&quot; Tranh Giành Trà Sữa Size L" target="_blank" href="https://youtu.be/sgq7BH6WxL8" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(3).jpg" alt="&quot;Code Thiếu Nhi Battle&quot; Tranh Giành Trà Sữa Size L"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>25:10</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/sgq7BH6WxL8" rel="noopener">"Code Thiếu Nhi Battle" Tranh Giành Trà Sữa Size L</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>280.788</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>5.722</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>181</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Javascript có thể làm được gì? Giới thiệu qua về trang F8 | Học lập trình Javascript cơ bản" target="_blank" href="https://youtu.be/0SJE9dYdpps" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(4).jpg" alt="Javascript có thể làm được gì? Giới thiệu qua về trang F8 | Học lập trình Javascript cơ bản"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>07:53</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/0SJE9dYdpps" rel="noopener">Javascript có thể làm được gì? Giới thiệu qua về trang F8 | Học lập trình Javascript cơ bản</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>803.896</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>4.323</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>132</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="ReactJS là gì? Tại sao nên học ReactJS?" target="_blank" href="https://youtu.be/x0fSBAgBrOQ" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(5).jpg" alt="ReactJS là gì? Tại sao nên học ReactJS?"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>10:41</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/x0fSBAgBrOQ" rel="noopener">ReactJS là gì? Tại sao nên học ReactJS?</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>464.776</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>3.704</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>355</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Các thẻ HTML thông dụng" target="_blank" href="https://youtu.be/AzmdwZ6e_aM" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(6).jpg" alt="Các thẻ HTML thông dụng"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>11:08</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/AzmdwZ6e_aM" rel="noopener">Các thẻ HTML thông dụng</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>338.594</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>3.494</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>206</span></div></div></div></div></div><div class="col"><div class="_wrapper_101pg_1"><a class="_link_101pg_16" title="Làm sao để có thu nhập cao và đi xa hơn trong ngành IT?" target="_blank" href="https://youtu.be/oF7isq9IjZM" rel="noopener" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 50%);"><img class="_thumb_101pg_25" src="./1_files/maxresdefault(7).jpg" alt="Làm sao để có thu nhập cao và đi xa hơn trong ngành IT?"><div class="_video-info_1is3q_13"><div class="_play-wrap_1is3q_25"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play _play-icon_1is3q_35" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></div><div class="_duration_1is3q_40"><span>25:40</span></div></div></a><div class="_content_101pg_34"><h3 class="_title_101pg_52"><a target="_blank" href="https://youtu.be/oF7isq9IjZM" rel="noopener">Làm sao để có thu nhập cao và đi xa hơn trong ngành IT?</a></h3><div class="_stats_1is3q_1"><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" class="svg-inline--fa fa-eye " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path></svg><span>83.880</span></div><div class="d-xxl-none d-xl-block d-sm-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg><span>3.452</span></div><div><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment" class="svg-inline--fa fa-comment " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z"></path></svg><span>238</span></div></div></div></div></div></div></div></div></div></div></div></div><div class="_buttonWrap_1plrx_1 d-md-none"><button class="_button_1plrx_1"><span class="_icon_1plrx_24"><svg viewBox="0 0 24 24" style="width: 24px; height: 24px;"><path fill="currentColor" d="M12,8H4A2,2 0 0,0 2,10V14A2,2 0 0,0 4,16H5V20A1,1 0 0,0 6,21H8A1,1 0 0,0 9,20V16H12L17,20V4L12,8M15,15.6L13,14H4V10H13L15,8.4V15.6M21.5,12C21.5,13.71 20.54,15.26 19,16V8C20.53,8.75 21.5,10.3 21.5,12Z"></path></svg></span></button></div></div><footer class="_wrapper_spbg1_1"><div class="container-fluid"><div class="row gy-xl-6"><div class="col col-3 col-xl-12"><div><div class="_column-top_spbg1_25"><a href="https://fullstack.edu.vn/"><img class="_top-logo_spbg1_30" src="./1_files/f8-icon-lV2rGpF0.png" alt="F8"></a><h2 class="_top-slogan_spbg1_37">Học Lập Trình Để Đi Làm</h2></div><p class="_contact-list_spbg1_58"><b>Điện thoại:</b> <a href="tel:08 1919 8989">08 1919 8989</a><br><b>Email:</b> <a href="mailto:contact@fullstack.edu.vn">contact@fullstack.edu.vn</a><br><b>Địa chỉ:</b> Số 1, ngõ 41, Trần Duy Hưng, Cầu Giấy, Hà Nội</p><div><a href="https://www.dmca.com/Protection/Status.aspx?id=1b325c69-aeb7-4e32-8784-a0009613323a&amp;refurl=https%3a%2f%2ffullstack.edu.vn%2f&amp;rlo=true" target="_blank" rel="noreferrer" title="DMCA Protected"><img class="_dmca_spbg1_96" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAAYCAYAAADeUlK2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAffSURBVGhD7VoLUJTXFf54hDcKS1IeUjErYELio6CpNSOYCJom1jYPQZ30ldTU5mGMTauZaDJTNcbXJGo1RIm2JgURqwlOamYM1ahTMegS0yoPUbI8BdldILKwC7t/z7nL/uyvyyMOmfmd2TNzh73nnnPuufe759zz/z9ekiTNBjCCmprJ4uXlVahmB9XsmxeBfIEcTFKzk+Sjqbu7e7qafVSrbx0dHXUC5MMNLUl/vVSnSj+fjovC4xHBWLF8uSr9U7NT0dHReH3VqkwB8oG65qQN5TWq9HeRNgZPjvTHlOQUVfqnZqcSEhPw2dGjmd5qdtLj2/DsgAfk4dlHVVvxgKxqeIbHOQ/Iw7OPqrbitvDaOCEeIXf4CMdtkgSjpRtUnOHrtg6k3RWG+aMjxVj19U5sqKhB+B2+eGvCWHmhfzpfhes9NkzVjMDs6AjEBQWgR7LjSKMBh+pbZLknRt2FjCiN6G+vqsP/yP6N1F/hNT01FZnzsxTi5WVl2LN7D8wdHVi3/m2EhIbK422trWhsvIqP9u5FW1ub4LONub/4OeLj49He3o7P/nUE+/LyEBkVyVWpW+AaGxuxOyen3/GXnn9B6EVRZfv7xYvBxU9wcDC+OH4c77+XDR8fH6zbsL5f21vfebff8df+vByPPvYYpqelKtZVUlKCTw59fJNNZ+EFrq4LapukKUdL5EagEltJNrtdWqKrkNaX6eUBi80mTSs6K604X6UQnvVFqbTrcr3MM/f0SFabXfQ3levleRrMXbLM4fprCh+c/uwkO4aWFkk7Ok7R3li5UuhaurqkyooK8ZcpLzdXyLEOU1NTkxi3Wq2ivz8/X4y/tXqNPHdXry4z8vPypNnp6Tet38morKxUjJtMJqmF5nI2tj1jeqpEh0ao2GiPemj9TCdPnJAm/yh5QNuu4zfaTp44Sfrw73vd6r+zafNNe9S7jnkDpmt+rEo7psOxZhO8vbzwqzFR8mkxWbvh5+2N8SNDkBLuiBjmMXFk//buaDlCHzpeijcvXEF1Rydig/wFP5l0ogP9cYWyAdPMyHAE+Hz320NfU4NHMmZh88ZNws64ceMUJ3r7tm1i/MD+/YLPUauJ0OCVV/8o+ps3bsT4e5OwbOlS0X8qMxM+3j54JD1DNL1eL/icAbj/3LO/U9ifP28eHqDHO2fjwZdeXoJQyiKlOh1SJk7CzLQZMBgMIMAR4O8v2/76/PnvZLvVZJLnPlNcjETtWKxf97bgPfeHxQgMDFT45uwMuqudNjtKjN8KeW1wkGzknMnBY4AZMAbL1N0jeImhQfChQ8GUW9MEuwR83mRC1ukL2FxRK/hzKI0zHay/hq/IViClsZk/CHfr5EBMjUaDJQTQwl8+LcRqCHRXyszKwrYd2zFn7lzBLvq8CPfddz8CAgJEP2fnLrH5znTnTQd3VGwsLl26JBplACFnNBpFv6YXdOcc+woK8KXunGh8RYg9mTxZ/P1o74fiGqitrRWH4Jlf/wYNDQ2y7c5OxwEfiu3sXTtv2gb2+9i/iwQ/KCgIsT+MdbtVg4LMWvROUSiH+/nKRqo7uqCnxsBoQwKh6wX9xlm6GWEib8I8liKXiSOWI5eJ72Fdq+PAOIF362k/zIiICLz8ylLExMTgyzNn5Ih2ioeHhyM9PV1E1j8LDiB7xw74+fnJ1pwgMsNqsQi+n3/f+GC+UArGkU8/Fa1UVyrEQ0NCHHZc5hkdFwd6/z6YOcW4q+0zp4vd6hoMRpnvOp+r8JBAnqYZKXQaOx2b4KQSY7sAmMkZ2fy78luzKNiYHu6NztQ7w3DwwfH4YMo94mBw5DL97YF78czdMeJ3ChVq0QFD32DW4egaGzcG98QnYEFmFurrlK9n38/OxtrVa4T9x598Aj+eOhWlpTp5DQsWLhS/k1NSCFzHISwvK1esc6AOXwdvrnpDNLrvhWhZuUN/Zka6ADaEQD9U+AlKaN6x8X0F6mCTuNres3u3W/FpD04TfLvdToVlo1uZAUF+MX4UitIm4Wej7hTK711uUBhxBdY1kjltH6htFrJrx2tR8JP76a9jcV+1XpcjltN0Aclxa6EKnmlOjGOu4SQqxqD/Rg9OxctfWwEjnf6PDx4SU/xl7RqcKj6N3Px9os8VdvWVK0Oe3jVdc8oOo8yxfes20AcVpGdk4OTp/+D4qZMICwsjH77B5arLt2xbq9XKunwo/1t2EVvokDHl/SNXrMsd9eVfl1FOwyarI9KYSgmYQnr0OdHSilmRGsf9S0UWA8u/G7us4j6uM1OkUwBzFG+hDx7XCLgZFLVRFJ2c8k80t2I/AbplUoLQ2+ry2NRsseKnURFIGtF37w+0G01Xr6KYUlh9vfsPK+fOnkXoiJFgOb67Vq18Hc+/8KIwmTguEa8uW4az9Ogx4+GHkJCQSJtfhSMEMKdzV+LiyNBiQF1t3zxms1nM7Y54Li6KOKs8u2gRJk6cAKrecbiwkDLKaoXKxQsX6ekGCtt8OPqzbbFaUF1drRg3Gg3imsrPcxxSd+T5QDHkuLr9BD0fKG4/zG7Z4yEVXrds3aOoih3wgKwKGL5fJzwgf7/7qwrrt0XhlakJQtZT81SxYbeTE6PHxGFnTo7j338sNnuSmUp/NRK/HaMXJ+3km/KlsRqdVaFP9Lh3you+kCygtzKO730qJTqInb6+vu5f+ajUZzW59X9lz6WIUeeJcAAAAABJRU5ErkJggg==" alt="DMCA"></a></div></div></div><div class="col col-2 col-xl-4 col-sm-12"><div><h2 class="_heading_spbg1_43">Về F8</h2><ul class="_list_spbg1_72"><li><a class="" href="https://fullstack.edu.vn/about-us">Giới thiệu</a></li><li><a class="" href="https://fullstack.edu.vn/contact-us">Liên hệ</a></li><li><a class="" href="https://fullstack.edu.vn/terms">Điều khoản</a></li><li><a class="" href="https://fullstack.edu.vn/privacy">Bảo mật</a></li></ul></div></div><div class="col col-2 col-xl-4 col-sm-12"><div><h2 class="_heading_spbg1_43">Sản phẩm</h2><ul class="_list_spbg1_72"><li><a href="https://nester.fullstack.edu.vn/" target="_blank" rel="noreferrer">Game Nester</a></li><li><a href="https://css-diner.fullstack.edu.vn/" target="_blank" rel="noreferrer">Game CSS Diner</a></li><li><a href="https://css-selectors-cheatsheet.fullstack.edu.vn/" target="_blank" rel="noreferrer">Game CSS Selectors</a></li><li><a href="https://froggy.fullstack.edu.vn/" target="_blank" rel="noreferrer">Game Froggy</a></li><li><a href="https://froggy-pro.fullstack.edu.vn/" target="_blank" rel="noreferrer">Game Froggy Pro</a></li><li><a href="https://css-scoops.fullstack.edu.vn/" target="_blank" rel="noreferrer">Game Scoops</a></li></ul></div></div><div class="col col-2 col-xl-4 col-sm-12"><div><h2 class="_heading_spbg1_43">Công cụ</h2><ul class="_list_spbg1_72"><li><a href="https://cv.fullstack.edu.vn/" target="_blank" rel="noreferrer">Tạo CV xin việc</a></li><li><a class="" href="https://fullstack.edu.vn/shorten-urls">Rút gọn liên kết</a></li><li><a href="https://clippy.fullstack.edu.vn/" target="_blank" rel="noreferrer">Clip-path maker</a></li><li><a href="https://snippet-generator.fullstack.edu.vn/" target="_blank" rel="noreferrer">Snippet generator</a></li><li><a href="https://grid.fullstack.edu.vn/" target="_blank" rel="noreferrer">CSS Grid generator</a></li><li><a href="https://botayra.fullstack.edu.vn/" target="_blank" rel="noreferrer">Cảnh báo sờ tay lên mặt</a></li></ul></div></div><div class="col col-3 col-xl-12"><div><h2 class="_heading_spbg1_43"><a target="_blank" href="https://www.google.com/search?q=C%C3%94NG+TY+C%E1%BB%94+PH%E1%BA%A6N+C%C3%94NG+NGH%E1%BB%86+GI%C3%81O+D%E1%BB%A4C+F8" rel="noreferrer">CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8</a></h2><ul class="_list_spbg1_72"><li><b>Mã số thuế:</b> 0109922901</li><li><b>Ngày thành lập:</b> 04/03/2022</li><li><b>Lĩnh vực hoạt động:</b> Giáo dục, công nghệ - lập trình. Chúng tôi tập trung xây dựng và phát triển các sản phẩm mang lại giá trị cho cộng đồng lập trình viên Việt Nam.</li></ul></div></div></div><div class="row"><div class="col col-12"><div class="_bottom_spbg1_100"><p class="_copyright_spbg1_114">© 2018 - 2024 F8. Nền tảng học lập trình hàng đầu Việt Nam</p><div class="_social-list_spbg1_119"><a class="_social-item_spbg1_124 social-item-first _youtube_spbg1_128" title="F8 trên Youtube" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="square-youtube" class="svg-inline--fa fa-square-youtube " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M282 256.2l-95.2-54.1V310.3L282 256.2zM384 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm14.4 136.1c7.6 28.6 7.6 88.2 7.6 88.2s0 59.6-7.6 88.1c-4.2 15.8-16.5 27.7-32.2 31.9C337.9 384 224 384 224 384s-113.9 0-142.2-7.6c-15.7-4.2-28-16.1-32.2-31.9C42 315.9 42 256.3 42 256.3s0-59.7 7.6-88.2c4.2-15.8 16.5-28.2 32.2-32.4C110.1 128 224 128 224 128s113.9 0 142.2 7.7c15.7 4.2 28 16.6 32.2 32.4z"></path></svg></a><a class="_social-item_spbg1_124 _facebook_spbg1_131" title="F8 trên Facebook" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="square-facebook" class="svg-inline--fa fa-square-facebook " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64h98.2V334.2H109.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"></path></svg></a><a class="_social-item_spbg1_124 _tiktok_spbg1_134" title="F8 trên Tiktok" target="_blank" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="tiktok" class="svg-inline--fa fa-tiktok " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></svg></a></div></div></div></div></div></footer><div class="Toastify"></div></div>
+        <script>
+            window.global = window;
+        </script>
+
+        <script src="./1_files/react.production.min.js.tải xuống"></script>
+        <script src="./1_files/react-dom.production.min.js.tải xuống"></script>
+
+        <!-- Common dependencies -->
+        <script src="./1_files/moment.min.js.tải xuống"></script>
+        <script src="./1_files/moment-vi.min.js.tải xuống"></script>
+
+        <script src="./1_files/axios.min.js.tải xuống"></script>
+        <script src="./1_files/http-request.js.tải xuống"></script>
+
+        <script src="./1_files/pusher.min.js.tải xuống"></script>
+        <script src="./1_files/echo.iife.min.js.tải xuống"></script>
+        <script src="./1_files/socket-client.js.tải xuống"></script>
+
+        <script src="./1_files/lodash.min.js.tải xuống"></script>
+        <script src="./1_files/react-redux.min.js.tải xuống"></script>
+        <script src="./1_files/slate.min.js.tải xuống"></script>
+        <script src="./1_files/slate-react.min.js.tải xuống"></script>
+        <script src="./1_files/slate-history.min.js.tải xuống"></script>
+        <script src="./1_files/prism.min.js.tải xuống"></script>
+        <script src="./1_files/prism-c.min.js.tải xuống"></script>
+        <script src="./1_files/prism-cpp.min.js.tải xuống"></script>
+        <script src="./1_files/prism-scss.min.js.tải xuống"></script>
+        <script src="./1_files/prism-jsx.min.js.tải xuống"></script>
+        <script src="./1_files/prism-json.min.js.tải xuống"></script>
+        <script src="./1_files/prism-sql.min.js.tải xuống"></script>
+        <script src="./1_files/prism-bash.min.js.tải xuống"></script>
+        <script src="./1_files/prism-line-numbers.min.js.tải xuống"></script>
+        <script src="./1_files/prism-toolbar.min.js.tải xuống"></script>
+        <script src="./1_files/prism-copy-to-clipboard.min.js.tải xuống"></script>
+        <script src="./1_files/purify.min.js.tải xuống"></script>
+        <script src="./1_files/redux-toolkit.min.js.tải xuống"></script>
+        <script src="./1_files/rtk-query.min.js.tải xuống"></script>
+        <script src="./1_files/react-modal.min.js.tải xuống"></script>
+        <script src="./1_files/react-infinite-scroll-component.min.js.tải xuống"></script>
+
+        <!-- Monaco editor -->
+        <script src="./1_files/loader.js.tải xuống"></script>
+        <script>
+            let vs = "https://cdn.f8team.dev/static/libs/monaco-editor/vs";
+            require.config({ paths: { vs } });
+        </script>
+        <script src="./1_files/editor.main.js.tải xuống"></script>
+        <script src="./1_files/emmet-monaco.min.js.tải xuống"></script>
+
+        <!-- Main app -->
+
+        <!-- Comment app -->
+        <script type="module" src="./1_files/app.js.tải xuống"></script>
+
+        <!-- Meta Pixel Code -->
+        <script>
+            !(function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod
+                        ? n.callMethod.apply(n, arguments)
+                        : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = "2.0";
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            })(
+                window,
+                document,
+                "script",
+                "https://connect.facebook.net/en_US/fbevents.js"
+            );
+            fbq("init", "921776002312242");
+        </script>
+        <noscript><img
+                height="1"
+                width="1"
+                style="display: none"
+                src="https://www.facebook.com/tr?id=921776002312242&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+    
+
+<div id="veepn-breach-alert"><template shadowrootmode="open"><style>.breach-popup{font-family:FigtreeVF,sans-serif;position:fixed;z-index:2147483638;text-rendering:optimizelegibility;top:0;left:0;right:0;pointer-events:none;padding-inline:16px;height:0;overflow:visible;color:#222e3a}.breach-popup *{box-sizing:border-box}.breach-popup__inner{background-color:#de4558;width:100%;border-radius:16px;margin-inline:auto;pointer-events:all;position:relative;transition:transform .25s ease-in-out,max-width .25s ease-in-out;transform:translateY(16px);max-height:calc(100svh - 80px);display:flex;flex-direction:column}.breach-popup__header{min-height:32px;display:flex;align-items:center;justify-content:space-between;column-gap:16px;padding:4px;cursor:pointer}.breach-popup__close{cursor:pointer;background-color:transparent;border-style:none;outline:none;display:flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;opacity:.5}.breach-popup__wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease-in-out;overflow:hidden}.breach-popup__content{overflow:hidden;opacity:0;transform:translateY(-10px)}.breach-popup--minimize .breach-popup__inner{max-width:485px;transform:translateY(-100%)}.breach-popup--collapse .breach-popup__inner{max-width:485px}.breach-popup--expand .breach-popup__inner{max-width:1120px}.breach-popup--expand .breach-popup__wrap{grid-template-rows:1fr}.breach-popup--expand .breach-popup__content{opacity:1;transform:translateY(0);transition:transform .25s ease-in-out,opacity .25s ease-in-out;transition-delay:.15s}.breach-popup--expand .breach-popup__header{cursor:default}.breach-info{padding:2px;height:100%}.breach-info__inner{padding:22px 22px 0;background-color:#fff;border-bottom-left-radius:15px;border-bottom-right-radius:15px;height:100%;overflow:auto}.breach-info__alert{font-size:24px;line-height:32px;font-weight:700;margin:0}.breach-info__list{margin-top:24px;display:flex;flex-wrap:wrap;gap:24px}@media only screen and (width >= 992px){.breach-info__list{flex-wrap:nowrap}}.breach-info__item{width:100%}.breach-info__item:nth-child(2){max-width:320px}.breach-info__item:nth-child(3){max-width:200px}.breach-info__title{font-size:18px;font-weight:700;line-height:32px;letter-spacing:-.1px;color:#de4558;margin-top:0;margin-bottom:4px}.breach-info__description{font-size:16px;line-height:28px;letter-spacing:-.1px}.breach-info__description ul{margin:0}.breach-info__actions{display:flex;justify-content:center;padding-top:32px;padding-bottom:22px;background-color:#fff;position:sticky;bottom:0}.breach-info__btn{cursor:pointer;border-style:none;outline:none;display:inline-flex;align-items:center;height:48px;padding-inline:20px;border-radius:12px;text-align:center;font-size:16px;font-weight:700;line-height:28px;letter-spacing:-.1px;color:#fff;background-color:#ff6400}.button-expand{position:absolute;bottom:0;left:50%;transform:translate(-50%,100%);z-index:1}.button-expand__pointer{cursor:pointer}.button-expand__alert{pointer-events:none;transition:opacity .25s ease-in-out}.button-expand__arrow{pointer-events:none;transition:transform .25s ease-in-out,opacity .25s ease-in-out;transform-origin:center}.button-expand--minimize .button-expand__arrow,.button-expand--collapse .button-expand__alert,.button-expand--expand .button-expand__alert{opacity:0}.button-expand--expand .button-expand__arrow{transform:rotate(180deg)}.header-collapse{display:flex;align-items:center;flex-wrap:wrap;column-gap:4px;padding-left:8px;font-size:14px;line-height:20px;letter-spacing:-.1px;color:#fff}.header-expand{display:flex;align-items:center;flex-wrap:wrap;column-gap:4px;padding-left:20px;font-size:14px;font-weight:500;line-height:20px;letter-spacing:-.1px;color:#fff}</style></template></div><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></body></html>
