@@ -10,7 +10,7 @@ import { LessonDTO } from 'src/app/model/DTO/lesson-dto';
 })
 export class LessonService {
 
-  private API_URL = 'http://localhost:8080/api/v1/lesson';
+  private API_URL = 'http://localhost:8080/api/v1/lessons';
 
   constructor(private http: HttpClient,
               private tokenStorageService: TokenStorageService,

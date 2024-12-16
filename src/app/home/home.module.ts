@@ -18,6 +18,8 @@ import { CourseComponent } from './component/course/course.component';
 import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 import { LessonComponent } from './component/lesson/lesson.component';
 import { CartComponent } from './component/cart/cart.component';
+import { JobComponent } from './component/job/job.component';
+import { JobApplicationComponent } from './component/job-application/job-application.component';
 
 
 
@@ -37,6 +39,8 @@ import { CartComponent } from './component/cart/cart.component';
     PaymentdetailComponent,
     LessonComponent,
     CartComponent,
+    JobComponent,
+    JobApplicationComponent,
     
   ],
   schemas: [

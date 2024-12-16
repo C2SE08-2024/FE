@@ -25,6 +25,7 @@ export class PaymentdetailComponent implements OnInit {
     this.loadCartDetails(this.cartId);  // Tải thông tin giỏ hàng
   }
 
+
   loadCartDetails(cartId: number): void {
     this.cartService.getCart().subscribe(
       (data) => {
@@ -39,6 +40,7 @@ export class PaymentdetailComponent implements OnInit {
     );
   }
 
+  
   proceedToPayment(): void {
     const paymentData = {
       cartId: this.cartId,
@@ -63,4 +65,5 @@ export class PaymentdetailComponent implements OnInit {
       }
     );
   }
+  
 }
