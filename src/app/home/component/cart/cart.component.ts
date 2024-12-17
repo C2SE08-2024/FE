@@ -57,24 +57,25 @@ export class CartComponent implements OnInit {
   // Khởi tạo form với dữ liệu từ giỏ hàng
   formBuilder(): void {
     this.rf = new FormGroup({
-      receiverName: new FormControl(this.cart.receiverName, [
+      receiverName: new FormControl(this.cart.receiverName || '', [
         Validators.required,
         Validators.pattern('^[A-Za-zÀ-ỹà-ỹ\\s]+(?:\\s[A-Za-zÀ-ỹà-ỹ]+)*$')
       ]),
-      receiverAddress: new FormControl(this.cart.receiverAddress, [
+      receiverAddress: new FormControl(this.cart.receiverAddress || '', [
         Validators.required,
         Validators.pattern('^[^!@#$%^&*()_+<>?\'\"{}~|/\\\\]+$')
       ]),
-      receiverPhone: new FormControl(this.cart.receiverPhone, [
+      receiverPhone: new FormControl(this.cart.receiverPhone || '', [
         Validators.required,
         Validators.pattern('^0\\d{9,10}$')
       ]),
-      receiverEmail: new FormControl(this.cart.receiverEmail, [
+      receiverEmail: new FormControl(this.cart.receiverEmail || '', [
         Validators.required,
         Validators.email
       ])
     });
   }
+  
 
   // Xóa một sản phẩm khỏi giỏ hàng
   removeItem(cartDetailId: number): void {
@@ -104,24 +105,28 @@ export class CartComponent implements OnInit {
       alert('Please fill in all required fields correctly.');
       return;
     }
-
+  
     const cartWithDetail = {
       cart: {
-        ...this.cart, // Dữ liệu giỏ hàng
-        ...this.rf.value // Dữ liệu form
+        ...this.cart, // Đảm bảo `cart` không null
+        ...this.rf.value // Giá trị từ form
       },
       cartDetailList: this.details // Danh sách chi tiết giỏ hàng
     };
-
+  
+    console.log('Payload sent to backend:', cartWithDetail); // Log payload gửi đến backend
+  
     this.cartService.checkout(cartWithDetail).subscribe(
       (response) => {
         alert('Payment successful! Redirecting to payment details.');
         this.router.navigate([`/paymentdetail/${cartWithDetail.cart.cartId}`]);
       },
       (error) => {
-        console.error('Lỗi khi thanh toán:', error);
-        alert('Thanh toán thất bại, vui lòng thử lại.');
+        console.error('Error during checkout:', error);
+        alert('Payment failed, please try again.');
       }
     );
   }
+  
+  
 }

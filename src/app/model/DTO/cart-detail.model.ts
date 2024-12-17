@@ -7,5 +7,6 @@ export interface CartDetail {
     cartId?: number; 
     course?: Course;
     
+    
   }
   

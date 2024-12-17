@@ -2,6 +2,7 @@ import { Instructor } from "../Account/Instructor";
 import { Student } from "../Account/Student";
 
 export interface Course {
+  id: any;
   // id: any;
   courseId: number;
   courseName: string;
