@@ -15,6 +15,9 @@ import { PaymentComponent } from './component/payment/payment.component';
 import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 import { LessonComponent } from './component/lesson/lesson.component';
 import { CartComponent } from './component/cart/cart.component';
+import { JobComponent } from './component/job/job.component';
+import { JobApplication } from '../model/job-application.model';
+import { JobApplicationComponent } from './component/job-application/job-application.component';
 
 const routes: Routes = [
   {
@@ -23,6 +26,9 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: HomepageComponent},
       { path: 'business', component: BusinessComponent},
+      { path: 'job', component: JobComponent},
+      { path: 'job-application/:jobId', component: JobApplicationComponent },
+
       { path: 'business/:id', component: BusinessdetailComponent},
       { path: 'create-cv', component: CreateCvComponent},
       { path: 'course', component: CourseComponent },
