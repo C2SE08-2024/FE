@@ -76,18 +76,18 @@ export class CourseService {
    }
   
 
-  addToCart(courseId: number): Observable<any> {
-    return this.http.get(`http://localhost:8080/api/v1/cart/add/${courseId}`);
-  }
+  // addToCart(courseId: number): Observable<any> {
+  //   return this.http.get(`http://localhost:8080/api/v1/cart/add/${courseId}`);
+  // }
 
-  registerCourse(courseId: number): Observable<any> {
-    return this.paymentService.checkout(courseId); // Assuming `checkout` handles registration
-  }
+  // registerCourse(courseId: number): Observable<any> {
+  //   return this.paymentService.checkout(courseId); // Assuming `checkout` handles registration
+  // }
 
-  // Checkout - process payment and register
-  checkout(cartDetails: any): Observable<any> {
-    return this.paymentService.checkout(cartDetails);
-  }
+  // // Checkout - process payment and register
+  // checkout(cartDetails: any): Observable<any> {
+  //   return this.paymentService.checkout(cartDetails);
+  // }
   
 }
 

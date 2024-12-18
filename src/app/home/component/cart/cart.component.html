@@ -32,7 +32,7 @@
     </div>
 
     <!-- Form nhập thông tin nhận hàng -->
-    <form [formGroup]="rf" class="checkout-form">
+    <form [formGroup]="rf" *ngIf="rf" class="checkout-form">
       <h3>Shipping Details</h3>
 
       <div class="form-group">
@@ -85,6 +85,14 @@
         <div *ngIf="rf.get('receiverEmail')?.invalid && rf.get('receiverEmail')?.touched" class="error-message">
           Invalid email. Please enter a valid email.
         </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="paymentMethod">Hình thức thanh toán:<sup class="text-danger fw-bold">*</sup></label>
+        <select name="paymentMethod" id="paymentMethod" (change)="changeMethod($event)" class="form-control">
+          <option value="direct" selected>Trực tiếp khi nhận hàng</option>
+          <option value="vnpay">Thanh toán qua VNPay</option>
+        </select>
       </div>
 
       <!-- Nút thanh toán -->

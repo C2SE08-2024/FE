@@ -27,8 +27,8 @@ export class DetailcourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseId = +this.route.snapshot.paramMap.get('id')!;  // Lấy ID từ URL
-  console.log('Course ID:', this.courseId); // Thêm log để kiểm tra ID
-  this.loadCourseDetail(this.courseId);  // Gọi hàm để lấy chi tiết khóa học
+    console.log('Course ID:', this.courseId); // Thêm log để kiểm tra ID
+    this.loadCourseDetail(this.courseId);  // Gọi hàm để lấy chi tiết khóa học
   }
 
   // Hàm tải chi tiết khóa học
@@ -49,7 +49,7 @@ export class DetailcourseComponent implements OnInit {
 
   registerCourse(): void {
     if (this.course.coursePrice > 0) {
-      this.cartService.addCourseToCart(this.courseId).subscribe(
+      this.cartService.addToCart(this.courseId).subscribe(
         (response) => {
           console.log('Khóa học đã được thêm vào giỏ hàng:', response);
           this.router.navigate(['/cart']); // Chuyển hướng đến trang giỏ hàng
