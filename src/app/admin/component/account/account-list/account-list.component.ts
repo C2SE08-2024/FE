@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { accData } from './account-data';
 
 @Component({
-  selector: 'app-account-page',
-  templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.css']
+  selector: 'app-account-list',
+  templateUrl: './account-list.component.html',
+  styleUrls: ['./account-list.component.css']
 })
-export class AccountPageComponent implements OnInit {
+export class AccountListComponent implements OnInit {
 
   showDeletePopup = false;
   deletePetId: number;
@@ -138,4 +138,5 @@ export class AccountPageComponent implements OnInit {
   onEnter(){
     // this.search();
   }
+
 }

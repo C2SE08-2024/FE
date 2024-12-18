@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .body {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .course-info {
+
+      h5 {
+        font-size: 18px;
+        color: #4e73df;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+    }
+    
+    
+  }
+  
+  /* Cấu hình form */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các nhóm trong form */
+
+    table {
+      width: 100%;
+      border-spacing: 10px;
+      margin-bottom: 20px;
+
+      td {
+        padding: 10px;
+        vertical-align: middle;
+        text-align: left;
+        width: fit-content;
+
+        label {
+          font-size: 20px;
+          font-weight: 600;
+          color: #555;
+          display: inline-block;
+          margin-bottom: 5px;
+          width: 200px;
+        }
+
+        input{
+          padding: 10px;
+          font-size: 15px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+          width: 100%;
+          box-sizing: border-box;
+          transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+          outline: none;
+          border-color: #4e73df;
+          box-shadow: 0 0 5px rgba(78, 115, 223, 0.3);
+        }
+      }
+    }
+  }
+  
+  input + label {
+    display: inline-block;
+    background-color: #4e73df;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input:hover + label {
+    background-color: #3b5b9b;
+  }
+  input + label + img {
+    margin-top: 10px;
+    max-width: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4e73df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #3b5b9b;
+  }
+  

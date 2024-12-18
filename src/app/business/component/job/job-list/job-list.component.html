@@ -1,0 +1,58 @@
+<div class="job-container">
+    <div class="banner">
+
+    </div>
+    <div class="search-container">
+        <input type="text">
+        <button><i class="fa-solid fa-magnifying-glass"></i>Tìm kiếm</button>
+        <select>
+            <option value="">Tình trạng</option>
+            <option value="">Còn hạn</option>
+            <option value="">Hết hạn</option>
+        </select>
+    </div>
+
+    <div class="job-list">
+        <!-- <div *ngIf="business.jobs && business.jobs.length > 0"> -->
+        <div class="action">
+            <p>Danh sách khóa học</p>
+            <div class="button">
+                <button (click)="openJobCreateModal()">Đăng tuyển dụng</button>
+                <button (click)="openJobEditModal()">Sửa</button>
+                <button (click)="confirmDelete(selectedJobId)">Xóa</button>
+            </div>
+        </div>
+        <div class="job-card" *ngFor="let job of jobs" >
+            <div class="job-info" [class.selected]="job.jobId === selectedJobId"  (click)="selectJob(job)">
+                <table>
+                    <tr>
+                        <td><h3>{{ job.jobTitle }}</h3></td>
+                        <td><small>Loại việc</small></td>
+                        <td><small>Vị trí</small></td>
+                    </tr>
+                    <tr>
+                        <td><p class="industry">{{ job.salaryRange }}</p></td>
+                        <td><p class="industry">{{ job.jobType }}</p></td>
+                        <td><p class="description">{{ job.location }}</p></td>
+                    </tr>
+                </table>
+                <div class="button">
+                    <button class="view-details-btn" (click)="openJobDetailModal(job)">Xem chi tiết</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="action-form" *ngIf="showDeletePopup">
+    <div class="close" (click)="closeDeletePopup()">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+    <i class="fa fa-trash fa-4x" style="color: rgb(0, 159, 127) ;"></i>
+    <h4>Xóa bài đăng</h4>
+    <p>Xác định xóa</p>
+    <div class="btn-action">
+        <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Hủy</button>
+        <button style="background-color:rgb(220, 38, 38)" (click)="deleteItemAtId()">Xóa</button>
+    </div>
+</div>

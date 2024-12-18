@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="title"> Thông tin tuyển dụng chi tiết</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="detail">
+    <div class="infor">
+      <h3>{{ job.jobTitle }}</h3>
+      <p><strong>Type:</strong> {{ job.jobType }} </p>
+      <p><strong>Mô tả:</strong> {{ job.jobDescription }}</p>
+      <p><strong>Mức lương:</strong> {{ job.salaryRange }}</p>
+      <p><strong>Yêu cầu:</strong> {{ job.requirement }}</p>
+      <p><strong>Ngành:</strong> {{ job.industry }}</p>
+      <p><strong>Địa chỉ:</strong> {{ job.location }}</p>
+      <p><strong>Ngày đăng:</strong> {{ job.posterDate }}</p>
+      <p><strong>Ngày hết hạn:</strong> {{ job.expiryDate }}</p>
+    </div>
+  </div>
+</div>

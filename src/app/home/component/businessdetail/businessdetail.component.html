@@ -1,0 +1,43 @@
+<div class="container" *ngIf="business">
+    <div class="business-detail">
+      <img [src]="business.businessImg" alt="Logo" class="business-logo-large" />
+      <h2>{{ business.businessName }}</h2>
+      <p class="industry">{{ business.industry }}</p>
+      <p class="location">{{ business.businessAddress }}</p>
+  
+      <div class="detail-section">
+        <h3>Giới thiệu</h3>
+        <p>{{ business.description }}</p>
+      </div>
+  
+      <div class="detail-section">
+        <h3>Lịch sử</h3>
+        <p>{{ business.foundedYear }}</p>
+      </div>
+  
+      <div class="detail-section">
+        <h3>Thông tin liên hệ</h3>
+        <p><strong>Địa chỉ:</strong> {{ business.businessAddress }}</p>
+        <p><strong>Điện thoại:</strong> {{ business.businessPhone }}</p>
+        <p><strong>Email:</strong> {{ business.businessEmail }}</p>
+      </div>
+  
+      <!-- Nút nộp CV -->
+      <button class="cv-button" (click)="toggleCvForm()">Nộp CV</button>
+  
+      <!-- Form Nộp CV Đơn Giản -->
+      <div class="cv-form-container" *ngIf="showCvForm">
+        <h3>Nộp CV cho {{ business.businessName }}</h3>
+        <form [formGroup]="cvForm" (ngSubmit)="submitCv()">
+          <label>
+            CV (file PDF):
+            <input type="file" (change)="onFileChange($event)" accept=".pdf" required />
+          </label>
+          <button type="submit">Gửi CV</button>
+        </form>
+      </div>
+  
+      <button class="back-button" (click)="goBack()">Quay lại</button>
+    </div>
+  </div>
+  

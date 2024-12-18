@@ -1,0 +1,38 @@
+<form [formGroup]="lessonForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="lessonName">Tên bài học</label>
+      <input id="lessonName" formControlName="lessonName" type="text" />
+      <div *ngIf="lessonForm.get('lessonName').invalid && lessonForm.get('lessonName').touched">
+        <small>Tên bài học là bắt buộc.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="lessonContent">Nội dung bài học</label>
+      <textarea id="lessonContent" formControlName="lessonContent"></textarea>
+      <div *ngIf="lessonForm.get('lessonContent').invalid && lessonForm.get('lessonContent').touched">
+        <small>Nội dung bài học là bắt buộc.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="video">Video</label>
+      <input id="video" formControlName="video" type="file" (change)="onFileSelected($event)"/>
+      <button (click)="onUpload()">Upload</button>
+      <div *ngIf="uploadedImageUrl">
+        <video width="100%" height="auto" controls>
+            <source [src]="uploadedImageUrl" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div>
+      <label for="lessonDuration">Thời gian bài học (phút)</label>
+      <input id="lessonDuration" formControlName="lessonDuration" type="text" />
+      <div *ngIf="lessonForm.get('lessonDuration').invalid && lessonForm.get('lessonDuration').touched">
+        <small>Thời gian bài học phải lớn hơn 0.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="lessonForm.invalid">Tạo bài học</button>
+  </form>
+  
