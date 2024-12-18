@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../token/token-storage.service';
+import { CartWithDetail } from 'src/app/model/DTO/cart-with-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,11 @@ export class CartService {
     private tokenStorageService: TokenStorageService
   ) {}
 
-  // Lấy giỏ hàng của người dùng
-  getCart(): Observable<any> {
-    const token = this.tokenStorageService.getToken();
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
 
-    return this.http.get<any>(this.API_URL, { headers });
+  getCart(): Observable<CartWithDetail> {
+    const token = this.tokenStorageService.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<CartWithDetail>(this.API_URL, {headers});
   }
 
   // Thêm khóa học vào giỏ hàng
@@ -33,6 +31,8 @@ export class CartService {
     });
   
     console.log('Adding course to cart with ID:', courseId); // Thêm log để kiểm tra
+    console.log('Token:', token); // Log kiểm tra token
+
     return this.http.get<any>(`${this.API_URL}/add/${courseId}`, { headers });
   }
 

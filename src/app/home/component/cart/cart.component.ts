@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart/cart.service';
 import { Router } from '@angular/router';
-
+import { Cart } from 'src/app/model/DTO/cart.model';
+import { CartDetail } from 'src/app/model/DTO/cart-detail.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -9,67 +11,122 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartItems: any[] = [];  // Danh sách các khóa học trong giỏ hàng
-  totalAmount: number = 0; // Tổng tiền của các khóa học
-  loading: boolean = true; // Trạng thái loading
-
+  cart: Cart = {
+    cartId: 0,
+    receiverName: '',
+    receiverAddress: '',
+    receiverPhone: '',
+    receiverEmail: ''
+  }; // Dữ liệu giỏ hàng mặc định
+  details: CartDetail[] = []; // Chi tiết giỏ hàng mặc định là mảng rỗng
+  totalAmount = 0; // Tổng tiền
+  rf: FormGroup; // Form nhận thông tin khách hàng
+ 
   constructor(
     private cartService: CartService, // Dịch vụ giỏ hàng
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.loadCart(); // Tải giỏ hàng khi trang được mở
+    this.loadCart(); // Tải giỏ hàng khi khởi động component
   }
 
-  // Hàm tải giỏ hàng của người dùng
+  // Hàm tải giỏ hàng từ backend
   loadCart(): void {
     this.cartService.getCart().subscribe(
       (data) => {
-        console.log(data);
-        this.cartItems = data;  
-        // this.totalAmount = this.cartItems.reduce((sum, item) => sum + item.course.coursePrice, 0);  // Tính tổng tiền
-        this.loading = false;
+        this.cart = data.cart || this.cart; // Gán dữ liệu giỏ hàng hoặc giữ mặc định
+        this.details = data.cartDetailList || []; // Gán danh sách chi tiết giỏ hàng hoặc giữ mảng rỗng
+        console.log('Cart Details:', this.details);
+        this.totalAmount = this.calculateTotal(); // Tính tổng tiền
+        this.formBuilder(); // Khởi tạo form
       },
       (error) => {
-        console.error('Lỗi khi tải giỏ hàng', error);
-        this.loading = false;
+        console.error('Lỗi khi tải giỏ hàng:', error);
+        alert('Không thể tải giỏ hàng, vui lòng thử lại.');
       }
     );
   }
 
-  // Thêm khóa học vào giỏ hàng
-  addCourseToCart(courseId: number): void {
-    this.cartService.addCourseToCart(courseId).subscribe(
-      (data) => {
-        console.log('Khóa học đã được thêm vào giỏ hàng');
-        this.loadCart();  // Tải lại giỏ hàng sau khi thêm
-      },
-      (error) => {
-        console.error('Lỗi khi thêm khóa học vào giỏ hàng', error);
-      }
-    );
+  // Tính tổng tiền
+  calculateTotal(): number {
+    if (!this.details) return 0;
+    return this.details.reduce((sum, item) => sum + item.course.coursePrice, 0);
   }
 
-  // Thanh toán giỏ hàng
+  // Khởi tạo form với dữ liệu từ giỏ hàng
+  formBuilder(): void {
+    this.rf = new FormGroup({
+      receiverName: new FormControl(this.cart.receiverName || '', [
+        Validators.required,
+        Validators.pattern('^[A-Za-zÀ-ỹà-ỹ\\s]+(?:\\s[A-Za-zÀ-ỹà-ỹ]+)*$')
+      ]),
+      receiverAddress: new FormControl(this.cart.receiverAddress || '', [
+        Validators.required,
+        Validators.pattern('^[^!@#$%^&*()_+<>?\'\"{}~|/\\\\]+$')
+      ]),
+      receiverPhone: new FormControl(this.cart.receiverPhone || '', [
+        Validators.required,
+        Validators.pattern('^0\\d{9,10}$')
+      ]),
+      receiverEmail: new FormControl(this.cart.receiverEmail || '', [
+        Validators.required,
+        Validators.email
+      ])
+    });
+  }
+  
+
+  // Xóa một sản phẩm khỏi giỏ hàng
+  removeItem(cartDetailId: number): void {
+    const updatedDetails = this.details.filter(
+      (item) => item.cartDetailId !== cartDetailId
+    );
+    if (updatedDetails) {
+      this.details = updatedDetails;
+      this.totalAmount = this.calculateTotal(); // Cập nhật tổng tiền
+      console.log(`Item with ID ${cartDetailId} removed.`);
+    }
+  }
+
+  getTotalAmount() {
+    let temp = 0;
+    this.details.forEach(item => {
+      if (item.status === true) {
+        temp += item.course.coursePrice;
+      }
+    });
+    this.totalAmount = temp;
+  }
+
+  // Xử lý thanh toán
   proceedToPayment(): void {
+    if (this.rf.invalid) {
+      alert('Please fill in all required fields correctly.');
+      return;
+    }
+  
     const cartWithDetail = {
-      cart: { cartId: 0 },  // Thêm thông tin giỏ hàng nếu cần
-      cartDetailList: this.cartItems.map(item => ({
-        cartDetailId: item.cartDetailId,
-        course: item.course,
-        status: item.status
-      }))
+      cart: {
+        ...this.cart, // Đảm bảo `cart` không null
+        ...this.rf.value // Giá trị từ form
+      },
+      cartDetailList: this.details // Danh sách chi tiết giỏ hàng
     };
-
+  
+    console.log('Payload sent to backend:', cartWithDetail); // Log payload gửi đến backend
+  
     this.cartService.checkout(cartWithDetail).subscribe(
       (response) => {
-        // Chuyển hướng đến trang thanh toán chi tiết
+        alert('Payment successful! Redirecting to payment details.');
         this.router.navigate([`/paymentdetail/${cartWithDetail.cart.cartId}`]);
       },
       (error) => {
-        console.error('Lỗi khi thanh toán giỏ hàng', error);
+        console.error('Error during checkout:', error);
+        alert('Payment failed, please try again.');
       }
     );
   }
+  
+  
 }

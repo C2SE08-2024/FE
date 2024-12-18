@@ -1,34 +1,70 @@
-<div class="container">
-  <h2 class="text-center mb-4">Chi Tiết Thanh Toán</h2>
-
-  <!-- Hiển thị khi đang tải -->
-  <div *ngIf="loading" class="text-center">
-    <span>Đang tải thông tin thanh toán...</span>
+<div class="container mt-4">
+  <!-- Header -->
+  <div class="row mb-4">
+    <div class="col-12 text-center">
+      <h2>Chi tiết Thanh Toán</h2>
+      <p class="text-muted">Kiểm tra lại đơn hàng của bạn trước khi thanh toán</p>
+    </div>
   </div>
 
-  <!-- Hiển thị khi có khóa học trong giỏ -->
-  <div *ngIf="!loading && cartItems.length > 0">
-    <h4>Thông Tin Khóa Học</h4>
-    <div *ngFor="let item of cartItems" class="row">
-      <div class="col-md-8">
-        <h5>{{ item.course.courseName }}</h5>
-        <p>{{ item.course.coursePrice | number:'1.0-0' }} VND</p>
-      </div>
-      <div class="col-md-4 text-right">
-        <p class="fw-bold">{{ item.course.coursePrice | number:'1.0-0' }} VND</p>
-      </div>
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
+    <p>Đang tải thông tin...</p>
+  </div>
 
+  <!-- Cart Details -->
+  <div *ngIf="!loading && cartDetails.length > 0">
     <div class="row">
-      <div class="col-md-12 text-right">
-        <h4>Tổng cộng: {{ totalAmount | number:'1.0-0' }} VND</h4>
-        <button class="btn btn-success" (click)="proceedToPayment()">Thanh toán</button>
+      <div class="col-12">
+        <table class="table table-bordered table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Tên khóa học</th>
+              <th>Giá</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartDetails; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.course.courseName }}</td>
+              <td>{{ item.course.coursePrice | currency:'VND':'symbol' }}</td>
+              <td>
+                <span *ngIf="item.status" class="badge bg-success">Đã thanh toán</span>
+                <span *ngIf="!item.status" class="badge bg-warning">Chưa thanh toán</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Total Amount -->
+    <div class="row mt-3">
+      <div class="col-12 text-end">
+        <h4>
+          Tổng cộng: <span class="text-primary">{{ totalAmount | currency:'VND':'symbol' }}</span>
+        </h4>
+      </div>
+    </div>
+
+    <!-- Payment Button -->
+    <div class="row mt-4">
+      <div class="col-12 text-end">
+        <button class="btn btn-primary btn-lg" (click)="proceedToPayment()">
+          Thanh toán ngay
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Hiển thị nếu không có khóa học trong giỏ -->
-  <div *ngIf="!loading && cartItems.length === 0">
-    <p>Giỏ hàng của bạn hiện tại trống. Vui lòng thêm khóa học vào giỏ hàng trước khi thanh toán.</p>
+  <!-- No Cart Items -->
+  <div *ngIf="!loading && cartDetails.length === 0" class="text-center">
+    <p class="text-muted">Giỏ hàng của bạn không có sản phẩm nào.</p>
+    <a class="btn btn-secondary" routerLink="/">Quay lại cửa hàng</a>
   </div>
 </div>

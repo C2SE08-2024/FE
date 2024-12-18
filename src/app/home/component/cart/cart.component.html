@@ -1,33 +1,110 @@
-<div class="container">
-  <h2 class="text-center mb-4">Giỏ Hàng Của Bạn</h2>
+<div class="cart-container">
+  <h1>Your Cart</h1>
 
-  <!-- Hiển thị khi đang tải giỏ hàng -->
-  <div *ngIf="loading" class="text-center">
-    <span>Đang tải giỏ hàng...</span>
-  </div>
+  <!-- Kiểm tra giỏ hàng có sản phẩm -->
+  <div *ngIf="details?.length > 0; else emptyCart">
+    <!-- Danh sách sản phẩm trong giỏ hàng -->
+    <div class="cart-detail">
+      <div *ngFor="let item of details" class="cart-item">
+        <!-- Kiểm tra course hợp lệ -->
+        <div class="cart-item-info" *ngIf="item.course">
+          <h3>{{ item.course.courseTitle }}</h3>
+          <p><strong>Name:</strong> {{ item.course.courseName }}</p>
+          <p><strong>Price:</strong> {{ item.course.coursePrice | currency }}</p>
+          <p><strong>Status:</strong> {{ item.status ? 'Active' : 'Inactive' }}</p>
+        </div>
 
-  <!-- Hiển thị giỏ hàng nếu có khóa học -->
-  <div *ngIf="!loading && cartItems.length > 0">
-    <div *ngFor="let item of cartItems" class="row">
-      <div class="col-md-8">
-        <h5>{{ item.course.courseName }}</h5>
-        <p>{{ item.course.coursePrice | number:'1.0-0' }} VND</p>
-      </div>
-      <div class="col-md-4 text-right">
-        <p class="fw-bold">{{ item.course.coursePrice | number:'1.0-0' }} VND</p>
+        <!-- Trường hợp course không hợp lệ -->
+        <div *ngIf="!item.course" class="invalid-course">
+          <p>Invalid course data. Please contact support.</p>
+        </div>
+
+        <!-- Hành động xóa sản phẩm -->
+        <div class="cart-item-actions">
+          <button class="btn btn-danger" (click)="removeItem(item.cartDetailId)">Remove</button>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12 text-right">
-        <h4>Tổng cộng: {{ totalAmount | number:'1.0-0' }} VND</h4>
-        <button class="btn btn-success" (click)="proceedToPayment()">Thanh toán</button>
-      </div>
+    <!-- Hiển thị tổng tiền -->
+    <div class="cart-summary">
+      <h3>Total Amount: {{ totalAmount | currency }}</h3>
     </div>
+
+    <!-- Form nhập thông tin nhận hàng -->
+    <form [formGroup]="rf" class="checkout-form">
+      <h3>Shipping Details</h3>
+
+      <div class="form-group">
+        <label for="receiverName">Name:</label>
+        <input
+          id="receiverName"
+          formControlName="receiverName"
+          type="text"
+          class="form-control"
+        />
+        <div *ngIf="rf.get('receiverName')?.invalid && rf.get('receiverName')?.touched" class="error-message">
+          Invalid name. Please enter a valid name.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="receiverAddress">Address:</label>
+        <input
+          id="receiverAddress"
+          formControlName="receiverAddress"
+          type="text"
+          class="form-control"
+        />
+        <div *ngIf="rf.get('receiverAddress')?.invalid && rf.get('receiverAddress')?.touched" class="error-message">
+          Invalid address. Please enter a valid address.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="receiverPhone">Phone:</label>
+        <input
+          id="receiverPhone"
+          formControlName="receiverPhone"
+          type="text"
+          class="form-control"
+        />
+        <div *ngIf="rf.get('receiverPhone')?.invalid && rf.get('receiverPhone')?.touched" class="error-message">
+          Invalid phone number. Must start with 0 and have 10-11 digits.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="receiverEmail">Email:</label>
+        <input
+          id="receiverEmail"
+          formControlName="receiverEmail"
+          type="email"
+          class="form-control"
+        />
+        <div *ngIf="rf.get('receiverEmail')?.invalid && rf.get('receiverEmail')?.touched" class="error-message">
+          Invalid email. Please enter a valid email.
+        </div>
+      </div>
+
+      <!-- Nút thanh toán -->
+      <div class="text-right">
+        <button
+          class="btn btn-success"
+          [disabled]="rf.invalid"
+          (click)="proceedToPayment()"
+        >
+          Proceed to Payment
+        </button>
+      </div>
+    </form>
   </div>
 
-  <!-- Hiển thị thông báo nếu giỏ hàng trống -->
-  <div *ngIf="!loading && cartItems.length === 0">
-    <p>Giỏ hàng của bạn hiện tại trống. Vui lòng thêm khóa học vào giỏ hàng trước khi thanh toán.</p>
-  </div>
+  <!-- Hiển thị khi giỏ hàng rỗng -->
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <p>Your cart is empty. Browse courses and add them to your cart!</p>
+      <!-- <button class="btn btn-primary" (click)="router.navigate(['/courses'])">Go to Courses</button> -->
+    </div>
+  </ng-template>
 </div>
