@@ -9,14 +9,19 @@ import { Observable } from 'rxjs/internal/Observable';
 
 export class UploadService {
 
-  private CLOUDINARY_URL ='https://api.cloudinary.com/v1_1/dhth53ukn/image/upload';
+  private CLOUDINARY_URL ='https://api.cloudinary.com/v1_1/dhth53ukn/';
 
 
   constructor(private http: HttpClient) { }
 
   uploadImage(vals): Observable<any> {
     let data = vals;
-    return this.http.post(this.CLOUDINARY_URL, data);
+    return this.http.post(this.CLOUDINARY_URL+'image/upload', data);
+  }
+
+  uploadVideo(vals): Observable<any> {
+    let data = vals;
+    return this.http.post(this.CLOUDINARY_URL+'video/upload', data);
   }
 }
 

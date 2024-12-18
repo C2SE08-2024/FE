@@ -16,6 +16,5 @@ export interface Instructor {
   specialization?: string;        
   experienceYear?: number;        
   bio?: string;                   
-  
   account?: Account;              
 }

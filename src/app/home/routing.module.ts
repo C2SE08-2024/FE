@@ -15,6 +15,7 @@ import { PaymentComponent } from './component/payment/payment.component';
 import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 import { LessonComponent } from './component/lesson/lesson.component';
 import { CartComponent } from './component/cart/cart.component';
+import { JobComponent } from './component/job/job.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'paymentdetail/:cartId', component: PaymentdetailComponent},
       { path: 'course/:id/lesson', component: LessonComponent },
+      { path: 'job', component: JobComponent },
     ]
   },
   { path: 'login', component: LoginComponent },  // Đăng nhập

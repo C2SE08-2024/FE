@@ -22,7 +22,7 @@ export class BusinessService {
   }
 
   getBusinessById(businessId: number): Observable<Business> {
-    return this.http.get<Business>(`${this.apiUrl}/id/${businessId}`);
+    return this.http.get<Business>(`${this.apiUrl}/${businessId}`);
   }
 
   getBusinessUserDetail(): Observable<BusinessUserDetailDto> {

@@ -67,9 +67,9 @@
                             <td><img [src]="item.image" style="max-height: 30px;"></td>
                             <td>{{ item.coursePrice | number:'1.0-0'  }} VND</td>
                             <td>{{ item.instructor?.instructorName || 'Không có' }}</td>
-                            <td>{{ item.lessonCount || 0}}</td>
-                            <td>{{ item.testCount || 0}}</td>
-                            <td>{{ item.students.length || 0}}</td>
+                            <td style="text-align: center;">{{ item.lessonCount || 0}}</td>
+                            <td style="text-align: center;">{{ item.testCount || 0}}</td>
+                            <td style="text-align: center;">{{ item.students.length || 0}}</td>
                         </tr>
                     </tbody>
                 </table>

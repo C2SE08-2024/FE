@@ -1,1 +1,41 @@
-<p>job works!</p>
+<div class="job-container">
+    <div class="banner">
+
+    </div>
+    <div class="search-container">
+        <input type="text">
+        <button><i class="fa-solid fa-magnifying-glass"></i>Tìm kiếm</button>
+        <select>
+            <option value="">Tình trạng</option>
+            <option value="">Còn hạn</option>
+            <option value="">Hết hạn</option>
+        </select>
+    </div>
+
+    <div class="job-list">
+        <!-- <div *ngIf="business.jobs && business.jobs.length > 0"> -->
+        <div class="action">
+            <p>Danh sách tuyển dụng</p>
+        </div>
+        <div class="job-card" *ngFor="let job of jobs" >
+            <div class="job-info">
+                <table>
+                    <tr>
+                        <td><h3>{{ job.jobTitle }}</h3></td>
+                        <td><small>Loại việc</small></td>
+                        <td><small>Vị trí</small></td>
+                    </tr>
+                    <tr>
+                        <td><p class="industry">{{ job.salaryRange }}</p></td>
+                        <td><p class="industry">{{ job.jobType }}</p></td>
+                        <td><p class="description">{{ job.location }}</p></td>
+                    </tr>
+                </table>
+                <div class="button">
+                    <button class="view-details-btn" (click)="openJobDetailModal(job)">Xem chi tiết</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,92 +1,30 @@
-<div class="card">
-    <div class="card-head">
-        <div class="heading-banner">
-            <div class="text-heading">
-                <h1>Tài khoản</h1>
-                <div class="seach-bar-container">
-                    <form class="search-bar">
-                        <!-- <button type="submit" (click)="search()"><img src="assets/image/search-symbol.png"></button>
-                        <input type="text" name="value" [(ngModel)]="searchTerm" (keyup.enter)="onEnter()"> -->
-                    </form>
+<div>
+    <div class="card">
+        <div class="card-head">
+            <small>THÔNG TIN TÌM KIẾM</small>
+            <div class="heading-banner">
+                <div class="text-heading">
+                    <h3>TÀI KHOẢN</h3>
+                    <div class="seach-bar-container">
+                        <form class="search-bar">
+                            <!-- <button type="submit" (click)="search()"><img src="assets/image/search-symbol.png"></button>
+                            <input type="text" name="value" [(ngModel)]="searchTerm" (keyup.enter)="onEnter()"> -->
+                        </form>
+                    </div>
+                    <button class="add">
+                        <span>Tìm kiếm</span>
+                    </button>
                 </div>
-                <a [routerLink]="['create']" class="add">
-                    <span>Thêm tài khoản</span>
-                </a>
-            </div>
-            <div class="category-filter">
-                <!-- <select [(ngModel)]="selectedBreed" (change)="filterPets()">
-                    <option value = "" >Tất cả</option>
-                    <option *ngFor="let item of BreedList" [value]="item.breedId">{{item.breedName}}</option>
-                </select> -->
             </div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="table-container">
-            <table style="width: 100%; ">
-                <colgroup>
-                    <col style="width: 5%;" >
-                    <col style="width: 10%">
-                    <col style="width: 12%;">
-                    <col style="width: 25%;">
-                    <col style="width: 8%;">
-                    <col style="width: 10%;">
-                    <col style="width: 10%;">
-                    <col style="width: 10%;">
-                </colgroup>
-                <thead >
-                    <tr>
-                        <th style="text-align: center;">ID</th>
-                        <th style="text-align: left;">Hình ảnh</th>
-                        <th style="text-align: left;">Họ Tên</th>
-                        <th style="text-align: center;">Email</th>
-                        <th style="text-align: center;">Giới tính</th>
-                        <th style="text-align: center;">Địa chỉ</th>
-                        <th style="text-align: center;">Mã Học viên</th>
-                        <th style="text-align: center;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of accData">
-                        <td style="text-align: center;">{{item.id}}</td>
-                        <td style="text-align: left;">
-                            <img [src]="item.student_img" style="max-height: 80px; max-width: 80px; width: auto; height: auto;">
-                        </td>
-                        <td [ngClass]="'truncate-text'" style="text-align: left;" >
-                            {{item.student_name}}
-                        </td>
-                        <td [ngClass]="'truncate-text'" style="text-align: left;">{{item.student_email}}</td>
-                        <td style="text-align: center;">{{item.student_gender}}</td>
-                        <td style="text-align: center;">{{item.student_address}}</td>
-                        <td style="text-align: center;">{{item.student_code}}</td>
-                        <td style="text-align: center; gap: 10px">
-                            <i class="fa fa-pencil-square fa-lg"></i>
-                            <i class="fa fa-trash fa-lg" ></i>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="card-body">
+            <div class="link">
+                <a [routerLink]="['student-list']" routerLinkActive="active">Danh sách học viên</a>
+                <a [routerLink]="['instructor-list']" routerLinkActive="active">Danh sách giảng viên</a>
+              </div>
+              <div class="router">
+                <router-outlet></router-outlet>
+              </div>
         </div>
     </div>
-    <!-- <div *ngIf="totalPets > petsPerPage">
-        <ul class="pagination">
-          <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
-            <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
-          </li>
-        </ul>
-    </div> -->
 </div>
-<!-- <div class="action-form" *ngIf="showDeletePopup">
-    <div class="close" (click)="closeDeletePopup()">
-        <i class="fa-solid fa-xmark"></i>
-    </div>
-    <i class="fa fa-trash fa-4x" style="color: rgb(0, 159, 127) ;"></i>
-    <h4>Delete Pet</h4>
-    <p>Are you sure, you want to delete?</p>
-    <div class="btn-action">
-        <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Cancel</button>
-        <button style="background-color:rgb(220, 38, 38)" (click)="deletePetAtId()">Delete</button>
-    </div>
-</div> -->
-
-
