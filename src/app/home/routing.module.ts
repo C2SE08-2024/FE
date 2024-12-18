@@ -38,6 +38,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'paymentdetail/:cartId', component: PaymentdetailComponent},
       { path: 'course/:id/lesson', component: LessonComponent },
+      { path: 'job', component: JobComponent },
     ]
   },
   { path: 'login', component: LoginComponent },  // Đăng nhập

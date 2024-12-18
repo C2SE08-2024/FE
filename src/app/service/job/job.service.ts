@@ -38,8 +38,15 @@ export class JobService {
   }
 
   deleteJob(jobId: number): Observable<void> {
-    const url = `${this.apiUrl}/${jobId}`;
-    return this.http.delete<void>(url);
+    const token = this.tokenStorageService.getToken();
+      if (token) {
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+      });
+      const url = `${this.apiUrl}/${jobId}`;
+      return this.http.delete<void>(url, {headers} );
+    }
   }
 
   getJobById(jobId: number): Observable<JobDTO> {

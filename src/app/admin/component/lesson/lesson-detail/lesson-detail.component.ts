@@ -23,20 +23,17 @@ export class LessonDetailComponent implements OnInit {
 
 
   constructor(private activeRoute: ActivatedRoute,
-              private testService: TestService,
               private lessonService: LessonService,
   ) { }
 
   ngOnInit(): void {
     if (this.lesson) {
       // this.loadLesson();
-      // this.loadTests();
     } else {
       const lessonId = +this.activeRoute.snapshot.paramMap.get('lessonId');
       this.lessonService.getLessonByLessonId(lessonId).subscribe(
         (data) => {
           this.lesson = data;
-          // this.testId=this.lesson.test.testId;
         },
         (error) => {
           console.error('Error fetching course detail:', error);

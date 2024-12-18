@@ -12,7 +12,7 @@ export interface Student {
   studentAddress: string;         
   studentImg?: string;            
   isEnable?: boolean;             
-  major?: string;                 // Chuyên ngành của sinh viên
+  major?: string;                
   graduationYear?: number;        
   account?: Account;              
 }

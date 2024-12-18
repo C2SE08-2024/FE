@@ -14,8 +14,6 @@ export class CourseCreateComponent implements OnInit {
   addCourse: FormGroup;
   file: File | null = null;
   fileUrl: string | null = null;
-  selectedFile: File | null = null;
-
 
   url:any;
 

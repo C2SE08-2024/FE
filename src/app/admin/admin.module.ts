@@ -19,6 +19,9 @@ import { LessonListComponent } from './component/lesson/lesson-list/lesson-list.
 import { TestListComponent } from './component/test/test-list/test-list.component';
 import { TestQuestionCreateComponent } from './component/test-question/test-question-create/test-question-create.component';
 import { LessonCreateComponent } from './component/lesson/lesson-create/lesson-create.component';
+import { LessonEditComponent } from './component/lesson/lesson-edit/lesson-edit.component';
+import { StudentListComponent } from './component/account/student-list/student-list.component';
+import { InstructorListComponent } from './component/account/instructor-list/instructor-list.component';
 
 
 
@@ -40,7 +43,7 @@ import { LessonCreateComponent } from './component/lesson/lesson-create/lesson-c
     LessonListComponent, 
     TestListComponent, 
     TestQuestionCreateComponent, 
-    LessonCreateComponent,  
+    LessonCreateComponent, LessonEditComponent, StudentListComponent, InstructorListComponent,  
   ],
   imports: [
     CommonModule,
