@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { InstructorUserDetailDto } from 'src/app/model/DTO/instructorUserDetailDto';
 import { Instructor } from 'src/app/model/Account/Instructor';
-import { InstructorDTO } from 'src/app/model/DTO/instructorDTO';
+import { InstructorDTO } from 'src/app/model/DTO/InstructorDTO';
 import { TokenStorageService } from '../token/token-storage.service';
 
 

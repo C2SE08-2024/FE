@@ -13,13 +13,13 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
 import { BusinessdetailComponent } from './component/businessdetail/businessdetail.component';
 import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
-import { PaymentComponent } from './component/payment/payment.component';
 import { CourseComponent } from './component/course/course.component';
 import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 import { LessonComponent } from './component/lesson/lesson.component';
 import { CartComponent } from './component/cart/cart.component';
 import { JobComponent } from './component/job/job.component';
 import { JobApplicationComponent } from './component/job-application/job-application.component';
+import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
 
 
 
@@ -34,14 +34,13 @@ import { JobApplicationComponent } from './component/job-application/job-applica
     ContactUsComponent,
     CreateCvComponent,
     DetailcourseComponent,
-    PaymentComponent,
     CourseComponent,
     PaymentdetailComponent,
     LessonComponent,
     CartComponent,
     JobComponent,
     JobApplicationComponent,
-    
+    PaymentSuccessComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -12,14 +12,14 @@
         <!-- Chỉ hiển thị các liên kết này nếu chưa đăng nhập và là student  -->
         <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'"><a routerLink="/business">Doanh Nghiệp</a></li>
         <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'"><a routerLink="/contact-us">Liên hệ</a></li>
-        <li *ngIf="!isLoggedIn || role === 'ROLE_STUDENT'"><a routerLink="/job">Job</a></li>
+        <li *ngIf="role === 'ROLE_STUDENT'"><a routerLink="/job">Job</a></li>
 
         <li *ngIf="role === 'ROLE_STUDENT'"><a routerLink="/create-cv">Tạo CV</a></li>
 
         <!-- Chỉ hiển thị các liên kết này nếu là business  -->
-        <li *ngIf="!isLoggedIn || role === 'ROLE_BUSINESS'"><a routerLink="/manage-binDev/course">Khóa học</a></li>
+        <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/manage-binDev/course">Khóa học</a></li>
         <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/my-business/job">Tuyển dụng</a></li>
-        <li *ngIf="role === 'ROLE_BUSINESS'"><a>Nhận CV</a></li>
+        <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/my-business/receiveCV">Nhận CV</a></li>
       </ul>
       
       <div class="auth-buttons" *ngIf="!isLoggedIn">

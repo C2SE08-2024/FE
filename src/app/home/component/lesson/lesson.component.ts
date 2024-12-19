@@ -20,6 +20,12 @@ export class LessonComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseId = +this.route.snapshot.paramMap.get('id')!;
+    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
+    if (!registeredCourses.includes(this.courseId)) {
+      alert('Bạn chưa đăng ký khóa học này. Vui lòng đăng ký trước!');
+      window.location.href = '/course'; // Chuyển hướng về trang khóa học
+      return;
+    }
     this.loadLessons();
   }
 
