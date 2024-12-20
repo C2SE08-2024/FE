@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let proposal of proposals">
+      {{ proposal.courseName }} - {{ proposal.description }}
+      <button (click)="approveProposal(proposal.id)">Approve</button>
+    </li>
+  </ul>
+  

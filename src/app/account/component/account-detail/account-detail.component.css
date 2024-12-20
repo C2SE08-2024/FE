@@ -13,10 +13,8 @@
   }
   
   .profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
+    width: 150px;
+    height: 150px;
   }
   
   .profile-info h2 {
@@ -61,7 +59,8 @@
   }
   
   .profile-table input[type="text"],
-  .profile-table input[type="email"] {
+  .profile-table input[type="email"],
+  .profile-table textarea{
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;

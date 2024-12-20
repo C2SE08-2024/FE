@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Lesson } from 'src/app/model/Lesson/lesson';
+import { Lesson, mapLessonToLessonDTO } from 'src/app/model/Lesson/lesson';
 import { LessonService } from 'src/app/service/lesson/lesson.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LessonDetailComponent } from '../lesson-detail/lesson-detail.component';
@@ -74,12 +74,14 @@ export class LessonListComponent implements OnInit {
     });
     modalRef.componentInstance.lesson = lesson;
   }  
+  
 
   openLessonEditModal(lesson: Lesson): void {
+    const lessonDTO = mapLessonToLessonDTO(lesson);
     const modalRef = this.modalService.open(LessonEditComponent, {
       size: "lg",
     });
-    modalRef.componentInstance.course = lesson;
+    modalRef.componentInstance.lessonDTO = lessonDTO;
     modalRef.result.then(
       (result) => {
         console.log("Edit successful:", result);

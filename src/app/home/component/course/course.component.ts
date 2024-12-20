@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/model/Course/course';
 import { CourseService } from 'src/app/service/course/course.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/service/token/token-storage.service';
 @Component({
   selector: 'app-course', // Chọn selector phù hợp
   templateUrl: './course.component.html', // Đảm bảo đường dẫn đúng tới template
@@ -14,10 +15,12 @@ export class CourseComponent implements OnInit {
   popularCourses: any[] = [];
   errorMessage: string = ''; // Biến để lưu thông báo lỗi
   loading: boolean;
+  role: string;
   
 
   constructor(private courseService: CourseService,
               private router: Router,
+              private tokenStorageService: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
