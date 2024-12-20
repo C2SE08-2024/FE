@@ -3,7 +3,7 @@ export interface LessonDTO {
     lessonName: string;
     lessonContent: string;
     video: string;
-    lessonDuration: number;
+    lessonDuration: string;
     courseId: number;
     testId: number;
   }

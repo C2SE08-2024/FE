@@ -3,7 +3,7 @@
     <div class="menu">
         <ul>
             <li><a [routerLink]="['account-detail']">Thông tin cá nhân</a></li>
-            <li><a href="">Khóa học</a></li>
+            <li *ngIf="role==='ROLE_STUDENT'"><a href="">Khóa học của tôi</a></li>
             <li><a href="">Đổi mật khẩu</a></li>
         </ul>
     </div>

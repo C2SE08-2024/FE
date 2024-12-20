@@ -36,15 +36,15 @@ const routes: Routes = [
       { path: 'job', component: JobComponent },
     ]
   },
-  { path: 'login', component: LoginComponent },  // Đăng nhập
-  { path: 'signup', component: SignupComponent },  // Đăng ký
+  { path: 'login', component: LoginComponent }, 
+  { path: 'signup', component: SignupComponent },  
   
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)  // Cấu hình các routes trong module này
+    RouterModule.forChild(routes)  
   ],
   exports: [RouterModule]
 })

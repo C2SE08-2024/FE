@@ -11,6 +11,7 @@ import { CourseProposalDTO } from "src/app/model/Course/CourseProposalDTO";
   providedIn: "root",
 })
 export class BusinessService {
+  
   private apiUrl = "http://localhost:8080/api/v1/business";
 
   constructor(private http: HttpClient,
@@ -33,7 +34,7 @@ export class BusinessService {
         "Content-Type": "application/json",
       });
       const url = `${this.apiUrl}/managers/detail`;
-      return this.http.get<BusinessUserDetailDto>(url, { headers });
+      return this.http.get<BusinessUserDetailDto>(`${this.apiUrl}/managers/detail`,{ headers })
     }
   }
 
@@ -46,6 +47,16 @@ export class BusinessService {
       });
       const url = `${this.apiUrl}/managers/course-proposals`;
       return this.http.post(url, courseProposalDTO, { headers });
+    }
+  }
+
+  updateBusiness(businessId: number, Item: any): Observable<any> {
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      });
+    return this.http.put(this.apiUrl, Item, { headers: headers });
     }
   }
 

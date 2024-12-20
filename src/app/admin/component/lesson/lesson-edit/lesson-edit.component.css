@@ -1,0 +1,46 @@
+.modal-header{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;    
+    button{
+        position: absolute;
+        right:20px;
+    }
+}
+
+.modal-body{
+    form{
+        table{
+            width: 100%;
+            tr{
+                padding: 10px;
+
+                td{
+                    padding: 10px;
+
+                    input, textarea{
+                        width: 100%;
+                        padding: 5px;
+                    }
+
+                    textarea{
+                        min-height: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .loading-indicator img {
+    width: 20px;
+    height: 20px;
+  }

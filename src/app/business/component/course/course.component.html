@@ -1,0 +1,10 @@
+<form [formGroup]="courseProposalForm" (ngSubmit)="submitProposal()">
+    <label>Course Name</label>
+    <input formControlName="courseName" type="text" />
+    
+    <label>Description</label>
+    <textarea formControlName="description"></textarea>
+    
+    <button type="submit">Submit Proposal</button>
+  </form>
+  

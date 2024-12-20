@@ -20,8 +20,7 @@ export class UploadService {
   }
 
   uploadVideo(vals): Observable<any> {
-    let data = vals;
-    return this.http.post(this.CLOUDINARY_URL+'video/upload', data);
+    return this.http.post(this.CLOUDINARY_URL+'video/upload', vals);
   }
 }
 

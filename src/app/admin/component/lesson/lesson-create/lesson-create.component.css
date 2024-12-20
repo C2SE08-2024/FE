@@ -125,3 +125,14 @@ body {
     background-color: #3b5b9b;
   }
   
+  .loading-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .loading-indicator img {
+    width: 20px;
+    height: 20px;
+  }
+  

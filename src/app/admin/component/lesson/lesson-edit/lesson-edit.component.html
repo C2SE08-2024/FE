@@ -1,1 +1,49 @@
-<p>lesson-edit works!</p>
+<div class="modal-header">
+    <h4 class="modal-title">Chỉnh Sửa Thông Tin</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form (submit)="saveChanges()">
+        <table>
+            <tr>
+                <td><label for="name"><strong>Tên bài học</strong></label></td>
+                <td>
+                    <input type="text" id="name" name="lessonName" [(ngModel)]="editedlesson.lessonName" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="lessonContent"><strong>Mô tả</strong></label></td>
+                <td>
+                    <input type="text" id="lessonContent" name="lessonContent" [(ngModel)]="editedlesson.lessonContent" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="video"><strong>Video</strong></label></td>
+                <td>
+                    <video #videoPlayer width="50%" height="auto" controls>
+                        <source [src]="editedlesson.video" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ thẻ video.
+                    </video>
+                    <input type="file" id="video" (change)="onFileSelected($event)" accept="video/*" />
+                    <button type="button" (click)="uploadVideo(videoPlayer)">Upload Video</button>
+                    <div *ngIf="isLoading" class="loading-indicator">
+                        <img src="assets/loading.gif" alt="Loading..." />
+                        <p>Đang tải lên...</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="lessonDuration"><strong>Thời lượng video</strong></label></td>
+                <td>
+                    <input id="lessonDuration" type="text" name="lessonDuration" [(ngModel)]="editedlesson.lessonDuration">
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Lưu Thay Đổi</button>
+    </form>
+</div>

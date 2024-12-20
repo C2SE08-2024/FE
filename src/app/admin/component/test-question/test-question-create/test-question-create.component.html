@@ -1,7 +1,22 @@
-<!-- <div className="col-md-6 form-group mb-3">
-                      <label htmlFor="description" className="form-label">Mô tả</label>
-                                    <Field as="textarea" type="text" className="form-control" id="description" readOnly
-                                           name="description" placeholder="Click để viết bài mô tả"
-                                           onClick={handleShowDescription}/>
-                                    <ErrorMessage name="description" className="text-danger" component="small"/>
-                                </div> -->
+<div class="modal-header">
+       <h4 class="modal-title">Thêm câu hỏi mới</h4>
+       <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+       <form >
+         <div class="input-field">
+           <label for="questionContent"><strong>Nội dung câu hỏi</strong></label>
+           <textarea id="questionContent" [(ngModel)]="testQuestion.questionContent" name="questionContent" required></textarea>
+         </div>
+         <div class="input-field">
+           <label for="correctAnswer"><strong>Câu trả lời đúng</strong></label>
+           <input id="correctAnswer" type="text" [(ngModel)]="testQuestion.correctAnswer" name="correctAnswer" required />
+         </div>
+         <div class="action-buttons">
+           <button type="submit" class="btn btn-primary" (click)="saveQuestion()">Lưu</button>
+         </div>
+       </form>
+     </div>
+     

@@ -30,11 +30,6 @@ export const  adminNavbarData=[
 
 export const  instructorNavbarData=[
     {
-        routerLink: 'dashboard',
-        icon: 'fa fa-chart-column fa-lg',
-        label: 'Thống kê'
-    },
-    {
         routerLink: 'course',
         icon: 'fa fa-book-open fa-lg',
         label: 'Quản lý khóa học'
@@ -43,5 +38,5 @@ export const  instructorNavbarData=[
         routerLink: 'review',
         icon: 'fa fa-star fa-lg',
         label: 'Đánh giá'
-    }
+    },
 ];
