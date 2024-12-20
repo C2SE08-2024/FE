@@ -1,125 +1,67 @@
-<div class="cv-form">
-    <form [formGroup]="cvForm">
-      <div class="form-section personal-info">
-        <h3>Thông tin cá nhân</h3>
-        <input formControlName="name" placeholder="Họ và tên" required>
-        <input formControlName="title" placeholder="Vị trí công việc">
-        <input formControlName="email" placeholder="Email" required>
-        <input formControlName="phone" placeholder="Số điện thoại">
-        <input formControlName="address" placeholder="Địa chỉ">
-        <textarea formControlName="summary" placeholder="Giới thiệu bản thân"></textarea>
-        <label for="profileImage">Ảnh đại diện:</label>
-        <input type="file" (change)="onImageSelected($event)" accept="image/*">
-      </div>
-  
-      <div class="form-section skills">
-        <h3>Kỹ năng</h3>
-        <div formArrayName="skills">
-          <div *ngFor="let skill of skills.controls; let i = index">
-            <input [formControlName]="i" placeholder="Kỹ năng">
-            <button (click)="removeSkill(i)" class="remove-button">Xóa</button>
-          </div>
-          <button (click)="addSkill()" class="add-button">Thêm kỹ năng</button>
-        </div>
-      </div>
-  
-      <div class="form-section hobbies">
-        <h3>Sở thích</h3>
-        <div formArrayName="hobbies">
-          <div *ngFor="let hobby of hobbies.controls; let i = index">
-            <input [formControlName]="i" placeholder="Sở thích">
-            <button (click)="removeHobby(i)" class="remove-button">Xóa</button>
-          </div>
-          <button (click)="addHobby()" class="add-button">Thêm sở thích</button>
-        </div>
-      </div>
-  
-      <div class="form-section work-experience">
-        <h3>Kinh nghiệm làm việc</h3>
-        <div formArrayName="experiences">
-          <div *ngFor="let experience of experiences.controls; let i = index" [formGroupName]="i">
-            <input formControlName="jobTitle" placeholder="Chức vụ">
-            <input formControlName="company" placeholder="Công ty">
-            <input formControlName="duration" placeholder="Thời gian">
-            <textarea formControlName="description" placeholder="Mô tả công việc"></textarea>
-            <button (click)="removeExperience(i)" class="remove-button">Xóa</button>
-          </div>
-          <button (click)="addExperience()" class="add-button">Thêm kinh nghiệm</button>
-        </div>
-      </div>
-  
-      <div class="form-section education">
-        <h3>Học vấn</h3>
-        <div formArrayName="education">
-          <div *ngFor="let edu of education.controls; let i = index" [formGroupName]="i">
-            <input formControlName="school" placeholder="Trường">
-            <input formControlName="degree" placeholder="Bằng cấp">
-            <input formControlName="year" placeholder="Năm">
-            <button (click)="removeEducation(i)" class="remove-button">Xóa</button>
-          </div>
-          <button (click)="addEducation()" class="add-button">Thêm học vấn</button>
-        </div>
-      </div>
-  
-      <div class="form-section additional-info">
-        <h3>Những thông tin khác</h3>
-        <textarea formControlName="additionalInfo" placeholder="Thông tin thêm..."></textarea>
-      </div>
-    </form>
-  </div>
-  
-  <!-- Phần xem trước CV -->
-  <div class="cv-preview" #cvPreview>
-    <div class="left-column">
-      <img *ngIf="profileImageSrc" [src]="profileImageSrc" alt="Profile Image" class="cv-image">
-      <h2>{{ cvForm.value.name }}</h2>
-      <p class="title">{{ cvForm.value.title }}</p>
-      <p>{{ cvForm.value.email }} | {{ cvForm.value.phone }}</p>
-      <p>{{ cvForm.value.address }}</p>
-      <p class="summary">{{ cvForm.value.summary }}</p>
-  
-      <div class="skills-section">
-        <h3>Kỹ năng</h3>
-        <ul>
-          <li *ngFor="let skill of cvForm.value.skills">{{ skill }}</li>
-        </ul>
-      </div>
-  
-      <div class="hobbies-section">
-        <h3>Sở thích</h3>
-        <ul>
-          <li *ngFor="let hobby of cvForm.value.hobbies">{{ hobby }}</li>
-        </ul>
-      </div>
+<div class="cv-container">
+  <!-- Cột bên trái -->
+  <div class="left-column">
+    <img *ngIf="profileImageSrc" [src]="profileImageSrc" alt="Profile Image" class="profile-image">
+    <label for="profileImage" class="upload-label">Tải ảnh đại diện</label>
+    <input type="file" id="profileImage" (change)="onImageSelected($event)" accept="image/*" hidden>
+
+    <h2>{{ cvForm.value.name }}</h2>
+    <p class="job-title">{{ cvForm.value.title }}</p>
+    <div class="contact-info">
+      <p><strong>Email:</strong> {{ cvForm.value.email }}</p>
+      <p><strong>SĐT:</strong> {{ cvForm.value.phone }}</p>
+      <p><strong>Địa chỉ:</strong> {{ cvForm.value.address }}</p>
     </div>
-  
-    <div class="right-column">
-      <div class="section work-experience">
-        <h3>Kinh nghiệm làm việc</h3>
-        <ul>
-          <li *ngFor="let exp of cvForm.value.experiences">
-            <strong>{{ exp.jobTitle }}</strong> tại {{ exp.company }} ({{ exp.duration }})
-            <p>{{ exp.description }}</p>
-          </li>
-        </ul>
-      </div>
-  
-      <div class="section education">
-        <h3>Học vấn</h3>
-        <ul>
-          <li *ngFor="let edu of cvForm.value.education">
-            <strong>{{ edu.school }}</strong> - {{ edu.degree }} ({{ edu.year }})
-          </li>
-        </ul>
-      </div>
-  
-      <!-- Phần "Những thông tin khác" -->
-      <div class="section additional-info" *ngIf="cvForm.value.additionalInfo">
-        <h3>Những thông tin khác</h3>
-        <p>{{ cvForm.value.additionalInfo }}</p>
-      </div>
+
+    <div class="skills-section">
+      <h3>Kỹ năng</h3>
+      <ul>
+        <li *ngFor="let skill of cvForm.value.skills">{{ skill }}</li>
+      </ul>
+    </div>
+
+    <div class="hobbies-section">
+      <h3>Sở thích</h3>
+      <ul>
+        <li *ngFor="let hobby of cvForm.value.hobbies">{{ hobby }}</li>
+      </ul>
     </div>
   </div>
-  
+
+  <!-- Cột bên phải -->
+  <div class="right-column">
+    <div class="section summary">
+      <h3>Mục tiêu nghề nghiệp</h3>
+      <p>{{ cvForm.value.summary }}</p>
+    </div>
+
+    <div class="section work-experience">
+      <h3>Kinh nghiệm làm việc</h3>
+      <ul>
+        <li *ngFor="let exp of cvForm.value.experiences">
+          <strong>{{ exp.jobTitle }}</strong> tại {{ exp.company }} ({{ exp.duration }})
+          <p>{{ exp.description }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section education">
+      <h3>Học vấn</h3>
+      <ul>
+        <li *ngFor="let edu of cvForm.value.education">
+          <strong>{{ edu.school }}</strong> - {{ edu.degree }} ({{ edu.year }})
+        </li>
+      </ul>
+    </div>
+
+    <div class="section additional-info" *ngIf="cvForm.value.additionalInfo">
+      <h3>Những thông tin khác</h3>
+      <p>{{ cvForm.value.additionalInfo }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Nút xuất PDF -->
+<div class="actions">
   <button class="export-button" (click)="exportPDF()">Xuất PDF</button>
-  
+</div>

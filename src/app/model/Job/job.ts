@@ -1,4 +1,5 @@
 export interface JobDTO {
+  id(studentId: number, businessId: number, cvId: number, id: any): unknown;
   jobId: number;
   jobTitle: string;
   jobDescription: string;

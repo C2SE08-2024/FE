@@ -24,6 +24,9 @@ export class CourseComponent implements OnInit {
     // Khi component được khởi tạo, gọi phương thức fetchCourses để lấy danh sách khóa học
     this.fetchFreeCourses();   // Lấy danh sách khóa học miễn phí
     this.fetchPaidCourses();   // Lấy danh sách khóa học trả phí
+
+    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
+  localStorage.setItem('registeredCourses', JSON.stringify(registeredCourses));
   }
 
   // Phương thức gọi API để lấy danh sách khóa học
@@ -93,6 +96,7 @@ export class CourseComponent implements OnInit {
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
     return registeredCourses.includes(courseId);
   }
+  
 
   getCourseStatus(courseId: number): string {
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');

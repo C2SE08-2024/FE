@@ -99,16 +99,17 @@ export class CreateCvComponent implements OnInit {
     html2canvas(this.cvPreview.nativeElement, { scale: 2 }).then(canvas => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
-
+  
       const imgWidth = 190;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
+  
       pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
-      pdf.save('cv.pdf');
+      pdf.save('cv-topcv-style.pdf');
     }).catch(error => {
       console.error('Lỗi khi xuất PDF:', error);
     });
   }
+  
 
   ngOnInit(): void {}
 }

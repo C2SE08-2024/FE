@@ -1,20 +1,34 @@
 <div *ngIf="job" class="job-application">
-    <h2>{{ job.jobTitle }}</h2>
-    
-    <div class="job-details">
-      <div>
-        <p><strong>Description:</strong> {{ job.jobDescription }}</p>
-        <p><strong>Location:</strong> {{ job.location }}</p>
-        <p><strong>Salary Range:</strong> {{ job.salaryRange }}</p>
-        <p><strong>Industry:</strong> {{ job.industry }}</p>
-      </div>
-      <div>
-        <p><strong>Requirements:</strong> {{ job.requirement }}</p>
-        <p><strong>Job Type:</strong> {{ job.jobType }}</p>
-        <p><strong>Expiry Date:</strong> {{ job.expiryDate }}</p>
-      </div>
+  <h2>{{ job.jobTitle }}</h2>
+  
+  <div class="job-details">
+    <div>
+      <p><strong>Description:</strong> {{ job.jobDescription }}</p>
+      <p><strong>Location:</strong> {{ job.location }}</p>
+      <p><strong>Salary Range:</strong> {{ job.salaryRange }}</p>
+      <p><strong>Industry:</strong> {{ job.industry }}</p>
     </div>
-  
-    <button (click)="applyForJob()" class="apply-btn">Apply Now</button>
+    <div>
+      <p><strong>Requirements:</strong> {{ job.requirement }}</p>
+      <p><strong>Job Type:</strong> {{ job.jobType }}</p>
+      <p><strong>Expiry Date:</strong> {{ job.expiryDate }}</p>
+    </div>
   </div>
-  
+
+  <div class="cv-selection">
+    <h3>Chọn CV để nộp:</h3>
+    <select [(ngModel)]="selectedCvId" (change)="onSelectCv(selectedCvId)">
+      <option *ngFor="let cv of cvs" [value]="cv.studentCvId">
+        {{ cv.studentCvType }} - {{ cv.uploadDate }}
+      </option>
+    </select>
+    <div *ngIf="selectedFilePath">
+      <p><strong>File Path:</strong> {{ selectedFilePath }}</p>
+    </div>
+  </div>
+
+  <button (click)="applyForJob()" class="apply-btn">Nộp CV</button>
+</div>
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
