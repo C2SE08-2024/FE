@@ -1,1 +1,20 @@
-<p>job-application works!</p>
+<div *ngIf="job" class="job-application">
+    <h2>{{ job.jobTitle }}</h2>
+    
+    <div class="job-details">
+      <div>
+        <p><strong>Description:</strong> {{ job.jobDescription }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Salary Range:</strong> {{ job.salaryRange }}</p>
+        <p><strong>Industry:</strong> {{ job.industry }}</p>
+      </div>
+      <div>
+        <p><strong>Requirements:</strong> {{ job.requirement }}</p>
+        <p><strong>Job Type:</strong> {{ job.jobType }}</p>
+        <p><strong>Expiry Date:</strong> {{ job.expiryDate }}</p>
+      </div>
+    </div>
+  
+    <button (click)="applyForJob()" class="apply-btn">Apply Now</button>
+  </div>
+  

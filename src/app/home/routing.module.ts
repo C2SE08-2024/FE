@@ -11,10 +11,11 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { CourseComponent } from './component/course/course.component';
 import { CreateCvComponent } from './component/create-cv/create-cv.component';
 import { DetailcourseComponent } from './component/detailcourse/detailcourse.component';
-import { PaymentComponent } from './component/payment/payment.component';
 import { PaymentdetailComponent } from './component/paymentdetail/paymentdetail.component';
 import { LessonComponent } from './component/lesson/lesson.component';
 import { CartComponent } from './component/cart/cart.component';
+import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
+import { JobComponent } from './component/job/job.component';
 
 const routes: Routes = [
   {
@@ -28,10 +29,11 @@ const routes: Routes = [
       { path: 'course', component: CourseComponent },
       { path: 'contact-us', component: ContactUsComponent},
       { path: 'course/:id', component: DetailcourseComponent},
-      { path: 'course/:id/payment', component: PaymentComponent},
       { path: 'cart', component: CartComponent },
       { path: 'paymentdetail/:cartId', component: PaymentdetailComponent},
+      { path: 'carts/payment', component: PaymentSuccessComponent},
       { path: 'course/:id/lesson', component: LessonComponent },
+      { path: 'job', component: JobComponent },
     ]
   },
   { path: 'login', component: LoginComponent },  // Đăng nhập

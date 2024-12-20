@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../token/token-storage.service';
-import { CartWithDetail } from 'src/app/model/DTO/cart-with-detail.model';
+import { CartWithDetail } from 'src/app/model/DTO/cart-with-detail';
+import { CartDetail } from 'src/app/model/DTO/cart-detail';
 
 @Injectable({
   providedIn: 'root'
@@ -22,39 +23,21 @@ export class CartService {
     return this.http.get<CartWithDetail>(this.API_URL, {headers});
   }
 
-  // Thêm khóa học vào giỏ hàng
-  addCourseToCart(courseId: number): Observable<any> {
+  addToCart(courseId: number): Observable<CartDetail[]> {
     const token = this.tokenStorageService.getToken();
-    const username = this.tokenStorageService.getUser();
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-  
-    console.log('Adding course to cart with ID:', courseId); // Thêm log để kiểm tra
-    console.log('Token:', token); // Log kiểm tra token
-
-    return this.http.get<any>(`${this.API_URL}/add/${courseId}`, { headers });
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<CartDetail[]>(`${this.API_URL}/add/${courseId}`, {headers});
   }
 
-  // Cập nhật giỏ hàng (thêm hoặc xóa các chi tiết giỏ hàng)
-  updateCart(cartWithDetail: any): Observable<any> {
+  updateCart(cartWithDetail: CartWithDetail): Observable<CartWithDetail> {
     const token = this.tokenStorageService.getToken();
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
-
-    return this.http.put<any>(`${this.API_URL}/update`, cartWithDetail, { headers });
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put<CartWithDetail>(`${this.API_URL}/update`, cartWithDetail, {headers});
   }
 
-  // Thanh toán giỏ hàng
-  checkout(cartWithDetail: any): Observable<any> {
+  checkout(cartWithDetail: CartWithDetail): Observable<CartWithDetail> {
     const token = this.tokenStorageService.getToken();
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
-
-    return this.http.put<any>(`${this.API_URL}/checkout`, cartWithDetail, { headers });
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json').set('charset', 'utf-8');
+    return this.http.put<CartWithDetail>(`${this.API_URL}/checkout`, cartWithDetail, {headers});
   }
 }

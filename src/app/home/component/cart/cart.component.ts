@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart/cart.service';
-import { Router } from '@angular/router';
-import { Cart } from 'src/app/model/DTO/cart.model';
-import { CartDetail } from 'src/app/model/DTO/cart-detail.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cart } from 'src/app/model/DTO/cart';
+import { CartDetail } from 'src/app/model/DTO/cart-detail';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CartWithDetail } from 'src/app/model/DTO/cart-with-detail';
+import { PaymentService } from 'src/app/service/payment/payment.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,35 +13,30 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart: Cart = {
-    cartId: 0,
-    receiverName: '',
-    receiverAddress: '',
-    receiverPhone: '',
-    receiverEmail: ''
-  }; // Dữ liệu giỏ hàng mặc định
-  details: CartDetail[] = []; // Chi tiết giỏ hàng mặc định là mảng rỗng
-  totalAmount = 0; // Tổng tiền
-  rf: FormGroup; // Form nhận thông tin khách hàng
+  cart?: Cart; 
+  details?: CartDetail[];
+  totalAmount = 0; 
+  rf: FormGroup; 
+  paymentMethod = 'direct';
  
-  constructor(
-    private cartService: CartService, // Dịch vụ giỏ hàng
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute,
+              private cartService: CartService,
+              private paymentService: PaymentService,
+              private router: Router) {}
 
   ngOnInit(): void {
-    this.loadCart(); // Tải giỏ hàng khi khởi động component
+    this.getCart(); 
   }
 
   // Hàm tải giỏ hàng từ backend
-  loadCart(): void {
+  getCart(): void {
     this.cartService.getCart().subscribe(
       (data) => {
-        this.cart = data.cart || this.cart; // Gán dữ liệu giỏ hàng hoặc giữ mặc định
-        this.details = data.cartDetailList || []; // Gán danh sách chi tiết giỏ hàng hoặc giữ mảng rỗng
+        this.cart = data.cart;
+        this.details = data.cartDetailList; 
         console.log('Cart Details:', this.details);
-        this.totalAmount = this.calculateTotal(); // Tính tổng tiền
-        this.formBuilder(); // Khởi tạo form
+        this.totalAmount = this.calculateTotal();
+        this.formBuilder();
       },
       (error) => {
         console.error('Lỗi khi tải giỏ hàng:', error);
@@ -55,38 +52,48 @@ export class CartComponent implements OnInit {
   }
 
   // Khởi tạo form với dữ liệu từ giỏ hàng
-  formBuilder(): void {
+  formBuilder() {
     this.rf = new FormGroup({
-      receiverName: new FormControl(this.cart.receiverName, [
-        Validators.required,
-        Validators.pattern('^[A-Za-zÀ-ỹà-ỹ\\s]+(?:\\s[A-Za-zÀ-ỹà-ỹ]+)*$')
-      ]),
-      receiverAddress: new FormControl(this.cart.receiverAddress, [
-        Validators.required,
-        Validators.pattern('^[^!@#$%^&*()_+<>?\'\"{}~|/\\\\]+$')
-      ]),
-      receiverPhone: new FormControl(this.cart.receiverPhone, [
-        Validators.required,
-        Validators.pattern('^0\\d{9,10}$')
-      ]),
-      receiverEmail: new FormControl(this.cart.receiverEmail, [
-        Validators.required,
-        Validators.email
-      ])
+      receiverName: new FormControl(this.cart.receiverName, [Validators.required, Validators.pattern('^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+ [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(?: [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)*')]),
+      receiverAddress: new FormControl(this.cart.receiverAddress, [Validators.required, Validators.pattern('^[^!@#$%^&*()_+<>?\'\"{}\\`~|/\\\\]+$')]),
+      receiverPhone: new FormControl(this.cart.receiverPhone, [Validators.required, Validators.pattern('^0\\d{9,10}')]),
+      receiverEmail: new FormControl(this.cart.receiverEmail, [Validators.required, Validators.email])
     });
   }
+  
 
-  // Xóa một sản phẩm khỏi giỏ hàng
   removeItem(cartDetailId: number): void {
-    const updatedDetails = this.details.filter(
-      (item) => item.cartDetailId !== cartDetailId
-    );
-    if (updatedDetails) {
-      this.details = updatedDetails;
-      this.totalAmount = this.calculateTotal(); // Cập nhật tổng tiền
-      console.log(`Item with ID ${cartDetailId} removed.`);
+    if (confirm('Bạn có chắc chắn muốn khóa học này không?')) {
+      const updatedDetails = this.details.map(item => {
+        if (item.cartDetailId === cartDetailId) {
+          return { ...item, status: true }; 
+        }
+        return item;
+      });
+  
+      const cartWithDetail: CartWithDetail = {
+        cart: this.cart,
+        cartDetailList: updatedDetails
+      };
+  
+      console.log('Payload to updateCart API:', cartWithDetail);
+  
+      this.cartService.updateCart(cartWithDetail).subscribe(
+        (response) => {
+          console.log('Backend response:', response);
+  
+          this.details = updatedDetails.filter(item => item.cartDetailId !== cartDetailId);
+          this.totalAmount = this.calculateTotal();
+          alert('Đã xóa mục thành công!');
+        },
+        (error) => {
+          console.error('Error updating cart:', error);
+          alert('Không xóa được mục. Vui lòng thử lại.');
+        }
+      );
     }
   }
+  
 
   getTotalAmount() {
     let temp = 0;
@@ -100,28 +107,49 @@ export class CartComponent implements OnInit {
 
   // Xử lý thanh toán
   proceedToPayment(): void {
-    if (this.rf.invalid) {
-      alert('Please fill in all required fields correctly.');
-      return;
+    if (this.paymentMethod === 'direct') {
+      this.cartService.checkout(this.prepareCartForSendingToBackend()).subscribe(
+        () => {
+          alert("Đã thanh toán thành công, xin cảm ơn!!!");
+          this.router.navigateByUrl('/')
+        },
+        (error) => {
+          console.error('Lỗi khi thanh toán trực tiếp:', error);
+        }
+      );
+    } else {
+      this.paymentService.getPaid(this.prepareCartForSendingToBackend()).subscribe(
+        (response) => {
+          if (response && response.url) {
+            console.log('VNPay URL:', response.url);
+            window.location.href = response.url;
+          } else {
+            alert('Không nhận được URL thanh toán từ server.');
+          }
+        },
+        (error) => {
+          console.error('Lỗi khi thanh toán qua VNPay:', error);
+          alert('Thanh toán qua VNPay thất bại. Vui lòng thử lại.');
+        }
+      );
     }
-
-    const cartWithDetail = {
-      cart: {
-        ...this.cart, // Dữ liệu giỏ hàng
-        ...this.rf.value // Dữ liệu form
-      },
-      cartDetailList: this.details // Danh sách chi tiết giỏ hàng
+  }
+  
+  prepareCartForSendingToBackend(): CartWithDetail {
+    this.cart.receiverName = this.rf.value.receiverName;
+    this.cart.receiverAddress = this.rf.value.receiverAddress;
+    this.cart.receiverPhone = this.rf.value.receiverPhone;
+    this.cart.receiverEmail = this.rf.value.receiverEmail;
+    const cartWithDetail: CartWithDetail = {
+      cart: this.cart,
+      cartDetailList: this.details
     };
+    cartWithDetail.cartDetailList = this.details;
+    cartWithDetail.cart = this.cart;
+    return cartWithDetail;
+  }
 
-    this.cartService.checkout(cartWithDetail).subscribe(
-      (response) => {
-        alert('Payment successful! Redirecting to payment details.');
-        this.router.navigate([`/paymentdetail/${cartWithDetail.cart.cartId}`]);
-      },
-      (error) => {
-        console.error('Lỗi khi thanh toán:', error);
-        alert('Thanh toán thất bại, vui lòng thử lại.');
-      }
-    );
+  changeMethod(e) {
+    this.paymentMethod = e.target.value;
   }
 }

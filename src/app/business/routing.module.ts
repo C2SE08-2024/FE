@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { JobListComponent } from './component/job/job-list/job-list.component';
 import { DnComponent } from './component/dn/dn.component';
 import { JobDetailComponent } from './component/job/job-detail/job-detail.component';
+import { CVReceiveComponent } from './component/cv-receive/cv-receive.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       { path: 'job', component: JobListComponent},
       { path: 'job/:jobId', component: JobDetailComponent},
+      { path: 'receiveCV', component: CVReceiveComponent}
     ]
   },
 ];

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Instructor } from 'src/app/model/Account/Instructor';
 import { Student } from 'src/app/model/Account/Student';
-import { SignupRequest } from 'src/app/model/Request/SignupRequest';
+import { InstructorService } from 'src/app/service/instructor/instructor.service';
+import { StudentService } from 'src/app/service/student/student.service';
+import { TokenStorageService } from 'src/app/service/token/token-storage.service';
 
 @Component({
   selector: 'app-account-detail',
@@ -25,10 +28,32 @@ export class AccountDetailComponent implements OnInit {
     major: 'Computer Science',
     graduationYear: 2024
   };
+  instructor: Instructor;
+  isLoggedIn: boolean;
+  role: any;
+  username: any;
 
-  constructor() { }
+
+  constructor(private tokenStorageService: TokenStorageService,
+              private studentService: StudentService,
+              private instructorService: InstructorService
+  ) { }
 
   ngOnInit(): void {
-  }
+    
 
-}
+    }
+
+  loadPage() : void {
+    if (this.tokenStorageService.getToken()){
+
+    }}}
+      
+    // }),
+    //   (error) => {
+    //     console.error('Error fetching courses:', error);
+    //     this.errorMessage = 'Không thể tải danh sách khóa học';
+    //     this.isLoading = false;
+    //   }
+  //};
+

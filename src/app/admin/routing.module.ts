@@ -8,10 +8,12 @@ import { CourseListComponent } from './component/course/course-list/course-list.
 import { CourseCreateComponent } from './component/course/course-create/course-create.component';
 import { CourseDetailComponent } from './component/course/course-detail/course-detail.component';
 import { TestQuestionComponent } from './component/test-question/test-question-list/test-question.component';
-import { LessonDetailComponent } from './component/lesson/lesson-detail/lesson-detail.component';
 import { LessonListComponent } from './component/lesson/lesson-list/lesson-list.component';
 import { TestListComponent } from './component/test/test-list/test-list.component';
 import { LessonCreateComponent } from './component/lesson/lesson-create/lesson-create.component';
+import { LessonDetailComponent } from './component/lesson/lesson-detail/lesson-detail.component';
+import { StudentListComponent } from './component/account/student-list/student-list.component';
+import { InstructorListComponent } from './component/account/instructor-list/instructor-list.component';
 
 const routes: Routes = [
   {
@@ -19,7 +21,13 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'account', component: AccountListComponent },
+      { path: 'account', component: AccountListComponent,
+        children: [
+          { path: '', redirectTo: 'student-list', pathMatch: 'full'},
+          { path: 'student-list', component: StudentListComponent},
+          { path: 'instructor-list', component: InstructorListComponent},
+        ]
+       },
       { path: 'course', component: CourseListComponent },
       { path: 'course/create', component: CourseCreateComponent },
       { path: 'course/:id', component: CourseDetailComponent,
@@ -27,9 +35,10 @@ const routes: Routes = [
           { path: '', redirectTo: 'lesson', pathMatch: 'full'},
           { path: 'lesson', component: LessonListComponent},
           { path: 'test', component: TestListComponent},
-          { path: 'lesson/create', component: LessonCreateComponent},
+          { path: 'course-student', component: StudentListComponent},
         ]
       },
+      { path: 'course/:id/lesson/create', component: LessonCreateComponent},
       { path: 'course/:id/lesson/:lessonId', component: LessonDetailComponent},
       { path: 'course/:id/test/:testId/test-question', component: TestQuestionComponent}
     ]

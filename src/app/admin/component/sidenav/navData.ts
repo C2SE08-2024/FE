@@ -16,20 +16,15 @@ export const  adminNavbarData=[
         label: 'Quản lý khóa học'
     },
     {
-        routerLink: 'product',
-        icon: 'fa fa-box fa-lg',
-        label: 'Product'
-    },
-    {
         routerLink: 'review',
         icon: 'fa-solid fa-star',
         label: 'Đánh giá'
     },
-    {
-        routerLink: 'business',
-        icon: 'fa fa-briefcase fa-lg',
-        label: 'Doanh nghiệp'
-    }
+    // {
+    //     routerLink: 'business',
+    //     icon: 'fa fa-briefcase fa-lg',
+    //     label: 'Doanh nghiệp'
+    // }
 ];
 
 

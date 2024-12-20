@@ -80,9 +80,31 @@ export class CourseComponent implements OnInit {
 
   // Phương thức để chuyển hướng đến chi tiết khóa học
   goToDetail(courseId: number): void {
-    console.log('Đi đến chi tiết khóa học với ID:', courseId);
-    // Logic để chuyển hướng sang trang chi tiết khóa học
-    // Ví dụ: sử dụng router để chuyển hướng
-     this.router.navigate([`/course/${courseId}`]);
+    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
+    if (registeredCourses.includes(courseId)) {
+      this.router.navigate([`/course/${courseId}/lesson`]); // Điều hướng đến bài học nếu đã đăng ký
+    } else {
+      this.router.navigate([`/course/${courseId}`]); // Điều hướng đến trang chi tiết nếu chưa đăng ký
+    }
   }
+  
+
+  isRegistered(courseId: number): boolean {
+    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
+    return registeredCourses.includes(courseId);
+  }
+
+  getCourseStatus(courseId: number): string {
+    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
+    const pendingCourses = JSON.parse(localStorage.getItem('pendingCourses') || '[]');
+  
+    if (registeredCourses.includes(courseId)) {
+      return 'Tiếp tục học';
+    } else if (pendingCourses.includes(courseId)) {
+      return 'Thanh toán';
+    } else {
+      return 'Đăng ký ngay';
+    }
+  }
+  
 }

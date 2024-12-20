@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "app-angular-bdcs"
+  "defaultProject": "app-angular-bdcs",
+  "cli": {
+    "analytics": false
+  }
 }
