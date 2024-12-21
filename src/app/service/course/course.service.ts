@@ -14,7 +14,7 @@ export class CourseService {
   }
 
   private API_URL = 'http://localhost:8080/api/v1/course';
-  
+
   constructor(private http: HttpClient,
               private tokenStorageService: TokenStorageService,
               private paymentService: PaymentService ,
@@ -48,7 +48,7 @@ export class CourseService {
   }
 
   updateCourse(id: number, course: Course): Observable<Course> {
-    const token = this.tokenStorageService.getToken();  
+    const token = this.tokenStorageService.getToken();
       if (token) {
         const headers = new HttpHeaders({
           'Authorization': `Bearer ${token}`,
@@ -74,7 +74,7 @@ export class CourseService {
    getCourseById(id: number): Observable<Course> {
      return this.http.get<Course>(`${this.API_URL}/${id}`);
    }
-  
+
 
   // addToCart(courseId: number): Observable<any> {
   //   return this.http.get(`http://localhost:8080/api/v1/cart/add/${courseId}`);
@@ -88,6 +88,6 @@ export class CourseService {
   // checkout(cartDetails: any): Observable<any> {
   //   return this.paymentService.checkout(cartDetails);
   // }
-  
+
 }
 
