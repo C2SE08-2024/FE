@@ -61,15 +61,6 @@ export class CourseComponent implements OnInit {
         this.loading = false;
       }
     );
-    // Gọi API để lấy khóa học nổi bật
-    this.courseService.getMostPopularCourses().subscribe(
-      (data) => {
-        this.popularCourses = data;
-      },
-      (error) => {
-        this.errorMessage = 'Không thể tải khóa học nổi bật!';
-      }
-    );
   }
 
 
