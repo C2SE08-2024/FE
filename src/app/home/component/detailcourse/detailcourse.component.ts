@@ -5,6 +5,8 @@ import { CourseService } from 'src/app/service/course/course.service';
 import { PaymentService } from 'src/app/service/payment/payment.service';  // Thêm PaymentService
 import { TokenStorageService } from 'src/app/service/token/token-storage.service';
 import { CartService } from 'src/app/service/cart/cart.service';
+import { RequestService } from 'src/app/service/request/request.service';
+import { BusinessService } from 'src/app/service/business/business.service';
 
 @Component({
   selector: 'app-detailcourse',
@@ -16,29 +18,78 @@ export class DetailcourseComponent implements OnInit {
   loading: boolean = true;    // Biến trạng thái loading
   errorMessage: string = '';   // Biến lưu trữ thông báo lỗi
   courseId: number;
-  constructor(
-    private route: ActivatedRoute,
-    private courseService: CourseService,
-    private paymentService: PaymentService,
-    private router: Router,
-    private tokenStorageService: TokenStorageService,
-    private cartService: CartService,
+  role:string;
+  businessId: number;
+
+  requestStatus: boolean = false; // False: chưa được chấp nhận
+  requests: any[] = []; // Danh sách các yêu cầu
+
+
+  constructor(private route: ActivatedRoute,
+              private courseService: CourseService,
+              private paymentService: PaymentService,
+              private router: Router,
+              private tokenStorageService: TokenStorageService,
+              private cartService: CartService,
+              private requestService: RequestService,
+              private businessService: BusinessService
   ) {}
 
   ngOnInit(): void {
-    this.courseId = +this.route.snapshot.paramMap.get('id')!;  // Lấy ID từ URL
-    console.log('Course ID:', this.courseId); // Thêm log để kiểm tra ID
-    this.checkRegistrationStatus(); // Kiểm tra trạng thái đăng ký
-    this.loadCourseDetail(this.courseId); // Tải thông tin chi tiết khóa học
+    this.loadHeader();
+    console.log('Course ID:', this.courseId); 
+    this.checkRegistrationStatus(); 
+    this.loadCourseDetail(this.courseId); 
   }
 
   checkRegistrationStatus(): void {
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]'); 
     if (registeredCourses.includes(this.courseId)) {
       alert('Bạn đã đăng ký khóa học này. Điều hướng đến bài học.');
-      this.router.navigate([`/course/${this.courseId}/lesson`]); // Điều hướng đến bài học
+      this.router.navigate([`/course/${this.courseId}/lesson`]); 
     }
   }
+
+  loadHeader(): void {
+    this.role = this.tokenStorageService.getRole(); 
+    this.courseId = +this.route.snapshot.paramMap.get('id')!;
+    if(this.role === 'ROLE_BUSINESS')
+      this.businessService.getBusinessUserDetail().subscribe(
+        data =>{
+          this.businessId = data.businessId;
+          console.log(this.businessId, " ", data.businessId)
+          this.checkRequestStatus();
+        }
+      )
+  }
+
+  
+
+  checkRequestStatus(): void {
+    
+      this.requestService.getRequestsByBusiness(1).subscribe(
+      (requests) => {
+        this.requests = requests;
+          const relatedRequest = this.requests.find(req => req.student.courseId === this.courseId && req.isAccepted);
+        this.requestStatus = !!relatedRequest;
+      },
+      (error) => {
+        console.error("Error fetching requests:", error);
+      }
+    );
+  }
+
+  sendRequest(): void {
+    this.requestService.sendRequestToViewStudentInfo(1, this.courseId).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.error('Error sending request:', error);
+      }
+    );
+  }
+  
   
   
   isRegistered(): boolean {

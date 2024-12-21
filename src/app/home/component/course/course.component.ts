@@ -16,7 +16,7 @@ export class CourseComponent implements OnInit {
   errorMessage: string = ''; // Biến để lưu thông báo lỗi
   loading: boolean;
   role: string;
-  
+
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -24,12 +24,10 @@ export class CourseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Khi component được khởi tạo, gọi phương thức fetchCourses để lấy danh sách khóa học
     this.fetchFreeCourses();   // Lấy danh sách khóa học miễn phí
     this.fetchPaidCourses();   // Lấy danh sách khóa học trả phí
-
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
-  localStorage.setItem('registeredCourses', JSON.stringify(registeredCourses));
+    localStorage.setItem('registeredCourses', JSON.stringify(registeredCourses));
   }
 
   // Phương thức gọi API để lấy danh sách khóa học
@@ -61,15 +59,6 @@ export class CourseComponent implements OnInit {
         this.loading = false;
       }
     );
-    // Gọi API để lấy khóa học nổi bật
-    this.courseService.getMostPopularCourses().subscribe(
-      (data) => {
-        this.popularCourses = data;
-      },
-      (error) => {
-        this.errorMessage = 'Không thể tải khóa học nổi bật!';
-      }
-    );
   }
 
 
@@ -93,18 +82,18 @@ export class CourseComponent implements OnInit {
       this.router.navigate([`/course/${courseId}`]); // Điều hướng đến trang chi tiết nếu chưa đăng ký
     }
   }
-  
+
 
   isRegistered(courseId: number): boolean {
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
     return registeredCourses.includes(courseId);
   }
-  
+
 
   getCourseStatus(courseId: number): string {
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
     const pendingCourses = JSON.parse(localStorage.getItem('pendingCourses') || '[]');
-  
+
     if (registeredCourses.includes(courseId)) {
       return 'Tiếp tục học';
     } else if (pendingCourses.includes(courseId)) {
@@ -113,5 +102,5 @@ export class CourseComponent implements OnInit {
       return 'Đăng ký ngay';
     }
   }
-  
+
 }

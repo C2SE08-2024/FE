@@ -14,6 +14,8 @@ import { LessonCreateComponent } from './component/lesson/lesson-create/lesson-c
 import { LessonDetailComponent } from './component/lesson/lesson-detail/lesson-detail.component';
 import { StudentListComponent } from './component/account/student-list/student-list.component';
 import { InstructorListComponent } from './component/account/instructor-list/instructor-list.component';
+import { RequestComponent } from './component/request/request.component';
+import { StudentTestResultComponent } from './component/student-test-result/student-test-result.component';
 
 const routes: Routes = [
   {
@@ -36,11 +38,12 @@ const routes: Routes = [
           { path: 'lesson', component: LessonListComponent},
           { path: 'test', component: TestListComponent},
           { path: 'course-student', component: StudentListComponent},
+          { path: 'course-student/:studentId/test-result', component: StudentTestResultComponent},
         ]
       },
       { path: 'course/:id/lesson/create', component: LessonCreateComponent},
       { path: 'course/:id/lesson/:lessonId', component: LessonDetailComponent},
-      { path: 'course/:id/test/:testId/test-question', component: TestQuestionComponent}
+      { path: 'course/:id/test/:testId/test-question', component: TestQuestionComponent},
     ]
   },
 ];

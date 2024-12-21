@@ -34,7 +34,7 @@ export class BusinessService {
         "Content-Type": "application/json",
       });
       const url = `${this.apiUrl}/managers/detail`;
-      return this.http.get<BusinessUserDetailDto>(`${this.apiUrl}/managers/detail`,{ headers })
+      return this.http.get<BusinessUserDetailDto>(url,{ headers })
     }
   }
 

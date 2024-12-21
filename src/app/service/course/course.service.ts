@@ -24,6 +24,17 @@ export class CourseService {
     return this.http.get<Course[]>(this.API_URL);
   }
 
+  getCoursesByStudentId(studentId: number): Observable<Set<Course>> {
+    const token = this.tokenStorageService.getToken();
+      if (token) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+    return this.http.get<Set<Course>>(`${this.API_URL}/student/${studentId}`,{ headers: headers })
+  }
+  }
+
   getFreeCourses(): Observable<any[]> {
     return this.http.get<any[]>(this.API_URL + '/free');
   }

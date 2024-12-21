@@ -16,6 +16,8 @@ import { LessonComponent } from './component/lesson/lesson.component';
 import { CartComponent } from './component/cart/cart.component';
 import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
 import { JobComponent } from './component/job/job.component';
+import { ReviewListComponent } from './component/review/review-list/review-list.component';
+import { StudentListComponent } from '../admin/component/account/student-list/student-list.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,13 @@ const routes: Routes = [
       { path: 'create-cv', component: CreateCvComponent},
       { path: 'course', component: CourseComponent },
       { path: 'contact-us', component: ContactUsComponent},
-      { path: 'course/:id', component: DetailcourseComponent},
+      { path: 'course/:id', component: DetailcourseComponent,
+        children:[
+          { path: '', redirectTo: 'review', pathMatch: 'full'},
+          {path: 'review', component: ReviewListComponent},
+          {path: 'course-student', component: StudentListComponent},
+        ]
+      },
       { path: 'cart', component: CartComponent },
       { path: 'paymentdetail/:cartId', component: PaymentdetailComponent},
       { path: 'carts/payment', component: PaymentSuccessComponent},

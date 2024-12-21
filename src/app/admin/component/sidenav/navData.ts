@@ -15,11 +15,6 @@ export const  adminNavbarData=[
         icon: 'fa fa-book-open fa-lg',
         label: 'Quản lý khóa học'
     },
-    {
-        routerLink: 'review',
-        icon: 'fa-solid fa-star',
-        label: 'Đánh giá'
-    },
     // {
     //     routerLink: 'business',
     //     icon: 'fa fa-briefcase fa-lg',

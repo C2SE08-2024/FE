@@ -1,209 +1,212 @@
 .job-container {
+  width: 100%;
+  margin: 0;
+
+  .banner {
+    background-color: #f2f5ff;
     width: 100%;
-    margin: 0;
-  
-    .banner {
-      background-color: #f2f5ff;
-      width: 100%;
-      padding: 20px;
-      height: 300px;
-      position: relative;
-    }
-  
-    .search-container {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 40px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-      background-color: #fff;
-      border-radius: 25px;
-      width: 70%;
-      height: 130px;
+    padding: 20px;
+    height: 300px;
+    position: relative;
+  }
+
+  .search-container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 25px;
+    width: 70%;
+    height: 130px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      width: 60%;
+      height: 50px;
       padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-  
-      input {
-        width: 60%;
-        height: 50px;
-        padding: 10px;
-        border-radius: 5px;
-      }
-  
-      button {
-        height: 50px;
-        padding: 5px;
-        border-radius: 5px;
-        gap: 15px;
-      }
-  
-      select {
-        height: 50px;
-        padding: 5px;
-      }
+      border-radius: 5px;
     }
-  
-    .job-list {
-      padding: 100px;
-      background-color: #ffffff;
-      z-index: 3;
-  
-      .action {
+
+    button {
+      height: 50px;
+      padding: 5px;
+      border-radius: 5px;
+      gap: 15px;
+    }
+
+    select {
+      height: 50px;
+      padding: 5px;
+    }
+  }
+
+  .job-list {
+    padding: 100px;
+    background-color: #ffffff;
+    z-index: 3;
+
+    .action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f4f4f4;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin: 0;
+      }
+
+      .button{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #f4f4f4;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        justify-content: flex-end;
+        gap: 15px;
+
+        button {
+          border: none;
+          padding: 10px 20px;
+          font-size: 14px;
   
-        p {
-          margin: 0;
+          border-radius: 5px;
+          background-color: #000000;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+  
+        button:hover {
+          background-color: #45a049;
+        }
+  
+        button:active {
+          transform: scale(0.98);
+          background-color: #387037;
+        }
+      }
+
+      
+    }
+
+    .job-card {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+      justify-content: space-between;
+      gap:10px;
+      margin: 20px;
+    
+      .job-info{
+        padding: 20px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        display: flex;
+        
+        table{
+          flex:2;
         }
   
         .button{
-          display: flex;
-          justify-content: flex-end;
-          gap: 15px;
-  
-          button {
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-    
-            border-radius: 5px;
-            background-color: #000000;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-          }
-    
-          button:hover {
-            background-color: #45a049;
-          }
-    
-          button:active {
-            transform: scale(0.98);
-            background-color: #387037;
-          }
+          flex: 0.5;
+          text-align: center;
+          align-self: center;
         }
   
-        
-      }
-  
-      .job-card {
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-        justify-content: space-between;
-        gap:10px;
-        margin: 20px;
-      
-        .job-info{
-          padding: 20px;
-          transition: box-shadow 0.3s ease, transform 0.3s ease;
-          border: 1px solid #fff;
-          display: flex;
-          
-          table{
-            flex:2;
-          }
-    
-          .button{
-            flex: 0.5;
-          }
-    
-          &.selected {
-            border: 1px solid #000000;
-          }
-        }
-  
-        .job-info:hover {
-          /* box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); 
-          transform: translateY(-5px); */
+        &.selected {
           border: 1px solid #000000;
         }
-  
-        
       }
-  
-      
-  
-      
-  
+
+      .job-info:hover {
+        /* box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); 
+        transform: translateY(-5px); */
+        border: 1px solid #000000;
+      }
+
       
     }
-  
-  }
-  
-  
-  /* Nút Xem Chi Tiết */
-  .view-details-btn {
-    align-self: flex-start;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #007bff;
-    background-color: transparent;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .view-details-btn:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .action-form{
-    z-index: 1000;
-    width: 400px;
-    background-color: white ;
-    padding: 16px 16px 24px 16px;
-    position: fixed;
-    top: 30%;
-    left: 35%;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid black;
-  
-    i{
-        margin: 10px 0;
-    }
-  
-    .btn-action{
-        margin: 20px 0;
-        width: 100%;
-        height: fit-content;
-        gap: 10px;
-        display: flex;
+
     
-        button{
-            width: 50%;
-            height: 48px;
-            padding: 8px 16px;
-            justify-content: center;
-            text-align: center;
-            display: inline-flex;
-            align-items: center;
-            box-sizing: border-box;
-            outline: none;
-            border-radius: 10px;
-            color: white;
-            
-        }
-    }
+
     
-    .close{
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        cursor: pointer;
-        top:20px;
-        right: 20px;
-    }
+
+    
   }
+
+}
+
+
+/* Nút Xem Chi Tiết */
+.view-details-btn {
+  align-self: flex-start;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #007bff;
+  background-color: transparent;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.action-form{
+  z-index: 1000;
+  width: 400px;
+  background-color: white ;
+  padding: 16px 16px 24px 16px;
+  position: fixed;
+  top: 30%;
+  left: 35%;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid black;
+
+  i{
+      margin: 10px 0;
+  }
+
+  .btn-action{
+      margin: 20px 0;
+      width: 100%;
+      height: fit-content;
+      gap: 10px;
+      display: flex;
+  
+      button{
+          width: 50%;
+          height: 48px;
+          padding: 8px 16px;
+          justify-content: center;
+          text-align: center;
+          display: inline-flex;
+          align-items: center;
+          box-sizing: border-box;
+          outline: none;
+          border-radius: 10px;
+          color: white;
+          
+      }
+  }
+  
+  .close{
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      cursor: pointer;
+      top:20px;
+      right: 20px;
+  }
+}

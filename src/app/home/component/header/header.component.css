@@ -55,7 +55,7 @@ nav {
   }
 }
 
-.nav-links li a:hover {
+.nav-links li a:hover, .active {
   background-color: #2980b9;
 }
 

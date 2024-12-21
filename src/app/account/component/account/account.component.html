@@ -3,8 +3,9 @@
     <div class="menu">
         <ul>
             <li><a [routerLink]="['account-detail']">Thông tin cá nhân</a></li>
-            <li *ngIf="role==='ROLE_STUDENT'"><a href="">Khóa học của tôi</a></li>
-            <li><a href="">Đổi mật khẩu</a></li>
+            <li *ngIf="role==='ROLE_STUDENT'"><a [routerLink]="['my-course']">Khóa học của tôi</a></li>
+            <li *ngIf="role==='ROLE_STUDENT' || role === 'ROLE_BUSINESS'"><a [routerLink]="['request']">Yêu cầu</a></li>
+            <li ><a href="">Đổi mật khẩu</a></li>
         </ul>
     </div>
     <div class="content">

@@ -5,6 +5,8 @@ import { BusinessService } from 'src/app/service/business/business.service';
 import { InstructorService } from 'src/app/service/instructor/instructor.service';
 import { StudentService } from 'src/app/service/student/student.service';
 import { TokenStorageService } from 'src/app/service/token/token-storage.service';
+import { businessesData } from '../../../DATA';
+import { Business } from 'src/app/model/Business/business';
 
 @Component({
   selector: 'app-account-detail',
@@ -19,6 +21,8 @@ export class AccountDetailComponent implements OnInit {
   isLoggedIn: boolean;
   role: any;
   username: any;
+  businesses?: Business[];
+  
 
 
   constructor(private tokenStorageService: TokenStorageService,

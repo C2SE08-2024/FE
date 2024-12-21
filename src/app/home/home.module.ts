@@ -20,6 +20,8 @@ import { CartComponent } from './component/cart/cart.component';
 import { JobComponent } from './component/job/job.component';
 import { JobApplicationComponent } from './component/job-application/job-application.component';
 import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
+import { ReviewListComponent } from './component/review/review-list/review-list.component';
+
 
 
 
@@ -41,6 +43,7 @@ import { PaymentSuccessComponent } from './component/payment-success/payment-suc
     JobComponent,
     JobApplicationComponent,
     PaymentSuccessComponent,
+    ReviewListComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

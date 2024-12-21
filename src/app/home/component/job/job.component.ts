@@ -29,9 +29,7 @@ export class JobComponent implements OnInit {
     if (!this.isLoggedIn) {
       alert('Bạn cần đăng nhập để xem danh sách công việc.');
       this.router.navigate(['/login']); // Điều hướng đến trang đăng nhập nếu chưa đăng nhập
-      return;
     }
-
     // Tải danh sách công việc nếu đã đăng nhập
     this.loadJobs();
   }
@@ -39,12 +37,12 @@ export class JobComponent implements OnInit {
   // Tải tất cả công việc
   loadJobs(): void {
     this.jobService.getAllJobs().subscribe(
-      (data: JobDTO[]) => {
+      (data) => {
         this.jobs = data;
       },
       (error) => {
         console.error('Error fetching jobs', error);
-        alert('Không thể tải danh sách công việc. Vui lòng thử lại sau.');
+
       }
     );
   }
