@@ -18,6 +18,8 @@ import { PaymentSuccessComponent } from './component/payment-success/payment-suc
 import { JobComponent } from './component/job/job.component';
 import { ReviewListComponent } from './component/review/review-list/review-list.component';
 import { StudentListComponent } from '../admin/component/account/student-list/student-list.component';
+import { TestDetailComponent } from './component/test-detail/test-detail.component';
+import { LessonDetailComponent } from '../admin/component/lesson/lesson-detail/lesson-detail.component';
 
 const routes: Routes = [
   {
@@ -32,15 +34,18 @@ const routes: Routes = [
       { path: 'contact-us', component: ContactUsComponent},
       { path: 'course/:id', component: DetailcourseComponent,
         children:[
-          { path: '', redirectTo: 'review', pathMatch: 'full'},
-          {path: 'review', component: ReviewListComponent},
           {path: 'course-student', component: StudentListComponent},
         ]
       },
       { path: 'cart', component: CartComponent },
       { path: 'paymentdetail/:cartId', component: PaymentdetailComponent},
       { path: 'carts/payment', component: PaymentSuccessComponent},
-      { path: 'course/:id/lesson', component: LessonComponent },
+      { path: 'course/:id/detail', component: LessonComponent,
+        children:[
+          {path: 'lesson/:lessonId', component: LessonDetailComponent},
+           {path: 'test/:testId', component: TestDetailComponent},
+        ]
+       },
       { path: 'job', component: JobComponent },
     ]
   },

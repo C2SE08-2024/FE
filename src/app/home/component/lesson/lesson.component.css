@@ -87,12 +87,6 @@
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
-.lesson-sidebar li.locked a {
-  background-color: #e0e0e0;
-  color: #999;
-  cursor: not-allowed;
-  box-shadow: none;
-}
 
 .lesson-sidebar li a.active {
   background: linear-gradient(90deg, #0056b3, #003a80);

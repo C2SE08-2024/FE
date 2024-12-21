@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { StudentDTO } from 'src/app/model/DTO/StudentDTO';
 import { Student } from 'src/app/model/Account/Student';
 import { StudentUserDetailDto } from 'src/app/model/DTO/studentUserDetailDTO';
+import { StudentTestResult } from 'src/app/model/Test/studentTestResult';
 
 @Injectable({
   providedIn: "root",
@@ -27,7 +28,7 @@ export class StudentService {
   }
 
   // Lấy kết quả bài kiểm tra của học sinh theo ID học sinh
-  getStudentTestResults(studentId: number): Observable<any[]> {
+  getStudentTestResults(studentId: number): Observable<StudentTestResult[]> {
     const token = this.tokenStorageService.getToken();
     if (token) {
       const headers = new HttpHeaders({
@@ -35,7 +36,7 @@ export class StudentService {
         "Content-Type": "application/json",
       });
       const url = `${this.apiUrl}/${studentId}/test-results`;
-      return this.http.get<any[]>(url, { headers: headers });
+      return this.http.get<StudentTestResult[]>(url, { headers: headers });
     }
   }
 

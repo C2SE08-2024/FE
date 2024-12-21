@@ -7,6 +7,7 @@ import { AccountDetailComponent } from './component/account-detail/account-detai
 import { HomeModule } from "../home/home.module";
 import { FormsModule } from '@angular/forms';
 import { MyCourseComponent } from './component/my-course/my-course.component';
+import { MyTestComponent } from './component/my-test/my-test.component';
 
 
 
@@ -14,13 +15,14 @@ import { MyCourseComponent } from './component/my-course/my-course.component';
   declarations: [
     AccountComponent, 
     AccountDetailComponent,
-    MyCourseComponent
+    MyCourseComponent,
+    MyTestComponent
   ],
   imports: [
     CommonModule,
     AccountRoutingModule,
     HomeModule,
-    FormsModule 
+    FormsModule,
 ]
 })
 export class AccountModule { }

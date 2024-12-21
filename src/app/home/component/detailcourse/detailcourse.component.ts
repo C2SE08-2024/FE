@@ -67,7 +67,7 @@ export class DetailcourseComponent implements OnInit {
 
   checkRequestStatus(): void {
     
-      this.requestService.getRequestsByBusiness(1).subscribe(
+      this.requestService.getRequestsByBusiness(this.businessId).subscribe(
       (requests) => {
         this.requests = requests;
           const relatedRequest = this.requests.find(req => req.student.courseId === this.courseId && req.isAccepted);
@@ -80,12 +80,14 @@ export class DetailcourseComponent implements OnInit {
   }
 
   sendRequest(): void {
-    this.requestService.sendRequestToViewStudentInfo(1, this.courseId).subscribe(
+    this.requestService.sendRequestToViewStudentInfo(this.businessId, this.courseId).subscribe(
       response => {
         console.log(response);
+        alert("Gửi yêu cầu thành công")
       },
       error => {
         console.error('Error sending request:', error);
+        alert("Không thể gửi yêu cầu")
       }
     );
   }

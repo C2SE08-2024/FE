@@ -27,14 +27,20 @@ export class RequestService {
   
   sendRequestToViewStudentInfo(businessId: number, courseId: number): Observable<string> {
     const url = `${this.apiUrl}/send-request`;
-    const params = new HttpParams()
-      .set('businessId', businessId.toString())
-      .set('courseId', courseId.toString());
+    const options = {
+      params: { 
+          businessId: businessId.toString(), 
+          courseId: courseId.toString() 
+      },
+      headers: this.createHeaders(),
+      responseType: 'text' as 'json'
+  };
 
-    return this.http.post<string>(url, null, {
-      headers: this.createHeaders(),params
-    });
+  return this.http.post<string>(url, null, options);
+    // return this.http.post(url, null, { params: { businessId: businessId.toString(), courseId: courseId.toString() },responseType: 'text'}, { headers: this.createHeaders() });
   }
+
+
 
   // Lấy danh sách yêu cầu của một doanh nghiệp
   getRequestsByBusiness(businessId: number): Observable<Request[]> {

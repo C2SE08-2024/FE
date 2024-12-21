@@ -28,9 +28,10 @@ export class LessonDetailComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.lesson) {
-      // this.loadLesson();
+
     } else {
       const lessonId = +this.activeRoute.snapshot.paramMap.get('lessonId');
+      console.log(lessonId);
       this.lessonService.getLessonByLessonId(lessonId).subscribe(
         (data) => {
           this.lesson = data;
@@ -42,8 +43,5 @@ export class LessonDetailComponent implements OnInit {
     }
   }
 
-  loadTest(): void {
-
-  }
 
 }

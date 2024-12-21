@@ -50,12 +50,13 @@ export class AccountDetailComponent implements OnInit {
           (data) => {
             this.Item = data
           })
-      } else if (this.tokenStorageService.getRole() === 'ROLE_BUSINESS') {
-        this.businessService.getBusinessUserDetail().subscribe(
-          (data) => {
-            this.Item = data
-          })
-      }
+        }
+      //  else if (this.tokenStorageService.getRole() === 'ROLE_BUSINESS') {
+      //   this.businessService.getBusinessUserDetail().subscribe(
+      //     (data) => {
+      //       this.Item = data
+      //     })
+      // }
     }
   }
 
@@ -65,31 +66,31 @@ export class AccountDetailComponent implements OnInit {
       if (this.role === 'ROLE_STUDENT') {
         this.studentService.updateStudent(this.Item.studentId, this.Item).subscribe(
           (response) => {
-            console.log('Thông tin học sinh đã được cập nhật:', response);
+            alert('Thông tin học viên đã được cập nhật');
             this.isEditing = false;
           },
           (error) => {
-            console.error('Lỗi khi cập nhật thông tin học sinh:', error);
+            alert('Lỗi khi cập nhật thông tin học sinh');
           }
         );
       } else if (this.role === 'ROLE_INSTRUCTOR') {
         this.instructorService.updateInstructor(this.Item.instructorId, this.Item).subscribe(
           (response) => {
-            console.log('Thông tin giảng viên đã được cập nhật:', response);
+            alert('Thông tin giảng viên đã được cập nhật');
             this.isEditing = false;
           },
           (error) => {
-            console.error('Lỗi khi cập nhật thông tin giảng viên:', error);
+            alert('Lỗi khi cập nhật thông tin giảng viên');
           }
         );
       } else if (this.role === 'ROLE_BUSINESS') {
         this.businessService.updateBusiness(this.Item.businessId, this.Item).subscribe(
           (response) => {
-            console.log('Thông tin doanh nghiệp đã được cập nhật:', response);
+            alert('Thông tin doanh nghiệp đã được cập nhật');
             this.isEditing = false;
           },
           (error) => {
-            console.error('Lỗi khi cập nhật thông tin doanh nghiệp:', error);
+            alert('Lỗi khi cập nhật thông tin doanh nghiệp');
           }
         );
       }

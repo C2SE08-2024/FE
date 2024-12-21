@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { StudentTestResult } from 'src/app/model/Test/studentTestResult';
 import { TokenStorageService } from '../token/token-storage.service';
+import { SubmitTestDTO } from 'src/app/model/Test/submitTest';
+import { TestResultDTO } from 'src/app/model/DTO/testResultDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -24,15 +26,8 @@ export class StudentTestResultService {
     });
   }
 
-  submitTest(studentId: number, testId: number, studentAnswers: string[]): Observable<StudentTestResult> {
-    const token = this.tokenStorageService.getToken();
-    if (token) {
-      const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      });
-    return this.http.post<StudentTestResult>(`${this.apiUrl}/submit/${studentId}/${testId}`, studentAnswers,{ headers: this.createHeaders() });
-    }
+  submitTest(submitTestDTO: SubmitTestDTO): Observable<TestResultDTO> {
+    return this.http.post<TestResultDTO>(`${this.apiUrl}/submit-test`, submitTestDTO, { headers: this.createHeaders() });
   }
 
   getResultsByStudentId(studentId: number): Observable<StudentTestResult[]> {

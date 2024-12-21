@@ -24,6 +24,12 @@
             p{
                 width: 100%;
             }
+
+            video {
+                display: block;
+                margin: 0 auto; /* Căn giữa ngang */
+            }
+              
         }
     }
 

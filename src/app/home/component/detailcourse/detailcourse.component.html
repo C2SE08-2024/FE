@@ -26,8 +26,7 @@
     <button class="btn btn-primary" (click)="sendRequest()" *ngIf="role === 'ROLE_BUSINESS'">Gửi yêu cầu xem học viên</button>
   </div>
   
-  <div class="link">
-    <a [routerLink]="['review']" routerLinkActive="active">Đánh giá</a>
+  <div class="link" *ngIf="role === 'ROLE_BUSINESS'">
     <a [routerLink]="['course-student']" routerLinkActive="active" *ngIf="role === 'ROLE_BUSINESS'">Học viên trong khóa</a>
   </div>
   <div class="router">

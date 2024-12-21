@@ -68,7 +68,7 @@ export class MyCourseComponent implements OnInit {
     };
     
     goToCourseDetailPage(courseId: number): void {
-      this.router.navigate(['/course', courseId,'lesson']);
+      this.router.navigate(['/course', courseId,'detail']);
     }
   
     getPageArray(): number[] {

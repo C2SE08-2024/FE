@@ -21,6 +21,7 @@ import { JobComponent } from './component/job/job.component';
 import { JobApplicationComponent } from './component/job-application/job-application.component';
 import { PaymentSuccessComponent } from './component/payment-success/payment-success.component';
 import { ReviewListComponent } from './component/review/review-list/review-list.component';
+import { TestDetailComponent } from './component/test-detail/test-detail.component';
 
 
 
@@ -44,6 +45,7 @@ import { ReviewListComponent } from './component/review/review-list/review-list.
     JobApplicationComponent,
     PaymentSuccessComponent,
     ReviewListComponent,
+    TestDetailComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
