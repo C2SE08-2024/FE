@@ -15,20 +15,24 @@
     </div>
   </div>
 
-  <div class="cv-selection">
+  <div *ngIf="cvs.length > 0" class="cv-selection">
     <h3>Chọn CV để nộp:</h3>
     <select [(ngModel)]="selectedCvId" (change)="onSelectCv(selectedCvId)">
       <option *ngFor="let cv of cvs" [value]="cv.studentCvId">
         {{ cv.studentCvType }} - {{ cv.uploadDate }}
       </option>
     </select>
-    <div *ngIf="selectedFilePath">
-      <p><strong>File Path:</strong> {{ selectedFilePath }}</p>
-    </div>
   </div>
+  <div *ngIf="cvs.length === 0" class="no-cv">
+    Bạn chưa có CV nào. Hãy tạo CV để nộp đơn.
+  </div>
+  
+  <!-- Phần tải CV từ máy -->
+  <div class="upload-section">
+    <h3>Hoặc tải CV từ máy:</h3>
+    <input type="file" (change)="onFileSelected($event)" />
+    <button (click)="uploadCvAndApply()" [disabled]="!selectedFile">Tải lên và Nộp CV</button>
+  </div>
+  
 
-  <button (click)="applyForJob()" class="apply-btn">Nộp CV</button>
-</div>
-<div *ngIf="errorMessage" class="error">
-  {{ errorMessage }}
-</div>
+  
