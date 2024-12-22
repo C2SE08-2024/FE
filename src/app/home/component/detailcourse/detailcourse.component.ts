@@ -120,13 +120,7 @@ export class DetailcourseComponent implements OnInit {
     if (this.course.coursePrice > 0) {
       // Khóa học trả phí - thêm vào giỏ hàng
       this.cartService.addToCart(this.courseId).subscribe(
-        () => {
-          const pendingCourses = JSON.parse(localStorage.getItem('pendingCourses') || '[]');
-          if (!pendingCourses.includes(this.courseId)) {
-            pendingCourses.push(this.courseId);
-            localStorage.setItem('pendingCourses', JSON.stringify(pendingCourses));
-          }
-  
+        (data) => {
           alert('Bạn đã thêm khóa học vào giỏ hàng. Vui lòng thanh toán.');
           this.router.navigate(['/cart']); // Điều hướng đến giỏ hàng
         },
@@ -138,13 +132,19 @@ export class DetailcourseComponent implements OnInit {
     } else {
       // Khóa học miễn phí - lưu trạng thái vào registeredCourses
       const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
-      if (!registeredCourses.includes(this.courseId)) {
-        registeredCourses.push(this.courseId);
-        localStorage.setItem('registeredCourses', JSON.stringify(registeredCourses));
-      }
+      this.courseService.registerCourse(this.courseId).subscribe(
+        data =>{
+          alert('Bạn đã đăng ký khóa học miễn phí thành công!');
+          this.router.navigate([`/course/${this.courseId}/detail`]); // Điều hướng đến bài học
+        }
+      )
+      // if (!registeredCourses.includes(this.courseId)) {
+      //   registeredCourses.push(this.courseId);
+      //   localStorage.setItem('registeredCourses', JSON.stringify(registeredCourses));
+      // }
   
       alert('Bạn đã đăng ký khóa học miễn phí thành công!');
-      this.router.navigate([`/course/${this.courseId}/lesson`]); // Điều hướng đến bài học
+      this.router.navigate([`/course/${this.courseId}/detail`]); // Điều hướng đến bài học
     }
   }
   

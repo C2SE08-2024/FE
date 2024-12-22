@@ -104,9 +104,18 @@ export class CourseService {
   //   return this.http.get(`http://localhost:8080/api/v1/cart/add/${courseId}`);
   // }
 
-  // registerCourse(courseId: number): Observable<any> {
-  //   return this.paymentService.checkout(courseId); // Assuming `checkout` handles registration
-  // }
+  registerCourse(courseId: number): Observable<string> {
+    const url = `${this.API_URL}/register/${courseId}`;
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      });
+
+    return this.http.post<string>(url, {}, { headers });
+    }
+  }
 
   // // Checkout - process payment and register
   // checkout(cartDetails: any): Observable<any> {

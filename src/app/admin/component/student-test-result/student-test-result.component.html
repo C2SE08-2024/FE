@@ -3,7 +3,7 @@
   <ul>
     <li *ngFor="let test of course.tests">
       <strong>Test: {{ test.test.testName }}</strong>
-      <table class="tests-table">
+      <table class="tests-table" *ngIf="test.result">
         <thead>
           <tr>
             <th>Test Name</th>

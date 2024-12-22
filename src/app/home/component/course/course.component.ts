@@ -77,7 +77,7 @@ export class CourseComponent implements OnInit {
   goToDetail(courseId: number): void {
     const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
     if (registeredCourses.includes(courseId)) {
-      this.router.navigate([`/course/${courseId}/lesson`]); // Điều hướng đến bài học nếu đã đăng ký
+      this.router.navigate([`/course/${courseId}/detail`]); // Điều hướng đến bài học nếu đã đăng ký
     } else {
       this.router.navigate([`/course/${courseId}`]); // Điều hướng đến trang chi tiết nếu chưa đăng ký
     }
