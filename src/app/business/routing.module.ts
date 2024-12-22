@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { JobListComponent } from './component/job/job-list/job-list.component';
@@ -15,6 +15,7 @@ const routes: Routes = [
       { path: 'receiveCV', component: CVReceiveComponent}
     ]
   },
+  
 ];
 
 @NgModule({

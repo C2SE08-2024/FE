@@ -1,29 +1,41 @@
-<div *ngIf="questions">
+<div *ngIf="test">
   <div class="header">
     <small>THÔNG TIN BÀI KIỂM TRA</small>
-    <h4>Tổng quan về HTML - Cấu trúc File</h4>
-    <p><strong>Điểm đậu:</strong> 8</p>
+    <h4>{{test.testName}}</h4>
+    <p><strong>Điểm đậu:</strong> {{test.passScore}}</p>
   </div>
   <div class="action">
-    <button>Thêm câu hỏi</button>
-    <button>Sửa</button>
-    <button>Xóa</button>
+    <button (click)="openItemCreateModal()">Thêm câu hỏi</button>
+    <button (click)="openItemEditModal()">Sửa</button>
+    <button (click)="confirmDelete(selectedIndex)">Xóa</button>
   </div>
-  <div class="test-question-container">
+  <div class="test-question-container" *ngIf="questions">
     <div class="question-list">
       <ul>
-        <li *ngFor="let question of questions; let i = index" (click)="selectQuestion(question)">
+        <li *ngFor="let question of questions; let i = index" 
+        (click)="selectQuestion(question, i)"
+        [class.active]="i === selectedIndex">
           Câu hỏi {{ i + 1 }}
         </li>
       </ul>
     </div>
 
     <div class="question-detail">
-      <!-- <h4 style="white-space: pre-line;">{{ selectedQuestion?.questionContent }}</h4> -->
-      <h4 [innerHTML]="convertToHtml(selectedQuestion?.questionContent)"></h4>
-      <p><strong>Correct Answer:</strong> {{ selectedQuestion?.correctAnswer }}</p>
-      
+      <textarea spellcheck="false">{{ selectedQuestion?.questionContent }}</textarea>
+      <p><strong>Correct Answer:</strong> {{ selectedQuestion?.correctAnswer }}</p>  
     </div>
+  </div>
+</div>
+<div class="action-form" *ngIf="showDeletePopup">
+  <div class="close" (click)="closeDeletePopup()">
+      <i class="fa-solid fa-xmark"></i>
+  </div>
+  <i class="fa fa-trash fa-4x" style="color: rgb(0, 159, 127) ;"></i>
+  <h4>Xóa bài đăng</h4>
+  <p>Xác định xóa</p>
+  <div class="btn-action">
+      <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Hủy</button>
+      <button style="background-color:rgb(220, 38, 38)" (click)="deleteItemAtId()">Xóa</button>
   </div>
 </div>
 <div *ngIf="!questions">

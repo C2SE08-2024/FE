@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { CourseService } from "src/app/service/course/course.service";
+import { TokenStorageService } from "src/app/service/token/token-storage.service";
 import { UploadService } from "src/app/service/uploadFile/upload.service";
 
 
@@ -14,16 +15,21 @@ export class CourseCreateComponent implements OnInit {
   addCourse: FormGroup;
   file: File | null = null;
   fileUrl: string | null = null;
-
+  instructorId: number
+  role: string;
   url:any;
 
   constructor(private formBuilder: FormBuilder,
               private courseService: CourseService,
               private uploadService: UploadService,
               private router: Router,
+              private tokenStorageService: TokenStorageService,
             ) {}
   
   ngOnInit(): void {
+    if(this.tokenStorageService.getRole){
+      this.role = this.tokenStorageService.getRole();
+    }
     this.buildCourseForm();
   }
 

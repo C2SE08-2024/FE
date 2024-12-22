@@ -2,9 +2,9 @@
   <h1 class="modal-title">Đăng bài học</h1>
   <div class="course-info">
     <h5>Thông tin bài học</h5>
-    <form [formGroup]="lessonForm" >
+    <form [formGroup]="lessonForm" (ngSubmit)="onSubmit()" >
       <table>
-        <!-- lesson name -->
+         <!-- lesson name   -->
         <tr>
           <td><label for="lessonName">Tên bài học</label></td>
           <td>
@@ -12,7 +12,7 @@
             <div class="error-message"
               *ngIf="lessonForm.get('lessonName').invalid && lessonForm.get('lessonName').touched">
               <small *ngIf="lessonForm.get('lessonName').hasError('required')" class="error">
-                Vui lòng nhập họ và tên.
+                Vui lòng tên.
               </small>
               <small *ngIf="lessonForm.get('lessonName').hasError('minlength')" class="error">
                 Tên bài học phải có ít nhất 3 ký tự.
@@ -24,7 +24,7 @@
           </td>
         </tr>
 
-        <!-- lesson content -->
+       
         <tr>
           <td><label for="lessonContent">Mô tả bài học</label></td>
           <td>
@@ -44,18 +44,23 @@
         <tr>
           <td><label for="video">Video</label></td>
           <td>
-            <input type="file" formControlName="video" id="video" (change)="onFileSelected($event)" accept="video/*" />
-            <div *ngIf="fileUrl">
-              <video controls width="100">
-                <source [src]="fileUrl" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+            <input type="file" id="video" (change)="onFileSelected($event)" accept="video/*" />
+            <button type="button" (click)="uploadVideo()">Upload video</button>
+            <div *ngIf="isLoading" class="loading-indicator">
+              <img src="assets/loading.gif" alt="Loading..." />
+              <p>Đang tải lên...</p>
             </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="video">Thời lượng video</label></td>
+          <td>
+            <input type="text" formControlName="lessonDuration" readonly />
           </td>
         </tr>
       </table>
 
-      <button type="submit" [disabled]="lessonForm.invalid">Tạo bài học</button>
+      <button type="submit">Tạo bài học</button>
     </form>
   </div>
 </div>

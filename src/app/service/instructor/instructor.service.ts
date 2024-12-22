@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { InstructorUserDetailDto } from 'src/app/model/DTO/instructorUserDetailDto';
 import { Instructor } from 'src/app/model/Account/Instructor';
-import { InstructorDTO } from 'src/app/model/DTO/InstructorDTO';
 import { TokenStorageService } from '../token/token-storage.service';
+import { InstructorDTO } from 'src/app/model/DTO/InstructorDTO';
+import { Course } from 'src/app/model/Course/course';
 
 
 
@@ -20,7 +21,14 @@ export class InstructorService {
 
   // Lấy thông tin chi tiết instructor dựa trên Authentication
   getInstructorDetail(): Observable<InstructorUserDetailDto> {
-    return this.http.get<InstructorUserDetailDto>(`${this.apiUrl}/detail`);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    return this.http.get<InstructorUserDetailDto>(`${this.apiUrl}/detail`,{ headers: headers });
+    }
   }
 
   // Lấy tất cả instructors (phân trang)
@@ -48,26 +56,73 @@ export class InstructorService {
 
   // Lấy instructor theo ID
   getInstructorById(id: number): Observable<Instructor> {
-    return this.http.get<Instructor>(`${this.apiUrl}/${id}`);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    return this.http.get<Instructor>(`${this.apiUrl}/${id}`,{ headers: headers });
+    }
   }
 
   // Thêm mới một instructor
   addInstructor(instructorDTO: InstructorDTO): Observable<Instructor> {
-    return this.http.post<Instructor>(this.apiUrl, instructorDTO);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    return this.http.post<Instructor>(this.apiUrl, instructorDTO,{ headers: headers });
+    }
   }
 
   // Cập nhật thông tin instructor theo ID
   updateInstructor(id: number, instructorDTO: InstructorDTO): Observable<Instructor> {
-    return this.http.put<Instructor>(`${this.apiUrl}/${id}`, instructorDTO);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    return this.http.put<Instructor>(`${this.apiUrl}/${id}`, instructorDTO,{ headers: headers });
+    }
   }
 
   // Xóa một instructor theo ID
   deleteInstructor(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    return this.http.delete<void>(`${this.apiUrl}/${id}`,{ headers: headers });
+    }
   }
 
   // Lấy instructor mới nhất (theo instructorCode)
   getLatestInstructor(): Observable<Instructor> {
-    return this.http.get<Instructor>(`${this.apiUrl}/latest`);
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    return this.http.get<Instructor>(`${this.apiUrl}/latest`,{ headers: headers });
+    }
+  }
+
+  getCoursesByInstructorId(instructorId: number): Observable<Course[]> {
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      });
+    const url = `${this.apiUrl}/${instructorId}/courses`;
+    return this.http.get<Course[]>(url, { headers: headers})
+    }
   }
 }

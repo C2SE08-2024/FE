@@ -26,9 +26,9 @@
             <div class="job-info" [class.selected]="job.jobId === selectedJobId"  (click)="selectJob(job)">
                 <table>
                     <tr>
-                        <td><h3>{{ job.jobTitle }}</h3></td>
-                        <td><small>Loại việc</small></td>
-                        <td><small>Vị trí</small></td>
+                        <td style="width: 70%;"><h3>{{ job.jobTitle }}</h3></td>
+                        <td style="width: 20%;"><small>Loại việc</small></td>
+                        <td style="width: 10%;"><small>Vị trí</small></td>
                     </tr>
                     <tr>
                         <td><p class="industry">{{ job.salaryRange }}</p></td>

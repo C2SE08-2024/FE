@@ -75,6 +75,19 @@ export class CourseService {
      return this.http.get<Course>(`${this.API_URL}/${id}`);
    }
 
+   isRegistered(courseId: number): Observable<string> {
+    const token = this.tokenStorageService.getToken();
+    if (token) {
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      });
+      const url = `${this.API_URL}/register/${courseId}`;
+      return this.http.post<string>(url, {}, { headers });
+    }
+    throw new Error('Token is not available');
+  }
+
 
   // addToCart(courseId: number): Observable<any> {
   //   return this.http.get(`http://localhost:8080/api/v1/cart/add/${courseId}`);

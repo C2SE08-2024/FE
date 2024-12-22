@@ -13,22 +13,6 @@
     </div>
   </div>
 
-  <!-- Khóa Học Nổi Bật -->
-  <div *ngIf="popularCourses.length > 0" class="course-category">
-    <h2 class="category-title">Khóa Học Nổi Bật</h2>
-    <div class="course-list">
-      <div class="course-card" *ngFor="let course of popularCourses">
-        <div class="course-image" [style.backgroundImage]="'url(' + course.image + ')'" (click)="goToDetail(course.id)">
-        </div>
-        <div class="course-info">
-          <h5 class="course-title">{{ course.title }}</h5>
-          <p class="course-description">{{ course.description }}</p>
-          <button class="btn btn-primary" (click)="goToDetail(course.id)">Đăng ký ngay</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Danh sách khóa học miễn phí -->
   <div *ngIf="freeCourses.length > 0" class="course-category">
     <h2 class="category-title">Khóa Học Miễn Phí</h2>
@@ -57,7 +41,7 @@
           <p class="course-price">{{ course.coursePrice | currency: 'VND' }}</p>
           <button class="btn btn-primary" (click)="goToDetail(course.courseId)">
             {{ isRegistered(course.courseId) ? 'Tiếp tục học' : 'Đăng ký ngay' }}
-            </button>
+          </button>
         </div>
       </div>
     </div>

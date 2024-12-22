@@ -4,6 +4,7 @@ import { TokenStorageService } from '../token/token-storage.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { StudentDTO } from 'src/app/model/DTO/StudentDTO';
 import { Student } from 'src/app/model/Account/Student';
+import { StudentUserDetailDto } from 'src/app/model/DTO/studentUserDetailDTO';
 
 @Injectable({
   providedIn: "root",
@@ -128,7 +129,6 @@ export class StudentService {
     }
   }
 
-  // Lấy danh sách sinh viên tham gia bài kiểm tra
   getStudentsByTest(testId: number): Observable<StudentDTO[]> {
     const token = this.tokenStorageService.getToken();
     if (token) {
@@ -140,7 +140,6 @@ export class StudentService {
     }
   }
 
-  // Lấy sinh viên cuối cùng (theo student_code)
   getLastStudent(): Observable<StudentDTO> {
     const token = this.tokenStorageService.getToken();
     if (token) {
@@ -152,15 +151,14 @@ export class StudentService {
     }
   }
 
-  // Lấy chi tiết sinh viên theo authentication
-  getStudentDetail(): Observable<any> {
+  getStudentDetail(): Observable<StudentUserDetailDto> {
     const token = this.tokenStorageService.getToken();
     if (token) {
       const headers = new HttpHeaders({
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       });
-    return this.http.get<any>(`${this.apiUrl}/detail`, { headers: headers });
+    return this.http.get<StudentUserDetailDto>(`${this.apiUrl}/detail`, { headers: headers });
     }
   }
 }

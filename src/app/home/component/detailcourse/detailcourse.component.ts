@@ -33,8 +33,7 @@ export class DetailcourseComponent implements OnInit {
   }
 
   checkRegistrationStatus(): void {
-    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]');
-  
+    const registeredCourses = JSON.parse(localStorage.getItem('registeredCourses') || '[]'); 
     if (registeredCourses.includes(this.courseId)) {
       alert('Bạn đã đăng ký khóa học này. Điều hướng đến bài học.');
       this.router.navigate([`/course/${this.courseId}/lesson`]); // Điều hướng đến bài học

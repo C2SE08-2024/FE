@@ -17,7 +17,7 @@
         <li *ngIf="role === 'ROLE_STUDENT'"><a routerLink="/create-cv">Tạo CV</a></li>
 
         <!-- Chỉ hiển thị các liên kết này nếu là business  -->
-        <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/manage-binDev/course">Khóa học</a></li>
+        <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/course">Khóa học</a></li>
         <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/my-business/job">Tuyển dụng</a></li>
         <li *ngIf="role === 'ROLE_BUSINESS'"><a routerLink="/my-business/receiveCV">Nhận CV</a></li>
       </ul>
@@ -38,14 +38,14 @@
           </ul>
         </div>
 
-        <button class="font-awe" (click)="toggleDropdown('message')"><i class="fa-solid fa-comment fa-1x"></i></button>
+        <!-- <button class="font-awe" (click)="toggleDropdown('message')"><i class="fa-solid fa-comment fa-1x"></i></button>
         <div class="dropdown" *ngIf="dropdown === 'message'">
           <ul>
             <li>Message 1</li>
             <li>Message 2</li>
             <li>Message 3</li>
           </ul>
-        </div>
+        </div> -->
 
         <button class="font-awe" style="position: relative;" (click)="toggleDropdown('profile')">
           <i class="fa-solid fa-user fa-1x"></i>

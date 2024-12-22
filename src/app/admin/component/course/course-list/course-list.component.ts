@@ -8,6 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Lesson } from '../../../../model/Lesson/lesson';
 import { LessonService } from 'src/app/service/lesson/lesson.service';
 import { TestService } from 'src/app/service/test/test.service';
+import { TokenStorageService } from 'src/app/service/token/token-storage.service';
+import { InstructorService } from 'src/app/service/instructor/instructor.service';
+import { Instructor } from '../../../../model/Account/Instructor';
+import { InstructorUserDetailDto } from 'src/app/model/DTO/instructorUserDetailDto';
 
 
 @Component({
@@ -27,8 +31,9 @@ export class CourseListComponent implements OnInit {
   totalCourses: number = 0;
   coursesPerPage: number = 10;
   currentPage: number = 1;
-  displayedCourses: Course[]=[];
-  
+  displayedCourses: Course[] = [];
+  instructor: InstructorUserDetailDto;
+
 
   constructor(private courseService: CourseService,
               private modalService: NgbModal,
@@ -36,34 +41,55 @@ export class CourseListComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               private lessonService: LessonService,
               private testService: TestService,
-  ) {}
+              private tokenStorageService: TokenStorageService,
+              private instructorService: InstructorService
+  ) { }
 
   ngOnInit(): void {
     this.loadCourses();
   }
 
   loadCourses(): void {
-    this.courseService.getAllCourses().subscribe(
-      (data) => {
-        this.courses = data;
-        this.totalCourses = this.courses.length;
-        this.isLoading = false;
-        this.displayedCourses = this.getCourseSlice();
-        this.currentPage = 1;
+    if (this.tokenStorageService.getToken)
+      if (this.tokenStorageService.getRole() === 'ROLE_ADMIN' || this.tokenStorageService.getRole() === 'ROLE_BUSINESS') {
+        this.courseService.getAllCourses().subscribe(
+          (data) => {
+            this.courses = data;
+            this.totalCourses = this.courses.length;
+            this.isLoading = false;
+            this.displayedCourses = this.getCourseSlice();
+            this.currentPage = 1;
 
-        this.courses.forEach((course) => {
-          this.loadLessonsAndTests(course.courseId);
-        });
-    }),
-      (error) => {
-        console.error('Error fetching courses:', error);
-        this.errorMessage = 'Không thể tải danh sách khóa học';
-        this.isLoading = false;
+            this.courses.forEach((course) => {
+              this.loadLessonsAndTests(course.courseId);
+            });
+          }),
+          (error) => {
+            console.error('Error fetching courses:', error);
+            this.errorMessage = 'Không thể tải danh sách khóa học';
+            this.isLoading = false;
+          }
+      } else if (this.tokenStorageService.getRole() === 'ROLE_INSTRUCTOR') {
+        this.instructorService.getInstructorDetail().subscribe((data) => {
+          this.instructor = data;
+          this.instructorService.getCoursesByInstructorId(this.instructor.instructorId).subscribe(
+            (data) => {
+              this.courses = data;
+              this.totalCourses = this.courses.length;
+              this.isLoading = false;
+              this.displayedCourses = this.getCourseSlice();
+              this.currentPage = 1;
+
+              this.courses.forEach((course) => {
+                this.loadLessonsAndTests(course.courseId);
+              });
+            })
+        })
       }
+
   };
 
   loadLessonsAndTests(courseId: number): void {
-    // Lấy số lượng bài học
     this.lessonService.getLessonsByCourseId(courseId).subscribe(
       (lessons) => {
         const course = this.courses.find(c => c.courseId === courseId);
@@ -97,9 +123,9 @@ export class CourseListComponent implements OnInit {
 
   openCourseDetailModal(course: Course): void {
     const modalRef = this.modalService.open(CourseDetailComponent, {
-      size: 'xl', 
+      size: 'xl',
     });
-    modalRef.componentInstance.course = course; 
+    modalRef.componentInstance.course = course;
   }
 
   openCourseEditModal(course: Course): void {
@@ -141,7 +167,7 @@ export class CourseListComponent implements OnInit {
   }
 
   getCourseSlice(): Course[] {
-    const startIndex = (this.currentPage - 1 ) * this.coursesPerPage;
+    const startIndex = (this.currentPage - 1) * this.coursesPerPage;
     const endIndex = startIndex + this.coursesPerPage;
     return this.courses.slice(startIndex, endIndex);
   }
