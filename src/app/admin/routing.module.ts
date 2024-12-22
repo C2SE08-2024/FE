@@ -22,7 +22,7 @@ const routes: Routes = [
     path: '', component: AdminPageComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      { path: 'dashboard', component: DashboardComponent },
+      // { path: 'dashboard', component: DashboardComponent },
       { path: 'account', component: AccountListComponent,
         children: [
           { path: '', redirectTo: 'student-list', pathMatch: 'full'},
@@ -44,6 +44,7 @@ const routes: Routes = [
       { path: 'course/:id/lesson/create', component: LessonCreateComponent},
       { path: 'course/:id/lesson/:lessonId', component: LessonDetailComponent},
       { path: 'course/:id/test/:testId/test-question', component: TestQuestionComponent},
+      { path: 'result', component: StudentTestResultComponent},
     ]
   },
 ];

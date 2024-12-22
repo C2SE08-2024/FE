@@ -1,11 +1,6 @@
 
 export const  adminNavbarData=[
     {
-        routerLink: 'dashboard',
-        icon: 'fa fa-chart-column fa-lg',
-        label: 'Thống kê'
-    },
-    {
         routerLink: 'account',
         icon : 'fa fa-user fa-lg',
         label: 'Quản lý người dùng'
@@ -30,8 +25,8 @@ export const  instructorNavbarData=[
         label: 'Quản lý khóa học'
     },
     {
-        routerLink: 'review',
-        icon: 'fa fa-star fa-lg',
-        label: 'Đánh giá'
+        routerLink: 'result',
+        icon: 'fa fa-pen fa-lg',
+        label: 'Quản lý điểm'
     },
 ];

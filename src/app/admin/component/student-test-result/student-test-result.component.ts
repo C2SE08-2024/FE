@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentTestResult } from 'src/app/model/Test/studentTestResult';
+import { CourseService } from 'src/app/service/course/course.service';
+import { InstructorService } from 'src/app/service/instructor/instructor.service';
 import { StudentTestResultService } from 'src/app/service/test/student-test-result.service';
 import { TestService } from 'src/app/service/test/test.service';
 
@@ -13,6 +15,8 @@ export class StudentTestResultComponent implements OnInit {
 
   @Input() studentId: number;
   courseId: number;
+  instructorId: number;
+  coursesWithTestsAndResults: any[] = [];
 
   testResults: StudentTestResult [] = [];
   testResult: StudentTestResult;
@@ -30,21 +34,66 @@ export class StudentTestResultComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute,
               private testService: TestService,
               private router: Router,
-              // private modalService: NgbModal,
+              private courseService: CourseService,
+              private instructorService: InstructorService,
               private studentTestResultService: StudentTestResultService,
   ) { }
 
   ngOnInit(): void {
-    if (this.courseId) {
+    this.loadCourse();
+  }
 
-    } else {
-      this.courseId = +this.activeRoute.parent.snapshot.paramMap.get('id');
-      if (this.courseId) {
-
-      } else {
-        console.error('Course ID is missing or invalid');
+  loadCourse(): void {
+    this.instructorService.getInstructorDetail().subscribe(
+      data => {
+        this.instructorId = data.instructorId; // Lấy instructorId hiện tại
+        if (this.instructorId) {
+          this.courseService.getAllCourses().subscribe(
+            allCourses => {
+              const filteredCourses = allCourses.filter(course => course.instructor?.instructorId === this.instructorId);
+              console.log('Filtered Courses:', filteredCourses); // Kiểm tra danh sách đã lọc
+  
+              // Lấy bài test và kết quả học sinh cho từng khóa học
+              filteredCourses.forEach(course => {
+                this.testService.getTestsByCourse(course.courseId).subscribe(
+                  tests => {
+                    console.log(`Tests for course ${course.courseName}:`, tests);
+  
+                    const courseWithTests = { course, tests: [] };
+  
+                    // Lấy kết quả học sinh cho từng bài test
+                    tests.forEach(test => {
+                      this.studentTestResultService.getResultsByTestId(test.testId).subscribe(
+                        results => {
+                          console.log(`Results for test ${test.testName}:`, results);
+                          courseWithTests.tests.push({ test, results });
+  
+                          if (!this.coursesWithTestsAndResults.some(c => c.course.courseId === course.courseId)) {
+                            this.coursesWithTestsAndResults.push(courseWithTests);
+                          }
+                        },
+                        error => {
+                          console.error(`Error fetching results for test ${test.testName}:`, error);
+                        }
+                      );
+                    });
+                  },
+                  error => {
+                    console.error(`Error fetching tests for course ${course.courseName}:`, error);
+                  }
+                );
+              });
+            },
+            error => {
+              console.error('Error fetching courses:', error);
+            }
+          );
+        }
+      },
+      error => {
+        console.error('Error fetching instructor details:', error);
       }
-    };
+    );
   }
 
   getStudentTestResults(): void {
