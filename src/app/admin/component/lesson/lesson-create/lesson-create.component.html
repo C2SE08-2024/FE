@@ -1,0 +1,66 @@
+<div class="body">
+  <h1 class="modal-title">Đăng bài học</h1>
+  <div class="course-info">
+    <h5>Thông tin bài học</h5>
+    <form [formGroup]="lessonForm" (ngSubmit)="onSubmit()" >
+      <table>
+         <!-- lesson name   -->
+        <tr>
+          <td><label for="lessonName">Tên bài học</label></td>
+          <td>
+            <input id="lessonName" formControlName="lessonName" type="text" />
+            <div class="error-message"
+              *ngIf="lessonForm.get('lessonName').invalid && lessonForm.get('lessonName').touched">
+              <small *ngIf="lessonForm.get('lessonName').hasError('required')" class="error">
+                Vui lòng tên.
+              </small>
+              <small *ngIf="lessonForm.get('lessonName').hasError('minlength')" class="error">
+                Tên bài học phải có ít nhất 3 ký tự.
+              </small>
+              <small *ngIf="lessonForm.get('lessonName').hasError('maxlength')" class="error">
+                Tên bài học không được vượt quá 255 ký tự.
+              </small>
+            </div>
+          </td>
+        </tr>
+
+       
+        <tr>
+          <td><label for="lessonContent">Mô tả bài học</label></td>
+          <td>
+            <textarea id="lessonContent" formControlName="lessonContent"></textarea>
+            <div class="error-message"
+              *ngIf="lessonForm.get('lessonContent').invalid && lessonForm.get('lessonContent').touched">
+              <small *ngIf="lessonForm.get('lessonContent').hasError('required')" class="error">
+                Vui lòng nhập mô tả bài học
+              </small>
+              <small *ngIf="lessonForm.get('lessonContent').hasError('maxlength')" class="error">
+                Mô tả không được vượt quá 255 ký tự.
+              </small>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="video">Video</label></td>
+          <td>
+            <input type="file" id="video" (change)="onFileSelected($event)" accept="video/*" />
+            <button type="button" (click)="uploadVideo()">Upload video</button>
+            <div *ngIf="isLoading" class="loading-indicator">
+              <img src="assets/loading.gif" alt="Loading..." />
+              <p>Đang tải lên...</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="video">Thời lượng video</label></td>
+          <td>
+            <input type="text" formControlName="lessonDuration" readonly />
+          </td>
+        </tr>
+      </table>
+
+      <button type="submit">Tạo bài học</button>
+    </form>
+  </div>
+</div>

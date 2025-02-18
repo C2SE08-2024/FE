@@ -1,0 +1,19 @@
+/* src/app/payment/payment-detail/payment-detail.component.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #ff6347;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  

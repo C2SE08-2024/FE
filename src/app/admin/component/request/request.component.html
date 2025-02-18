@@ -1,0 +1,114 @@
+<!-- <div *ngIf="role === 'ROLE_STUDENT'">
+  <h2>Yêu cầu xem thông tin (Student)</h2>
+  <ul>
+    <li *ngFor="let item of requestList">
+      {{ item.requestDate | date:'H\'h\'mm dd/MM/yyyy' }} - By: {{item.business.businessName}} 
+      <button (click)="acceptRequest(item.requestId)">Accept</button>
+      <button (click)="rejectRequest(item.requestId)">Reject</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="role === 'ROLE_BUSINESS'">
+  <h2>Yêu cầu xem thông tin (Business)</h2>
+  <ul>
+    <li *ngFor="let request of requestList">
+      {{ request.requestDetails }} - Created: {{ request.createdDate }}
+      
+    </li>
+  </ul>
+</div> -->
+<div class="lesson" *ngIf="requestList">
+  <div class="action">
+      <p>Danh sách yêu cầu</p>
+  </div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  <div *ngIf="requestList && requestList.length > 0">
+      
+      <div class="table-container" *ngIf="role === 'ROLE_STUDENT'">
+          <table>
+              <colgroup>
+                  <col style="width: 50px;">
+                  <col style="width: 400px;">
+                  <col style="width: 150px;">
+                  <col style="width: 200px;">
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>STT</th>
+                      <th>Gửi bởi</th>
+                      <th>Ngày gửi</th>
+                      <th>Tình trạng</th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let item of requestList; let i = index">
+                  <tr>
+                      <td style="text-align: center;">{{ (currentPage - 1) * itemsPerPage + (i + 1) }}</td>
+                      <td>{{item.business.businessName}}</td>
+                      <td>{{ item.requestDate | date:'H\'h\'mm dd/MM/yyyy' }}</td>
+                      <td>
+                        <ng-container *ngIf="item.isAccepted === null">
+                          <button (click)="acceptRequest(item.requestId)">Chấp nhận</button>
+                          <button (click)="rejectRequest(item.requestId)">Từ chối</button>
+                        </ng-container>
+                        <ng-container *ngIf="item.isAccepted === false">
+                          <span style="color: red;">Từ chối</span>
+                        </ng-container>
+                        <ng-container *ngIf="item.isAccepted === true">
+                          <span style="color: green;">Chấp nhận</span>
+                        </ng-container>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+  </div>
+
+  <!-- nếu là business -->
+  <div class="table-container" div *ngIf="role === 'ROLE_BUSINESS'">
+    <table>
+        <colgroup>
+            <col style="width: 50px;">
+            <col style="width: 400px;">
+            <col style="width: 150px;">
+            <col style="width: 200px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Gửi đến</th>
+                <th>Ngày gửi</th>
+                <th>Tình trạng</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of requestList; let i = index">
+            <tr>
+                <td style="text-align: center;">{{ (currentPage - 1) * itemsPerPage + (i + 1) }}</td>
+                <td>{{item.student.studentName}}</td>
+                <td>{{ item.requestDate | date:'H\'h\'mm dd/MM/yyyy' }}</td>
+                <td>
+                  <ng-container *ngIf="item.isAccepted === null">
+                    <span >Đang xử lý</span>
+                  </ng-container>
+                  <ng-container *ngIf="item.isAccepted === false">
+                    <span style="color: red;">Từ chối</span>
+                  </ng-container>
+                  <ng-container *ngIf="item.isAccepted === true">
+                    <span style="color: green;">Chấp nhận</span>
+                  </ng-container>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+  <div *ngIf="requestList && requestList.length === 0">
+      <p>Không có yêu cầu nào.</p>
+  </div>
+</div>
+<div>
+  <ul class="pagination">
+      <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
+          <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
+      </li>
+  </ul>
+</div>

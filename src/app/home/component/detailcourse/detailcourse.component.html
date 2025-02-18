@@ -1,0 +1,35 @@
+<!-- src/app/home/component/detailcourse/detailcourse.component.html -->
+<div class="container">
+  <h1 class="text-center fw-bold mb-4 p-4">Chi Tiết Khóa Học</h1>
+
+  <div *ngIf="loading" class="text-center">
+    <span>Đang tải...</span>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && course" class="row">
+    <div class="col-md-6">
+      <img [src]="course.image" class="img-fluid" alt="{{ course.courseName }}">
+    </div>
+    <div class="col-md-6">
+      <h2>{{ course.courseName }}</h2>
+      <h3>Giảng viên: {{ course.instructor.instructorName }}</h3>
+      <p class="text-danger fw-bold">{{ course.coursePrice | number:'1.0-0' }} VND</p>
+      <button class="btn btn-success" (click)="registerCourse()" *ngIf="role === 'ROLE_STUDENT'">Đăng ký ngay</button>
+    </div>
+  </div>
+  <!-- Nút gửi yêu cầu -->
+  <div *ngIf="!requestStatus" class="text-center mt-4">
+    <button class="btn btn-primary" (click)="sendRequest()" *ngIf="role === 'ROLE_BUSINESS'">Gửi yêu cầu xem học viên</button>
+  </div>
+  
+  <div class="link" *ngIf="role === 'ROLE_BUSINESS'">
+    <a [routerLink]="['course-student']" routerLinkActive="active" *ngIf="role === 'ROLE_BUSINESS'">Học viên trong khóa</a>
+  </div>
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,165 @@
+.header{
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+
+  h4{
+    text-align: center;
+    margin: 0;
+  }
+
+  p{
+    margin: 0;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+
+  button {
+    width: 130px;
+    padding: 5px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #45a049;          
+  }
+
+  button:active {
+    transform: scale(0.98);              
+    background-color: #387037;           
+  }
+}
+
+.test-question-container {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa cột trái và phải */
+             
+    padding: 10px;            
+    box-sizing: border-box; 
+  }
+  
+  .question-list {
+    flex: 0.5;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 50vh;            
+    overflow-y: auto;
+  }
+
+    
+  
+  .question-list ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .question-list li {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .question-list li:hover {
+    background-color: #262c4b;
+    color: #ffffff;
+  }
+
+  .question-list li.active {
+    background-color: #262c4b;
+    color: #ffffff;
+  }
+  
+  .question-detail {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 50vh;            
+    overflow-y: auto;
+
+    textarea{
+      border: none; 
+      outline: none; 
+      resize: none;
+      width: 100%;
+      min-height: 80%;
+      overflow: hidden;
+    }
+  }
+  
+  .question-detail h4 {
+    margin-bottom: 10px;
+  }
+  
+  .question-detail p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .action-form{
+    z-index: 1000;
+    width: 400px;
+    background-color: white ;
+    padding: 16px 16px 24px 16px;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid black;
+  
+    i{
+        margin: 10px 0;
+    }
+  
+    .btn-action{
+        margin: 20px 0;
+        width: 100%;
+        height: fit-content;
+        gap: 10px;
+        display: flex;
+    
+        button{
+            width: 50%;
+            height: 48px;
+            padding: 8px 16px;
+            justify-content: center;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            box-sizing: border-box;
+            outline: none;
+            border-radius: 10px;
+            color: white;
+            
+        }
+    }
+    
+    .close{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        cursor: pointer;
+        top:20px;
+        right: 20px;
+    }
+  }
+  

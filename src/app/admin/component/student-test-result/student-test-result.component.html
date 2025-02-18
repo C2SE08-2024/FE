@@ -1,0 +1,24 @@
+<div *ngFor="let course of coursesWithTestsAndResults">
+  <h3>Course: {{ course.course.courseName }}</h3>
+  <ul>
+    <li *ngFor="let test of course.tests">
+      <strong>Test: {{ test.test.testName }}</strong>
+      <table class="tests-table" *ngIf="test.result">
+        <thead>
+          <tr>
+            <th>Test Name</th>
+            <th>Tên học viên</th>
+            <th>Điểm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of test.results">
+            <td>{{ test.test.testName }}</td>
+            <td>{{ result.student.studentName }}</td>
+            <td>{{ result.score }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div>

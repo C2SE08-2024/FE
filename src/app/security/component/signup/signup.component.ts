@@ -81,7 +81,7 @@ export class SignupComponent implements OnInit {
     this.message = null
     if (this.signupForm.valid) {
       const userAddress = this.signupForm.get('address')?.value || '';
-      const fullAddress = `${userAddress}, ${this.selectedWard}, ${this.selectedDistrict}, ${this.selectedCity}`;
+      const fullAddress = '${userAddress}, ${this.selectedWard}, ${this.selectedDistrict}, ${this.selectedCity}';
       this.signupForm.patchValue({ address: fullAddress });
       this.authService.signupStudent(this.signupForm.value).subscribe(
         response => {

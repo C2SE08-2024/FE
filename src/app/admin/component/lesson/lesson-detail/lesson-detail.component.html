@@ -1,0 +1,18 @@
+<div *ngIf="lesson">
+    <div class="modal-header">
+      <h4 class="modal-title"> {{ lesson.lessonName }} - Chi Tiết</h4>
+    </div>
+    <div class="modal-body">
+        <div class="detail">
+            <div class="infor">
+                <p><strong>Nội dung:</strong>   {{lesson.lessonContent}}</p>
+                <p><strong>Thời lượng:</strong> {{ lesson.lessonDuration }}</p>
+                <video width="80%" height="auto" controls>
+                    <source [src]="lesson.video" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!lesson">Đang tải thông tin bài học...</div>

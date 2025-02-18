@@ -1,0 +1,53 @@
+<div *ngIf="isLoading">Đang tải danh sách kiểm tra...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div *ngIf="!isLoading && !errorMessage">
+    <div class="card">
+        <div class="card-head">
+            <div class="heading-banner">
+                <div class="text-heading">
+                    <h3>BÀI KIỂM TRA CỦA TÔI</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="action">
+                <p>Danh sách bài kiểm tra</p>
+            </div>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col style="width: 50px;">
+                        <col style="width: 250px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                      </colgroup>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên bài kiểm tra</th>
+                            <th>Số điểm</th>
+                            <th>Tình trạng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of displayedItems; let i = index" >
+                            <td style="text-align: center;">{{ (currentPage - 1) * itemsPerPage + (i + 1) }}</td>
+                            <td >{{ item.test.testName }}</td>
+                            <td >{{ item.score }}</td>
+                            <td>
+                                {{ item.isPassed === true ? 'Đậu' :  'Trượt' }}
+                              </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <ul class="pagination">
+            <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
+                <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>

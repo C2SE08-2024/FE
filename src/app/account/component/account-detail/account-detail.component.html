@@ -1,12 +1,13 @@
-<div class="profile-container">
+<div class="profile-container" *ngIf="role==='ROLE_STUDENT'">
     <h3>Thông tin cá nhân</h3>
+    <button (click)="toggleEdit()">{{ isEditing ? 'Lưu' : 'Sửa' }}</button>
     <table class="profile-table">
         <tr>
-            <td><img [src]="student.studentImg" alt="Profile Picture" class="profile-avatar"></td>
+            <td><img [src]="Item.studentImg" alt="Profile Picture" class="profile-avatar"></td>
             <td>
                 <div class="profile-info">
-                    <h2>{{ student.studentName }}</h2>
-                    <a href="mailto:{{ student.studentEmail }}">{{ student.studentEmail }}</a> - Học sinh
+                    <h2>{{ Item.studentName }}</h2>
+                    <a href="mailto:{{ Item.businessEmail }}">{{ Item.businessEmail }}</a> 
                     <p>Upload your own...</p>
                     <div class="upload-area">Drop your files here or <a href="#">click in this area</a></div>
                 </div>
@@ -14,43 +15,174 @@
         </tr>
         <tr>
             <td><label>Tên đăng nhập</label></td>
-            <td><input type="text" [value]="student.studentCode" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.username" readonly></td>
         </tr>
         <tr>
             <td><label>Email <span class="required">*</span></label></td>
-            <td><input type="email" [value]="student.studentEmail" readonly></td>
+            <td><input type="email" [(ngModel)]="Item.accountEmail" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>Số điện thoại</label></td>
-            <td><input type="text" [value]="student.studentPhone" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.studentPhone" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>Họ tên <span class="required">*</span></label></td>
-            <td><input type="text" [value]="student.studentName" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.studentName" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>Địa chỉ</label></td>
-            <td><input type="text" [value]="student.studentAddress" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.studentAddress" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>Giới tính</label></td>
-            <td><input type="text" [value]="student.studentGender ? 'Female' : 'Male'" readonly></td>
+            <td>
+                <select [(ngModel)]="Item.studentGender" [disabled]="!isEditing">
+                    <option [value]="true">Nam</option>
+                    <option [value]="false">Nữ</option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><label>Ngày sinh</label></td>
-            <td><input type="text" [value]="student.dateOfBirth | date:'yyyy-MM-dd'" readonly></td>
+            <td><input type="date" [(ngModel)]="Item.dateOfBirth" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>CCCD</label></td>
-            <td><input type="text" [value]="student.idCard" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.idCard" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>Ngành</label></td>
-            <td><input type="text" [value]="student.major" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.major" [readonly]="!isEditing"></td>
         </tr>
         <tr>
             <td><label>Năm tốt nghiệp</label></td>
-            <td><input type="text" [value]="student.graduationYear" readonly></td>
+            <td><input type="text" [(ngModel)]="Item.graduationYear" [readonly]="!isEditing"></td>
         </tr>
     </table>
 </div>
+
+
+<div class="profile-container" *ngIf="role==='ROLE_INSTRUCTOR'">
+    <h3>Thông tin cá nhân</h3>
+    <button (click)="toggleEdit()">{{ isEditing ? 'Lưu' : 'Sửa' }}</button>
+    <table class="profile-table">
+        <tr>
+            <td><img [src]="Item.instructorImg" alt="Profile Picture" class="profile-avatar"></td>
+            <td>
+                <div class="profile-info">
+                    <h2>{{ Item.instructorName }}</h2>
+                    <a href="mailto:{{ Item.accountEmail }}">{{ Item.accountEmail }}</a> - Học sinh
+                    <p>Upload your own...</p>
+                    <div class="upload-area">Drop your files here or <a href="#">click in this area</a></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Tên đăng nhập</label></td>
+            <td><input type="text" [(ngModel)]="Item.username" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Email <span class="required">*</span></label></td>
+            <td><input type="email" [(ngModel)]="Item.accountEmail" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Số điện thoại</label></td>
+            <td><input type="text" [(ngModel)]="Item.instructorPhone" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Họ tên <span class="required">*</span></label></td>
+            <td><input type="text" [(ngModel)]="Item.instructorName" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Địa chỉ</label></td>
+            <td><input type="text" [(ngModel)]="Item.instructorAddress" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Giới tính</label></td>
+            <td>
+                <select [(ngModel)]="Item.instructorGender" [disabled]="!isEditing">
+                    <option [value]="true">Male</option>
+                    <option [value]="false">Female</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Ngày sinh</label></td>
+            <td><input type="date" [(ngModel)]="Item.dateOfBirth " [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>CCCD</label></td>
+            <td><input type="text" [(ngModel)]="Item.idCard" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Chuyên Ngành</label></td>
+            <td><input type="text" [(ngModel)]="Item.specialization" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Kinh nghiệm</label></td>
+            <td><input type="text" [(ngModel)]="Item.experienceYear" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Giới thiệu</label></td>
+            <td><textarea type="text" [(ngModel)]="Item.bio" [readonly]="!isEditing" style="min-height: fit-content;"></textarea></td>
+        </tr>
+    </table>
+</div>
+
+<!-- <div class="profile-container" *ngIf="role==='ROLE_BUSINESS'">
+    <h3>Thông tin doanh nghiệp</h3>
+    <button (click)="toggleEdit()">{{ isEditing ? 'Lưu' : 'Sửa' }}</button>
+    <table class="profile-table">
+        <tr>
+            <td><img [src]="Item.businessImg" alt="Profile Picture" class="profile-avatar"></td>
+            <td>
+                <div class="profile-info">
+                    <h2>{{ Item.businessName }}</h2>
+                    <a href="mailto:{{ Item.businessEmail  }}">{{ Item.businessEmail }}</a> 
+                    <p>Upload your own...</p>
+                    <div class="upload-area">Drop your files here or <a href="#">click in this area</a></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Tên đăng nhập</label></td>
+            <td><input type="text" [(ngModel)]="Item.username" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Email <span class="required">*</span></label></td>
+            <td><input type="email" [(ngModel)]="Item.accountEmail" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Số điện thoại</label></td>
+            <td><input type="text" [(ngModel)]="Item.businessPhone" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Họ tên <span class="required">*</span></label></td>
+            <td><input type="text" [(ngModel)]="Item.businessName" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Địa chỉ</label></td>
+            <td><input type="text" [(ngModel)]="Item.businessAddress" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Chuyên về</label></td>
+            <td><input type="text" [(ngModel)]="Item.industry " [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Website</label></td>
+            <td><input type="text" [(ngModel)]="Item.website" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Quy mô</label></td>
+            <td><input type="text" [(ngModel)]="Item.size" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Năm thành lập</label></td>
+            <td><input type="text" [(ngModel)]="Item.foundedYear" [readonly]="!isEditing"></td>
+        </tr>
+        <tr>
+            <td><label>Mô tả</label></td>
+            <td><textarea type="text" [(ngModel)]="Item.description" [readonly]="!isEditing" style="min-height: fit-content;"></textarea></td>
+        </tr>
+    </table>
+</div> -->

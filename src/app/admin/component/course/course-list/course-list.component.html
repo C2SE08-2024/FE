@@ -1,0 +1,98 @@
+<div *ngIf="isLoading">Đang tải danh sách khóa học...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div *ngIf="!isLoading && !errorMessage">
+    <div class="card">
+        <div class="card-head">
+            <small>THÔNG TIN TÌM KIẾM</small>
+            <div class="heading-banner">
+                <div class="text-heading">
+                    <h3>KHÓA HỌC</h3>
+                    <div class="seach-bar-container">
+                        <form class="search-bar">
+                            <!-- <button type="submit" (click)="search()"><img src="assets/image/search-symbol.png"></button>
+                        <input type="text" name="value" [(ngModel)]="searchTerm" (keyup.enter)="onEnter()"> -->
+                        </form>
+                    </div>
+                    <button class="add">
+                        <span>Tìm kiếm</span>
+                    </button>
+                </div>
+                <div class="category-filter">
+                    <!-- <select [(ngModel)]="selectedBreed" (change)="filterPets()">
+                    <option value = "" >Tất cả</option>
+                    <option *ngFor="let item of BreedList" [value]="item.breedId">{{item.breedName}}</option>
+                </select> -->
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="action">
+                <p>Danh sách khóa học</p>
+                <button [routerLink]="['create']">Tạo khóa học</button> 
+            </div>
+            <div class="table-container">
+                <table>
+                    <colgroup>
+                        <col style="width: 50px;">
+                        <col style="width: 80px;">
+                        <col style="width: 250px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                        <col style="width: 150px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                        <col style="width: 100px;">
+                      </colgroup>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Action</th>
+                            <th>Tên khóa học</th>
+                            <th>Hình ảnh</th>
+                            <th>Giá</th>
+                            <th>Giảng viên</th>
+                            <th>Bài học</th>
+                            <th>Test</th>
+                            <th>Số người đăng ký</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of displayedCourses; let i = index" >
+                            <td style="text-align: center;">{{ (currentPage - 1) * coursesPerPage + (i + 1) }}</td>
+                            <td style="z-index: 1000;">
+                                <i class="fa fa-pencil-square fa-lg" (click)="openCourseEditModal(item)" title="Chỉnh sửa khóa học"></i>
+                                <i class="fa fa-trash fa-lg" (click)="confirmDelete(item.courseId)" title="Xóa khóa học"></i>
+                            </td>
+                            <td (click)="goToCourseDetailPage(item.courseId)">{{ item.courseName }}</td>
+                            <td><img [src]="item.image" style="max-height: 30px;"></td>
+                            <td>{{ item.coursePrice | number:'1.0-0'  }} VND</td>
+                            <td>{{ item.instructor?.instructorName || 'Không có' }}</td>
+                            <td style="text-align: center;">{{ item.lessonCount || 0}}</td>
+                            <td style="text-align: center;">{{ item.testCount || 0}}</td>
+                            <td style="text-align: center;">{{ item.students.length || 0}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <ul class="pagination">
+            <li *ngFor="let page of getPageArray()" [class.active]="page === currentPage" style="margin-right: 10px;">
+                <a (click)="changePage(page)" style="cursor: pointer;">{{page}}</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="action-form" *ngIf="showDeletePopup">
+    <div class="close" (click)="closeDeletePopup()">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+    <i class="fa fa-trash fa-4x" style="color: rgb(0, 159, 127) ;"></i>
+    <h4>Xóa khóa học</h4>
+    <p>Xác định xóa</p>
+    <div class="btn-action">
+        <button style="background-color:rgb(0, 159, 127)" (click)="closeDeletePopup()">Hủy</button>
+        <button style="background-color:rgb(220, 38, 38)" (click)="deleteProductAtId()">Xóa</button>
+    </div>
+</div>

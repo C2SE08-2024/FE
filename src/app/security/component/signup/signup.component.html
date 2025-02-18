@@ -8,7 +8,7 @@
   <div class="signup-card">
     <h2>Đăng Ký</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-      <!-- Role -->
+      Role
       <div class="form-group" style="display: flex; width: fit-content; gap: 20px;">
         <label for="userType">Loại tài khoản</label>
         <select id="userType" formControlName="userType" required>
@@ -26,6 +26,7 @@
       <div class="form-group">
         <label for="name">
           {{ signupForm.get('userType').value === 'business' ? 'Tên Doanh Nghiệp' : 'Họ tên người dùng' }}
+
         </label>
         <input type="text" id="name" name="name" formControlName="name">
         <div class="error-message" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">

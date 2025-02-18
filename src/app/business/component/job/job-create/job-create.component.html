@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h4 class="modal-title">Tạo tuyển dụng</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="addJob" (ngSubmit)="submit()">
+    <table>
+        <tr>
+          <td><label for="jobTitle"><strong>Tiêu đề</strong></label></td>
+          <td><input type="text" id="jobTitle" name="jobTitle" formControlName="jobTitle" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="jobType"><strong>Loại việc</strong></label></td>
+          <td><input type="text" id="jobType" name="jobType" formControlName="jobType" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="requirement"><strong>Yêu cầu</strong></label></td>
+          <td><input type="text" id="requirement" name="requirement" formControlName="requirement" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="status"><strong>Tình Trạng</strong></label></td>
+          <td><input type="text" id="status" name="status" formControlName="status" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="salaryRange"><strong>Mức Lương</strong></label></td>
+          <td><input type="text" id="salaryRange" name="salaryRange" formControlName="salaryRange" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="location"><strong>Địa Chỉ</strong></label></td>
+          <td><input type="text" id="location" name="location" formControlName="location" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="industry"><strong>Chuyên Ngành</strong></label></td>
+          <td><input type="text" id="industry" name="industry" formControlName="industry" required></td>
+        </tr>
+        
+        <tr>
+          <td><label for="jobDescription"><strong>Mô tả</strong></label></td>
+          <td><textarea id="jobDescription" name="jobDescription" formControlName="jobDescription" required></textarea></td>
+        </tr>
+      </table>
+    <button type="submit">Lưu Thay Đổi</button>
+</form>
+</div>

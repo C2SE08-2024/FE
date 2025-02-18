@@ -1,0 +1,29 @@
+<div *ngIf="course">
+  <div class="header">
+    <small class="title"> CHI TIẾT KHÓA HỌC</small>
+    <div class="detail">
+      <div class="image">
+        <img [src]="course.image">
+      </div>
+      <div class="infor">
+        <p><strong>Tên khóa học:</strong> {{ course.courseName }}</p>
+        <p><strong>Giá:</strong> {{ course.coursePrice | number:'1.0-0' }} VND</p>
+        <p><strong>Giảng viên:</strong> {{ course.instructor?.instructorName }}</p>
+        <p><strong>Số người đăng ký:</strong> {{ course.students.length }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    
+    <div class="link">
+      <a [routerLink]="['lesson']" routerLinkActive="active">Bài học</a>
+      <a [routerLink]="['test']" routerLinkActive="active">Bài kiểm tra</a>
+      <a [routerLink]="['course-student']" routerLinkActive="active">Học viên trong khóa</a>
+    </div>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!course">Đang tải thông tin khóa học...</div>

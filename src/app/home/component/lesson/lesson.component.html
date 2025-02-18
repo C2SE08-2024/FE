@@ -1,0 +1,64 @@
+<div class="lesson-page">
+  <main class="lesson-main">
+    <aside class="lesson-sidebar">
+      <h2>Nội dung bài học</h2>
+      <!-- <ul>
+        <li *ngFor="let lesson of lessons; let i = index" [class.locked]="!isLessonUnlocked(i)">
+          Tên bài học
+          <a (click)="selectedLesson = i" [class.active]="selectedLesson === i" [class.locked]="!isLessonUnlocked(i)"
+            [class.disabled]="!isLessonUnlocked(i)">
+            {{ lesson.lessonName }}
+            <span *ngIf="!isLessonUnlocked(i)" class="lock-icon">🔒</span>
+          </a>
+          <a (click)="navigateToLesson(lesson.lessonId)" >{{ lesson.lessonName }}</a>
+
+        </li>
+      </ul> -->
+      <ul>
+        <li *ngFor="let lesson of lessons; let i = index">
+          <div>
+            <a [routerLink]="['lesson', lesson.lessonId]" routerLinkActive="active">
+              {{ lesson.lessonName }}
+            </a>
+          </div>
+
+          <!-- Hiển thị bài test nếu có -->
+          <div *ngIf="lesson.test">
+
+            <a [routerLink]="['test', lesson.test.testId]">
+              Test:{{ lesson.test.testName }}
+            </a>
+
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Nội dung bài học -->
+    <section class="lesson-content">
+      <router-outlet></router-outlet>
+
+      <!-- <div *ngIf="selectedLesson !== null">
+        <h2>{{ lessons[selectedLesson]?.lessonName }}</h2>
+
+        
+        <div class="video-wrapper" *ngIf="lessons[selectedLesson]?.video">
+          <video controls [src]="lessons[selectedLesson]?.video">
+            Trình duyệt của bạn không hỗ trợ xem video.
+          </video>
+        </div>
+
+        
+        <p>{{ lessons[selectedLesson]?.lessonContent }}</p>
+
+        <button *ngIf="!lessons[selectedLesson]?.isCompletedByStudent" class="btn-complete"
+          (click)="markAsCompleted(lessons[selectedLesson])">
+          Hoàn thành bài học
+        </button>
+        <button *ngIf="lessons[selectedLesson]?.isCompletedByStudent" class="btn-completed" disabled>
+          Đã hoàn thành
+        </button>
+      </div> -->
+    </section>
+  </main>
+</div>

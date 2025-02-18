@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BinDev ';
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.checkScroll();
+}
+checkScroll(): void {
+  const fadeInElements = document.querySelectorAll('.fade-in');
+  fadeInElements.forEach((el: any) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('show');
+    }
+  });
+}
 }

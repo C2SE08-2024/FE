@@ -1,0 +1,17 @@
+<div *ngIf="test" class="card">
+    <h2> <strong>BÀI KIỂM TRA</strong> {{ test.testName }}</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="card-body " *ngFor="let item of questions; let i = index">
+        <textarea spellcheck="false">{{ item.questionContent }}</textarea>
+        <input
+          type="text"
+          id="question-{{ i }}"
+          [(ngModel)]="answers[i]"
+          name="answer-{{ i }}"
+          placeholder="Enter your answer here"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+</div>
+  

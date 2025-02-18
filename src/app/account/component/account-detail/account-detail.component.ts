@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Instructor } from 'src/app/model/Account/Instructor';
 import { Student } from 'src/app/model/Account/Student';
-import { SignupRequest } from 'src/app/model/Request/SignupRequest';
+import { BusinessService } from 'src/app/service/business/business.service';
+import { InstructorService } from 'src/app/service/instructor/instructor.service';
+import { StudentService } from 'src/app/service/student/student.service';
+import { TokenStorageService } from 'src/app/service/token/token-storage.service';
+import { businessesData } from '../../../DATA';
+import { Business } from 'src/app/model/Business/business';
 
 @Component({
   selector: 'app-account-detail',
@@ -10,25 +16,87 @@ import { SignupRequest } from 'src/app/model/Request/SignupRequest';
 
 
 export class AccountDetailComponent implements OnInit {
-  student: Student = {
-    studentId: 1,
-    studentCode: 'S123456',
-    studentName: 'John Doe',
-    studentEmail: 'johndoe@example.com',
-    studentPhone: '0987654321',
-    studentGender: true, // true cho Nam, false cho Nữ (tùy theo cách bạn quy ước)
-    dateOfBirth: new Date('2000-01-01'),
-    idCard: '123456789012',
-    studentAddress: '123 Main St, City, Country',
-    studentImg: 'https://firebasestorage.googleapis.com/v0/b/capstone-1-398205.appspot.com/o/IMG%2Fstudent.jpg?alt=media&token=4b6571a2-1eea-4c15-940e-ffa391187ae3', 
-    isEnable: true,
-    major: 'Computer Science',
-    graduationYear: 2024
-  };
+  isEditing: boolean = false;
+  Item: any = {};
+  isLoggedIn: boolean;
+  role: any;
+  username: any;
+  businesses?: Business[];
+  
 
-  constructor() { }
+
+  constructor(private tokenStorageService: TokenStorageService,
+    private studentService: StudentService,
+    private instructorService: InstructorService,
+    private businessService: BusinessService
+  ) { }
 
   ngOnInit(): void {
+    this.loadPage();
+
   }
 
+
+  loadPage(): void {
+    if (this.tokenStorageService.getToken()) {
+      this.role = this.tokenStorageService.getRole();
+      if (this.tokenStorageService.getRole() === 'ROLE_STUDENT') {
+        this.studentService.getStudentDetail().subscribe(
+          (data) => {
+            this.Item = data;
+          })
+      } else if (this.tokenStorageService.getRole() === 'ROLE_INSTRUCTOR') {
+        this.instructorService.getInstructorDetail().subscribe(
+          (data) => {
+            this.Item = data
+          })
+        }
+      //  else if (this.tokenStorageService.getRole() === 'ROLE_BUSINESS') {
+      //   this.businessService.getBusinessUserDetail().subscribe(
+      //     (data) => {
+      //       this.Item = data
+      //     })
+      // }
+    }
+  }
+
+  toggleEdit(): void {
+    if (this.isEditing) {
+      // Khi bấm "Lưu", kiểm tra vai trò và gọi API tương ứng
+      if (this.role === 'ROLE_STUDENT') {
+        this.studentService.updateStudent(this.Item.studentId, this.Item).subscribe(
+          (response) => {
+            alert('Thông tin học viên đã được cập nhật');
+            this.isEditing = false;
+          },
+          (error) => {
+            alert('Lỗi khi cập nhật thông tin học sinh');
+          }
+        );
+      } else if (this.role === 'ROLE_INSTRUCTOR') {
+        this.instructorService.updateInstructor(this.Item.instructorId, this.Item).subscribe(
+          (response) => {
+            alert('Thông tin giảng viên đã được cập nhật');
+            this.isEditing = false;
+          },
+          (error) => {
+            alert('Lỗi khi cập nhật thông tin giảng viên');
+          }
+        );
+      } else if (this.role === 'ROLE_BUSINESS') {
+        this.businessService.updateBusiness(this.Item.businessId, this.Item).subscribe(
+          (response) => {
+            alert('Thông tin doanh nghiệp đã được cập nhật');
+            this.isEditing = false;
+          },
+          (error) => {
+            alert('Lỗi khi cập nhật thông tin doanh nghiệp');
+          }
+        );
+      }
+    } else {
+      // Chuyển sang chế độ chỉnh sửa
+      this.isEditing = true;
+    }
+  }
 }

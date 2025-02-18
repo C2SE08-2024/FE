@@ -1,0 +1,30 @@
+<div>
+    <div class="card">
+        <div class="card-head">
+            <small>THÔNG TIN TÌM KIẾM</small>
+            <div class="heading-banner">
+                <div class="text-heading">
+                    <h3>TÀI KHOẢN</h3>
+                    <div class="seach-bar-container">
+                        <form class="search-bar">
+                            <!-- <button type="submit" (click)="search()"><img src="assets/image/search-symbol.png"></button>
+                            <input type="text" name="value" [(ngModel)]="searchTerm" (keyup.enter)="onEnter()"> -->
+                        </form>
+                    </div>
+                    <button class="add">
+                        <span>Tìm kiếm</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="link">
+                <a [routerLink]="['student-list']" routerLinkActive="active">Danh sách học viên</a>
+                <a [routerLink]="['instructor-list']" routerLinkActive="active">Danh sách giảng viên</a>
+              </div>
+              <div class="router">
+                <router-outlet></router-outlet>
+              </div>
+        </div>
+    </div>
+</div>
